@@ -1,15 +1,17 @@
 var gulp = require('gulp');
-var sass = require('gulp-ruby-sass');
+var sass = require('gulp-sass');
 var handleErrors = require('../util/handleErrors');
+var sourcemaps = require('gulp-sourcemaps');
 var minifyCSS = require('gulp-minify-css');
 
 gulp.task('sass', function () {
-	return gulp.src('./src/site/sass/style.scss')
+	return gulp.src('./frontend/sass/style.scss')
+		.pipe(sourcemaps.init())
 		.pipe(sass({
-			'sourcemapPath':'./public/css',
 			'require':'susy'
 		}))
 		//.pipe(minifyCSS())
+		.pipe(sourcemaps.write('./app/www/css'))
 		.on('error', handleErrors)
-		.pipe(gulp.dest('./public/css'))
+		.pipe(gulp.dest('./app/www/css'))
 });

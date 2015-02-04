@@ -5,7 +5,7 @@ var imagemin   = require('gulp-imagemin');
 gulp.task('images', function() {
   var dest = 'public/img';
 
-  return gulp.src('src/site/img/**')
+  return gulp.src('frontend/img/**')
     .pipe(changed(dest)) // Ignore unchanged files
     .pipe(imagemin()) // Optimize
     .pipe(gulp.dest(dest));
