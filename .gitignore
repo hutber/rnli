@@ -1,1 +1,7 @@
 .DS_Store
+/.idea
+/app/plugins
+/app/.cordova
+/app/hooks
+/app/platforms
+/node_modules
