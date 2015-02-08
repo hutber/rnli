@@ -5,3 +5,4 @@
 /app/hooks
 /app/platforms
 /node_modules
+/.sass-cache

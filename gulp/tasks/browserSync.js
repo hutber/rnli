@@ -3,6 +3,7 @@ var gulp = require('gulp');
 
 gulp.task('browserSync', ['build'], function () {
 	browserSync({
+		proxy: "rnli.local/app/www/",
 		files: [
 			// Only reload when the style.css has been built.
 			"app/www/css/style.css",

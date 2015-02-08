@@ -19,16 +19,16 @@ $susy: (
 		toggle: top right,
 	)
 );
-@include border-box-sizing;
 
-/* #Imports dependencies ------------------------------------------------------------------------ */
+//@include border-box-sizing;
+//
+///* #Imports dependencies ------------------------------------------------------------------------ */
 @import
 "_reset",
 "_fontello",
 "_mixins",
 "_variables",
 "_typography",
-"pages/_admin",
 "modules/_forms",
 "modules/_input",
 "modules/_touchcarousel";
@@ -41,7 +41,7 @@ Table of Contents
 	#Generic Styles for Grid
 	#Main Styles
 		.Shell
-	#Navigation 
+	#Navigation
 	#Content
 	#Footer
 	#Page's inports
@@ -52,12 +52,11 @@ Table of Contents
 .right {float: right}
 .containers { margin: 0 auto; width: $global-width;}
 .row {@include clear;}
-/* #Generic Styles for Grid------------------------------------------------------------- */
-.half {@include span(6 of 12); &:last-child{@include span(6 of 12 last);}}
+
 /* #Main Styles ------------------------------------------------------------------------ */
 body {
 	display: block;
-//	background: #000;
+	//	background: #000;
 }
 
 /* #Navigation ------------------------------------------------------------------------ */
@@ -125,7 +124,7 @@ header {
 				font-size: 2.4rem;
 				font-family: maysFont;
 				&:hover {
-						color: #FFF;
+					color: #FFF;
 				}
 			}
 		}
@@ -232,6 +231,3 @@ footer {
 	pointer-events: none;
 	opacity: .7;
 }
-
-@import
-"pages/_index";
