@@ -33,5 +33,5 @@ gulp.task('sass', function () {
 		}))
 		//.pipe(minifyCSS())
 		.on('error', handleErrors)
-		.pipe(gulp.dest('./'))
+		.pipe(gulp.dest('./app/www/css'))
 });

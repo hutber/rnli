@@ -13,74 +13,16 @@
 		#RTL Overrides
 */
 /* #Imported Fonts ------------------------------------------------------------------------ */
-@font-face {
-	font-family: maysFont;
-	src:
-		url('/fonts/always_in_my_heart-webfont.woff') format('woff'),
-		url('/fonts/always_in_my_heart-webfont.ttf')  format('truetype');
-}
-@font-face {
-	font-family: sanspro;
-	src:
-		url('/fonts/sourcesanspro-regular-webfont.woff') format('woff'),
-		url('/fonts/sourcesanspro-regular-webfont.ttf')  format('truetype');
-}
+//@font-face {
+//	font-family: maysFont;
+//	src:
+//		url('/fonts/always_in_my_heart-webfont.woff') format('woff'),
+//		url('/fonts/always_in_my_heart-webfont.ttf')  format('truetype');
+//}
 
-@font-face {
-	font-family: sansprolight;
-	src:
-		url('/fonts/sourcesanspro-light-webfont.woff') format('woff'),
-		url('/fonts/sourcesanspro-light-webfont.ttf')  format('truetype');
-}
-@font-face {
-	font-family: 'ubuntubold';
-	src: url('/fonts/ubuntubold-webfont.eot');
-	src: url('/fonts/ubuntubold-webfont.eot?#iefix') format('embedded-opentype'),
-	url('/fonts/ubuntubold-webfont.woff2') format('woff2'),
-	url('/fonts/ubuntubold-webfont.woff') format('woff'),
-	url('/fonts/ubuntubold-webfont.ttf') format('truetype'),
-	url('/fonts/ubuntubold-webfont.svg#ubuntubold') format('svg');
-	font-weight: normal;
-	font-style: normal;
-
-}
-
-@font-face {
-	font-family: 'ubunturegular';
-	src: url('/fonts/ubuntu-webfont.eot');
-	src: url('/fonts/ubuntu-webfont.eot?#iefix') format('embedded-opentype'),
-	url('/fonts/ubuntu-webfont.woff2') format('woff2'),
-	url('/fonts/ubuntu-webfont.woff') format('woff'),
-	url('/fonts/ubuntu-webfont.ttf') format('truetype'),
-	url('/fonts/ubuntu-webfont.svg#ubunturegular') format('svg');
-	font-weight: normal;
-	font-style: normal;
-
-}
-
-@font-face {
-	font-family: 'ubuntulight';
-	src: url('/fonts/ubuntulight-webfont.eot');
-	src: url('/fonts/ubuntulight-webfont.eot?#iefix') format('embedded-opentype'),
-	url('/fonts/ubuntulight-webfont.woff2') format('woff2'),
-	url('/fonts/ubuntulight-webfont.woff') format('woff'),
-	url('/fonts/ubuntulight-webfont.ttf') format('truetype'),
-	url('/fonts/ubuntulight-webfont.svg#ubuntulight') format('svg');
-	font-weight: normal;
-	font-style: normal;
-
-}
-
-
-$sans: sanspro, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-$sanslight: sansprolight, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-$maysFont: maysFont, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-$Ubuntu: ubunturegular, $sans;
-$Ubuntubold: ubuntubold, $sans;
-$Ubuntulight: ubuntulight, $sanslight;
+//$Ubuntulight: ubuntulight, $sanslight;
 $textFont: Arial, "Lucida Grande", sans-serif;
 $textColor: #777777;
-$fontSize: 62.5%;
 $fontSize: 16px;
 $lineheight: 16px;
 
@@ -106,7 +48,6 @@ a.selected {color:$softOrange;}
 // #Headers ---------------------------------------------------------------------
 h1, h2, h3, h4, h5, h6 {
 	color: $headerGrey;
-	font-family: $Ubuntu;
 	font-weight: normal;
 }
 

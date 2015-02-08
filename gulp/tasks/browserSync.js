@@ -6,16 +6,16 @@ gulp.task('browserSync', ['build'], function () {
 		proxy: "rnli.local/app/www/",
 		files: [
 			// Only reload when the style.css has been built.
-			"app/www/css/style.css",
+			"./app/www/css/style.css",
 			//reload with any js changes in the app/www folder
-			"app/www/js/**",
+			"./app/www/js/**",
 			//reload for any images changed in app/www
-			"app/www/img/**",
+			"./app/www/img/**",
 			//refresh once we have finished building views.min.js
-			"app/www/views/*.min.js",
-			"app/www/js/main.js",
+			"./app/www/views/*.min.js",
+			"./app/www/js/main.js",
 			// Exclude sourcemap files
-			"!app/www/css/*.map",
+			"!./app/www/css/*.map",
 		],
 		notify : "This message will only last a second"
 	});
