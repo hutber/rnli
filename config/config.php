@@ -7,12 +7,13 @@ phpinfo();
 exit;
 
 define('DATABASE_HOST', 'localhost');
-define('DATABASE_NAME', 'hutber');
-define('DATABASE_USR', 'jamiehutber');
-define('DATABASE_PWD', 'jadwiga852');
+define('DATABASE_NAME', 'rnli');
+define('DATABASE_USR', 'rnliheathy');
+define('DATABASE_PWD', 'jamiehutber');
 
-define('ADMIN_USER', 'hutber');
-define('ADMIN_PWD', 'jadwiga963');
+define('ADMIN_USER', 'a');
+define('ADMIN_PWD', 'b');
+
 if (isset($_SERVER['HTTP_HOST'])) {
     if ($_SERVER['HTTP_HOST'] == 'rnli.local') {
         define('ENVIRONMENT', 'dev');
@@ -30,4 +31,4 @@ if (isset($_SERVER['HTTP_HOST'])) {
     }
 }
 
-define('PAGE_TITLE', 'Jamie Hutber');
+define('PAGE_TITLE', 'RNLI Safety App');
