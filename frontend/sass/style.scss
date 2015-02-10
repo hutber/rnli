@@ -51,5 +51,11 @@ Table of Contents
 /* #Main Styles ------------------------------------------------------------------------ */
 body {
 	display: block;
-	background: #000;
+}
+
+
+
+#__bs_notify__ {
+	pointer-events: none;
+	opacity: .7;
 }
