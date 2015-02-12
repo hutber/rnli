@@ -1,12 +1,12 @@
 @import "susy";
 
 /* #Config ------------------------------------------------------------------------ */
-//$total-columns: 12;
-//$column-width: 4em;
-//$gutter-width: 1em;
-//$grid-padding: 1em;
+$total-columns: 12;
+$column-width: 4em;
+$gutter-width: 1em;
+$grid-padding: 1em;
 $global-width: 1140px;
-
+//
 $susy: (
 	global-box-sizing: border-box,
 	use-custom: (rem: true),
@@ -19,10 +19,10 @@ $susy: (
 		toggle: top right,
 	)
 );
-
+//
 //@include border-box-sizing;
 //
-///* #Imports dependencies ------------------------------------------------------------------------ */
+//* #Imports dependencies ------------------------------------------------------------------------ */
 @import
 "_reset",
 "_fontello",
