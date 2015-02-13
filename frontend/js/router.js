@@ -10,7 +10,7 @@ var Router = Backbone.Router.extend({
 		'': 'index',
 
 		//User Parts
-		'login/create': 'signup',
+		'signup': 'signup',
 
 	}
 });

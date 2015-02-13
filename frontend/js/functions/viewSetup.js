@@ -1,0 +1,26 @@
+/**
+ * Created by Hutber on 12/02/2015.
+ */
+module.exports = function () {
+	'use strict';
+
+	/*==================================================
+	 Views Setup
+	 ================================================== */
+	var currentViews = require('./views')();
+
+	//set up the global view for all menu items etc
+	RN.gbl.gv = new RN.gbl.gv();
+	RN.gbl.gv.render();
+
+	//set up all other views
+	currentViews.forEach(function (me) {
+		var BackboneView = me.path;
+		RN.gbl.views[me.name] = new BackboneView();
+
+		//Set up staff views
+		RN.ROUTER.on('route:' + me.url, function (param) {
+			RN.gbl.views[me.name].render(param);
+		});
+	});
+};

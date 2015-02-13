@@ -2,7 +2,7 @@
 
 //extend the view with the default home view
 module.exports = RN.gbl.gv.extend({
-	el: '.shell',
+	el: '.content',
 	templates: {
 		home: require('../../views/login/signup.jade'),
 	},

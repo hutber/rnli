@@ -6,7 +6,6 @@ $column-width: 4em;
 $gutter-width: 1em;
 $grid-padding: 1em;
 $global-width: 1140px;
-//
 $susy: (
 	global-box-sizing: border-box,
 	use-custom: (rem: true),
@@ -19,9 +18,10 @@ $susy: (
 		toggle: top right,
 	)
 );
-//
-//@include border-box-sizing;
-//
+$headerHide: ".index";
+
+@include border-box-sizing;
+
 //* #Imports dependencies ------------------------------------------------------------------------ */
 @import
 "_reset",
@@ -53,6 +53,29 @@ body {
 	display: block;
 }
 
+/* #Header ------------------------------------------------------------------------ */
+.header {
+	height: 164px;
+	width: 100%;
+	> div {
+		float: left;
+	}
+	.left {
+		@include span(2 of 12);
+	}
+	.middle {
+		@include span(8 of 12);
+	}
+	.right {
+		@include span(2 of 12);
+	}
+}
+
+#{$headerHide} {
+	.header {
+		display: none;
+	}
+}
 
 
 #__bs_notify__ {

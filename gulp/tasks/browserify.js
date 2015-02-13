@@ -20,7 +20,7 @@ gulp.task('browserify', function () {
 			errorHandler: handleErrors
 		}))
 		.pipe(browserified)
-		.pipe(uglify())
+		//.pipe(uglify())
 		.pipe(gulp.dest('./app/www/js'));
 });
 
