@@ -2,7 +2,7 @@
  * Created by Hutber on 10/02/2015.
  */
 
-'use strict';
+
 //routes from the home page
 var Router = Backbone.Router.extend({
 	routes: {

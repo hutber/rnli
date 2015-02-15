@@ -51,23 +51,34 @@ Table of Contents
 /* #Main Styles ------------------------------------------------------------------------ */
 body {
 	display: block;
+	background: $bg;
 }
 
 /* #Header ------------------------------------------------------------------------ */
 .header {
-	height: 164px;
+	height: 75px;
 	width: 100%;
-	> div {
-		float: left;
+	color: #FFF;
+	text-transform: uppercase;
+	h1 {
+		color: #FFF;
 	}
 	.left {
+		font-size: 2rem;
+		height: 100%;
+		position: relative;
+		cursor: pointer;
 		@include span(2 of 12);
+		div {
+			margin-top: 20px;
+		}
 	}
 	.middle {
+		text-align: center;
 		@include span(8 of 12);
 	}
 	.right {
-		@include span(2 of 12);
+		@include span(2 of 12 last);
 	}
 }
 
@@ -82,3 +93,8 @@ body {
 	pointer-events: none;
 	opacity: .7;
 }
+
+
+/* #Page Overrides ------------------------------------------------------------------------ */
+//@import
+//	"pages/_users";

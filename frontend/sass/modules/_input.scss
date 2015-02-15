@@ -6,7 +6,6 @@
 textarea,
 input,
 select {
-	-webkit-user-select: auto !important;
 	border: 1px solid #FFF;
 	color: #000000;
 	padding: 9.4px 5px;
@@ -14,7 +13,11 @@ select {
 	margin: 5px auto;
 	-webkit-appearance: none;
 	font-weight: bold;
+	display: block;
+	width: 100%;
 	border-radius: 2px;
+	-webkit-user-select: auto !important;
+	border: 1px solid $headerGrey;
 	@include box-shadow(none);
 	@include placeholder-color(darken($grey, 20%));
 	@include transition(0.25s);
@@ -196,5 +199,18 @@ input[type=checkbox] {
 	vertical-align: middle;
 	&:checked {
 		background: #000;
+	}
+}
+
+// Alternate Colors
+// ------
+form > div {
+	position: relative;
+	.icon-right-open {
+		position: absolute;
+		right: 0;
+		z-index: 2;
+		font-size: 1.5rem;
+		padding-top: 5px;
 	}
 }

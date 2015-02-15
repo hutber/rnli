@@ -91,118 +91,46 @@ table {
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */ }
 
-.icon-spin3:before {
-  content: '\e817'; }
-
-/* '¯áù' */
-.icon-trash:before {
-  content: '\e824'; }
-
-/* '¯áñ' */
-.icon-male:before {
-  content: '\e825'; }
-
-/* '¯áÑ' */
-.icon-female:before {
-  content: '\e826'; }
-
-/* '¯áª' */
-.icon-ok-circled:before {
-  content: '\e803'; }
-
-/* '¯áâ' */
-.icon-cancel-circled:before {
-  content: '\e827'; }
-
-/* '¯áº' */
-.icon-plus-circled:before {
-  content: '\e804'; }
-
-/* '¯áä' */
 .icon-menu:before {
   content: '\e800'; }
 
 /* '¯áÇ' */
-.icon-basket:before {
-  content: '\e80d'; }
-
-/* '¯áì' */
-.icon-login:before {
-  content: '\e810'; }
-
-/* '¯áÉ' */
-.icon-logout:before {
-  content: '\e811'; }
-
-/* '¯áæ' */
-.icon-clock:before {
-  content: '\e808'; }
-
-/* '¯áê' */
-.icon-left-big:before {
-  content: '\e81b'; }
-
-/* '¯áø' */
-.icon-globe:before {
-  content: '\e816'; }
-
-/* '¯áû' */
-.icon-list-bullet:before {
-  content: '\e821'; }
-
-/* '¯áí' */
-.icon-money:before {
-  content: '\e802'; }
-
-/* '¯áé' */
-.icon-down-open:before {
-  content: '\e822'; }
-
-/* '¯áó' */
-.icon-search:before {
-  content: '\e81a'; }
-
-/* '¯áÜ' */
-.icon-user:before {
-  content: '\e815'; }
-
-/* '¯áò' */
-.icon-user-add:before {
-  content: '\e819'; }
-
-/* '¯áÖ' */
 .icon-users:before {
   content: '\e801'; }
 
 /* '¯áü' */
-.icon-lock:before {
-  content: '\e80e'; }
+.icon-money:before {
+  content: '\e802'; }
 
-/* '¯áÄ' */
+/* '¯áé' */
+.icon-ok-circled:before {
+  content: '\e803'; }
+
+/* '¯áâ' */
+.icon-plus-circled:before {
+  content: '\e804'; }
+
+/* '¯áä' */
+.icon-calendar:before {
+  content: '\e805'; }
+
+/* '¯áà' */
+.icon-calendar-outlilne:before {
+  content: '\e806'; }
+
+/* '¯áå' */
 .icon-lock-filled:before {
   content: '\e807'; }
 
 /* '¯áç' */
-.icon-lock-open:before {
-  content: '\e80f'; }
+.icon-clock:before {
+  content: '\e808'; }
 
-/* '¯áÅ' */
-.icon-lock-open-filled:before {
-  content: '\e814'; }
-
-/* '¯áö' */
+/* '¯áê' */
 .icon-pencil:before {
   content: '\e809'; }
 
 /* '¯áë' */
-.icon-location:before {
-  content: '\e81d'; }
-
-/* '¯áØ' */
-.icon-map:before {
-  content: '\e81c'; }
-
-/* '¯á£' */
 .icon-cog-outline:before {
   content: '\e80a'; }
 
@@ -211,30 +139,78 @@ table {
   content: '\e80b'; }
 
 /* '¯áï' */
-.icon-calendar-outlilne:before {
-  content: '\e806'; }
+.icon-home-outline:before {
+  content: '\e80c'; }
 
-/* '¯áå' */
-.icon-calendar:before {
-  content: '\e805'; }
+/* '¯áî' */
+.icon-basket:before {
+  content: '\e80d'; }
 
-/* '¯áà' */
+/* '¯áì' */
+.icon-lock:before {
+  content: '\e80e'; }
+
+/* '¯áÄ' */
+.icon-lock-open:before {
+  content: '\e80f'; }
+
+/* '¯áÅ' */
+.icon-login:before {
+  content: '\e810'; }
+
+/* '¯áÉ' */
+.icon-logout:before {
+  content: '\e811'; }
+
+/* '¯áæ' */
 .icon-left-open:before {
   content: '\e812'; }
 
 /* '¯áÆ' */
-.icon-down:before {
-  content: '\e823'; }
-
-/* '¯áú' */
-.icon-left:before {
-  content: '\e818'; }
-
-/* '¯áÿ' */
 .icon-globe-1:before {
   content: '\e813'; }
 
 /* '¯áô' */
+.icon-lock-open-filled:before {
+  content: '\e814'; }
+
+/* '¯áö' */
+.icon-user:before {
+  content: '\e815'; }
+
+/* '¯áò' */
+.icon-globe:before {
+  content: '\e816'; }
+
+/* '¯áû' */
+.icon-spin3:before {
+  content: '\e817'; }
+
+/* '¯áù' */
+.icon-left:before {
+  content: '\e818'; }
+
+/* '¯áÿ' */
+.icon-user-add:before {
+  content: '\e819'; }
+
+/* '¯áÖ' */
+.icon-search:before {
+  content: '\e81a'; }
+
+/* '¯áÜ' */
+.icon-left-big:before {
+  content: '\e81b'; }
+
+/* '¯áø' */
+.icon-map:before {
+  content: '\e81c'; }
+
+/* '¯á£' */
+.icon-location:before {
+  content: '\e81d'; }
+
+/* '¯áØ' */
 .icon-chart-alt-outline:before {
   content: '\e81e'; }
 
@@ -247,75 +223,38 @@ table {
   content: '\e820'; }
 
 /* '¯áá' */
-.icon-home-outline:before {
-  content: '\e80c'; }
+.icon-list-bullet:before {
+  content: '\e821'; }
 
-/* '¯áî' */
-/*
-   Animation example, for spinners
-*/
-.animate-spin {
-  -moz-animation: spin 2s infinite linear;
-  -o-animation: spin 2s infinite linear;
-  -webkit-animation: spin 2s infinite linear;
-  animation: spin 2s infinite linear;
-  display: inline-block; }
+/* '¯áí' */
+.icon-down-open:before {
+  content: '\e822'; }
 
-@-moz-keyframes spin {
-  0% {
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg); }
-  100% {
-    -moz-transform: rotate(359deg);
-    -o-transform: rotate(359deg);
-    -webkit-transform: rotate(359deg);
-    transform: rotate(359deg); } }
-@-webkit-keyframes spin {
-  0% {
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg); }
-  100% {
-    -moz-transform: rotate(359deg);
-    -o-transform: rotate(359deg);
-    -webkit-transform: rotate(359deg);
-    transform: rotate(359deg); } }
-@-o-keyframes spin {
-  0% {
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg); }
-  100% {
-    -moz-transform: rotate(359deg);
-    -o-transform: rotate(359deg);
-    -webkit-transform: rotate(359deg);
-    transform: rotate(359deg); } }
-@-ms-keyframes spin {
-  0% {
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg); }
-  100% {
-    -moz-transform: rotate(359deg);
-    -o-transform: rotate(359deg);
-    -webkit-transform: rotate(359deg);
-    transform: rotate(359deg); } }
-@keyframes spin {
-  0% {
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg); }
-  100% {
-    -moz-transform: rotate(359deg);
-    -o-transform: rotate(359deg);
-    -webkit-transform: rotate(359deg);
-    transform: rotate(359deg); } }
+/* '¯áó' */
+.icon-down:before {
+  content: '\e823'; }
+
+/* '¯áú' */
+.icon-trash:before {
+  content: '\e824'; }
+
+/* '¯áñ' */
+.icon-male:before {
+  content: '\e825'; }
+
+/* '¯áÑ' */
+.icon-female:before {
+  content: '\e826'; }
+
+/* '¯áª' */
+.icon-cancel-circled:before {
+  content: '\e827'; }
+
+/* '¯áº' */
+.icon-right-open:before {
+  content: '\e828'; }
+
+/* '¯á¿' */
 /* Table of Contents
 ==================================================
     #Base
@@ -323,6 +262,9 @@ table {
     #Links
     #Warnings
     #Borders
+*/
+/* Pages
+==================================================
 */
 /* Table of Contents
 ==================================================
@@ -384,7 +326,6 @@ h1, h2, h3, h4, h5, h6 {
 textarea,
 input,
 select {
-  -webkit-user-select: auto !important;
   border: 1px solid #FFF;
   color: #000000;
   padding: 9.4px 5px;
@@ -392,7 +333,11 @@ select {
   margin: 5px auto;
   -webkit-appearance: none;
   font-weight: bold;
+  display: block;
+  width: 100%;
   border-radius: 2px;
+  -webkit-user-select: auto !important;
+  border: 1px solid #383A3D;
   box-shadow: none;
   -moz-transition: 0.25s;
   -o-transition: 0.25s;
@@ -566,6 +511,15 @@ input[type=checkbox] {
   vertical-align: middle; }
   input[type=checkbox]:checked {
     background: #000; }
+
+form > div {
+  position: relative; }
+  form > div .icon-right-open {
+    position: absolute;
+    right: 0;
+    z-index: 2;
+    font-size: 1.5rem;
+    padding-top: 5px; }
 
 /* v1.0.5 */
 /* Core RS CSS file. 95% of time you shouldn't change anything here. */
@@ -825,26 +779,36 @@ Table of Contents
 
 /* #Main Styles ------------------------------------------------------------------------ */
 body {
-  display: block; }
+  display: block;
+  background: #EDEDEB; }
 
 /* #Header ------------------------------------------------------------------------ */
 .header {
-  height: 164px;
-  width: 100%; }
-  .header > div {
-    float: left; }
+  height: 75px;
+  width: 100%;
+  color: #FFF;
+  text-transform: uppercase; }
+  .header h1 {
+    color: #FFF; }
   .header .left {
+    font-size: 2rem;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
     width: 15.25424%;
     float: left;
     margin-right: 1.69492%; }
+    .header .left div {
+      margin-top: 20px; }
   .header .middle {
+    text-align: center;
     width: 66.10169%;
     float: left;
     margin-right: 1.69492%; }
   .header .right {
     width: 15.25424%;
-    float: left;
-    margin-right: 1.69492%; }
+    float: right;
+    margin-right: 0; }
 
 .index .header {
   display: none; }
@@ -852,5 +816,7 @@ body {
 #__bs_notify__ {
   pointer-events: none;
   opacity: .7; }
+
+/* #Page Overrides ------------------------------------------------------------------------ */
 
 /*# sourceMappingURL=style.css.map */

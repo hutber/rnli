@@ -1,7 +1,7 @@
 'user strict';
 
 //extend the view with the default home view
-module.exports = RN.gbl.gv.extend({
+module.exports = RN.glb.gv.extend({
 	el: '.content',
 	templates: {
 		home: require('../../views/login/signup.jade'),
@@ -9,6 +9,7 @@ module.exports = RN.gbl.gv.extend({
 	events: {
 	},
 	render: function () {
+		RN.glb.title = "Sign Up";
 		//load data in ejs
 		this.$el.html(this.templates.home());
 	}
