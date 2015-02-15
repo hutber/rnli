@@ -3,7 +3,8 @@
  */
 'use strict';
 module.exports = {
-	views: require('./functions/viewSetup'),
+	views: require('./functions/viewSetup')(),
 	url: require('./functions/urls'),
+	titlebar: require('./functions/titlebar'),
 	events: require('./functions/events'),
 }

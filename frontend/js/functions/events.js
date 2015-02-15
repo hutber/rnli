@@ -7,14 +7,17 @@ module.exports = {
 		//TP.login.checkLoginState();
 
 		//Updated previous hash
-		RN.PREVIOUSHASH = RN.HASH;
+		RN.glb.PREVIOUSHASH = RN.glb.HASH;
 
 		//Update the new hash
-		RN.HASH = window.location.hash.substring(1);
+		RN.glb.HASH = window.location.hash.substring(1);
+		if(RN.glb.HASH.length === 0) RN.glb.HASH = 'index';
 
 		//On page load update body class with current page
-		//TP.DV.globalClass();
+		RN.fnc.url.bodyClass(RN.glb.HASH, RN.glb.PREVIOUSHASH);
 
+		//Update Title
+		RN.fnc.titlebar.title(RN.glb.title);
 		//Resize the $('page') element
 		//TP.changeHeightofContent();
 	}

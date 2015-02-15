@@ -5,15 +5,15 @@
 
 require('./core');
 require('./router');
-RN.gbl = require('./globals');
+RN.glb = require('./globals');
 RN.fnc = require('./functions');
 
 $(document).ready(function() {
-	//Setup Global Views
-	RN.fnc.views();
+	//start backbone app
 	Backbone.history.start();
 
+	//On page load run onHashChange to update styles/class etc
+	RN.fnc.events.onHashChange();
 	//Set up hash change for every time it changes
-	RN.gbl.events.onHashChange();
-	window.addEventListener("hashchange", RN.gbl.events.onHashChange, false);
+	window.addEventListener("hashchange", RN.fnc.events.onHashChange, false);
 });

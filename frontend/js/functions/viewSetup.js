@@ -10,17 +10,17 @@ module.exports = function () {
 	var currentViews = require('./views')();
 
 	//set up the global view for all menu items etc
-	RN.gbl.gv = new RN.gbl.gv();
-	RN.gbl.gv.render();
+	RN.glb.gv = new RN.glb.gv();
+	RN.glb.gv.render();
 
 	//set up all other views
 	currentViews.forEach(function (me) {
 		var BackboneView = me.path;
-		RN.gbl.views[me.name] = new BackboneView();
+		RN.glb.views[me.name] = new BackboneView();
 
 		//Set up staff views
 		RN.ROUTER.on('route:' + me.url, function (param) {
-			RN.gbl.views[me.name].render(param);
+			RN.glb.views[me.name].render(param);
 		});
 	});
 };

@@ -3,17 +3,15 @@
  */
 module.exports =  function() {
 	'use strict';
-	var globals = {};
-
+	var globals = require('./globalsVars');
 	globals.views = [];
-
 	/*==================================================
 	 Global View
 	 ================================================== */
 	globals.gv = Backbone.View.extend({
 		el: '.shell',
 		events: {
-			'click a': 'navigate'
+			//'click a': 'navigate'
 		},
 		templates: {
 			login: require('../views/shell.jade')

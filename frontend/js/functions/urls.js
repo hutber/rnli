@@ -4,8 +4,8 @@
 'use strict';
 module.exports = {
 	$body: $('body'),
-	bodyClass:function(desiredClass){
-		this.$body[0].removeAttribute('class');
-		this.$body[0].setAttribute('class',desiredClass);
+	bodyClass:function(desiredClass, oldClass){
+		this.$body[0].classList.remove(oldClass);
+		this.$body[0].classList.add(desiredClass);
 	}
 }
