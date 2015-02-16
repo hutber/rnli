@@ -7,7 +7,7 @@ module.exports = function(){
 // #Popup message ------------------------------------------------------
 	popups.message = {
 		timer: null,
-		box: $('messageBox'),
+		box: $('#messagebox'),
 		message: null,
 		close: null,
 		blocker: false,
@@ -16,7 +16,7 @@ module.exports = function(){
 				if (!blocker) {
 					popups.message.blocker = true;
 				} //set block to true and this will auto remove the message after the ajax call has finished.
-				this.box.removeAttr('class').addClass(type).addClass('show');
+				this.box.removeAttr('class').addClass('show '+type);
 
 				this.message.html(message);
 				if (duration) {
@@ -33,15 +33,15 @@ module.exports = function(){
 			clearTimeout(this.timer);
 		}
 	};
-	popups.message.message = popups.message.box.find('message'); //define message
-	popups.message.close = popups.message.box.find('close'); //define message
+	popups.message.message = popups.message.box.find('.message'); //define message
+	popups.message.close = popups.message.box.find('.close'); //define message
 	//set up click event to hide
-	$('messageBox').on('click', function(){ popups.message.hideMessage(); });
+	$('#messagebox').on('click', function(){ popups.message.hideMessage(); });
 
 	// #Spinner ------------------------------------------------------
 	popups.spinner = {
 		timer: null,
-		overlay: $('overlay'),
+		overlay: $('.overlay'),
 		showme: function(message, title, timer){
 			if(message === null){
 				message = 'Loading...';
