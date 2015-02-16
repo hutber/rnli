@@ -20,5 +20,40 @@ module.exports = {
 		RN.fnc.titlebar.title(RN.glb.title);
 		//Resize the $('page') element
 		//TP.changeHeightofContent();
+	},
+	ajaxSetup: function(){
+		//create defaults for all ajax calls within sp
+		var timerAjax;
+		$( document ).ajaxStart(function() {
+			SP.UI.message.blocker = false; //reset blocker to false so that it is removed as soon as the ajax call has finished
+			timerAjax = setTimeout(function(){
+				if(SP.UI.message.blocker===false) {
+					SP.UI.message.showMessage('Loading...', 'notice', 40, true)
+				}
+			}, 300);
+		});
+
+		$( document ).ajaxComplete(function( event, request, settings ) {
+			if(!SP.UI.message.blocker) { //if blocker is false, remove the loading box
+				clearTimeout(timerAjax);
+				SP.UI.message.hideMessage();
+			}
+			if(request && request.responseJSON) {
+				var status = request.responseJSON.status,
+					message = request.responseJSON.message;
+
+				if (status === "operation_error") {
+					SP.UI.message.showMessage(request.responseJSON.message, 'bad', 2);
+				}
+			}
+		});
+		$( document ).ajaxError(function( event, request, settings ) {
+			if(!SP.UI.message.blocker) {
+				clearTimeout(timerAjax);
+				SP.UI.overlay.hide();
+				SP.UI.message.hideMessage();
+				SP.UI.message.showMessage('An error occured, sorry', 'bad', 2);
+			};
+		});
 	}
 }

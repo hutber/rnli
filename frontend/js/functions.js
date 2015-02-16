@@ -7,4 +7,5 @@ module.exports = {
 	url: require('./functions/urls'),
 	titlebar: require('./functions/titlebar'),
 	events: require('./functions/events'),
+	popups: require('./functions/popups')()
 }

@@ -16,4 +16,7 @@ $(document).ready(function() {
 	RN.fnc.events.onHashChange();
 	//Set up hash change for every time it changes
 	window.addEventListener("hashchange", RN.fnc.events.onHashChange, false);
+
+	//setup ajax requests
+	RN.fnc.events.ajaxSetup();
 });

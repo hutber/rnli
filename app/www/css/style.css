@@ -255,6 +255,24 @@ table {
   content: '\e828'; }
 
 /* '¯á¿' */
+.test {
+  -moz-transform: skew(25deg, 10deg);
+  -o-transform: skew(25deg, 10deg);
+  -ms-transform: skew(25deg, 10deg);
+  -webkit-transform: skew(25deg, 10deg);
+  transform: skew(25deg, 10deg);
+  moz-transform-origin: top left;
+  -o-transform-origin: top left;
+  -ms-transform-origin: top left;
+  -webkit-transform-origin: top left;
+  transform-origin: top left;
+  position: absolute;
+  top: 25%;
+  bottom: 25%;
+  left: 25%;
+  right: 25%;
+  background-color: rgba(20, 20, 20, 0.5); }
+
 /* Table of Contents
 ==================================================
     #Base
@@ -521,6 +539,88 @@ form > div {
     font-size: 1.5rem;
     padding-top: 5px; }
 
+.btn,
+.btn-group > .btn,
+.btn-group > .dropdown-menu,
+.btn-group > .popover {
+  font-size: 17.136px;
+  /* 15px */
+  font-weight: 500; }
+
+.btn, a.btn, button {
+  border: none;
+  background: #000;
+  color: #fff;
+  display: block;
+  padding: 12px 0;
+  line-height: 22px;
+  text-decoration: none;
+  text-shadow: none;
+  cursor: pointer;
+  margin: 5px auto;
+  width: 100%;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 24px;
+  box-shadow: none;
+  -moz-transition: 0.25s;
+  -o-transition: 0.25s;
+  -webkit-transition: 0.25s;
+  transition: 0.25s; }
+  .btn:hover, .btn:focus, .btn-group:focus .btn.dropdown-toggle, a.btn:hover, a.btn:focus, .btn-group:focus a.btn.dropdown-toggle, button:hover, button:focus, .btn-group:focus button.dropdown-toggle {
+    background-color: #0d0d0d;
+    outline: none;
+    -moz-transition: 0.25s;
+    -o-transition: 0.25s;
+    -webkit-transition: 0.25s;
+    transition: 0.25s; }
+  .btn:active, .btn-group.open .btn.dropdown-toggle, .btn.active, a.btn:active, .btn-group.open a.btn.dropdown-toggle, a.btn.active, button:active, .btn-group.open button.dropdown-toggle, button.active {
+    background-color: #000;
+    color: fade(#000, 75%);
+    box-shadow: none; }
+  .btn.disabled, .btn[disabled], a.btn.disabled, a.btn[disabled], button.disabled, button[disabled] {
+    background-color: #000;
+    color: fade(#000, 75%);
+    box-shadow: none;
+    opacity: .4; }
+  .btn.btn-large, a.btn.btn-large, button.btn-large {
+    font-size: 19.424px;
+    /* 17px */
+    line-height: 20px;
+    padding: 12px 18px 13px; }
+    .btn.btn-large > [class^="fui-"], a.btn.btn-large > [class^="fui-"], button.btn-large > [class^="fui-"] {
+      top: 0; }
+      .btn.btn-large > [class^="fui-"].pull-right, a.btn.btn-large > [class^="fui-"].pull-right, button.btn-large > [class^="fui-"].pull-right {
+        margin-right: -2px; }
+
+.btn-group > .btn {
+  border-radius: 0;
+  text-align: center; }
+  .btn-group > .btn:active + .btn, .btn-group > .btn.active + .btn {
+    border-left-color: transparent; }
+  .btn-group > .btn:first-of-type {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px; }
+  .btn-group > .btn:last-of-type {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px; }
+  .btn-group > .btn + .btn {
+    margin-left: 0; }
+  .btn-group > .btn + .dropdown-toggle {
+    border-left: 2px solid fade(#000, 15%);
+    padding-left: 13px;
+    padding-right: 13px;
+    box-shadow: none; }
+    .btn-group > .btn + .dropdown-toggle .caret {
+      margin-left: 3px;
+      margin-right: 3px; }
+  .btn-group > .btn.btn-huge + .dropdown-toggle .caret {
+    margin-left: 7px;
+    margin-right: 7px; }
+  .btn-group > .btn.btn-small + .dropdown-toggle .caret {
+    margin-left: 0;
+    margin-right: 0; }
+
 /* v1.0.5 */
 /* Core RS CSS file. 95% of time you shouldn't change anything here. */
 .royalSlider {
@@ -780,7 +880,7 @@ Table of Contents
 /* #Main Styles ------------------------------------------------------------------------ */
 body {
   display: block;
-  background: #EDEDEB; }
+  overflow: hidden; }
 
 /* #Header ------------------------------------------------------------------------ */
 .header {
@@ -788,8 +888,6 @@ body {
   width: 100%;
   color: #FFF;
   text-transform: uppercase; }
-  .header h1 {
-    color: #FFF; }
   .header .left {
     font-size: 2rem;
     height: 100%;
@@ -812,6 +910,63 @@ body {
 
 .index .header {
   display: none; }
+
+.messagebox {
+  height: 12%;
+  min-height: 51px;
+  position: absolute;
+  display: block;
+  width: 100%;
+  border-top: 1px solid #000;
+  bottom: 0;
+  background: linear-gradient(#ff7f67, #ff2901);
+  -moz-transition: transform 0.2s ease 0s;
+  -o-transition: transform 0.2s ease 0s;
+  -webkit-transition: transform 0.2s ease 0s;
+  transition: transform 0.2s ease 0s;
+  -moz-transform: translate(0, 100%);
+  -o-transform: translate(0, 100%);
+  -ms-transform: translate(0, 100%);
+  -webkit-transform: translate(0, 100%);
+  transform: translate(0, 100%); }
+  .messagebox > * {
+    display: none; }
+  .messagebox.good {
+    background: #86C555;
+    background: linear-gradient(#86C555, #6cac3b);
+    color: #FFF; }
+  .messagebox.bad {
+    background: linear-gradient(#e74c3c, #d62c1a);
+    color: #FFF; }
+  .messagebox.notice {
+    background: linear-gradient(#f39c12, #c87f0a);
+    color: #FFF; }
+  .messagebox.show {
+    -moz-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0); }
+  .messagebox .message {
+    width: 100%;
+    position: relative;
+    display: block;
+    height: 100%; }
+    .messagebox .message div {
+      width: 100%;
+      padding: 0 25px 0 10px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%); }
+  .messagebox .close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-weight: bold; }
 
 #__bs_notify__ {
   pointer-events: none;

@@ -6,6 +6,7 @@ $column-width: 4em;
 $gutter-width: 1em;
 $grid-padding: 1em;
 $global-width: 1140px;
+$menuAnimateTime : .2s;
 $susy: (
 	global-box-sizing: border-box,
 	use-custom: (rem: true),
@@ -18,6 +19,11 @@ $susy: (
 		toggle: top right,
 	)
 );
+
+//Global Heights
+$footerHeight: 12%;
+
+//Any class in here will hide the header
 $headerHide: ".index";
 
 @include border-box-sizing;
@@ -31,6 +37,7 @@ $headerHide: ".index";
 "_typography",
 "modules/_forms",
 "modules/_input",
+"modules/_buttons",
 "modules/_touchcarousel";
 
 /*
@@ -51,7 +58,7 @@ Table of Contents
 /* #Main Styles ------------------------------------------------------------------------ */
 body {
 	display: block;
-	background: $bg;
+	overflow: hidden;
 }
 
 /* #Header ------------------------------------------------------------------------ */
@@ -61,7 +68,7 @@ body {
 	color: #FFF;
 	text-transform: uppercase;
 	h1 {
-		color: #FFF;
+//		color: #FFF;
 	}
 	.left {
 		font-size: 2rem;
@@ -88,6 +95,59 @@ body {
 	}
 }
 
+// #Message Box -------------------------------------------------------------------
+.messagebox {
+	height: $footerHeight;
+	min-height: 51px;
+	position: absolute;
+	display: block;
+	width: 100%;
+	border-top: 1px solid #000;
+	bottom: 0;
+	background: (linear-gradient(lighten($hardOrange, 10%), darken($hardOrange, 10%)));
+	@include transition(transform $menuAnimateTime ease 0s);
+	@include transform(translate(0, 100%));
+
+	> * {
+		display: none; //default
+	}
+
+	&.good {
+		background: $success;
+		background: (linear-gradient($success, darken($success, 10%)));
+		color: #FFF;
+	}
+	&.bad {
+		background: (linear-gradient($danger, darken($danger, 10%)));
+		color: #FFF;
+	}
+	&.notice {
+		background: (linear-gradient($notice, darken($notice, 10%)));
+		color: #FFF;
+	}
+
+	&.show {
+		@include transform(translate(0, 0));
+	}
+
+	.message {
+		width: 100%;
+		position: relative;
+		display: block;
+		height: 100%;
+		div {
+			width: 100%;
+			padding: 0 25px 0 10px;
+			@include vertical-middle;
+		}
+	}
+	.close {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		font-weight: bold;
+	}
+}
 
 #__bs_notify__ {
 	pointer-events: none;

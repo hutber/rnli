@@ -1,6 +1,8 @@
 include ../mixins
-form
-    div
-        .icon-right-open
-        input(placeholder="First Name", type="text", value="")
-    +input({place:'Jamie'})
+form(action="")
+    +input({place:'First name', type: 'text', value:'', class:[]})
+    +input({place:'Surname', type: 'text', value:'', class:[]})
+    +input({place:'email address', type: 'text', value:'', class:[]})
+    +input({place:'Create password', type: 'text', value:'', class:[]})
+    +input({place:'Confirm password', type: 'text', value:'', class:[]})
+    +button({value:'Save'})
