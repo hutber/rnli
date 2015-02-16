@@ -343,16 +343,14 @@ h1, h2, h3, h4, h5, h6 {
 textarea, input, select {
   border: 1px solid #FFF;
   color: #000000;
-  padding: 9.4px 5px;
+  padding: 15px 15px;
   text-indent: 7px;
-  margin: 5px auto;
+  margin: 1px auto;
   -webkit-appearance: none;
   font-weight: bold;
   display: block;
   width: 100%;
-  border-radius: 2px;
   -webkit-user-select: auto !important;
-  border: 1px solid #383A3D;
   box-shadow: none;
   -moz-transition: 0.25s;
   -o-transition: 0.25s;
@@ -436,13 +434,19 @@ label.error, label.error a {
     line-height: 41px; }
   .control-group.small > .input-icon {
     line-height: 30px; }
-  .control-group.success > .input-icon, .control-group.success input + .input-icon {
+  .control-group.success > .input-icon, .control-group.success input + .input-icon, .control-group.success .icon-right-open, .control-group.success input {
     color: #86C555; }
-  .control-group.warning > .input-icon, .control-group.warning input + .input-icon {
+  .control-group.warning > .input-icon, .control-group.warning input + .input-icon, .control-group.warning .icon-right-open, .control-group.warning input {
     color: #f1c40f; }
-  .control-group.error > .input-icon, .control-group.error input + .input-icon {
+  .control-group.error > .input-icon, .control-group.error input + .input-icon, .control-group.error .icon-right-open, .control-group.error input {
     color: #e74c3c; }
-  .control-group.disabled > .input-icon, .control-group.disabled input + .input-icon {
+    .control-group.error > .input-icon:-moz-placeholder, .control-group.error input + .input-icon:-moz-placeholder, .control-group.error .icon-right-open:-moz-placeholder, .control-group.error input:-moz-placeholder {
+      color: #a82315; }
+    .control-group.error > .input-icon::-webkit-input-placeholder, .control-group.error input + .input-icon::-webkit-input-placeholder, .control-group.error .icon-right-open::-webkit-input-placeholder, .control-group.error input::-webkit-input-placeholder {
+      color: #a82315; }
+    .control-group.error > .input-icon.placeholder, .control-group.error input + .input-icon.placeholder, .control-group.error .icon-right-open.placeholder, .control-group.error input.placeholder {
+      color: #a82315; }
+  .control-group.disabled > .input-icon, .control-group.disabled input + .input-icon, .control-group.disabled .icon-right-open, .control-group.disabled input {
     color: #d3d5d7;
     background-color: #f4f4f5; }
 
@@ -502,6 +506,7 @@ form > div {
 
 .btn, a.btn, button {
   border: none;
+  background: #000;
   color: #fff;
   display: block;
   padding: 12px 0;
@@ -572,6 +577,108 @@ form > div {
   .btn-group > .btn.btn-small + .dropdown-toggle .caret {
     margin-left: 0;
     margin-right: 0; }
+
+#messagebox {
+  height: 12%;
+  min-height: 51px;
+  position: absolute;
+  display: block;
+  width: 100%;
+  border-top: 1px solid #000;
+  bottom: 0;
+  background: linear-gradient(#ff7f67, #ff2901);
+  -moz-transition: transform 0.2s ease 0s;
+  -o-transition: transform 0.2s ease 0s;
+  -webkit-transition: transform 0.2s ease 0s;
+  transition: transform 0.2s ease 0s;
+  -moz-transform: translate(0, 100%);
+  -o-transform: translate(0, 100%);
+  -ms-transform: translate(0, 100%);
+  -webkit-transform: translate(0, 100%);
+  transform: translate(0, 100%); }
+  #messagebox > * {
+    display: none; }
+  #messagebox.good {
+    background: #86C555;
+    background: linear-gradient(#86C555, #6cac3b);
+    color: #FFF; }
+  #messagebox.bad {
+    background: linear-gradient(#e74c3c, #d62c1a);
+    color: #FFF; }
+  #messagebox.notice {
+    background: linear-gradient(#f39c12, #c87f0a);
+    color: #FFF; }
+  #messagebox.show {
+    -moz-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0); }
+  #messagebox .message {
+    width: 100%;
+    position: relative;
+    display: block;
+    height: 100%; }
+    #messagebox .message div {
+      text-align: center;
+      font-size: 1.2rem;
+      width: 100%;
+      padding: 0 25px 0 10px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%); }
+  #messagebox .close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-weight: bold; }
+
+.overlay {
+  background: rgba(104, 109, 109, 0.75);
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 8;
+  text-align: center;
+  visibility: hidden;
+  line-height: 1.5rem;
+  opacity: 0;
+  -moz-transition: opacity .3s ease .3s;
+  -o-transition: opacity .3s ease .3s;
+  -webkit-transition: opacity .3s ease .3s;
+  transition: opacity .3s ease .3s; }
+  .overlay.display {
+    visibility: visible;
+    opacity: 1; }
+  .overlay i.icon-cancel-circled {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.4rem;
+    display: none; }
+  .overlay .message {
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%); }
+  .overlay img {
+    display: inline-block;
+    margin-bottom: 2rem;
+    width: 72%; }
+  .overlay .text {
+    display: block;
+    font-size: 1.3rem;
+    color: #FFF; }
 
 /* v1.0.5 */
 /* Core RS CSS file. 95% of time you shouldn't change anything here. */
@@ -823,98 +930,23 @@ body {
     height: 100%;
     position: relative;
     cursor: pointer;
-    
-    
-    
     width: 15.25424%;
     float: left;
-    
-    margin-right: 1.69492%;
-    
-     }
+    margin-right: 1.69492%; }
     .header .left div {
       margin-top: 20px; }
   .header .middle {
     text-align: center;
-    
-    
-    
     width: 66.10169%;
     float: left;
-    
-    margin-right: 1.69492%;
-    
-     }
+    margin-right: 1.69492%; }
   .header .right {
-    
-    
-    
     width: 15.25424%;
     float: right;
-    
-    margin-right: 0;
-    
-     }
+    margin-right: 0; }
 
 .index .header {
   display: none; }
-
-#messagebox {
-  height: 12%;
-  min-height: 51px;
-  position: absolute;
-  display: block;
-  width: 100%;
-  border-top: 1px solid #000;
-  bottom: 0;
-  background: linear-gradient(#ff7f67, #ff2901);
-  -moz-transition: transform 0.2s ease 0s;
-  -o-transition: transform 0.2s ease 0s;
-  -webkit-transition: transform 0.2s ease 0s;
-  transition: transform 0.2s ease 0s;
-  -moz-transform: translate(0, 100%);
-  -o-transform: translate(0, 100%);
-  -ms-transform: translate(0, 100%);
-  -webkit-transform: translate(0, 100%);
-  transform: translate(0, 100%); }
-  #messagebox > * {
-    display: none; }
-  #messagebox.good {
-    background: #86C555;
-    background: linear-gradient(#86C555, #6cac3b);
-    color: #FFF; }
-  #messagebox.bad {
-    background: linear-gradient(#e74c3c, #d62c1a);
-    color: #FFF; }
-  #messagebox.notice {
-    background: linear-gradient(#f39c12, #c87f0a);
-    color: #FFF; }
-  #messagebox.show {
-    -moz-transform: translate(0, 0);
-    -o-transform: translate(0, 0);
-    -ms-transform: translate(0, 0);
-    -webkit-transform: translate(0, 0);
-    transform: translate(0, 0); }
-  #messagebox .message {
-    width: 100%;
-    position: relative;
-    display: block;
-    height: 100%; }
-    #messagebox .message div {
-      width: 100%;
-      padding: 0 25px 0 10px;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      -webkit-transform: translate(-50%, -50%);
-      -moz-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%); }
-  #messagebox .close {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    font-weight: bold; }
 
 #__bs_notify__ {
   pointer-events: none;

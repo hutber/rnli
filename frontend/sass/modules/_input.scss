@@ -8,16 +8,14 @@ input,
 select {
 	border: 1px solid #FFF;
 	color: #000000;
-	padding: 9.4px 5px;
+	padding: 15px 15px;
 	text-indent: 7px;
-	margin: 5px auto;
+	margin: 1px auto;
 	-webkit-appearance: none;
 	font-weight: bold;
 	display: block;
 	width: 100%;
-	border-radius: 2px;
 	-webkit-user-select: auto !important;
-	border: 1px solid $headerGrey;
 	@include box-shadow(none);
 	@include placeholder-color(darken($grey, 20%));
 	@include transition(0.25s);
@@ -121,22 +119,23 @@ label.error, label.error a {
 	// Icon Colors
 	// --------------------------------------------------
 	&.success {
-		> .input-icon, input + .input-icon {
+		> .input-icon, input + .input-icon, .icon-right-open, input {
 			color: $success;
 		}
 	}
 	&.warning {
-		> .input-icon, input + .input-icon {
+		> .input-icon, input + .input-icon, .icon-right-open, input {
 			color: $warning;
 		}
 	}
 	&.error {
-		> .input-icon, input + .input-icon {
+		> .input-icon, input + .input-icon, .icon-right-open, input {
 			color: $danger;
+			@include placeholder-color(darken($danger, 20%));
 		}
 	}
 	&.disabled {
-		> .input-icon, input + .input-icon {
+		> .input-icon, input + .input-icon, .icon-right-open, input {
 			color: mix($grey, white, 40%);
 			background-color: mix($grey, white, 10%);
 		}

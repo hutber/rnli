@@ -10,9 +10,9 @@ gulp.task('sass', function () {
 	return gulp.src('./frontend/sass/style.scss')
 		.pipe(sourcemaps.init())
 		.pipe(sass({
-			includePaths: [
-				'./node_modules/susy/sass'
-			]
+			//includePaths: [
+			//	'./node_modules/susy/sass'
+			//]
 		}))
 		//.pipe(minifyCSS())
 		.pipe(sourcemaps.write('./app/www/css'))

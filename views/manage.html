@@ -1,0 +1,70 @@
+<form action="/app/manage" method="get">
+	<table width="100%" style="
+		width: 100%;
+	" class="striped table">
+		<thead>
+			<th>ID</th>
+			<th>Username</th>
+			<th>User</th>
+			<th>Rank</th>
+			<th>Email</th>
+			<th>Confirmed</th>
+			<th>Date Registered</th>
+		</thead>
+		<tbody>
+		<?php foreach($data as $key => $value){ ?>
+			<tr>
+				<td><?php echo $value['uid']; ?></td>
+				<td><?php echo $value['username']; ?></td>
+				<td><?php echo $value['fname']; ?> <?php echo $value['sname']; ?></td>
+				<td><?php echo $value['rank']; ?></td>
+				<td><?php echo $value['email']; ?></td>
+				<td>
+					<?php if($value['confirmed']==0){ ?>
+						<button data-confirmed="<?php echo $value['confirmed']; ?>" data-id="<?php echo $value['uid']; ?>">Approve</button>
+					<?php }else{ ?>
+						<button data-confirmed="<?php echo $value['confirmed']; ?>" data-id="<?php echo $value['uid']; ?>">Remove Approval</button>
+					<?php } ?>
+
+
+				</td>
+				<td><?php echo $value['regdate']; ?></td>
+			</tr>
+		<?php }?>
+		</tbody>
+	</table>
+</form>
+<script>
+	$('button').click(function(){
+		var confirmed = $(this).data('confirmed'),
+				uid = $(this).data('id'),
+				txt = '',
+				myself = $(this);
+		$(this).attr("disabled", true);
+		if(confirmed===0){
+			confirmed = 1;
+			txt = 'Remove Approval';
+		}else{
+			confirmed = 0;
+			txt = 'Approve';
+		}
+		$.ajax({
+			url: '/app/manage',
+			type: 'POST',
+			dataType: "json",
+			data: {
+				'uid': uid,
+				'confirmed': confirmed
+			},
+			error: function (data) {
+				if (data.status === 200) {
+					alert('Failed');
+				}
+			},
+			success: function (data) {
+				myself.text(txt).data('confirmed', confirmed).removeAttr("disabled");;
+			}
+		});
+		return false;
+	});
+</script>

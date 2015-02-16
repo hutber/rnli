@@ -1,0 +1,100 @@
+// #Message Box -------------------------------------------------------------------
+#messagebox {
+	height: $footerHeight;
+	min-height: 51px;
+	position: absolute;
+	display: block;
+	width: 100%;
+	border-top: 1px solid #000;
+	bottom: 0;
+	background: (linear-gradient(lighten($hardOrange, 10%), darken($hardOrange, 10%)));
+	@include transition(transform $menuAnimateTime ease 0s);
+	@include transform(translate(0, 100%));
+
+	> * {
+		display: none; //default
+	}
+
+	&.good {
+		background: $success;
+		background: (linear-gradient($success, darken($success, 10%)));
+		color: #FFF;
+	}
+	&.bad {
+		background: (linear-gradient($danger, darken($danger, 10%)));
+		color: #FFF;
+	}
+	&.notice {
+		background: (linear-gradient($notice, darken($notice, 10%)));
+		color: #FFF;
+	}
+
+	&.show {
+		@include transform(translate(0, 0));
+	}
+
+	.message {
+		width: 100%;
+		position: relative;
+		display: block;
+		height: 100%;
+		div {
+			text-align: center;
+			font-size: 1.2rem;
+			width: 100%;
+			padding: 0 25px 0 10px;
+			@include vertical-middle;
+		}
+	}
+	.close {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		font-weight: bold;
+	}
+}
+
+.overlay {
+	background: rgba(104, 109, 109, 0.75);
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 8;
+	text-align: center;
+	visibility:hidden;
+	line-height: 1.5rem;
+	opacity:0;
+	@include transition(opacity .3s ease .3s);
+
+	&.display {
+		visibility:visible;
+		opacity:1;
+	}
+
+	i.icon-cancel-circled {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		font-size: 1.4rem;
+		display: none;
+	}
+
+	.message {
+		width: 100%;
+		@include  vertical-middle;
+	}
+
+	img {
+		display: inline-block;
+		margin-bottom: 2rem;
+		width: 72%;
+	}
+
+	.text {
+		display: block;
+		font-size: 1.3rem;
+		color: #FFF;
+	}
+}

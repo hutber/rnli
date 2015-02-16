@@ -33,7 +33,7 @@ module.exports = function(){
 			clearTimeout(this.timer);
 		}
 	};
-	popups.message.message = popups.message.box.find('.message'); //define message
+	popups.message.message = popups.message.box.find('.message div'); //define message
 	popups.message.close = popups.message.box.find('.close'); //define message
 	//set up click event to hide
 	$('#messagebox').on('click', function(){ popups.message.hideMessage(); });
@@ -58,6 +58,30 @@ module.exports = function(){
 		},
 		displayCloseButton: function(){
 			popups.spinner.showme();
+		}
+	};
+
+	/*==================================================
+	 Dialogs
+	 ================================================== */
+	popups.Dialog = function(title, message, button, callback, type){
+		if(typeof type === "undefined"){
+			type = 'alert';
+		}
+		if(typeof navigator.notification !== "undefined"){
+			navigator.notification[type](message, function(button){
+				if(button===2){
+					callback();
+				}
+			}, title, button);
+		}else{
+			if(type === "alert"){
+				alert(title + ' '+ message);
+			}else if (type === "confirm"){
+				if(confirm(title + ' '+ message)){
+					callback();
+				}
+			}
 		}
 	};
 	

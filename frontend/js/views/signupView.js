@@ -29,38 +29,39 @@ module.exports = RN.glb.gv.extend({
 		});
 
 		if(this.validateEmail(values.email)!==true && values.email.length>0){
-			TP.UI.Dialog('Email Address', 'Please enter a valid email address');
+			RN.fnc.popups.Dialog('Email Address', 'Please enter a valid email address');
 			$('input[name=email]').parent().addClass('error');
 			noerror = false;
 		}
 
 		if(noerror){
-			TP.UI.spinner.showme();
+			RN.fnc.popups.spinner.showme();
 			var values = $(el.currentTarget).serializeObject();
 
 			//Turn off signup button
 			$('.btn.signup').attr('disabled','disabled');
 			$.ajax({
-				url: TP.AJAX + 'users/reg',
+				url: RN.glb.url.ajax + 'users/reg',
 				type: 'POST',
 				dataType: 'json',
 				data: values,
 				error: function (data) {
 					$('.btn.signup').removeAttr('disabled');
-					TP.UI.message.showMessage('Opps, sorry! The registration failed. Please try again?!... - ' + data.bad, 'bad');
+					RN.fnc.popups.message.showMessage('Opps, sorry! The registration failed. Please try again?!... - ' + data.bad, 'bad');
 				},
 				success: function (data) {
 					//TODO display the error
 					if (data.error) {
-						TP.UI.spinner.hideme();
-						TP.UI.message.showMessage(data.error, 'bad');
+						RN.fnc.popups.spinner.hideme();
+						RN.fnc.popups.message.showMessage(data.error, 'bad');
 						$('.btn.signup').removeAttr('disabled');
 					} else {
-						TP.UI.message.showMessage(data.good);
-						TP.UI.spinner.showme();
+						RN.fnc.popups.message.showMessage(data.good);
+						RN.fnc.popups.spinner.showme();
 						if(data.good==="Details have been saved"){
 							//readd things to localStorage
-							TP.login.buildLocalStorage(values);
+							//TP.login.buildLocalStorage(values);
+							c('save');
 						}
 						if($('.signup').html() !== "Done") {
 							//force login for user
@@ -75,14 +76,14 @@ module.exports = RN.glb.gv.extend({
 									uname: data.uname,
 									previous: data.previous
 								}));
-								TP.UI.setTitle('Sign Up Complete');
+								RN.fnc.popups.setTitle('Sign Up Complete');
 							}
 						}
 						$('.btn.signup').removeAttr('disabled');
 						if(document.getElementById('pkey')){
 							TP.pageLoad('home')
 						}
-						TP.UI.spinner.hideme();
+						RN.fnc.popups.spinner.hideme();
 					}
 				}
 			});

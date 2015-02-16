@@ -1,0 +1,57 @@
+<form action="/app/lookup" method="get">
+	<div class="">
+		<input type="text" placeholder="Please Select a date range" id="dom-id" <?php if(isset($_GET['start'])){ ?>value="<?php echo $_GET['start']; ?> to <?php echo $_GET['end']; ?>" <?php } ?>/>
+		<input type="hidden" id="start" name="start"/>
+		<input type="hidden" id="end" name="end"/>
+		<button type="submit" id="submit" class="btn" <?php if(!isset($_GET['start'])){ ?>style="display: none" <?php } ?>>Submit</button>
+		<?php if(isset($_GET['start'])){ ?><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&download=true" class="btn">Download (<?php echo count($data); ?>)</a><?php } ?>
+	</div>
+	<table width="100%" style="
+		width: 100%;
+	" class="striped table">
+		<thead>
+			<th>ID</th>
+			<th>User</th>
+			<th>Rank</th>
+			<th>Type</th>
+			<th>Comment</th>
+			<th>Region</th>
+			<th>Vessel</th>
+			<th>Observations</th>
+			<th>Date Submitted</th>
+		</thead>
+		<tbody>
+		<?php foreach($data as $key => $value){ ?>
+			<tr>
+				<td><?php echo $value['id']; ?></td>
+				<td><?php echo $value['fname']; ?> <?php echo $value['sname']; ?></td>
+				<td><?php echo $value['rank']; ?></td>
+				<td><?php echo $value['type']; ?></td>
+				<td><?php echo $value['comment']; ?></td>
+				<td><?php echo $value['region']; ?></td>
+				<td><?php echo $value['vessel']; ?></td>
+				<td><?php echo $value['observation']; ?></td>
+				<td><?php echo $value['submitdate']; ?></td>
+			</tr>
+		<?php }?>
+		</tbody>
+	</table>
+	<button type="submit" class="btn">Submit</button>
+</form>
+<script>
+	var today = new Date();
+	var configObject = {
+		startDate: false,
+		endDate: false,
+		startOfWeek: 'monday',
+//		endDate: today,
+		setValue: function(s, start, end){
+			$('#submit').fadeIn();
+			$('#start').val(start);
+			$('#end').val(end);
+			this.value = s;
+		}
+//		startDate: today.setMonth(today.getMonth() - 1)
+	}
+	$('#dom-id').dateRangePicker(configObject);
+</script>
