@@ -8,3 +8,16 @@
         background: $userHeaderBG;
     }
 }
+
+.signup {
+    .termsbox {
+        width: 100px;
+        margin: 0 auto;
+        text-align: center;
+        a {
+            display: block;
+            margin-top: 5px;
+            text-decoration: none;
+        }
+    }
+}

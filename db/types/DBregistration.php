@@ -43,7 +43,7 @@ class DBregistration extends Data {
         return $this->db->get($sql);
     }
 
-    function insertUsers($fname, $sname, $uname, $email, $pword, $rank, $device, $version, $confirmed)
+    function insertUsers($fname, $sname, $uname, $email, $pword, $device, $version, $confirmed)
     {
         $user_ip = $_SERVER['REMOTE_ADDR'];
         $sql = sprintf(
@@ -53,20 +53,18 @@ class DBregistration extends Data {
             `username` ,
             `email` ,
             `pword` ,
-            `rank` ,
             `device` ,
             `version` ,
             `ip`,
             `confirmed`
             )
-            VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s'
+            VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s'
             );",
 			$fname,
 			$sname,
 			$uname,
 			$this->db->escape($email),
             $pword,
-            $rank,
             $device,
             $version,
             $user_ip,
@@ -74,7 +72,7 @@ class DBregistration extends Data {
         return $this->db->query($sql);
     }
 
-    function updateUsers($fname, $sname, $email, $pword, $rank, $device, $version, $pkey)
+    function updateUsers($fname, $sname, $email, $pword, $device, $version, $pkey)
     {
         $sql = sprintf(
             "UPDATE `users`
@@ -82,7 +80,6 @@ class DBregistration extends Data {
 				`sname` = '%s',
 				`email` = '%s',
 				`pword` = '%s',
-				`rank` = '%s',
 				`device` = '%s',
 				`version` = '%s'
 			WHERE `users`.`sessionCheck` = '%s' LIMIT 1;",
@@ -90,7 +87,6 @@ class DBregistration extends Data {
 			$sname,
 			$this->db->escape($email),
 			$pword,
-			$rank,
 			$device,
 			$version,
 			$pkey

@@ -5,6 +5,10 @@ module.exports =  function() {
 	 */
 	var globals = {};
 
+	//General Config
+	globals.version = '1.0.0';
+	globals.device = 'android';
+
 	//Url Config
 	globals.url = {};
 	globals.url.protocol = 'http';

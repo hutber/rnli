@@ -75,7 +75,7 @@ table {
   display: inline-block;
   text-decoration: inherit;
   width: 1em;
-  margin-right: .6em;
+  margin-right: .2em;
   text-align: center;
   /* opacity: .8; */
   /* For safety - reset parent styles, that can break glyph codes*/
@@ -89,6 +89,81 @@ table {
   /* font-size: 120%; */
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */ }
+
+/*
+   Animation example, for spinners
+*/
+.animate-spin {
+  -moz-animation: spin 2s infinite linear;
+  -o-animation: spin 2s infinite linear;
+  -webkit-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+  display: inline-block; }
+
+@-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg); } }
+
+@-webkit-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg); } }
+
+@-o-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg); } }
+
+@-ms-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg); } }
+
+@keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+
+  100% {
+    -moz-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg); } }
 
 .icon-menu:before {
   content: '\e800'; }
@@ -250,10 +325,6 @@ table {
   content: '\e827'; }
 
 /* '' */
-.icon-right-open:before {
-  content: '\e828'; }
-
-/* '' */
 .test {
   -moz-transform: skew(25deg, 10deg);
   -o-transform: skew(25deg, 10deg);
@@ -515,7 +586,7 @@ form > div {
   text-shadow: none;
   cursor: pointer;
   margin: 5px auto;
-  width: 100%;
+  width: 90%;
   text-align: center;
   text-transform: capitalize;
   font-size: 24px;
@@ -586,6 +657,7 @@ form > div {
   width: 100%;
   border-top: 1px solid #000;
   bottom: 0;
+  z-index: 9;
   background: linear-gradient(#ff7f67, #ff2901);
   -moz-transition: transform 0.2s ease 0s;
   -o-transition: transform 0.2s ease 0s;
@@ -953,5 +1025,21 @@ body {
   opacity: .7; }
 
 /* #Page Overrides ------------------------------------------------------------------------ */
+/* Table of Contents
+==================================================
+    #Users
+*/
+.signup .header {
+  background: #002664; }
+
+.signup .termsbox {
+  width: 100px;
+  margin: 0 auto;
+  text-align: center; }
+  .signup .termsbox a {
+    display: block;
+    margin-top: 5px;
+    text-decoration: none; }
+
 
 /*# sourceMappingURL=app/www/css/style.css.map */

@@ -19,7 +19,7 @@ module.exports = function () {
 		RN.glb.views[me.name] = new BackboneView();
 
 		//Set up staff views
-		RN.ROUTER.on('route:' + me.url, function (param) {
+		RN.router.on('route:' + me.url, function (param) {
 			RN.glb.views[me.name].render(param);
 		});
 	});

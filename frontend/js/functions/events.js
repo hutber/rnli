@@ -26,21 +26,21 @@ module.exports = {
 		//create defaults for all ajax calls within sp
 		var timerAjax;
 		$( document ).ajaxStart(function() {
+			RN.fnc.popups.spinner.showme()
 			RN.fnc.popups.message.blocker = false; //reset blocker to false so that it is removed as soon as the ajax call has finished
 			timerAjax = setTimeout(function(){
 				if(RN.fnc.popups.message.blocker===false) {
-					RN.fnc.popups.message.showMessage('Loading...', 'notice', 15, true)
+					RN.fnc.popups.spinner.hideme()
 				}
-			}, 300);
+			}, 5000);
 		});
 
 		$( document ).ajaxComplete(function( event, request, settings ) {
+			RN.fnc.popups.spinner.hideme();
 			if(!RN.fnc.popups.message.blocker) { //if blocker is false, remove the loading box
 				clearTimeout(timerAjax);
-				RN.fnc.popups.message.hideMessage();
+				RN.fnc.popups.spinner.hideme()
 			}
-			c(request);
-			c(request.responseJSON);
 			if(request && request.responseJSON) {
 				var status = request.responseJSON.status,
 					message = request.responseJSON.message;
@@ -53,7 +53,7 @@ module.exports = {
 		$( document ).ajaxError(function( event, request, settings ) {
 			if(!RN.fnc.popups.message.blocker) {
 				clearTimeout(timerAjax);
-				RN.fnc.popups.overlay.hide();
+				RN.fnc.popups.spinner.hideme()
 				RN.fnc.popups.message.hideMessage();
 				RN.fnc.popups.message.showMessage('An error occured, sorry', 'bad', 2);
 			};

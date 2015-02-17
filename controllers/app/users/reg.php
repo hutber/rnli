@@ -13,7 +13,6 @@ class reg extends controller
 		$dataStore = new DBregistration($db);
 		if (isset($_POST) && count($_POST) != 0) {
 
-			$rank = $_POST['rank'];
 			$fname = ucwords(strtolower($_POST['fname']));
 			$sname = ucwords(strtolower($_POST['sname']));
 			$pword = $_POST['pw'];
@@ -38,10 +37,6 @@ class reg extends controller
 				$data['error'] = 'Please set a Second Name';
 				$error = true;
 			}
-			if ($rank == "") {
-				$data['error'] = 'Please set a Rank';
-				$error = true;
-			}
 
 //			//Checks that the pword isn't to small
 //			if (strlen($pword) < 8 || strlen($pword) > 16) {
@@ -52,7 +47,7 @@ class reg extends controller
 				//first check if the user has changed email addresses then check email hasn't been used before
 				if ($dataStore->sessionCheckEmailCheck($email, $pkey) != 1 && $dataStore->adminEmailCheck($email)) {
 					$data['error'] = 'Sorry but this email Address is already taken';
-					$error = true;
+//					$error = true;
 
 					$data['hasError'] = $error;
 				}
@@ -61,7 +56,7 @@ class reg extends controller
 					if($pword == "password"){
 						$pword = $dataStore->getCurrentPword($pkey)[0]['pword'];
 					}
-					$dataStore->updateUsers($fname, $sname, $email, $pword, $rank, $device, $version, $pkey);
+					$dataStore->updateUsers($fname, $sname, $email, $pword, $device, $version, $pkey);
 					$data['good'] = "Details have been saved";
 				}
 			}else{
@@ -70,24 +65,20 @@ class reg extends controller
 				$uname = strtolower($fname.$sname);
 				$numunamecheck = $dataStore->adminUsernameCheck($uname);
 				//first check if the user has changed email addresses then check email hasn't been used before
-				if ($numunamecheck != 0) {
-					$lastUser = $dataStore->grabLastUser();
-					$numberAdd = $lastUser[0]['uid']+1;
-					$uname = $uname.$numberAdd;
-				}
-//				if ($numemailcheck == 0) {
+
+				if ($numemailcheck == 0) {
 					//If no errors then add user to database and send confirmation email
 					if ($error == false) {
 
 						require_once $_SERVER['DOCUMENT_ROOT'] .'/class/sendMail.php';
 
-						if(strpos($email,'@topaz-marine.com') !== false){
+//						if(strpos($email,'@topaz-marine.com') !== false){
 							$confirmed = 1;
-						}else{
-							$confirmed = 0;
-						}
+//						}else{
+//							$confirmed = 0;
+//						}
 
-						$reg = $dataStore->insertUsers($fname, $sname, $uname, $email, $pword, $rank, $device, $version, $confirmed);
+						$reg = $dataStore->insertUsers($fname, $sname, $uname, $email, $pword, $device, $version, $confirmed);
 
 						if ($reg) {
 							if($numunamecheck<1) {
@@ -97,7 +88,7 @@ class reg extends controller
 								$newUser['email'] = $email;
 								$newUser['uname'] = $uname;
 
-								$from_address = 'noreply@topazmarinesafetyapp.com';
+								$from_address = 'noreply@rnli.com';
 
 								$from_group = 'Registration';
 								$article_date = date('l, jS F y');
@@ -106,7 +97,7 @@ class reg extends controller
 								$subject = 'Your Topaz Account is being reviewed';
 
 								//Email Details to inset into the email Array
-								$email_vars = array('title' => 'Your Topaz Account is being reviewed', 'fname' => $newUser['fname'], 'email' => $newUser['email'], 'uname' => $newUser['uname']);
+								$email_vars = array('title' => 'Account Registered', 'fname' => $newUser['fname'], 'email' => $newUser['email'], 'uname' => $newUser['uname']);
 
 								//Build Up email details
 								$registars_details = array();
@@ -116,18 +107,18 @@ class reg extends controller
 								$registars_details[0]['type'] = 'Registration';
 
 								//Do oop function
-								$myMail = new Email('[TopazMarineSafetyapp] Approval In Process', $subject, $from_group, $from_address, $article_date, $email_vars, $registars_details);
+								$myMail = new Email('[RNLI] Account Registered', $subject, $from_group, $from_address, $article_date, $email_vars, $registars_details);
 								//$subject, $title, $from_group, $from, $email_date, $email_vars,$email_notifications
 								//(Email Subject, Emails Title, email type aka which template to use, From Address, Email Date)
 								$myMail->createEmailVars();
 								$myMail->send();
 							}
 
-							if($confirmed==0) {
-								$data['good'] = "Your registration has been submitted for approval - please allow up to 4 hours for approval to be made";
-							}else{
-								$data['good'] = "Thank you, you have been auto logged in.";
-							}
+//							if($confirmed==0) {
+								$data['good'] = "Registration complete, please log in";
+//							}else{
+//								$data['good'] = "Thank you, you have been auto logged in.";
+//							}
 							$data['uname'] = $uname;
 							$data['previous'] = $numunamecheck;
 						} else {
@@ -135,10 +126,10 @@ class reg extends controller
 						}
 
 					}
-//				}else{
-//					$data['error'] = 'Sorry but this email Address is already taken';
-//					$error = true;
-//				}
+				}else{
+					$data['error'] = 'Sorry but this email Address is already taken';
+					$error = true;
+				}
 			}
 		}else{
 			$data['bad'] = "Nothing was posted :/";

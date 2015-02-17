@@ -1,0 +1,31 @@
+<div class="">
+	<form action="<%= TP.AJAX+'users/reg' %>" class="signupForm ajax">
+		<div class="elements">
+			<p class="br">All fields are required</p>
+			<div class="control-group rank">
+				<select name="rank" data-error="Please Select A Rank" id="rank"  data-native-menu="false" class="required">
+					<option value="">Please Select A Rank</option>
+					<% TP.RANKS.forEach(function(me){ %>
+						<option value="<%= me %>" <% if(localStorage.rank===me){%> selected="selected" <% } %>><%= me %></option>
+					<% }); %>
+				</select>
+			</div>
+			<div class="control-group fname">
+				<input type="text" placeholder="First Name" name="fname" class="required" data-error="Please enter a First Name" autocomplete="none" <% if(data.from === "edit"){ %> value="<%= data.fname %>"<% } %>/>
+			</div>
+			<div class="control-group sname">
+				<input type="text" placeholder="Last Name" name="sname" class="required" data-error="Please enter a Last Name" autocomplete="none" <% if(data.from === "edit"){ %> value="<%= data.sname %>"<% } %>/>
+			</div>
+			<div class="control-group email">
+				<input type="email" placeholder="Email Address" data-ajaxlocation="<%= TP.HTTP+'registration/ajax/' %>" name="email" class="required email server" data-error="Please enter a Email Adress" data-from="5" autocapitalize="off" <% if(data.from === "edit"){ %> value="<%= data.email %>"<% } %>/>
+			</div>
+			<div class="control-group pw">
+				<input type="password" placeholder="Password" name="pw" data-to="16" data-from="6" autocapitalize="none"  <% if(data.from === "edit"){ %> value="password"<% } %>/>
+			</div>
+			<input type="hidden" name="device" value="<%= TP.DEVICE %>"/>
+			<input type="hidden" name="version" value="<%= TP.VERSION %>"/>
+			<% if(data.from === "edit"){ %><input type="hidden" name="pkey" value="<%= localStorage.pkey %>"/><% } %>
+			<button class="btn signup" type="submit"><% if(data.from === "edit"){ %>Done<% }else{%>Sign Up<% } %></button>
+		</div>
+	</form>
+</div>

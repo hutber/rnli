@@ -7,6 +7,7 @@
 	width: 100%;
 	border-top: 1px solid #000;
 	bottom: 0;
+	z-index: 9;
 	background: (linear-gradient(lighten($hardOrange, 10%), darken($hardOrange, 10%)));
 	@include transition(transform $menuAnimateTime ease 0s);
 	@include transform(translate(0, 100%));

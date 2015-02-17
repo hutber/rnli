@@ -18,7 +18,7 @@ module.exports =  function() {
 		},
 		navigate: function(ev){
 			var target = ev.target.hash.substring(1);
-			RN.ROUTER.navigate(target, true);
+			RN.router.navigate(target, true);
 			RN.fnc.url.bodyClass(target);
 			return false;
 		},

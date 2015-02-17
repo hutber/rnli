@@ -15,4 +15,4 @@ var Router = Backbone.Router.extend({
 	}
 });
 //Set up Routes for backbone.
-RN.ROUTER = new Router();
+RN.router = new Router();
