@@ -8,6 +8,8 @@ var Router = Backbone.Router.extend({
 	routes: {
 		// #Home ---------------------------------------------------- /
 		'': 'index',
+		'login': 'index',
+		'home': 'home',
 
 		//User Parts
 		'signup': 'signup',

@@ -4,8 +4,12 @@
 'use strict';
 module.exports = {
 	$titlebar: $('.header'),
-	$title: $('.middle h1'),
+	$title: $('.header .middle h1'),
+	$back: $('.header .left'),
 	title:function(title){
 		this.$title.html(title);
+	},
+	back: function(){
+		this.$back.attr('href','#'+RN.glb.previoushash);
 	}
 }

@@ -7,6 +7,7 @@ require('./core');
 require('./router');
 RN.glb = require('./globals');
 RN.fnc = require('./functions');
+RN.mdl = require('./models');
 
 $(document).ready(function() {
 	//start backbone app

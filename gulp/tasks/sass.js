@@ -4,10 +4,14 @@ var handleErrors = require('../util/handleErrors');
 var sourcemaps = require('gulp-sourcemaps');
 var minifyCSS = require('gulp-minify-css');
 var debug = require('gulp-debug');
+var plumber = require('gulp-plumber');
 
 //libsass
 gulp.task('sass', function () {
 	return gulp.src('./frontend/sass/style.scss')
+		.pipe(plumber({
+			errorHandler: handleErrors
+		}))
 		.pipe(sourcemaps.init())
 		.pipe(sass({
 			//includePaths: [
@@ -16,7 +20,7 @@ gulp.task('sass', function () {
 		}))
 		//.pipe(minifyCSS())
 		.pipe(sourcemaps.write('./app/www/css'))
-		.on('error', handleErrors)
+		//.on('error', handleErrors)
 		.pipe(gulp.dest('./app/www/css'))
 });
 

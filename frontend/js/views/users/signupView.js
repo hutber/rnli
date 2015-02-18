@@ -4,8 +4,8 @@
 module.exports = RN.glb.gv.extend({
 	el: '.content',
 	templates: {
-		home: require('../../views/login/signup.jade'),
-		checkmail: require('../../views/email/checkmail.jade'),
+		home: require('../../../views/login/signup.jade'),
+		checkmail: require('../../../views/email/checkmail.jade'),
 	},
 	events: {
 		'submit .signupForm': 'signupForm',
@@ -50,40 +50,11 @@ module.exports = RN.glb.gv.extend({
 					RN.fnc.popups.message.showMessage('Opps, sorry! The registration failed. Please try again?!... - ' + data.bad, 'bad');
 				},
 				success: function (data) {
-					c(data);
-					//TODO display the error
 					if (data.error) {
 						RN.fnc.popups.message.showMessage(data.error, 'bad');
 						$('.btn.signup').removeAttr('disabled');
 					} else {
-						RN.fnc.popups.message.showMessage(data.good);
-					//	RN.fnc.popups.spinner.showme();
-						if(data.good==="Details have been saved"){
-							//readd things to localStorage
-							//TP.login.buildLocalStorage(values);
-							c('save');
-						}
-						if($('.signup').html() !== "Done") {
-							//force login for user
-							if (data.good==="Thank you, you have been auto logged in.") {
-								RN.fnc.login.doLogin.doAjax({
-									'email': data.uname,
-									'pword': values.pw
-								});
-							}else {
-								myself.$el.html(myself.templates.checkmail({
-									email: values.email,
-									uname: data.uname,
-									previous: data.previous
-								}));
-								RN.fnc.titlebar.title('Sign Up Complete');
-							}
-						}
-						$('.btn.signup').removeAttr('disabled');
-						if(document.getElementById('pkey')){
-							TP.pageLoad('home')
-						}
-						//RN.fnc.popups.spinner.hideme();
+						window.location.href = '#login'
 					}
 				}
 			});

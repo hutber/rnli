@@ -25,7 +25,7 @@ $susy: (
 $footerHeight: 12%;
 
 //Any class in here will hide the header
-$headerHide: ".index";
+$headerHide: ".index, .home";
 
 @include border-box-sizing;
 
@@ -69,7 +69,7 @@ body {
 	width: 100%;
 	color: #FFF;
 	text-transform: uppercase;
-  	display: none;
+//  	display: none;
 	h1 {
 //		color: #FFF;
 	}
@@ -106,4 +106,5 @@ body {
 
 /* #Page Overrides ------------------------------------------------------------------------ */
 @import
-	"pages/_users";
+	"pages/_users",
+	"pages/_landing";

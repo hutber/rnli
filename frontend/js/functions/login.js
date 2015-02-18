@@ -7,7 +7,6 @@ module.exports = {
 		if (typeof reload === "undefined") {
 			reload = false;
 		} //if no reload is passed make it false
-		sessionStorage.removeItem('appOpenedFirstTime');
 		if (reload) {
 			location.reload();
 		} else {
@@ -27,16 +26,14 @@ module.exports = {
 				error: function (data) {
 					if (data.status === 200) {
 						RN.fnc.popups.spinner.showme('Still Logging you in...');
-//							RN.fnc.login.doLogin.doAjax(values);
 					} else {
 						RN.fnc.popups.message.showMessage('Sorry Login Failed: ' + data.status, 'bad');
 					}
 				},
 				success: function (data) {
 					if(data.confirmed==0) {
-						RN.fnc.popups.message.showMessage('Your approval is still pending, please wait until an admin has approved your account.', 'notice');
+						RN.fnc.popups.message.showMessage('Your account is currently pending approval. Please be patient', 'notice');
 					}else {
-						RN.fnc.login.buildLocalStorage(data);
 						RN.fnc.login.doLogin.success(data);
 					}
 				}
@@ -45,10 +42,16 @@ module.exports = {
 		},
 		success: function (data) {
 			if (data.uid) {
-				//we add a session marker to tell the pin view that we are coming from the login and don't display the pin
-				sessionStorage.setItem('blockpin', false);
 				//Now we load the home page
-				RN.fnc.login.moveToHome(true);
+				RN.user = new RN.mdl.user({
+					fname: data.fname,
+					sname: data.sname,
+					email: data.email,
+					pkey: data.pkey,
+					uid: data.uid,
+					version: data.version
+				});
+				RN.fnc.login.moveToHome();
 			} else {
 				RN.fnc.popups.message.showMessage(data.message, 'bad');
 			}

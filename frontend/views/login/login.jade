@@ -1,8 +1,9 @@
 //
    Created by Hutber on 10/02/2015.
-form
-   input(type=text, placeholder="Username")
-   input(type=password, placeholder="Username")
-   button Login
+include ../mixins
+form.loginForm
+   +input({place:'USERNAME', type: 'text', value:'jamie@hutber.com', name:'email'})
+   +input({place:'PASSWORD', type: 'password', value:'jadwiga', name:'pword'})
+   +button({value:'Login', class:['']})
    p or
    a(href='#signup') Create New Account

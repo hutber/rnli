@@ -6,6 +6,10 @@ module.exports = function (){
 	var currentViews = [];
 
 	currentViews.push(
+
+		/*==================================================
+		 Home
+		 ================================================== */
 		{
 			name: 'index',
 			path: require('../views/indexView'),
@@ -13,9 +17,18 @@ module.exports = function (){
 		},
 		{
 			name: 'signup',
-			path: require('../views/signupView'),
+			path: require('../views/users/signupView'),
 			url: 'signup'
+		},
+		{
+			name: 'home',
+			path: require('../views/homeView'),
+			url: 'home'
 		}
+
+		/*==================================================
+		 Users
+		 ================================================== */
 	);
 	return currentViews;
 }
