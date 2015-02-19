@@ -1,0 +1,21 @@
+@import
+	"_users",
+	"_trips",
+	"_landing";
+/* Table of Contents
+/* Page is used to import all of the different pages settings
+==================================================
+    #Header
+*/
+.header {
+	background: $trips;
+	.weather & {
+		background: $weather;
+	}
+	.safety & {
+		background: $safety;
+	}
+	.catch & {
+		background: $catch;
+	}
+}

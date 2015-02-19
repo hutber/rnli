@@ -1,4 +1,6 @@
 @import "/Ruby21-x64/lib/ruby/gems/2.1.0/gems/susy-2.2.2/sass/susy";
+@import "bootstrap-sprockets";
+@import "bootstrap";
 //@import "susy";
 
 /* #Config ------------------------------------------------------------------------ */
@@ -64,8 +66,9 @@ body {
 }
 
 ///* #Header ------------------------------------------------------------------------ */
+$headerHeight: 75px;
 .header {
-	height: 75px;
+	height: $headerHeight;
 	width: 100%;
 	color: #FFF;
 	text-transform: uppercase;
@@ -78,17 +81,30 @@ body {
 		height: 100%;
 		position: relative;
 		cursor: pointer;
-		@include span(2 of 12);
+		@include span(1.5 of 12);
 		div {
 			margin-top: 20px;
 		}
 	}
 	.middle {
 		text-align: center;
-		@include span(8 of 12);
+		font-size: .7rem;
+		position: relative;
+		height:  $headerHeight;
+		@include span(9 of 12);
+		h1 {
+			width: 100%;
+			margin: 0;
+			@include vertical-middle()
+		}
 	}
 	.right {
-		@include span(2 of 12 last);
+		position: relative;
+		height: 100%;
+		@include span(1.5 of 12 last);
+		div {
+			@include vertical-middle()
+		}
 	}
 }
 
@@ -105,6 +121,4 @@ body {
 
 
 /* #Page Overrides ------------------------------------------------------------------------ */
-@import
-	"pages/_users",
-	"pages/_landing";
+@import "pages/_index";

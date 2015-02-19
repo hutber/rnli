@@ -18,17 +18,35 @@ module.exports = function (){
 		{
 			name: 'signup',
 			path: require('../views/users/signupView'),
-			url: 'signup'
+			url: 'signup',
+			title: 'My Login Details'
 		},
 		{
 			name: 'home',
 			path: require('../views/homeView'),
-			url: 'home'
+			url: 'home',
+			title: 'Landing Page'
 		}
 
 		/*==================================================
 		 Users
 		 ================================================== */
+
+		/*==================================================
+		 Trips
+		 ================================================== */
+		,{
+			name: 'tripsHome',
+			path: require('../views/trips/tripsHomeView'),
+			url: 'trips',
+			title: 'My Trips'
+		}
+		,{
+			name: 'tripsCreateView',
+			path: require('../views/trips/tripsCreateView'),
+			url: 'createtrip',
+			title: 'Create New Trip'
+		}
 	);
 	return currentViews;
 }

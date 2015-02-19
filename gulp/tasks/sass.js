@@ -14,9 +14,10 @@ gulp.task('sass', function () {
 		}))
 		.pipe(sourcemaps.init())
 		.pipe(sass({
-			//includePaths: [
-			//	'./node_modules/susy/sass'
-			//]
+			includePaths: [
+				//'./node_modules/susy/sass'
+				//'C:/var/www/rnli.hutber.com/node_modules/bootstrap-sass/assets/stylesheets'
+			]
 		}))
 		//.pipe(minifyCSS())
 		.pipe(sourcemaps.write('./app/www/css'))

@@ -62,7 +62,6 @@ module.exports = RN.glb.gv.extend({
 		return false;
 	},
 	render: function () {
-		RN.glb.title = "Sign Up";
 		//load data in ejs
 		this.$el.html(this.templates.home());
 	}

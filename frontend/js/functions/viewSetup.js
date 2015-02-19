@@ -20,6 +20,7 @@ module.exports = function () {
 
 		//Set up staff views
 		RN.router.on('route:' + me.url, function (param) {
+			RN.glb.title = me.title;
 			RN.glb.views[me.name].render(param);
 		});
 	});
