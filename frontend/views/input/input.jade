@@ -1,5 +1,6 @@
 mixin input(data)
     - data.type = data.type || 'text'
     .control-group
-        .icon-right-open
-        input(placeholder="#{data.place}", type="#{data.type}", name="#{data.name}", value="#{data.value}", class=data.class)
+        if data.type !== "hidden"
+            .icon-right-open
+        input(id="#{data.id}",placeholder="#{data.place}", type="#{data.type}", name="#{data.name}", value="#{data.value}", class=data.class)

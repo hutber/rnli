@@ -1,0 +1,16 @@
+.locationSelector {
+	width: 80%;
+	margin: 0 auto;
+	border: 1px solid $mainBlue;
+	@include clear;
+	> div {
+		width: 50%;
+		float: left;
+		text-align: center;
+		padding: 3px;
+		cursor: pointer;
+		&.selected {
+			background: $mainBlue;
+		}
+	}
+}

@@ -47,11 +47,11 @@ module.exports = RN.glb.gv.extend({
 				data: values,
 				error: function (data) {
 					$('.btn.signup').removeAttr('disabled');
-					RN.fnc.popups.message.showMessage('Opps, sorry! The registration failed. Please try again?!... - ' + data.bad, 'bad');
+					RN.fnc.popups.message.show('Opps, sorry! The registration failed. Please try again?!... - ' + data.bad, 'bad');
 				},
 				success: function (data) {
 					if (data.error) {
-						RN.fnc.popups.message.showMessage(data.error, 'bad');
+						RN.fnc.popups.message.show(data.error, 'bad');
 						$('.btn.signup').removeAttr('disabled');
 					} else {
 						window.location.href = '#login'

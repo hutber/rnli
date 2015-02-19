@@ -5,6 +5,7 @@
 window.$ = require('jquery');
 window.Backbone = require('backbone');
 Backbone.$ = $;
+window.Pikaday = require('pikaday');
 
 //Addons
 window.moment = require('moment');

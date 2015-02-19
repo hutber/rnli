@@ -25,14 +25,14 @@ module.exports = {
 				},
 				error: function (data) {
 					if (data.status === 200) {
-						RN.fnc.popups.spinner.showme('Still Logging you in...');
+						RN.fnc.popups.spinner.show('Still Logging you in...');
 					} else {
-						RN.fnc.popups.message.showMessage('Sorry Login Failed: ' + data.status, 'bad');
+						RN.fnc.popups.message.show('Sorry Login Failed: ' + data.status, 'bad');
 					}
 				},
 				success: function (data) {
 					if(data.confirmed==0) {
-						RN.fnc.popups.message.showMessage('Your account is currently pending approval. Please be patient', 'notice');
+						RN.fnc.popups.message.show('Your account is currently pending approval. Please be patient', 'notice');
 					}else {
 						RN.fnc.login.doLogin.success(data);
 					}
@@ -51,11 +51,16 @@ module.exports = {
 					uid: data.uid,
 					version: data.version
 				});
+				c(RN.user.get('fname'));
+				RN.fnc.login.addUserToLocalStorage(data);
 				RN.fnc.login.moveToHome();
 			} else {
-				RN.fnc.popups.message.showMessage(data.message, 'bad');
+				RN.fnc.popups.message.show(data.message, 'bad');
 			}
 		}
+	},
+	addUserToLocalStorage : function(data){
+		localStorage.uid = data.uid;
 	},
 	checkPrivateKey: {
 		numberOfTrys: 0,
@@ -73,8 +78,8 @@ module.exports = {
 						RN.fnc.login.checkPrivateKey.numberOfTrys = 1;
 						RN.fnc.login.checkPrivateKey.doAjax();
 					} else {
-						RN.fnc.popups.message.showMessage('There was a network error. Please try again.', 'bad');
-						RN.fnc.popups.spinner.hideme();
+						RN.fnc.popups.message.show('There was a network error. Please try again.', 'bad');
+						RN.fnc.popups.spinner.hide();
 					}
 				},
 				success: RN.fnc.login.checkPrivateKey.success
@@ -85,17 +90,17 @@ module.exports = {
 			if (RN.fnc.connection.connection=== "none") {
 				RN.fnc.popups.Dialog('No Internet', 'Please be aware that any logs made at this time will not be sent to the database until you have an active internet connection', ['Get me out of here', 'I understand'], function(){
 					RN.fnc.login.moveToHome();
-					RN.fnc.popups.spinner.hideme();
+					RN.fnc.popups.spinner.hide();
 				}, 'confirm')
 			} else {
-				RN.fnc.popups.spinner.showme('Security Checks', 'Looking up');
+				RN.fnc.popups.spinner.show('Security Checks', 'Looking up');
 				RN.fnc.login.checkPrivateKey.doAjax();
 			}
 		},
 		success: function (data) {
 			if (data.current === "1") {
 				RN.fnc.login.moveToHome();
-				RN.fnc.popups.spinner.hideme();
+				RN.fnc.popups.spinner.hide();
 			} else {
 				RN.fnc.popups.Dialog('Private Session Key has expired.', 'This is often from logging on a different device. We will log you out for security.');
 				//alert('You have logged in somewhere else since using this app. For security we\'ll need to log you out, please log back in after.');
@@ -110,16 +115,10 @@ module.exports = {
 			loggedInState = false;
 		}
 
-		if (sessionStorage.tmpPin) {
-			//Top level, if the user hasn't set a pin number
-		} else if (loggedInState && !localStorage.pinNumber) {
-			window.location.href = "#setpin";
-		} else if (sessionStorage.appOpenedFirstTime && hash !== "pin" && loggedInState) {
-			window.location.href = "#pin";
-		} else if (loggedInState && (hash === "" || hash === "signup" || hash === "forgotten" || hash === "login")) {
+		if (loggedInState && (hash === "" || hash === "signup" || hash === "forgotten" || hash === "login")) {
 			window.location.href = "#home";
-		} else if (!loggedInState && hash === "home") {
-			document.location.replace('');
+		} else if (!loggedInState  && hash === "trip") {
+			document.location.replace('#login');
 		}
 	},
 	lookIfWeNeedPin: function () {
@@ -130,9 +129,7 @@ module.exports = {
 		sessionStorage.removeItem('blockpin');
 	},
 	doLogOut: function(){
-		var tmpPin = localStorage.pinNumber;
 		localStorage.clear();
-		localStorage.setItem('pinNumber', tmpPin);
 		document.location.replace('');
 		return false;
 	}

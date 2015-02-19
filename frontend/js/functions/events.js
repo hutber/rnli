@@ -5,7 +5,7 @@
 module.exports = {
 	onHashChange: function(){
 		//make sure we are logged in, if we are not forward back to home page
-		//TP.login.checkLoginState();
+		RN.fnc.login.checkLoginState();
 
 		//Updated previous hash
 		RN.glb.previoushash = RN.glb.hash;
@@ -26,36 +26,36 @@ module.exports = {
 		//create defaults for all ajax calls within sp
 		var timerAjax;
 		$( document ).ajaxStart(function() {
-			RN.fnc.popups.spinner.showme()
+			RN.fnc.popups.spinner.show()
 			RN.fnc.popups.message.blocker = false; //reset blocker to false so that it is removed as soon as the ajax call has finished
 			timerAjax = setTimeout(function(){
 				if(RN.fnc.popups.message.blocker===false) {
-					RN.fnc.popups.spinner.hideme()
+					RN.fnc.popups.spinner.hide()
 				}
 			}, 5000);
 		});
 
 		$( document ).ajaxComplete(function( event, request, settings ) {
-			RN.fnc.popups.spinner.hideme();
+			RN.fnc.popups.spinner.hide();
 			if(!RN.fnc.popups.message.blocker) { //if blocker is false, remove the loading box
 				clearTimeout(timerAjax);
-				RN.fnc.popups.spinner.hideme()
+				RN.fnc.popups.spinner.hide()
 			}
 			if(request && request.responseJSON) {
 				var status = request.responseJSON.status,
 					message = request.responseJSON.message;
 
 				if (status === "operation_error") {
-					RN.fnc.popups.message.showMessage(request.responseJSON.message, 'bad', 2);
+					RN.fnc.popups.message.show(request.responseJSON.message, 'bad', 2);
 				}
 			}
 		});
 		$( document ).ajaxError(function( event, request, settings ) {
 			if(!RN.fnc.popups.message.blocker) {
 				clearTimeout(timerAjax);
-				RN.fnc.popups.spinner.hideme()
-				RN.fnc.popups.message.hideMessage();
-				RN.fnc.popups.message.showMessage('An error occured, sorry', 'bad', 2);
+				RN.fnc.popups.spinner.hide()
+				RN.fnc.popups.message.hide();
+				RN.fnc.popups.message.show('An error occured, sorry', 'bad', 2);
 			};
 		});
 	}

@@ -1,3 +1,9 @@
 include ../mixins
-+input({place:'Choose a name', type: 'text', value:'', name:''})
-+input({place:'Choose a date', type: 'text', value:'', name:''})
++input({place:'Choose a name', type: 'text', value:'', name:'name'})
++input({place:'Choose a date', type: 'text', value:'', name:'date', id:'dateselector'})
++input({type: 'hidden', value:'', name:'date', id:'date'})
+.location
+    h3 CURRENT LOCATION?
+    .locationSelector
+        .yes YES
+        .no.selected NO

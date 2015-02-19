@@ -11,7 +11,7 @@ module.exports = function(){
 		message: null,
 		close: null,
 		blocker: false,
-		showMessage: function(message, type, duration, blocker) {
+		show: function(message, type, duration, blocker) {
 			if(message.length > 0) {
 				if (!blocker) {
 					popups.message.blocker = true;
@@ -22,12 +22,12 @@ module.exports = function(){
 				if (duration) {
 					this.close.hide();
 					this.timer = setTimeout(function () {
-						popups.message.hideMessage();
+						popups.message.hide();
 					}, duration * 1000);
 				}
 			};
 		},
-		hideMessage: function(){
+		hide: function(){
 			this.box.removeClass('show');
 			this.close.show();
 			clearTimeout(this.timer);
@@ -36,30 +36,36 @@ module.exports = function(){
 	popups.message.message = popups.message.box.find('.message div'); //define message
 	popups.message.close = popups.message.box.find('.close'); //define message
 	//set up click event to hide
-	$('#messagebox').on('click', function(){ popups.message.hideMessage(); });
+	$('#messagebox').on('click', function(){ popups.message.hide(); });
 
 	// #Spinner ------------------------------------------------------
 	popups.spinner = {
 		timer: null,
 		overlay: $('.overlay'),
-		showme: function(message, title, timer){
+		cancel: $('.cancelSpin'),
+		show: function(message, timer){
 			if(message === null){
 				message = 'Loading...';
 			}
 			if(timer){
-				popups.spinner.timer = window.setTimeout(popups.spinner.displayCloseButton , 5000);
+				popups.spinner.timer = window.setTimeout(function(){
+					popups.spinner.displayCloseButton();
+				} , 5000);
 			}
 			this.overlay.find('span').text(message);
 			this.overlay.addClass('display');
 		},
-		hideme: function(){
+		hide: function(){
 			window.clearTimeout(popups.spinner.timer);
+			this.cancel.removeClass('display');
 			this.overlay.removeClass('display');
 		},
 		displayCloseButton: function(){
-			popups.spinner.showme();
+			this.cancel.addClass('display');
 		}
 	};
+	//set up click event to hide
+	$('.cancelSpin').on('click', function(){ popups.spinner.hide(); });
 
 	/*==================================================
 	 Dialogs

@@ -1,6 +1,4 @@
 @import "/Ruby21-x64/lib/ruby/gems/2.1.0/gems/susy-2.2.2/sass/susy";
-@import "bootstrap-sprockets";
-@import "bootstrap";
 //@import "susy";
 
 /* #Config ------------------------------------------------------------------------ */
@@ -28,6 +26,7 @@ $footerHeight: 12%;
 
 //Any class in here will hide the header
 $headerHide: ".index, .home";
+$footerHide: ".index, .signup";
 
 @include border-box-sizing;
 
@@ -38,9 +37,7 @@ $headerHide: ".index, .home";
 "_mixins",
 "_variables",
 "_typography",
-"modules/_forms",
-"modules/_input",
-"modules/_buttons",
+"modules/inputs/_index",
 "modules/_popups",
 "modules/_touchcarousel";
 
@@ -108,8 +105,29 @@ $headerHeight: 75px;
 	}
 }
 
+.footer {
+	display: block;
+	height: 40px;
+	width: 100%;
+	background: #fff;
+	text-align: center;
+	position: absolute;
+	bottom: 0;
+	a {
+		@include span (2.4 of 12);
+		&:last-child {
+			@include span (2.4 of 12 last);
+		}
+	}
+}
+
 #{$headerHide} {
 	.header {
+		display: none;
+	}
+}
+#{$footerHide} {
+	.footer {
 		display: none;
 	}
 }

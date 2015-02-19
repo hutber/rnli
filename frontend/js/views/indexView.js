@@ -23,7 +23,7 @@ module.exports = RN.glb.gv.extend({
 		});
 
 		if(noerror){
-			RN.fnc.popups.spinner.showme('Logging you in...');
+			RN.fnc.popups.spinner.show('Logging you in...');
 			RN.fnc.login.doLogin.doAjax($(elem.currentTarget).serializeObject());
 		}
 		return false;
