@@ -27,7 +27,7 @@ class login extends Controller {
 					//grab all details from the get stats function
 					$messages = $checkDetails;
 					//add security field
-					$messages['pkey'] = $this->login->createKey($checkDetails, 3600 * 24 * 30);
+					$messages['token'] = $this->login->createToken($checkDetails, 3600 * 24 * 30);
 				}
 			}
 			print json_encode($messages);

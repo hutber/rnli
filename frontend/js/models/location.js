@@ -2,7 +2,7 @@
  * Created by Hutber on 17/02/2015.
  */
 module.exports = function(){
-
+'use strict';
 	//var models = {};
 
 	return Backbone.Model.extend({
@@ -11,8 +11,10 @@ module.exports = function(){
 		},
 		initialize: function(){
 			this.getLocation(function(data){
+				c(typeof RN.user);
 				c(this);
 				c(data);
+				RN.fnc.popups.spinner.hide();
 			},
 			function(data){
 				c(data);

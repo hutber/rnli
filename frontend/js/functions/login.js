@@ -41,26 +41,50 @@ module.exports = {
 			return false;
 		},
 		success: function (data) {
-			if (data.uid) {
-				//Now we load the home page
-				RN.user = new RN.mdl.user({
-					fname: data.fname,
-					sname: data.sname,
-					email: data.email,
-					pkey: data.pkey,
-					uid: data.uid,
-					version: data.version
-				});
-				c(RN.user.get('fname'));
-				RN.fnc.login.addUserToLocalStorage(data);
+			if (data.token) {
+				RN.fnc.login.restoreUserFromLocalStorage(data);
 				RN.fnc.login.moveToHome();
 			} else {
-				RN.fnc.popups.message.show(data.message, 'bad');
+				RN.fnc.popups.message.show(data.message, 'Something went wrong. Please try again.');
 			}
 		}
 	},
 	addUserToLocalStorage : function(data){
 		localStorage.uid = data.uid;
+		localStorage.token = data.token;
+		localStorage.fname = data.fname;
+		localStorage.sname = data.sname;
+		localStorage.email = data.email;
+		localStorage.version = data.version;
+	},
+	restoreUserFromLocalStorage : function(data){
+		var dataToLoad = {};
+
+		if(typeof data === typeof undefined && typeof localStorage.uid !== typeof undefined){
+			dataToLoad = {
+				fname: localStorage.fname,
+				sname: localStorage.sname,
+				email: localStorage.email,
+				token: localStorage.token,
+				uid: localStorage.uid,
+				version: localStorage.version
+			}
+		} else {
+			dataToLoad = {
+				fname: data.fname,
+				sname: data.sname,
+				email: data.email,
+				token: data.token,
+				uid: data.uid,
+				version: data.version
+			}
+		}
+
+		//Now we load the home page
+		RN.user = new RN.mdl.user(dataToLoad);
+
+		//backup again to local storage
+		RN.fnc.login.addUserToLocalStorage(dataToLoad);
 	},
 	checkPrivateKey: {
 		numberOfTrys: 0,
@@ -120,13 +144,6 @@ module.exports = {
 		} else if (!loggedInState  && hash === "trip") {
 			document.location.replace('#login');
 		}
-	},
-	lookIfWeNeedPin: function () {
-		//This checker will active when the app is closed, on repoen this gets set and user has to enter their pin number
-		if (typeof sessionStorage.blockpin === "undefined") {
-			sessionStorage.setItem('appOpenedFirstTime', true);
-		}
-		sessionStorage.removeItem('blockpin');
 	},
 	doLogOut: function(){
 		localStorage.clear();

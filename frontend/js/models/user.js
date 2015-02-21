@@ -6,8 +6,11 @@ module.exports = function(){
 	//var models = {};
 
 	return Backbone.Model.extend({
+		defaults: {
+			trip:{}
+		},
 		initialize: function(){
-			alert("Welcome to this world");
+			//alert("Welcome to this world");
 		}
 	});
 

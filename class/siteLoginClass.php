@@ -113,7 +113,7 @@ class siteLogin
 		$this->createKey($userDetails, $time);
     }
 
-	public function createKey($userDetails, $time)
+	public function createToken($userDetails, $time)
 	{
 		$sessionCheck = md5(microtime());
 			//echo $sessionCheck;

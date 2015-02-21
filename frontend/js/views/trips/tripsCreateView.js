@@ -13,19 +13,15 @@ module.exports = RN.glb.gv.extend({
 	},
 	locationOn: function(ev){
 		var ev = $(ev.currentTarget);
-
-		RN.user = new RN.mdl.trip({
-			fname: data.fname,
-			sname: data.sname,
-			email: data.email,
-			pkey: data.pkey,
-			uid: data.uid,
-			version: data.version
+		$('.selected').removeClass('selected');
+		ev.addClass('selected')
+		RN.user.trip = new RN.mdl.location({
 		});
 	},
 	locationOff: function(ev){
 		var ev = $(ev.currentTarget);
-
+		$('.selected').removeClass('selected');
+		ev.addClass('selected')
 
 	},
 	render: function () {

@@ -20,4 +20,7 @@ $(document).ready(function() {
 
 	//setup ajax requests
 	RN.fnc.events.ajaxSetup();
+
+	//reload users details
+	RN.fnc.login.restoreUserFromLocalStorage();
 });
