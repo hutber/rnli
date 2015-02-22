@@ -17,6 +17,7 @@ var Router = Backbone.Router.extend({
 		// #Home ---------------------------------------------------- /
 		'trips': 'trips',
 		'createtrip': 'createtrip',
+		'currenttrip': 'currenttrip',
 	}
 });
 //Set up Routes for backbone.

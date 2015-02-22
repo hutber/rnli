@@ -47,6 +47,12 @@ module.exports = function (){
 			url: 'createtrip',
 			title: 'Create New Trip'
 		}
+		,{
+			name: 'tripsCurrentTripView',
+			path: require('../views/trips/tripsCurrentTripView'),
+			url: 'currenttrip',
+			title: 'CURRENT TRIP'
+		}
 	);
 	return currentViews;
 }

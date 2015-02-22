@@ -5,6 +5,7 @@
 window.$ = require('jquery');
 window.Backbone = require('backbone');
 Backbone.$ = $;
+//require('backbone-deep-model');
 window.Pikaday = require('pikaday');
 
 //Addons

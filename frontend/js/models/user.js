@@ -7,7 +7,11 @@ module.exports = function(){
 
 	return Backbone.Model.extend({
 		defaults: {
-			trip:{}
+			trip:{
+				name:null,
+				date:null,
+				location:null
+			}
 		},
 		initialize: function(){
 			//alert("Welcome to this world");

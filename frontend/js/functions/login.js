@@ -67,7 +67,8 @@ module.exports = {
 				email: localStorage.email,
 				token: localStorage.token,
 				uid: localStorage.uid,
-				version: localStorage.version
+				version: localStorage.version,
+				trip: localStorage.trip
 			}
 		} else {
 			dataToLoad = {
@@ -76,7 +77,8 @@ module.exports = {
 				email: data.email,
 				token: data.token,
 				uid: data.uid,
-				version: data.version
+				version: data.version,
+				trip: {}
 			}
 		}
 
