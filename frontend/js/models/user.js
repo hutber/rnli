@@ -11,7 +11,12 @@ module.exports = function(){
 		},
 		initialize: function(){
 			//alert("Welcome to this world");
-		}
+		},
+		setLocation: function(data){
+			this.set({
+				trip: data
+			})
+		},
 	});
 
 	//return models;

@@ -15,7 +15,8 @@ module.exports = RN.glb.gv.extend({
 		var ev = $(ev.currentTarget);
 		$('.selected').removeClass('selected');
 		ev.addClass('selected')
-		RN.user.trip = new RN.mdl.location({
+		var tripData = new RN.mdl.location(function(returnData){
+			RN.user.setLocation(returnData);
 		});
 	},
 	locationOff: function(ev){

@@ -7,17 +7,16 @@ module.exports = function(){
 
 	return Backbone.Model.extend({
 		defaults: {
-
+			coords: {}
 		},
-		initialize: function(){
+		initialize: function(callback){
+			var self = this;
 			this.getLocation(function(data){
-				c(typeof RN.user);
-				c(this);
-				c(data);
 				RN.fnc.popups.spinner.hide();
+				self.set('coords', data.coords);
+				callback(self.get('coords'));
 			},
 			function(data){
-				c(data);
 				RN.fnc.popups.spinner.hide();
 				RN.fnc.popups.message.show('Please make sure your GPS is turned on and try again', 'bad')
 			});
