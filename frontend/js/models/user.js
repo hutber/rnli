@@ -16,6 +16,11 @@ module.exports = function(){
 		initialize: function(){
 			//alert("Welcome to this world");
 		},
+		saveData: function(data){
+			this.set({
+				trip: data
+			})
+		},
 		setLocation: function(data){
 			this.set({
 				trip: data

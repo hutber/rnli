@@ -41,6 +41,7 @@ module.exports = {
 			return false;
 		},
 		success: function (data) {
+			c(data);
 			if (data.token) {
 				RN.fnc.login.restoreUserFromLocalStorage(data);
 				RN.fnc.login.moveToHome();
@@ -59,9 +60,8 @@ module.exports = {
 	},
 	restoreUserFromLocalStorage : function(data){
 		var dataToLoad = {};
-
 		if(typeof data === typeof undefined && typeof localStorage.uid !== typeof undefined){
-			dataToLoad = {
+			dataToLoad = RN.fnc.json.rebuildObject({
 				fname: localStorage.fname,
 				sname: localStorage.sname,
 				email: localStorage.email,
@@ -69,8 +69,8 @@ module.exports = {
 				uid: localStorage.uid,
 				version: localStorage.version,
 				trip: localStorage.trip
-			}
-		} else {
+			});
+		} else if (typeof data !== typeof undefined){
 			dataToLoad = {
 				fname: data.fname,
 				sname: data.sname,

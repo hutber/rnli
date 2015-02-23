@@ -1259,7 +1259,7 @@ body {
     width: 50%;
     float: left;
     text-align: center;
-    padding: 3px;
+    padding: 6px 3px;
     cursor: pointer; }
     .locationSelector > div.selected {
       background: #002664; }

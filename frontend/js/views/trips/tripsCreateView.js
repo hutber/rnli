@@ -17,43 +17,58 @@ module.exports = RN.glb.gv.extend({
 		var ev = $(ev.currentTarget);
 		if(this.readyToSave()){
 			var items = this.$el.find('form').serializeObject();
-			c(items.date);
-			RN.user.set('')
-			localStorage.trip = {
+			//Add trips details to local storage for later
+			var tripsDetails = {
 				name: items.name,
-				date: items.date[0],
-				location: RN.user.get('trip')
+				date:  items.date,
+				location: RN.user.get('trip').location
 			};
+			//Save data to user model
+			RN.user.saveData(tripsDetails);
+			//Now save to localStorage
+			localStorage.trip = JSON.stringify(tripsDetails);
+			//Push us onto the next page
 			RN.router.navigate('currenttrip',true);
 		}
+		return false;
+	},
+	readyToSave : function(){
+		var checker = true;
+		//Make sure nothing is empty
+		if (
+			document.getElementById('name').value.length === 0 ||
+			document.getElementById('date').value.length === 0 ||
+			document.getElementById('location').value.length === 0
+		){
+			checker = false;
+			$('.save').prop('disabled', true)
+		}
+		//If nothing is empty enable the save button
+		if(checker) $('.save').prop('disabled', false)
+		//return state of button
+		return checker;
 	},
 	locationOn: function(ev){
-		var ev = $(ev.currentTarget)
+		var ev = $(ev.currentTarget),
 			self = this;
 		$('.selected').removeClass('selected');
 		ev.addClass('selected')
 		var tripData = new RN.mdl.location(function(returnData){
-			RN.user.setLocation(returnData);
+			//c(returnData);
+			//RN.user.setLocation(returnData);
+			RN.user.get('trip').location = returnData;
 			document.getElementById('location').value = 'something';
 			self.readyToSave();
 		});
-	},
-	readyToSave : function(){
-		var checker = true;
-		if (document.getElementById('name').value.length === 0 || document.getElementById('date').value.length === 0 || document.getElementById('location').value.length === 0){
-			checker = false;
-		}
-		if(checker)
-		$('.save').prop('disabled', false)
-		return checker;
 	},
 	locationOff: function(ev){
 		var ev = $(ev.currentTarget);
 		$('.selected').removeClass('selected');
 		ev.addClass('selected')
-
+		//TODO - remove location from save settings
 	},
 	render: function () {
+		var self = this;
 		//load data in ejs
 		this.$el.html(this.templates.home());
 
@@ -63,6 +78,7 @@ module.exports = RN.glb.gv.extend({
 			format: 'MMMM Do YYYY',
 			onSelect: function() {
 				document.getElementById('date').value = this.getMoment().format();
+				self.readyToSave();
 			}
 		});
 	}
