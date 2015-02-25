@@ -10,6 +10,9 @@ RN.fnc = require('./functions');
 RN.mdl = require('./models');
 
 $(document).ready(function() {
+    //reload users details
+    RN.fnc.login.restoreUserFromLocalStorage();
+    
 	//start backbone app
 	Backbone.history.start();
 
@@ -21,6 +24,4 @@ $(document).ready(function() {
 	//setup ajax requests
 	RN.fnc.events.ajaxSetup();
 
-	//reload users details
-	RN.fnc.login.restoreUserFromLocalStorage();
 });

@@ -59,6 +59,7 @@ module.exports = {
 		localStorage.version = data.version;
 	},
 	restoreUserFromLocalStorage : function(data){
+        c('rebuild');
 		var dataToLoad = {};
 		if(typeof data === typeof undefined && typeof localStorage.uid !== typeof undefined){
 			dataToLoad = RN.fnc.json.rebuildObject({
