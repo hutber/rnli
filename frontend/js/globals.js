@@ -23,6 +23,7 @@ module.exports =  function() {
 			return false;
 		},
 		render: function(){
+            c('rendiner');
 			this.$el.html(this.templates.login());
 		}
 	});

@@ -1238,9 +1238,6 @@ body {
 ==================================================
     #Users
 */
-.signup .header {
-  background: #002664; }
-
 .signup .termsbox {
   width: 100px;
   margin: 0 auto;
@@ -1331,14 +1328,5 @@ body {
 ==================================================
     #Header
 */
-.header {
-  background: #EF8201; }
-  .weather .header {
-    background: #D13924; }
-  .safety .header {
-    background: #9C1B31; }
-  .catch .header {
-    background: #28243b; }
-
 
 /*# sourceMappingURL=app/www/css/style.css.map */
