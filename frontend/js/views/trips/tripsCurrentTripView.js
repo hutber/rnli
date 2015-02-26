@@ -11,7 +11,7 @@ module.exports = RN.glb.gv.extend({
 	},
 	render: function () {
 		//load data in ejs
-		this.$el.html(this.templates.home());
+		this.$el.html(this.templates.home(RN.user.get('trip')));
 
 	}
 });

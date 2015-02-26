@@ -1264,6 +1264,18 @@ body {
     .locationSelector > div.selected {
       background: #002664; }
 
+.tripBox i {
+  width: 15.25424%;
+  float: left;
+  margin-right: 1.69492%;
+  text-align: center; }
+.tripBox .text {
+  width: 83.05085%;
+  float: right;
+  margin-right: 0; }
+  .tripBox .text span {
+    font-weight: bold; }
+
 .landingpage {
   position: fixed;
   height: 100%;

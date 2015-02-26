@@ -14,3 +14,16 @@
 		}
 	}
 }
+
+.tripBox {
+	i {
+		@include span(2 of 12);
+		text-align: center;
+	}
+	.text {
+		@include span(10 of 12 last);
+		span {
+			font-weight: bold;
+		}
+	}
+}
