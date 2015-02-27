@@ -5,16 +5,11 @@
 
 require('./core');
 require('./router');
+RN.mdl = require('./models');
 RN.glb = require('./globals');
 RN.fnc = require('./functions');
-RN.mdl = require('./models');
 
 $(document).ready(function() {
-    //reload users details
-    RN.fnc.login.restoreUserFromLocalStorage();
-    
-	//start backbone app
-	Backbone.history.start();
 
 	//On page load run onHashChange to update styles/class etc
 	RN.fnc.events.onHashChange();
@@ -24,4 +19,16 @@ $(document).ready(function() {
 	//setup ajax requests
 	RN.fnc.events.ajaxSetup();
 
+	//reload users details
+	RN.fnc.login.restoreUserFromLocalStorage();
+
+	//set up the global view for all menu items etc
+	RN.glb.gv = new RN.glb.gv();
+	RN.glb.gv.render();
+	c(RN.glb.gv);
+
+	require('./functions/viewSetup');
+
+	//start backbone app
+	Backbone.history.start();
 });

@@ -3,15 +3,11 @@
  */
 module.exports = function () {
 	'use strict';
-
+	c(typeof RN.glb);
 	/*==================================================
 	 Views Setup
 	 ================================================== */
 	var currentViews = require('./views')();
-
-	//set up the global view for all menu items etc
-	RN.glb.gv = new RN.glb.gv();
-	RN.glb.gv.render();
 
 	//set up all other views
 	currentViews.forEach(function (me) {
@@ -24,4 +20,4 @@ module.exports = function () {
 			RN.glb.views[me.name].render(param);
 		});
 	});
-};
+}();

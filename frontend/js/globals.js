@@ -4,7 +4,10 @@
 module.exports =  function() {
 	'use strict';
 	var globals = require('./globalsVars');
+
+	//Get views ready
 	globals.views = [];
+
 	/*==================================================
 	 Global View
 	 ================================================== */
@@ -23,7 +26,10 @@ module.exports =  function() {
 			return false;
 		},
 		render: function(){
-            c('rendiner');
+			//reload users details
+			RN.fnc.login.restoreUserFromLocalStorage();
+
+			//render Page
 			this.$el.html(this.templates.login());
 		}
 	});
