@@ -13,6 +13,7 @@ $(document).ready(function() {
 
 	//On page load run onHashChange to update styles/class etc
 	RN.fnc.events.onHashChange();
+
 	//Set up hash change for every time it changes
 	window.addEventListener("hashchange", RN.fnc.events.onHashChange, false);
 
@@ -25,7 +26,6 @@ $(document).ready(function() {
 	//set up the global view for all menu items etc
 	RN.glb.gv = new RN.glb.gv();
 	RN.glb.gv.render();
-	c(RN.glb.gv);
 
 	require('./functions/viewSetup');
 
