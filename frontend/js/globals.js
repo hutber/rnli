@@ -11,7 +11,7 @@ module.exports =  function() {
 	/*==================================================
 	 Global View
 	 ================================================== */
-	globals.gv = Backbone.View.extend({
+	globals.gvCreator = Backbone.View.extend({
 		el: '.shell',
 		events: {
 			//'click a': 'navigate'
@@ -26,13 +26,14 @@ module.exports =  function() {
 			return false;
 		},
 		render: function(){
-			//reload users details
-			RN.fnc.login.restoreUserFromLocalStorage();
-
 			//render Page
 			this.$el.html(this.templates.login());
 		}
 	});
+
+	//set up the global view for all menu items etc
+	globals.gv = new globals.gvCreator();
+	globals.gv.render();
 
 	return globals;
 }();

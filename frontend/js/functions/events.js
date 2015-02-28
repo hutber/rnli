@@ -17,8 +17,6 @@ module.exports = {
 		//On page load update body class with current page
 		RN.fnc.url.bodyClass(RN.glb.hash, RN.glb.previoushash);
 
-		//Update Title
-		RN.fnc.titlebar.title(RN.glb.title);
 		//Resize the $('page') element
 		//TP.changeHeightofContent();
 	},
