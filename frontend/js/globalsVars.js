@@ -56,7 +56,5 @@ module.exports =  function() {
 	globals.hash = 'index';
 	globals.previoushash = 'index';
 
-	//Title Bar
-	globals.title = "";
 	return globals;
 }();

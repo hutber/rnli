@@ -8,6 +8,7 @@ require('./router');
 RN.mdl = require('./models');
 RN.glb = require('./globals');
 RN.fnc = require('./functions');
+require('./functions/viewSetup');
 
 $(document).ready(function() {
 
@@ -19,15 +20,6 @@ $(document).ready(function() {
 
 	//setup ajax requests
 	RN.fnc.events.ajaxSetup();
-
-	//reload users details
-	RN.fnc.login.restoreUserFromLocalStorage();
-
-	//set up the global view for all menu items etc
-	RN.glb.gv = new RN.glb.gv();
-	RN.glb.gv.render();
-
-	require('./functions/viewSetup');
 
 	//start backbone app
 	Backbone.history.start();
