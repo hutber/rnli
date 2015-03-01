@@ -2,7 +2,7 @@ include ../mixins
 .tripBox
     i(class='icon-calendar')
     .text Day
-        span 25 Oct 2014
+        span #{RN.user.get('trip').date[0]}
 .tripBox
     i(class='icon-globe')
     .text Brittany,
