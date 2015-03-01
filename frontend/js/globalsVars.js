@@ -14,7 +14,6 @@ module.exports =  function() {
 	globals.url.protocol = 'http';
 	globals.url.envioment = 'liveApp';
 	globals.url.cdn = 'www.topazmarinesafetyapp.com/';
-	globals.url.ajax = globals.url.http+'app';
 
 	//check type of envoiment we are in
 	globals.url.checkEnvio = function () {
@@ -32,6 +31,7 @@ module.exports =  function() {
 		}
 		globals.url.http = globals.url.protocol+'://'+globals.url.cdn;
 		globals.url.ajax = globals.url.http+ 'app/';
+		globals.url.api = globals.url.http+'api/';
 	};
 
 	// #Check if we are in the app... If we are do nothing

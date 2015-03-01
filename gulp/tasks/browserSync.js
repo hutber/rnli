@@ -5,6 +5,8 @@ gulp.task('browserSync', ['build'], function () {
 	browserSync({
 		proxy: "rnli.local/app/www/",
 		files: [
+			// Php files n stuff.
+			//"./controllers/**/*.php",
 			// Only reload when the style.css has been built.
 			"./app/www/css/style.css",
 			//reload with any js changes in the app/www folder

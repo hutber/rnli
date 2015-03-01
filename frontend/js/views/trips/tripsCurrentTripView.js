@@ -10,8 +10,27 @@ module.exports = RN.glb.gvCreator.extend({
 		'click .right': 'signupForm',
 	},
 	render: function () {
-		//load data in ejs
-		this.$el.html(this.templates.home(RN.user.get('trip')));
+		var self = this;
+		$.ajax({
+			url: RN.glb.url.api + 'returndata',
+			//type: 'POST',
+			dataType: 'json',
+			data: {
+
+			},
+			error: function (data) {
+				$('.btn.signup').removeAttr('disabled');
+				RN.fnc.popups.message.show('Opps, sorry! The registration failed. Please try again?!... - ' + data.bad, 'bad');
+			},
+			success: function (data) {
+				c(data);
+				var data = {
+					date: RN.user.get('trip').date[0]
+				};
+				//load data in ejs
+				self.$el.html(self.templates.home(data));
+			}
+		});
 
 	}
 });
