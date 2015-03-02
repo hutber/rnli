@@ -3,8 +3,10 @@
  */
 module.exports = {
 	checkParseOrObject: function (data) {
-		if (data !== null && typeof data !== "object" && typeof data !== "string" || data.substring(0,1) === "{") {
+		if (typeof data !== typeof undefined && data !== null && typeof data !== "object" && typeof data !== "string") {
 			return JSON.parse(data);
+		}  else if (typeof data !== typeof undefined && data.substring(0,1) === "{") {
+            return JSON.parse(data);
 		}  else if (typeof data === "object" || typeof data === "string") {
 			return data;
 		} else {

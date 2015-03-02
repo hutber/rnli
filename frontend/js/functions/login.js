@@ -59,8 +59,10 @@ module.exports = {
 		localStorage.version = data.version;
 	},
 	restoreUserFromLocalStorage : function(data){
-		var dataToLoad = {};
-		if(typeof data === typeof undefined && typeof localStorage.uid !== typeof undefined){
+		var dataToLoad = {},
+            checker = false;
+
+        if(typeof data === typeof undefined && typeof localStorage.uid !== typeof undefined){
 			dataToLoad = RN.fnc.json.rebuildObject({
 				fname: localStorage.fname,
 				sname: localStorage.sname,
@@ -70,6 +72,7 @@ module.exports = {
 				version: localStorage.version,
 				trip: localStorage.trip
 			});
+            checker = true;
 		} else if (typeof data !== typeof undefined){
 			dataToLoad = {
 				fname: data.fname,
@@ -80,13 +83,16 @@ module.exports = {
 				version: data.version,
 				trip: {}
 			}
+            checker = true;
 		}
 
-		//Now we load the home page
-		RN.user = new RN.mdl.user(dataToLoad);
+        if(checker) {
+            //Now we load the home page
+            RN.user = new RN.mdl.user(dataToLoad);
+            //backup again to local storage
+            RN.fnc.login.addUserToLocalStorage(dataToLoad);
+        }
 
-		//backup again to local storage
-		RN.fnc.login.addUserToLocalStorage(dataToLoad);
 	},
 	checkPrivateKey: {
 		numberOfTrys: 0,
@@ -135,15 +141,17 @@ module.exports = {
 		}
 	},
 	checkLoginState: function () { //We use this state to enable us to use the function on every page load to check if the user is logged in
-		var hash = window.location.hash.substring(1);
+		var hash = window.location.hash.substring(1),
+             logInOrOutChecker = (hash === "" || hash === "signup" || hash === "forgotten" || hash === "login");
+
 		var loggedInState = true;
 		if (localStorage.getItem('uid') === null) {
 			loggedInState = false;
 		}
 
-		if (loggedInState && (hash === "" || hash === "signup" || hash === "forgotten" || hash === "login")) {
+		if (loggedInState && logInOrOutChecker) {
 			window.location.href = "#home";
-		} else if (!loggedInState  && hash === "trip") {
+		} else if (!loggedInState && !logInOrOutChecker) {
 			document.location.replace('#login');
 		}
 	},
