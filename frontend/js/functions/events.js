@@ -43,7 +43,7 @@ module.exports = {
 				var status = request.responseJSON.status,
 					message = request.responseJSON.message;
 
-				if (status === "operation_error") {
+				if (status === "fail") {
 					RN.fnc.popups.message.show(request.responseJSON.message, 'bad', 2);
 				}
 			}

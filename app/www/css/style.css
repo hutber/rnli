@@ -1273,6 +1273,16 @@ body {
   .tripBox .text span {
     font-weight: bold; }
 
+/*======= Map Styling ============*/
+.gmnoprint a, .gmnoprint span {
+  display: none; }
+
+.gmnoprint div {
+  background: none !important; }
+
+#GMapsID div div a div img {
+  display: none; }
+
 .landingpage {
   position: fixed;
   height: 100%;

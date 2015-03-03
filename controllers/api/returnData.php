@@ -4,6 +4,8 @@ class returnData extends Controller {
     function get()
     {
 
+        header('Content-type: application/javascript');
+
         require_once $_SERVER['DOCUMENT_ROOT'] .'/db/db.php';
         $db = new DB();
 
@@ -21,23 +23,31 @@ class returnData extends Controller {
             $type = 'wxfcs';
         };
 
-        //Get nearest Location Site
-        $siteInfo = $dataStore->getArea($lat, $long);
-        $siteID = $siteInfo[0]['id'];
+        if($lat !="" && $long !="") {
+            //Get nearest Location Site
+            $siteInfo = $dataStore->getArea($lat, $long);
+            $siteID = $siteInfo[0]['id'];
 
-        //get data from feed
-        $dataFeed = json_decode(file_get_contents('http://datapoint.metoffice.gov.uk/public/data/val/'.$type.'/all/json/'.$siteID.'?res=3hourly&key='.$key));
+            //get data from feed
+            $dataFeed = json_decode(file_get_contents('http://datapoint.metoffice.gov.uk/public/data/val/' . $type . '/all/json/' . $siteID . '?res=3hourly&key=' . $key));
 
-        //turn data into something we can use
-        $dataToReturn = [
-            'area' => $dataFeed->SiteRep->DV->Location->name,
-            'country' => $dataFeed->SiteRep->DV->Location->country,
-            'continent' => $dataFeed->SiteRep->DV->Location->continent,
-            'weather' => $dataFeed->SiteRep->DV->Location->Period[0]->Rep[0]
-        ];
+            //turn data into something we can use
+            $dataToReturn = [
+                'lat' => $lat,
+                'long' => $long,
+                'area' => $dataFeed->SiteRep->DV->Location->name,
+                'country' => $dataFeed->SiteRep->DV->Location->country,
+                'continent' => $dataFeed->SiteRep->DV->Location->continent,
+                'weather' => $dataFeed->SiteRep->DV->Location->Period[0]->Rep[0]
+            ];
 
-        header('Content-type: application/javascript');
-        print_r($dataToReturn);
+            print json_encode($dataToReturn);
+        }else{
+            print json_encode([
+                'status'=>'fail',
+                'message'=>'Couldn\'t find location, please try again'
+            ]);
+        }
 //        print_r($dataFeed->SiteRep->DV->Location);
 //        echo json_encode($info[0]);
     }
