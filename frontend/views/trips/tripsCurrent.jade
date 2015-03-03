@@ -14,12 +14,36 @@ include ../mixins
         | Long
         span #{long}
 .map
+    .info
+        .wind
+            i(class='icon-right-circled')
+            | #{weather.G}
+        .current
+            i(class='icon-right-circled')
+            | #{weather.D}
+        .enlarge
+            i(class='icon-zoom-in-outline') ENLARGE
     div(id="map-canvas", style="width:100%; height:170px;")
-    .info 
-.stars
-    .starcontent
-        .star.checked
-        .star.checked
-        .star.checked
-        .star.checked
-        .star
+.section
+    .air
+        .icon
+            span AIR
+            i(class='icon-air')
+        .info
+            | #{weather.T}
+    .sea
+        .icon
+            span SEA
+            i(class='icon-temperatire')
+        .info
+            | #{1.5}
+            span.degrees 0
+            span.celceus C
+.section
+    .tideTitle
+        TIDE
+        i(class='icon-waves')
+        +tideBox()
+        +tideBox()
+        +tideBox()
+        +tideBox()

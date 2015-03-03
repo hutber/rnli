@@ -28,15 +28,57 @@
 	}
 }
 
-#map-canvas {
+.map {
+	position: relative;
+	.info {
+		width: 100%;
+		height: 20px;
+		background: rgba(254, 255, 255, 0.54);
+		position: absolute;
+		bottom: 0;
+		z-index: 3;
+	}
 
-}/*======= Map Styling ============*/
-.gmnoprint a, .gmnoprint span {
-	display:none;
+	.wind {
+		@include span(3 of 12);
+	}
+	.current {
+		@include span(3 of 12);
+	}
+	.enlarge {
+		@include span(4 of 12 last);
+	}
+
+	#map-canvas {
+
+	}
 }
-.gmnoprint div {
-	background:none !important;
+
+.air, .sea {
+	@include span (6 of 12);
+	text-align: center;
 }
-#GMapsID div div a div img{
-	display:none;
+
+.sea {
+	@include span (6 of 12 last);
 }
+
+.tideBoxes {
+	.tideBox {
+		@include span(3 of 12);
+		&:last-child {
+			@include span(3 of 12 last);
+		}
+	}
+}
+	
+///*======= Map Styling ============*/
+//.gmnoprint a, .gmnoprint span {
+//	display:none;
+//}
+//.gmnoprint div {
+//	background:none !important;
+//}
+//#GMapsID div div a div img{
+//	display:none;
+//}

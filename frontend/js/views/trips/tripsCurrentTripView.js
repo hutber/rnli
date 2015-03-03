@@ -21,30 +21,27 @@ module.exports = RN.glb.gvCreator.extend({
 			},
 			success: function (data) {
 				c(data);
-				//load data in ejs
-				self.$el.html(self.templates.home(data));
-				//
-				//var myOptions = {
-				//	center: new google.maps.LatLng(),
-				//	zoom: 14,
-				//	mapTypeId: google.maps.MapTypeId.ROADMAP,
-				//	disableDefaultUI: true
-				//};
 
-				//var map = new google.maps.Map(document.getElementById("map"), myOptions);
+				if(data.weather === null){
+					RN.router.navigate('createtrip', true);
+					RN.fnc.popups.message.show('We\'re sorry, but we can not currently get details for this area at this time', 'bad', 4);
+				}else {
+					//load data in ejs
+					self.$el.html(self.templates.home(data));
 
-				var myLatlng = new google.maps.LatLng(RN.user.get('trip').location.latitude,RN.user.get('trip').location.longitude);
-				var mapOptions = {
-					zoom: 13,
-					center: myLatlng,
-					disableDefaultUI: true
+					var myLatlng = new google.maps.LatLng(RN.user.get('trip').location.latitude, RN.user.get('trip').location.longitude);
+					var mapOptions = {
+						zoom: 13,
+						center: myLatlng,
+						disableDefaultUI: true
+					};
+					var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+					var marker = new google.maps.Marker({
+						position: myLatlng,
+						map: map,
+					});
 				}
-				var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
-				var marker = new google.maps.Marker({
-					position: myLatlng,
-					map: map,
-				});
 			}
 		});
 

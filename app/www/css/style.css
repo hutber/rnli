@@ -189,7 +189,7 @@ table {
   content: '\e805'; }
 
 /* '' */
-.icon-calendar-outlilne:before {
+.icon-table:before {
   content: '\e806'; }
 
 /* '' */
@@ -329,6 +329,46 @@ table {
   content: '\e828'; }
 
 /* '' */
+.icon-zoom-in-outline:before {
+  content: '\e829'; }
+
+/* '' */
+.icon-left-circled:before {
+  content: '\e82a'; }
+
+/* '' */
+.icon-right-circled:before {
+  content: '\e82b'; }
+
+/* '' */
+.icon-air:before {
+  content: '\e82c'; }
+
+/* '' */
+.icon-temperatire:before {
+  content: '\e82d'; }
+
+/* '' */
+.icon-attention:before {
+  content: '\e82e'; }
+
+/* '' */
+.icon-waves:before {
+  content: '\e82f'; }
+
+/* '' */
+.icon-wind:before {
+  content: '\e830'; }
+
+/* '' */
+.icon-globe-2:before {
+  content: '\e831'; }
+
+/* '' */
+.icon-gauge:before {
+  content: '\e832'; }
+
+/* '' */
 .test {
   -moz-transform: skew(25deg, 10deg);
   -o-transform: skew(25deg, 10deg);
@@ -1273,15 +1313,47 @@ body {
   .tripBox .text span {
     font-weight: bold; }
 
-/*======= Map Styling ============*/
-.gmnoprint a, .gmnoprint span {
-  display: none; }
+.map {
+  position: relative; }
+  .map .info {
+    width: 100%;
+    height: 20px;
+    background: rgba(254, 255, 255, 0.54);
+    position: absolute;
+    bottom: 0;
+    z-index: 3; }
+  .map .wind {
+    width: 23.72881%;
+    float: left;
+    margin-right: 1.69492%; }
+  .map .current {
+    width: 23.72881%;
+    float: left;
+    margin-right: 1.69492%; }
+  .map .enlarge {
+    width: 32.20339%;
+    float: right;
+    margin-right: 0; }
 
-.gmnoprint div {
-  background: none !important; }
+.air, .sea {
+  width: 49.15254%;
+  float: left;
+  margin-right: 1.69492%;
+  text-align: center; }
 
-#GMapsID div div a div img {
-  display: none; }
+.sea {
+  width: 49.15254%;
+  float: right;
+  margin-right: 0; }
+
+.tideBoxes .tideBox {
+  width: 23.72881%;
+  float: left;
+  margin-right: 1.69492%; }
+  .tideBoxes .tideBox:last-child {
+    width: 23.72881%;
+    float: right;
+    margin-right: 0; }
 
 .landingpage {
   position: fixed;

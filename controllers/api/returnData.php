@@ -22,6 +22,10 @@ class returnData extends Controller {
         }else{
             $type = 'wxfcs';
         };
+        $error = json_encode([
+            'status'=>'fail',
+            'message'=>'Couldn\'t find location, please try again'
+        ]);
 
         if($lat !="" && $long !="") {
             //Get nearest Location Site
@@ -29,7 +33,17 @@ class returnData extends Controller {
             $siteID = $siteInfo[0]['id'];
 
             //get data from feed
-            $dataFeed = json_decode(file_get_contents('http://datapoint.metoffice.gov.uk/public/data/val/' . $type . '/all/json/' . $siteID . '?res=3hourly&key=' . $key));
+            $url = 'http://datapoint.metoffice.gov.uk/public/data/val/' . $type . '/all/json/' . $siteID . '?res=3hourly&key=' . $key;
+
+            function get_http_response_code($url) {
+                $headers = get_headers($url);
+                return substr($headers[0], 9, 3);
+            }
+            if(get_http_response_code($url) != "200"){
+                print $error;
+            }else{
+                $dataFeed = json_decode(file_get_contents($url));
+            }
 
             //turn data into something we can use
             $dataToReturn = [
@@ -38,17 +52,13 @@ class returnData extends Controller {
                 'area' => $dataFeed->SiteRep->DV->Location->name,
                 'country' => $dataFeed->SiteRep->DV->Location->country,
                 'continent' => $dataFeed->SiteRep->DV->Location->continent,
-                'weather' => $dataFeed->SiteRep->DV->Location->Period[0]->Rep[0]
+                'weather' => $dataFeed->SiteRep->DV->Location->Period[0]->Rep[0],
+                'key' => $dataFeed->SiteRep->Wx->Param
             ];
 
             print json_encode($dataToReturn);
         }else{
-            print json_encode([
-                'status'=>'fail',
-                'message'=>'Couldn\'t find location, please try again'
-            ]);
+            print $error;
         }
-//        print_r($dataFeed->SiteRep->DV->Location);
-//        echo json_encode($info[0]);
     }
 }
