@@ -21,14 +21,9 @@ module.exports = RN.glb.gvCreator.extend({
 			},
 			success: function (data) {
 				c(data);
+				if(typeof data.weather !== typeof undefined && data.weather === null){
 
-				if(data.weather === null){
-					RN.router.navigate('createtrip', true);
-					RN.fnc.popups.message.show('We\'re sorry, but we can not currently get details for this area at this time', 'bad', 4);
 				}else {
-					//load data in ejs
-					self.$el.html(self.templates.home(data));
-
 					var myLatlng = new google.maps.LatLng(RN.user.get('trip').location.latitude, RN.user.get('trip').location.longitude);
 					var mapOptions = {
 						zoom: 13,
@@ -42,6 +37,8 @@ module.exports = RN.glb.gvCreator.extend({
 						map: map,
 					});
 				}
+				//load data in ejs
+				self.$el.html(self.templates.home(data));
 			}
 		});
 

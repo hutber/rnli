@@ -22,10 +22,10 @@ class returnData extends Controller {
         }else{
             $type = 'wxfcs';
         };
-        $error = json_encode([
+        $error = [
             'status'=>'fail',
             'message'=>'Couldn\'t find location, please try again'
-        ]);
+        ];
 
         if($lat !="" && $long !="") {
             //Get nearest Location Site
@@ -34,13 +34,21 @@ class returnData extends Controller {
 
             //get data from feed
             $url = 'http://datapoint.metoffice.gov.uk/public/data/val/' . $type . '/all/json/' . $siteID . '?res=3hourly&key=' . $key;
+			$curl_handle=curl_init();
+			curl_setopt($curl_handle, CURLOPT_URL,$url);
+			curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 2);
+			curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt($curl_handle, CURLOPT_USERAGENT, 'RNLI Safety App');
+			$query = curl_exec($curl_handle);
+			curl_close($curl_handle);
+			print_r($query);
 
             function get_http_response_code($url) {
                 $headers = get_headers($url);
                 return substr($headers[0], 9, 3);
             }
             if(get_http_response_code($url) != "200"){
-                print $error;
+				$dataToReturn = $error;
             }else{
                 $dataFeed = json_decode(file_get_contents($url));
 				//turn data into something we can use
@@ -55,7 +63,7 @@ class returnData extends Controller {
 				];
             }
 
-            print json_encode($dataToReturn);
+//            print json_encode($dataToReturn);
         }else{
             print $error;
         }
