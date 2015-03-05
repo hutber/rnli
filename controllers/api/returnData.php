@@ -43,18 +43,17 @@ class returnData extends Controller {
                 print $error;
             }else{
                 $dataFeed = json_decode(file_get_contents($url));
+				//turn data into something we can use
+				$dataToReturn = [
+					'lat' => $lat,
+					'long' => $long,
+					'area' => $dataFeed->SiteRep->DV->Location->name,
+					'country' => $dataFeed->SiteRep->DV->Location->country,
+					'continent' => $dataFeed->SiteRep->DV->Location->continent,
+					'weather' => $dataFeed->SiteRep->DV->Location->Period[0]->Rep[0],
+					'key' => $dataFeed->SiteRep->Wx->Param
+				];
             }
-
-            //turn data into something we can use
-            $dataToReturn = [
-                'lat' => $lat,
-                'long' => $long,
-                'area' => $dataFeed->SiteRep->DV->Location->name,
-                'country' => $dataFeed->SiteRep->DV->Location->country,
-                'continent' => $dataFeed->SiteRep->DV->Location->continent,
-                'weather' => $dataFeed->SiteRep->DV->Location->Period[0]->Rep[0],
-                'key' => $dataFeed->SiteRep->Wx->Param
-            ];
 
             print json_encode($dataToReturn);
         }else{

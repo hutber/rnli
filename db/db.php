@@ -3,7 +3,6 @@
 include_once $_SERVER['DOCUMENT_ROOT'] .'/db/MDB2.php';
 
 class DB {
-
     function __construct() {
 		$this->conn=MDB2::connect(array(
 			'phptype'  => 'mysql',
@@ -14,10 +13,9 @@ class DB {
 		));
 		$this->conn->setFetchMode(MDB2_FETCHMODE_ASSOC);
 
-
-		if (PEAR::isError($mdb2))
+		if (PEAR::isError($this->conn))
 		{
-			die($mdb2->getMessage());
+			die($this->conn->getMessage());
 		}
 		$this->conn->loadModule('Extended');
     }
