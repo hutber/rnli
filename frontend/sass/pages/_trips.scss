@@ -15,70 +15,80 @@
 	}
 }
 
-.tripBox {
-	i {
-		@include span(2 of 12);
+
+.tripMap {
+	.section {
+		margin: 4px 0;
+		padding: 4px 0;
 		text-align: center;
+		@include clear;
 	}
-	.text {
-		@include span(10 of 12 last);
-		span {
-			font-weight: bold;
-		}
-	}
-}
-
-.map {
-	position: relative;
-	.info {
-		width: 100%;
-		height: 20px;
-		background: rgba(254, 255, 255, 0.54);
-		position: absolute;
-		bottom: 0;
-		z-index: 3;
-	}
-
-	.wind {
-		@include span(3 of 12);
-	}
-	.current {
-		@include span(3 of 12);
-	}
-	.enlarge {
-		@include span(4 of 12 last);
-	}
-
-	#map-canvas {
-
-	}
-}
-
-.air, .sea {
-	@include span (6 of 12);
-	text-align: center;
-}
-
-.sea {
-	@include span (6 of 12 last);
-}
-
-.tideBoxes {
 	.tideBox {
 		@include span(3 of 12);
 		&:last-child {
 			@include span(3 of 12 last);
 		}
+		i {
+			display: block;
+		}
 	}
+	.tripBox {
+		i {
+			@include span(2 of 12);
+			text-align: center;
+		}
+		.text {
+			@include span(10 of 12 last);
+			span {
+				font-weight: bold;
+			}
+		}
+	}
+
+	.map {
+		position: relative;
+		.info {
+			width: 100%;
+			height: 20px;
+			background: rgba(254, 255, 255, 0.54);
+			position: absolute;
+			bottom: 0;
+			z-index: 3;
+		}
+
+		.wind {
+			@include span(3 of 12);
+		}
+		.current {
+			@include span(3 of 12);
+		}
+		.enlarge {
+			@include span(4 of 12 last);
+		}
+
+		#map-canvas {
+
+		}
+	}
+
+	.air, .sea {
+		@include span(6 of 12);
+		text-align: center;
+	}
+
+	.sea {
+		@include span(6 of 12 last);
+	}
+
+
+	///*======= Map Styling ============*/
+	//.gmnoprint a, .gmnoprint span {
+	//	display:none;
+	//}
+	//.gmnoprint div {
+	//	background:none !important;
+	//}
+	//#GMapsID div div a div img{
+	//	display:none;
+	//}
 }
-	
-///*======= Map Styling ============*/
-//.gmnoprint a, .gmnoprint span {
-//	display:none;
-//}
-//.gmnoprint div {
-//	background:none !important;
-//}
-//#GMapsID div div a div img{
-//	display:none;
-//}

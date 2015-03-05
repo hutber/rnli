@@ -847,7 +847,7 @@ input[type=checkbox] {
 #messagebox {
   height: 12%;
   min-height: 51px;
-  position: absolute;
+  position: fixed;
   display: block;
   width: 100%;
   border-top: 1px solid #000;
@@ -1246,6 +1246,10 @@ body {
       -moz-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%); }
 
+.content {
+  overflow-y: scroll;
+  overflow-x: hidden; }
+
 .footer {
   display: block;
   height: 40px;
@@ -1301,59 +1305,62 @@ body {
     .locationSelector > div.selected {
       background: #002664; }
 
-.tripBox i {
+.tripMap .section {
+  margin: 4px 0;
+  padding: 4px 0;
+  text-align: center;
+  overflow: hidden; }
+.tripMap .tideBox {
+  width: 23.72881%;
+  float: left;
+  margin-right: 1.69492%; }
+  .tripMap .tideBox:last-child {
+    width: 23.72881%;
+    float: right;
+    margin-right: 0; }
+  .tripMap .tideBox i {
+    display: block; }
+.tripMap .tripBox i {
   width: 15.25424%;
   float: left;
   margin-right: 1.69492%;
   text-align: center; }
-.tripBox .text {
+.tripMap .tripBox .text {
   width: 83.05085%;
   float: right;
   margin-right: 0; }
-  .tripBox .text span {
+  .tripMap .tripBox .text span {
     font-weight: bold; }
-
-.map {
+.tripMap .map {
   position: relative; }
-  .map .info {
+  .tripMap .map .info {
     width: 100%;
     height: 20px;
     background: rgba(254, 255, 255, 0.54);
     position: absolute;
     bottom: 0;
     z-index: 3; }
-  .map .wind {
+  .tripMap .map .wind {
     width: 23.72881%;
     float: left;
     margin-right: 1.69492%; }
-  .map .current {
+  .tripMap .map .current {
     width: 23.72881%;
     float: left;
     margin-right: 1.69492%; }
-  .map .enlarge {
+  .tripMap .map .enlarge {
     width: 32.20339%;
     float: right;
     margin-right: 0; }
-
-.air, .sea {
+.tripMap .air, .tripMap .sea {
   width: 49.15254%;
   float: left;
   margin-right: 1.69492%;
   text-align: center; }
-
-.sea {
+.tripMap .sea {
   width: 49.15254%;
   float: right;
   margin-right: 0; }
-
-.tideBoxes .tideBox {
-  width: 23.72881%;
-  float: left;
-  margin-right: 1.69492%; }
-  .tideBoxes .tideBox:last-child {
-    width: 23.72881%;
-    float: right;
-    margin-right: 0; }
 
 .landingpage {
   position: fixed;

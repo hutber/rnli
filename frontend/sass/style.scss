@@ -105,6 +105,13 @@ $headerHeight: 75px;
 	}
 }
 
+///* #Content ------------------------------------------------------------------------ */
+.content {
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+///* #Footer ------------------------------------------------------------------------ */
 .footer {
 	display: block;
 	height: 40px;

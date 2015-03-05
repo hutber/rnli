@@ -56,5 +56,8 @@ module.exports =  function() {
 	globals.hash = 'index';
 	globals.previoushash = 'index';
 
+	//UI's
+	globals.pageHeight = 0;
+
 	return globals;
 }();

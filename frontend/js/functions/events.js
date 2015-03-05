@@ -18,7 +18,7 @@ module.exports = {
 		RN.fnc.url.bodyClass(RN.glb.hash, RN.glb.previoushash);
 
 		//Resize the $('page') element
-		//TP.changeHeightofContent();
+		RN.fnc.heights.changeHeightofContent();
 	},
 	ajaxSetup: function(){
 		//create defaults for all ajax calls within sp

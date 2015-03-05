@@ -1,51 +1,73 @@
 include ../mixins
-.nodata
-    Sorry
-.tripBox
-    i(class='icon-calendar')
-    .text Day
-        span #{RN.user.get('trip').date[0]}
-.tripBox
-    i(class='icon-globe')
-    .text #{area},
-        span #{country}
-.tripBox
-    i(class='icon-map')
-    .text Lat
-        span #{lat}
-        | Long
-        span #{long}
-.map
-    .info
-        .wind
-            i(class='icon-right-circled')
-            | #{weather.G}
-        .current
-            i(class='icon-right-circled')
-            | #{weather.D}
-        .enlarge
-            i(class='icon-zoom-in-outline') ENLARGE
-    div(id="map-canvas", style="width:100%; height:170px;")
-.section
-    .air
-        .icon
-            span AIR
-            i(class='icon-air')
+.tripMap
+    .underHeader
+        .tripBox
+            i(class='icon-calendar')
+            .text Day
+                span #{RN.user.get('trip').date[0]}
+        .tripBox
+            i(class='icon-globe')
+            .text #{area},
+                span #{country}
+        .tripBox
+            i(class='icon-map')
+            .text Lat
+                span #{lat}
+                | Long
+                span #{long}
+    .map
         .info
-            | #{weather.T}
-    .sea
-        .icon
-            span SEA
-            i(class='icon-temperatire')
-        .info
-            | #{1.5}
-            span.degrees 0
-            span.celceus C
-.section
-    .tideTitle
-        TIDE
-        i(class='icon-waves')
-        +tideBox()
-        +tideBox()
-        +tideBox()
-        +tideBox()
+            .wind
+                i(class='icon-right-circled')
+                | #{weather.G}
+            .current
+                i(class='icon-right-circled')
+                | #{weather.D}
+            .enlarge
+                i(class='icon-zoom-in-outline') ENLARGE
+        div(id="map-canvas", style="width:100%; height:170px;")
+    .tripData
+        .section
+            .air
+                .icon
+                    span AIR
+                    i(class='icon-air')
+                .info
+                    | #{weather.T}
+            .sea
+                .icon
+                    span SEA
+                    i(class='icon-temperatire')
+                .info
+                    | #{1.5}
+                    span.degrees 0
+                    span.celceus C
+        .section
+            .tideTitle TIDE
+                i(class='icon-waves')
+                +tideBox()
+                +tideBox()
+                +tideBox()
+                +tideBox()
+        .section NEXT SPRING TIDE
+            span 23 JAN 2015
+        .section
+            .air
+                .icon
+                    span WIND
+                    i(class='icon-wind')
+                .info
+                    | #{weather.T}
+            .sea
+                .icon
+                    span SEA
+                    i(class='icon-right-circled')
+                .info
+                    | #{1.5}
+                    span.degrees 0
+                    span.celceus C
+        .section.large
+            .title PESSURE
+                i(class='icon-gauge')
+            .info 1015MB
+                span rising
