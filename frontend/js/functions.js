@@ -8,6 +8,7 @@ module.exports = {
 	events: require('./functions/events'),
 	login: require('./functions/login'),
 	connection: require('./functions/connection'),
+	location: require('./functions/location'),
 	json: require('./functions/json'),
 	heights: require('./functions/heights'),
 	popups: require('./functions/popups')()
