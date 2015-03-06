@@ -1,8 +1,5 @@
 include ../mixins
 if area
-    .nodata
-        | No Data, try again
-else
     .tripMap
         .underHeader
             .tripBox
@@ -75,3 +72,23 @@ else
                     i(class='icon-gauge')
                 .info 1015MB
                     span rising
+            .section.large
+                .title SWELL
+                    i(class='icon-gauge')
+                .info 0.25
+                    span m
+            .section.large
+                +input({type: 'radio', value:'on', name:'on', checked:'checked'})
+                | On
+                +input({type: 'radio', value:'off', name:'off'})
+                | Off
+            .section
+                .btn.start START TRIP
+                .btn.end END TRIP
+                .btn.save SAVED
+    +input({type: 'hidden', value:'', name:'start', id:'start'})
+    +input({type: 'hidden', value:'', name:'end', id:'end'})
+else
+    .nodata
+        | No Data, try again
+    a(href='#currenttrip', class="btn retry") Retry

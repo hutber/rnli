@@ -7,7 +7,22 @@ module.exports = RN.glb.gvCreator.extend({
 		home: require('../../../views/trips/tripsCurrent.jade'),
 	},
 	events: {
-		'click .right': 'signupForm',
+		'click .retry': 'render',
+		'click .start': 'start',
+		'click .end': 'end',
+	},
+	start : function(ev){
+		var ev = $(ev.currentTarget);
+		ev.hide();
+		$('.end').show();
+		$('#start')[0].value = moment().format();
+	},
+	end : function(ev){
+		var ev = $(ev.currentTarget);
+		ev.hide();
+		$('.end').hide();
+		$('.save').show();
+		$('#end')[0].value = moment().format();
 	},
 	render: function () {
 		var self = this;
@@ -21,7 +36,9 @@ module.exports = RN.glb.gvCreator.extend({
 			},
 			success: function (data) {
 				c(data);
-				if(typeof data.weather !== typeof undefined && data.weather === null){
+				//load data in ejs
+				self.$el.html(self.templates.home(data));
+				if(typeof data.weather === typeof undefined || data.weather === null){
 
 				}else {
 					var myLatlng = new google.maps.LatLng(RN.user.get('trip').location.latitude, RN.user.get('trip').location.longitude);
@@ -37,8 +54,6 @@ module.exports = RN.glb.gvCreator.extend({
 						map: map,
 					});
 				}
-				//load data in ejs
-				self.$el.html(self.templates.home(data));
 			}
 		});
 

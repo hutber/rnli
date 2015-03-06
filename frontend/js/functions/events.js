@@ -28,7 +28,8 @@ module.exports = {
 			RN.fnc.popups.message.blocker = false; //reset blocker to false so that it is removed as soon as the ajax call has finished
 			timerAjax = setTimeout(function(){
 				if(RN.fnc.popups.message.blocker===false) {
-					RN.fnc.popups.spinner.hide()
+					//RN.fnc.popups.spinner.hide()
+					RN.fnc.popups.spinner.displayCloseButton();
 				}
 			}, 5000);
 		});

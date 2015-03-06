@@ -3,4 +3,4 @@ mixin input(data)
     .control-group
         if data.type !== "hidden"
             .icon-right-open
-        input(id= data.id, placeholder= data.place, type= data.type, name=data.name, value=data.value, class= data.class)
+        input(id= data.id, placeholder= data.place, type= data.type, name=data.name, value=data.value, class= data.class, checked=data.checked)
