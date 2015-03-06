@@ -60,6 +60,9 @@ select {
 	}
 
 	//  .control-group & { margin-bottom: 0; }
+	&[type=radio]{
+		-webkit-appearance: radio;
+	}
 }
 
 label.error, label.error a {

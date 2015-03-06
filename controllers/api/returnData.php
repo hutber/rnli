@@ -41,16 +41,16 @@ class returnData extends Controller {
 			curl_setopt($curl_handle, CURLOPT_USERAGENT, 'RNLI Safety App');
 			$query = curl_exec($curl_handle);
 			curl_close($curl_handle);
-			print_r($query);
 
             function get_http_response_code($url) {
                 $headers = get_headers($url);
                 return substr($headers[0], 9, 3);
             }
-            if(get_http_response_code($url) != "200"){
+
+            if($query == "200"){
 				$dataToReturn = $error;
             }else{
-                $dataFeed = json_decode(file_get_contents($url));
+                $dataFeed = json_decode($query);
 				//turn data into something we can use
 				$dataToReturn = [
 					'lat' => $lat,
@@ -63,7 +63,7 @@ class returnData extends Controller {
 				];
             }
 
-//            print json_encode($dataToReturn);
+            print json_encode($dataToReturn);
         }else{
             print $error;
         }

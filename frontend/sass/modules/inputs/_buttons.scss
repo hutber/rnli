@@ -4,7 +4,7 @@
 
 // Base styles
 // --------------------------------------------------
-$mainGreen: #000;
+$mainGreen: #ccc;
 .btn,
 .btn-group > .btn,
 .btn-group > .dropdown-menu,
@@ -15,7 +15,7 @@ $mainGreen: #000;
 
 .btn, a.btn, button {
 	border: none;
-	background: #000;
+	background: $mainGreen;
 	color: #fff;
 	display: block;
 	padding: 12px 0;

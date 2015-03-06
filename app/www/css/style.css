@@ -667,6 +667,8 @@ textarea, input, select {
     box-shadow: none; }
     .control-group.info textarea:focus, .control-group.info input:focus, .control-group.info select:focus {
       box-shadow: none; }
+  textarea[type=radio], input[type=radio], select[type=radio] {
+    -webkit-appearance: radio; }
 
 label.error, label.error a {
   border-color: #e74c3c;
@@ -772,7 +774,7 @@ input[type=checkbox] {
 
 .btn, a.btn, button {
   border: none;
-  background: #000;
+  background: #ccc;
   color: #fff;
   display: block;
   padding: 12px 0;
@@ -791,19 +793,19 @@ input[type=checkbox] {
   -webkit-transition: 0.25s;
   transition: 0.25s; }
   .btn:hover, .btn:focus, .btn-group:focus .btn.dropdown-toggle, a.btn:hover, a.btn:focus, .btn-group:focus a.btn.dropdown-toggle, button:hover, button:focus, .btn-group:focus button.dropdown-toggle {
-    background-color: #0d0d0d;
+    background-color: #d9d9d9;
     outline: none;
     -moz-transition: 0.25s;
     -o-transition: 0.25s;
     -webkit-transition: 0.25s;
     transition: 0.25s; }
   .btn:active, .btn-group.open .btn.dropdown-toggle, .btn.active, a.btn:active, .btn-group.open a.btn.dropdown-toggle, a.btn.active, button:active, .btn-group.open button.dropdown-toggle, button.active {
-    background-color: #000;
-    color: fade(#000, 75%);
+    background-color: #ccc;
+    color: fade(#ccc, 75%);
     box-shadow: none; }
   .btn.disabled, .btn[disabled], a.btn.disabled, a.btn[disabled], button.disabled, button[disabled] {
-    background-color: #000;
-    color: fade(#000, 75%);
+    background-color: #ccc;
+    color: fade(#ccc, 75%);
     box-shadow: none;
     opacity: .4; }
   .btn.btn-large, a.btn.btn-large, button.btn-large {
@@ -830,7 +832,7 @@ input[type=checkbox] {
   .btn-group > .btn + .btn {
     margin-left: 0; }
   .btn-group > .btn + .dropdown-toggle {
-    border-left: 2px solid fade(#000, 15%);
+    border-left: 2px solid fade(#ccc, 15%);
     padding-left: 13px;
     padding-right: 13px;
     box-shadow: none; }
@@ -1361,6 +1363,8 @@ body {
   width: 49.15254%;
   float: right;
   margin-right: 0; }
+.tripMap .end, .tripMap .save {
+  display: none; }
 
 .landingpage {
   position: fixed;
