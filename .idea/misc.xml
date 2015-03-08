@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectPlainTextFileTypeManager">
-    <file url="file://$PROJECT_DIR$/frontend/js/functions.js" />
-    <file url="file://$PROJECT_DIR$/frontend/js/models.js" />
-  </component>
-  <component name="ProjectRootManager" version="2" />
-</project>
