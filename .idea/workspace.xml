@@ -2,17 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eabbfd0d-e8eb-4adc-8220-9fc4bf18c195" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/sass/modules/inputs/_buttons.scss" afterPath="$PROJECT_DIR$/frontend/sass/modules/inputs/_buttons.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/sass/modules/inputs/_input.scss" afterPath="$PROJECT_DIR$/frontend/sass/modules/inputs/_input.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/sass/pages/_trips.scss" afterPath="$PROJECT_DIR$/frontend/sass/pages/_trips.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/www/js/app.js" afterPath="$PROJECT_DIR$/app/www/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/js/functions/events.js" afterPath="$PROJECT_DIR$/frontend/js/functions/events.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/views/input/input.jade" afterPath="$PROJECT_DIR$/frontend/views/input/input.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/api/returnData.php" afterPath="$PROJECT_DIR$/controllers/api/returnData.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/www/css/app/www/css/style.css.map" afterPath="$PROJECT_DIR$/app/www/css/app/www/css/style.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/www/css/style.css" afterPath="$PROJECT_DIR$/app/www/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/views/trips/tripsCurrent.jade" afterPath="$PROJECT_DIR$/frontend/views/trips/tripsCurrent.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/js/views/trips/tripsCurrentTripView.js" afterPath="$PROJECT_DIR$/frontend/js/views/trips/tripsCurrentTripView.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="rnli.hutber.com.iws" />
@@ -155,7 +144,7 @@
               <file leaf-file-name="tripsCurrent.jade" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/frontend/views/trips/tripsCurrent.jade">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state vertical-scroll-proportion="0.0" vertical-offset="1600" max-vertical-offset="1980">
+                    <state vertical-scroll-proportion="0.41538462" vertical-offset="1330" max-vertical-offset="1980">
                       <caret line="80" column="78" selection-start-line="80" selection-start-column="78" selection-end-line="80" selection-end-column="78" />
                       <folding />
                     </state>
@@ -269,7 +258,7 @@
               <file leaf-file-name="tripsCurrentTripView.js" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/frontend/js/views/trips/tripsCurrentTripView.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state vertical-scroll-proportion="0.0" vertical-offset="320" max-vertical-offset="660">
+                    <state vertical-scroll-proportion="0.42160738" vertical-offset="0" max-vertical-offset="759">
                       <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
                       <folding>
                         <element signature="e#601#1452#0" expanded="false" />
@@ -369,7 +358,7 @@
               <file leaf-file-name="_input.scss" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/frontend/sass/modules/inputs/_input.scss">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state vertical-scroll-proportion="0.0" vertical-offset="960" max-vertical-offset="4340">
+                    <state vertical-scroll-proportion="0.48387095" vertical-offset="960" max-vertical-offset="4340">
                       <caret line="63" column="33" selection-start-line="63" selection-start-column="33" selection-end-line="63" selection-end-column="33" />
                       <folding />
                     </state>
@@ -555,7 +544,7 @@
               <file leaf-file-name="events.js" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/frontend/js/functions/events.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state vertical-scroll-proportion="0.0" vertical-offset="700" max-vertical-offset="1320">
+                    <state vertical-scroll-proportion="0.20921053" vertical-offset="561" max-vertical-offset="1340">
                       <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
                       <folding />
                     </state>
@@ -780,6 +769,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -890,7 +880,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -925,6 +914,7 @@
       <tasks>
         <task>default</task>
       </tasks>
+      <arguments />
       <pass-parent-envs>true</pass-parent-envs>
       <envs />
       <RunnerSettings RunnerId="Js.BuildTools.Gulp" />
@@ -954,6 +944,7 @@
       <node-options />
       <gulpfile />
       <tasks />
+      <arguments />
       <pass-parent-envs>true</pass-parent-envs>
       <envs />
       <method />
@@ -981,7 +972,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1576" extended-state="6" />
+    <frame x="-8" y="-8" width="2576" height="1576" extended-state="7" />
     <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.10930048" sideWeight="0.5004156" order="3" side_tool="true" content_ui="tabs" />
@@ -990,10 +981,9 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10294118" sideWeight="0.49958438" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39957717" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14940098" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.104531005" sideWeight="0.49958438" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1001,10 +991,11 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32973504" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39957717" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14940098" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1095,7 +1086,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1210" max-vertical-offset="4268">
           <caret line="62" column="26" selection-start-line="62" selection-start-column="26" selection-end-line="62" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1110,7 +1100,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="616" max-vertical-offset="2882">
           <caret line="28" column="39" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1217,14 +1206,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/views/login/signup.jade">
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="380">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="17" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/views/mixins.jade">
@@ -1376,7 +1365,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/js/functions/events.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="700" max-vertical-offset="1320">
+        <state vertical-scroll-proportion="0.20921053" vertical-offset="561" max-vertical-offset="1340">
           <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding />
         </state>
@@ -1400,7 +1389,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/js/views/trips/tripsCurrentTripView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="320" max-vertical-offset="660">
+        <state vertical-scroll-proportion="0.42160738" vertical-offset="0" max-vertical-offset="759">
           <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
           <folding>
             <element signature="e#601#1452#0" expanded="false" />
@@ -1418,7 +1407,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/sass/modules/inputs/_input.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="960" max-vertical-offset="4340">
+        <state vertical-scroll-proportion="0.48387095" vertical-offset="960" max-vertical-offset="4340">
           <caret line="63" column="33" selection-start-line="63" selection-start-column="33" selection-end-line="63" selection-end-column="33" />
           <folding />
         </state>
@@ -1434,7 +1423,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/views/trips/tripsCurrent.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1600" max-vertical-offset="1980">
+        <state vertical-scroll-proportion="0.41538462" vertical-offset="1330" max-vertical-offset="1980">
           <caret line="80" column="78" selection-start-line="80" selection-start-column="78" selection-end-line="80" selection-end-column="78" />
           <folding />
         </state>
