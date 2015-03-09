@@ -3,7 +3,8 @@
  */
 module.exports = function(){
 	var popups = {};
-	
+
+	popups.errorBlock = true;
 // #Popup message ------------------------------------------------------
 	popups.message = {
 		timer: null,

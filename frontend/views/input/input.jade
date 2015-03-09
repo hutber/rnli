@@ -1,6 +1,9 @@
 mixin input(data)
-    - data.type = data.type || 'text'
+    - data.type = data.type || 'text';
+    - var iconClass = data.icon || 'right-open';
     .control-group
-        if data.type !== "hidden"
-            .icon-right-open
+        - var icon = true;
+        - if (data.plain === "plain" || data.type === "hidden" || data.type === "radio"){icon = false;}
+        if icon
+            .icon-
         input(id= data.id, placeholder= data.place, type= data.type, name=data.name, value=data.value, class= data.class, checked=data.checked)

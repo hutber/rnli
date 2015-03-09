@@ -28,9 +28,7 @@ module.exports = function(){
 			}, function(details){
 				failed(details);
 			});
-		},
+		}
 	});
-
 	//return models;
-
 };

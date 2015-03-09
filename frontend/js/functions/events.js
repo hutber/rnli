@@ -25,9 +25,11 @@ module.exports = {
 		var timerAjax;
 		$( document ).ajaxStart(function() {
 			RN.fnc.popups.spinner.show()
-			RN.fnc.popups.message.blocker = false; //reset blocker to false so that it is removed as soon as the ajax call has finished
+			//reset blocker to false so that it is removed as soon as the ajax call has finished
+			RN.fnc.popups.errorBlock = false;
+			//start timeout call of 5 seconds to see if we should display the "cancel" button
 			timerAjax = setTimeout(function(){
-				if(RN.fnc.popups.message.blocker===false) {
+				if(RN.fnc.popups.errorBlock===false) {
 					//RN.fnc.popups.spinner.hide()
 					RN.fnc.popups.spinner.displayCloseButton();
 				}
@@ -36,7 +38,7 @@ module.exports = {
 
 		$( document ).ajaxComplete(function( event, request, settings ) {
 			RN.fnc.popups.spinner.hide();
-			if(!RN.fnc.popups.message.blocker) { //if blocker is false, remove the loading box
+			if(RN.fnc.popups.errorBlock) {
 				clearTimeout(timerAjax);
 				RN.fnc.popups.spinner.hide()
 			}
@@ -44,13 +46,14 @@ module.exports = {
 				var status = request.responseJSON.status,
 					message = request.responseJSON.message;
 
-				if (status === "fail") {
+				if (status === "fail" && RN.fnc.popups.errorBlock) {
 					RN.fnc.popups.message.show(request.responseJSON.message, 'bad', 2);
+					RN.fnc.popups.errorBlock = true;
 				}
 			}
 		});
 		$( document ).ajaxError(function( event, request, settings ) {
-			if(!RN.fnc.popups.message.blocker) {
+			if(RN.fnc.popups.errorBlock) {
 				clearTimeout(timerAjax);
 				RN.fnc.popups.spinner.hide()
 				RN.fnc.popups.message.hide();

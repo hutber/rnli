@@ -5,6 +5,7 @@ module.exports = RN.glb.gvCreator.extend({
 	el: '.content',
 	templates: {
 		home: require('../../../views/trips/tripsCreate.jade'),
+		postCode: require('../../../views/trips/tipsPostCodeResults.jade'),
 	},
 	events: {
 		'click .right': 'signupForm',
@@ -12,6 +13,28 @@ module.exports = RN.glb.gvCreator.extend({
 		'click .yes': 'locationOn',
 		'click .no': 'locationOff',
 		'keyup input': 'readyToSave',
+		'submit .postcodeform': 'postcode',
+	},
+	postcode : function(ev){
+		var ev = $(ev.currentTarget);
+		var postcode = ev.serializeObject().postcode,
+			self = this;
+
+		if(postcode.length > 4) {
+			var postcodeResults = RN.fnc.location.getPostCode(postcode, function (data) {
+				if (data.status === 200) {
+					RN.fnc.location.getClosestLocation(data.result.latitude, data.result.longitude, function(data){
+						RN.user.get('trip').location = data;
+						document.getElementById('location').value = 'something';
+						self.readyToSave();
+					});
+					$('.postcodearea').html(self.templates.postCode(data));
+				}else{
+					$('.postcodearea').html(self.templates.postCode());
+				}
+			});
+		}
+		return false;
 	},
 	save : function(ev){
 		var ev = $(ev.currentTarget);
