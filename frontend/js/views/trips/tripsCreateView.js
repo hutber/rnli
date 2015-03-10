@@ -12,29 +12,46 @@ module.exports = RN.glb.gvCreator.extend({
 		'click .save': 'save',
 		'click .yes': 'locationOn',
 		'click .no': 'locationOff',
+		'click .box': 'lookUpPostCode',
 		'keyup input': 'readyToSave',
-		'submit .postcodeform': 'postcode',
+		'submit .postcodeform': 'postcode'
 	},
 	postcode : function(ev){
-		var ev = $(ev.currentTarget);
+		var ev = $('#postcode');
 		var postcode = ev.serializeObject().postcode,
 			self = this;
 
-		if(postcode.length > 4) {
+		//if(postcode.length > 4) {
 			var postcodeResults = RN.fnc.location.getPostCode(postcode, function (data) {
 				if (data.status === 200) {
-					RN.fnc.location.getClosestLocation(data.result.latitude, data.result.longitude, function(data){
-						RN.user.get('trip').location = data;
-						document.getElementById('location').value = 'something';
-						self.readyToSave();
-					});
+					RN.user.savePostCode(data);
 					$('.postcodearea').html(self.templates.postCode(data));
 				}else{
 					$('.postcodearea').html(self.templates.postCode());
 				}
 			});
-		}
+		//}
 		return false;
+	},
+	lookUpPostCode : function(ev){
+		var ev = $(ev.currentTarget),
+			currentPostCodeData = RN.user.get('postcode').result;
+		//remove success
+		$('#postcode').removeClass('success');
+
+		this.getLocation(currentPostCodeData[ev.index()], function(data){
+			$('.postcodearea').empty();
+			$('#postcode').addClass('success');
+		});
+	},
+	getLocation : function(data, callBack){
+		var self = this;
+		RN.fnc.location.getClosestLocation(data.latitude, data.longitude, function(data){
+			RN.user.get('trip').location = data;
+			document.getElementById('location').value = 'something';
+			self.readyToSave();
+			callBack(data);
+		});
 	},
 	save : function(ev){
 		var ev = $(ev.currentTarget);
@@ -104,5 +121,7 @@ module.exports = RN.glb.gvCreator.extend({
 				self.readyToSave();
 			}
 		});
+
+		self.postcode();
 	}
 });

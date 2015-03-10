@@ -61,7 +61,7 @@ select {
 
 	//  .control-group & { margin-bottom: 0; }
 	&[type=radio]{
-		-webkit-appearance: radio;
+		-webkit-appearance: radioe;
 	}
 }
 
@@ -71,9 +71,9 @@ label.error, label.error a {
 
 // INPUT ICONS
 // ----------------------
-.control-group {
+.control-group, .box {
 	position: relative;
-	.icon-right-open {
+	.icon-right-open, .icon-search {
 		position: absolute;
 		right: 0;
 		z-index: 2;

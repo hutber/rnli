@@ -11,10 +11,16 @@ module.exports = function(){
 				name:null,
 				date:null,
 				location:null
-			}
+			},
+			postcode: null
 		},
 		initialize: function(){
 			//alert("Welcome to this world");
+		},
+		savePostCode: function(data){
+			this.set({
+				postcode: data
+			})
 		},
 		saveData: function(data){
 			this.set({

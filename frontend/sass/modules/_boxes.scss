@@ -1,0 +1,13 @@
+// #Box -------------------------------------------------------------------
+.box {
+	margin: 0 0 1px;
+	padding: 5px 8px;
+	cursor: pointer;
+	.icon-right-open {
+		padding-top: 0;
+		top: 0;
+	}
+	&:hover {
+		background: #F6F6F6;
+	}
+}

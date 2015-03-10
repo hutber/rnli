@@ -668,7 +668,7 @@ textarea, input, select {
     .control-group.info textarea:focus, .control-group.info input:focus, .control-group.info select:focus {
       box-shadow: none; }
   textarea[type=radio], input[type=radio], select[type=radio] {
-    -webkit-appearance: radio; }
+    -webkit-appearance: radioe; }
 
 label.error, label.error a {
   border-color: #e74c3c;
@@ -677,23 +677,23 @@ label.error, label.error a {
   label.error:focus, label.error a:focus {
     box-shadow: none; }
 
-.control-group {
+.control-group, .box {
   position: relative; }
-  .control-group .icon-right-open {
+  .control-group .icon-right-open, .control-group .icon-search, .box .icon-right-open, .box .icon-search {
     position: absolute;
     right: 0;
     z-index: 2;
     font-size: 1.5rem;
     padding-top: 5px; }
-  .control-group label {
+  .control-group label, .box label {
     font-size: .8em; }
-    .control-group label.error, .control-group label.error a {
+    .control-group label.error, .control-group label.error a, .box label.error, .box label.error a {
       border-color: #e74c3c;
       color: #e74c3c;
       box-shadow: none; }
-      .control-group label.error:focus, .control-group label.error a:focus {
+      .control-group label.error:focus, .control-group label.error a:focus, .box label.error:focus, .box label.error a:focus {
         box-shadow: none; }
-  .control-group > .input-icon {
+  .control-group > .input-icon, .box > .input-icon {
     position: absolute;
     top: 2px;
     right: 2px;
@@ -703,27 +703,27 @@ label.error, label.error a {
     background-color: #ffffff;
     padding: 0 10px;
     border-radius: 6px; }
-  .control-group input:focus + .input-icon {
+  .control-group input:focus + .input-icon, .box input:focus + .input-icon {
     color: #777777; }
-  .control-group.huge > .input-icon {
+  .control-group.huge > .input-icon, .box.huge > .input-icon {
     line-height: 49px; }
-  .control-group.large > .input-icon {
+  .control-group.large > .input-icon, .box.large > .input-icon {
     line-height: 41px; }
-  .control-group.small > .input-icon {
+  .control-group.small > .input-icon, .box.small > .input-icon {
     line-height: 30px; }
-  .control-group.success > .input-icon, .control-group.success input + .input-icon, .control-group.success .icon-right-open, .control-group.success input {
+  .control-group.success > .input-icon, .control-group.success input + .input-icon, .control-group.success .icon-right-open, .control-group.success input, .box.success > .input-icon, .box.success input + .input-icon, .box.success .icon-right-open, .box.success input {
     color: #86C555; }
-  .control-group.warning > .input-icon, .control-group.warning input + .input-icon, .control-group.warning .icon-right-open, .control-group.warning input {
+  .control-group.warning > .input-icon, .control-group.warning input + .input-icon, .control-group.warning .icon-right-open, .control-group.warning input, .box.warning > .input-icon, .box.warning input + .input-icon, .box.warning .icon-right-open, .box.warning input {
     color: #f1c40f; }
-  .control-group.error > .input-icon, .control-group.error input + .input-icon, .control-group.error .icon-right-open, .control-group.error input {
+  .control-group.error > .input-icon, .control-group.error input + .input-icon, .control-group.error .icon-right-open, .control-group.error input, .box.error > .input-icon, .box.error input + .input-icon, .box.error .icon-right-open, .box.error input {
     color: #e74c3c; }
-    .control-group.error > .input-icon:-moz-placeholder, .control-group.error input + .input-icon:-moz-placeholder, .control-group.error .icon-right-open:-moz-placeholder, .control-group.error input:-moz-placeholder {
+    .control-group.error > .input-icon:-moz-placeholder, .control-group.error input + .input-icon:-moz-placeholder, .control-group.error .icon-right-open:-moz-placeholder, .control-group.error input:-moz-placeholder, .box.error > .input-icon:-moz-placeholder, .box.error input + .input-icon:-moz-placeholder, .box.error .icon-right-open:-moz-placeholder, .box.error input:-moz-placeholder {
       color: #a82315; }
-    .control-group.error > .input-icon::-webkit-input-placeholder, .control-group.error input + .input-icon::-webkit-input-placeholder, .control-group.error .icon-right-open::-webkit-input-placeholder, .control-group.error input::-webkit-input-placeholder {
+    .control-group.error > .input-icon::-webkit-input-placeholder, .control-group.error input + .input-icon::-webkit-input-placeholder, .control-group.error .icon-right-open::-webkit-input-placeholder, .control-group.error input::-webkit-input-placeholder, .box.error > .input-icon::-webkit-input-placeholder, .box.error input + .input-icon::-webkit-input-placeholder, .box.error .icon-right-open::-webkit-input-placeholder, .box.error input::-webkit-input-placeholder {
       color: #a82315; }
-    .control-group.error > .input-icon.placeholder, .control-group.error input + .input-icon.placeholder, .control-group.error .icon-right-open.placeholder, .control-group.error input.placeholder {
+    .control-group.error > .input-icon.placeholder, .control-group.error input + .input-icon.placeholder, .control-group.error .icon-right-open.placeholder, .control-group.error input.placeholder, .box.error > .input-icon.placeholder, .box.error input + .input-icon.placeholder, .box.error .icon-right-open.placeholder, .box.error input.placeholder {
       color: #a82315; }
-  .control-group.disabled > .input-icon, .control-group.disabled input + .input-icon, .control-group.disabled .icon-right-open, .control-group.disabled input {
+  .control-group.disabled > .input-icon, .control-group.disabled input + .input-icon, .control-group.disabled .icon-right-open, .control-group.disabled input, .box.disabled > .input-icon, .box.disabled input + .input-icon, .box.disabled .icon-right-open, .box.disabled input {
     color: #d3d5d7;
     background-color: #f4f4f5; }
 
@@ -960,6 +960,16 @@ input[type=checkbox] {
     .overlay .cancelSpin.display {
       visibility: visible;
       opacity: 1; }
+
+.box {
+  margin: 0 0 1px;
+  padding: 5px 8px;
+  cursor: pointer; }
+  .box .icon-right-open {
+    padding-top: 0;
+    top: 0; }
+  .box:hover {
+    background: #F6F6F6; }
 
 /* v1.0.5 */
 /* Core RS CSS file. 95% of time you shouldn't change anything here. */

@@ -1,5 +1,7 @@
 include ../mixins
-if data && typeof data.status !== typeof undefined
-    | #{data.status}
+if status && typeof status !== typeof undefined
+    each val in result
+        +box(val, {})
+
 else
     | Sorry No results

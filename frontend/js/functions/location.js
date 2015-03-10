@@ -9,7 +9,7 @@ module.exports = function(){
 		var self = this;
 		RN.fnc.popups.errorBlock = false;
 		$.ajax({
-			url: 'http://api.postcodes.io/postcodes/'+postcode,
+			url: 'http://api.postcodes.io/postcodes/'+postcode+'/nearest',
 			dataType: 'json',
 			error: function(data){
 				callBack(data);

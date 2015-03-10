@@ -5,5 +5,5 @@ mixin input(data)
         - var icon = true;
         - if (data.plain === "plain" || data.type === "hidden" || data.type === "radio"){icon = false;}
         if icon
-            .icon-
-        input(id= data.id, placeholder= data.place, type= data.type, name=data.name, value=data.value, class= data.class, checked=data.checked)
+            div(class="icon-#{iconClass}")
+        input(id= data.id, placeholder= data.place, type= data.type, name=data.name, value=data.value, class= data.class, checked=data.checked, autocomplete=data.autocomplete)

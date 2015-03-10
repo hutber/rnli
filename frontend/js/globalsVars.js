@@ -8,6 +8,7 @@ module.exports =  function() {
 	//General Config
 	globals.version = '1.0.0';
 	globals.device = 'android';
+	globals.gkey = 'AIzaSyBAK5TwZsaqYFxxmkyMGwyIpROgu8NdA40';
 
 	//Url Config
 	globals.url = {};

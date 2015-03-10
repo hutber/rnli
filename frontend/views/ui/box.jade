@@ -1,0 +1,10 @@
+//
+   Created by Hutber on 09/03/2015.
+mixin box(data, options)
+   - var iconClass = options.icon || 'right-open';
+   .box
+      - var icon = true;
+      - if (options.plain === "plain"){options.icon = false;}
+      if icon
+         div(class="icon-#{iconClass}")
+         | #{data.parliamentary_constituency}
