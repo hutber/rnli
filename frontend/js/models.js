@@ -4,6 +4,5 @@
 'use strict';
 module.exports = {
 	user: require('./models/user')(),
-	trip: require('./models/trip')(),
 	location: require('./models/location')(),
 }
