@@ -26,16 +26,28 @@ module.exports = RN.glb.gvCreator.extend({
 	},
 	render: function () {
 		var self = this,
-			lat = RN.user.get('trip').location.latitude,
-			long = RN.user.get('trip').location.longitude;
+			cords = function()
+			{
+				if (typeof RN.user.get('location').latitude === typeof undefined) {
+					return  {
+						lat: RN.user.get('location').lat,
+						long: RN.user.get('location').long
+							}
+				}else{
+					return  {
+						lat: RN.user.get('location').latitude,
+						long: RN.user.get('location').longitude
+					}
+				}
+			}();
 
-		RN.fnc.location.getClosestLocation(lat, long, function(data){
+		RN.fnc.location.getClosestLocation(cords.lat, cords.long, function(data){
 			//load data in ejs
 			self.$el.html(self.templates.home(data));
 			if(typeof data.weather === typeof undefined || data.weather === null){
 
 			}else {
-				var myLatlng = new google.maps.LatLng(RN.user.get('trip').location.latitude, RN.user.get('trip').location.longitude);
+				var myLatlng = new google.maps.LatLng(RN.user.get('location').latitude, RN.user.get('location').longitude);
 				var mapOptions = {
 					zoom: 13,
 					center: myLatlng,

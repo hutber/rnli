@@ -24,7 +24,7 @@ module.exports = RN.glb.gvCreator.extend({
 		//if(postcode.length > 4) {
 			var postcodeResults = RN.fnc.location.getPostCode(postcode, function (data) {
 				if (data.status === 200) {
-					RN.user.savePostCode(data);
+					RN.user.setPostCode(data);
 					$('.postcodearea').html(self.templates.postCode(data));
 				}else{
 					$('.postcodearea').html(self.templates.postCode());
@@ -47,7 +47,7 @@ module.exports = RN.glb.gvCreator.extend({
 	getLocation : function(data, callBack){
 		var self = this;
 		RN.fnc.location.getClosestLocation(data.latitude, data.longitude, function(data){
-			RN.user.get('trip').location = data;
+			RN.user.setLocation(data);
 			document.getElementById('location').value = 'something';
 			self.readyToSave();
 			callBack(data);
@@ -61,10 +61,10 @@ module.exports = RN.glb.gvCreator.extend({
 			var tripsDetails = {
 				name: items.name,
 				date:  items.date,
-				location: RN.user.get('trip').location
+				location: RN.user.get('location')
 			};
 			//Save data to user model
-			RN.user.saveData(tripsDetails);
+			RN.user.setTripData(tripsDetails);
 			//Now save to localStorage
 			localStorage.trip = JSON.stringify(tripsDetails);
 			//Push us onto the next page
@@ -93,10 +93,10 @@ module.exports = RN.glb.gvCreator.extend({
 			self = this;
 		$('.selected').removeClass('selected');
 		ev.addClass('selected')
-		var tripData = new RN.mdl.location(function(returnData){
+		var tripData = RN.fnc.location.getLocation(function(returnData){
 			//c(returnData);
 			//RN.user.setLocation(returnData);
-			RN.user.get('trip').location = returnData;
+			RN.user.setLocation(returnData);
 			document.getElementById('location').value = 'something';
 			self.readyToSave();
 		});

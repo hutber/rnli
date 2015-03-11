@@ -35,5 +35,26 @@ module.exports = function(){
 		});
 	};
 
+	location.getLocation = function(callback){
+		var self = this;
+		location.lookUp(function(data){
+				RN.fnc.popups.spinner.hide();
+				callback(data.coords);
+			},
+			function(data){
+				RN.fnc.popups.spinner.hide();
+				RN.fnc.popups.message.show('Please make sure your GPS is turned on and try again', 'bad')
+			});
+	};
+
+	location.lookUp = function(success, failed){
+		RN.fnc.popups.spinner.show('Looking up location', true)
+		navigator.geolocation.getCurrentPosition(function(details){
+			success(details);
+		}, function(details){
+			failed(details);
+		});
+	};
+
 	return location;
 }();

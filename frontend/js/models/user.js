@@ -9,27 +9,27 @@ module.exports = function(){
 		defaults: {
 			trip:{
 				name:null,
-				date:null,
-				location:null
+				date:null
 			},
+			location:null,
 			postcode: null
 		},
 		initialize: function(){
 			//alert("Welcome to this world");
 		},
-		savePostCode: function(data){
+		setPostCode: function(data){
 			this.set({
 				postcode: data
 			})
 		},
-		saveData: function(data){
+		setTripData: function(data){
 			this.set({
 				trip: data
 			})
 		},
 		setLocation: function(data){
 			this.set({
-				trip: data
+				location: data
 			})
 		},
 	});
