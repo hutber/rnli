@@ -3,6 +3,14 @@
 	margin: 0 0 1px;
 	padding: 5px 8px;
 	cursor: pointer;
+	text-align: center;
+	&.white {
+		background: #fff;
+	}
+	&.large {
+		margin: 10px 0;
+		padding: gutter(4) gutter(4) ;
+	}
 	.icon-right-open {
 		padding-top: 0;
 		top: 0;

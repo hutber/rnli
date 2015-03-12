@@ -3,10 +3,12 @@
 //extend the view with the default home view
 module.exports = RN.glb.gvCreator.extend({
 	el: '.content',
+
 	templates: {
 		home: require('../../../views/trips/tripsCreate.jade'),
 		postCode: require('../../../views/trips/tipsPostCodeResults.jade'),
 	},
+
 	events: {
 		'click .right': 'signupForm',
 		'click .save': 'save',
@@ -16,6 +18,7 @@ module.exports = RN.glb.gvCreator.extend({
 		'keyup input': 'readyToSave',
 		'submit .postcodeform': 'postcode'
 	},
+
 	postcode : function(ev){
 		var ev = $('#postcode');
 		var postcode = ev.serializeObject().postcode,
@@ -35,6 +38,7 @@ module.exports = RN.glb.gvCreator.extend({
 		}
 		return false;
 	},
+
 	lookUpPostCode : function(ev){
 		var ev = $(ev.currentTarget),
 			currentPostCodeData = RN.user.get('postcode').result;
@@ -46,6 +50,7 @@ module.exports = RN.glb.gvCreator.extend({
 			$('#postcode').addClass('success');
 		});
 	},
+
 	getLocation : function(data, callBack){
 		var self = this;
 		RN.fnc.location.getClosestLocation(data.latitude, data.longitude, function(data){
@@ -55,6 +60,7 @@ module.exports = RN.glb.gvCreator.extend({
 			callBack(data);
 		});
 	},
+
 	save : function(ev){
 		var ev = $(ev.currentTarget);
 		if(this.readyToSave()){
@@ -75,6 +81,7 @@ module.exports = RN.glb.gvCreator.extend({
 		}
 		return false;
 	},
+
 	readyToSave : function(){
 		var checker = true;
 		//Make sure nothing is empty
@@ -91,6 +98,7 @@ module.exports = RN.glb.gvCreator.extend({
 		//return state of button
 		return checker;
 	},
+
 	locationOn: function(ev){
 		var ev = $(ev.currentTarget),
 			self = this;
@@ -102,12 +110,14 @@ module.exports = RN.glb.gvCreator.extend({
 			self.readyToSave();
 		});
 	},
+
 	locationOff: function(ev){
 		var ev = $(ev.currentTarget);
 		$('.selected').removeClass('selected');
 		ev.addClass('selected')
 		//TODO - remove location from save settings
 	},
+
 	render: function () {
 		var self = this;
 		//load data in ejs

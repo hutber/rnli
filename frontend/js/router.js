@@ -13,6 +13,7 @@ var Router = Backbone.Router.extend({
 
 		//User Parts
 		'signup': 'signup',
+		'profile': 'profile',
 
 		// #Home ---------------------------------------------------- /
 		'trips': 'trips',

@@ -14,15 +14,15 @@ module.exports = function (){
 			name: 'index',
 			path: require('../views/indexView'),
 			url: 'index'
-		},
-		{
+		}
+		,{
 			name: 'signup',
 			path: require('../views/users/signupView'),
 			url: 'signup',
 			title: 'My Login Details'
-		},
-		{
-			name: 'home',
+		}
+		,{
+			name: 'homeView',
 			path: require('../views/homeView'),
 			url: 'home',
 			title: 'Landing Page'
@@ -31,7 +31,12 @@ module.exports = function (){
 		/*==================================================
 		 Users
 		 ================================================== */
-
+		,{
+			name: 'profileView',
+				path: require('../views/users/profileView'),
+			url: 'profile',
+			title: 'My Profile'
+		}
 		/*==================================================
 		 Trips
 		 ================================================== */

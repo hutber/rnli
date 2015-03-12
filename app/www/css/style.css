@@ -438,8 +438,10 @@ a.selected {
   color: #F1835B; }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #383A3D;
-  font-weight: normal; }
+  color: #002664;
+  text-transform: uppercase;
+  font-weight: normal;
+  text-align: center; }
 
 .pageheading {
   font-size: 1rem;
@@ -611,7 +613,7 @@ h1, h2, h3, h4, h5, h6 {
 
 textarea, input, select {
   border: 1px solid #FFF;
-  color: #000000;
+  color: #002664;
   padding: 15px 15px;
   text-indent: 7px;
   margin: 1px auto;
@@ -964,7 +966,13 @@ input[type=checkbox] {
 .box {
   margin: 0 0 1px;
   padding: 5px 8px;
-  cursor: pointer; }
+  cursor: pointer;
+  text-align: center; }
+  .box.white {
+    background: #fff; }
+  .box.large {
+    margin: 10px 0;
+    padding: 5.26316% 5.26316%; }
   .box .icon-right-open {
     padding-top: 0;
     top: 0; }
@@ -1208,7 +1216,8 @@ Table of Contents
 
 body {
   display: block;
-  overflow: hidden; }
+  overflow: hidden;
+  background: #EDEDEB; }
 
 .header {
   height: 75px;
@@ -1302,6 +1311,60 @@ body {
     display: block;
     margin-top: 5px;
     text-decoration: none; }
+
+/* Table of Contents
+==================================================
+    #Users
+*/
+.addphoto {
+  margin: 20px auto 35px;
+  display: block;
+  height: 120px;
+  width: 120px;
+  border: dashed 2px #002664;
+  text-align: center;
+  position: relative;
+  background: #fff; }
+  .addphoto .photoitems {
+    width: 100%;
+    color: #002664;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%); }
+  .addphoto i {
+    display: block;
+    margin: 5px 0; }
+
+.contact {
+  height: 94px;
+  display: block;
+  width: 100%;
+  overflow: hidden; }
+  .contact .number {
+    float: left;
+    height: 100%;
+    width: 50px;
+    background: #fff;
+    position: relative;
+    margin-right: 1px; }
+    .contact .number .textnumber {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%); }
+  .contact .textInfo {
+    float: left; }
+    .contact .textInfo .control-group:first-child input {
+      margin-bottom: 1px; }
+    .contact .textInfo input {
+      margin: 0; }
 
 .locationSelector {
   width: 80%;
@@ -1431,5 +1494,19 @@ body {
 ==================================================
     #Header
 */
+.header {
+  background: #EF8201; }
+  .weather .header {
+    background: #D13924; }
+  .safety .header {
+    background: #9C1B31; }
+  .catch .header {
+    background: #28243b; }
+  .profile .header {
+    background: #002664;
+    color: #FFF; }
+    .profile .header .middle h1 {
+      color: #ffffff; }
+
 
 /*# sourceMappingURL=app/www/css/style.css.map */

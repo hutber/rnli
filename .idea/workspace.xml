@@ -2,8 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eabbfd0d-e8eb-4adc-8220-9fc4bf18c195" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/js/functions/location.js" afterPath="$PROJECT_DIR$/frontend/js/functions/location.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/sass/pages/user/_signup.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/views/ui/contact.jade" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/views/ui/postcodebox.jade" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/views/user/profile.jade" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/js/views/users/profileView.js" />
+      <change type="MOVED" beforePath="C:\var\www\rnli.hutber.com\frontend\sass\pages\_users.scss" afterPath="$PROJECT_DIR$/frontend/sass/pages/user/_profile.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/sass/modules/_boxes.scss" afterPath="$PROJECT_DIR$/frontend/sass/modules/_boxes.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/sass/pages/_index.scss" afterPath="$PROJECT_DIR$/frontend/sass/pages/_index.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/sass/modules/inputs/_input.scss" afterPath="$PROJECT_DIR$/frontend/sass/modules/inputs/_input.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/sass/_typography.scss" afterPath="$PROJECT_DIR$/frontend/sass/_typography.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/www/js/app.js" afterPath="$PROJECT_DIR$/app/www/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/views/ui/box.jade" afterPath="$PROJECT_DIR$/frontend/views/ui/box.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/views/ui/initUI.jade" afterPath="$PROJECT_DIR$/frontend/views/ui/initUI.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/js/router.js" afterPath="$PROJECT_DIR$/frontend/js/router.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/www/css/app/www/css/style.css.map" afterPath="$PROJECT_DIR$/app/www/css/app/www/css/style.css.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/www/css/style.css" afterPath="$PROJECT_DIR$/app/www/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/sass/style.scss" afterPath="$PROJECT_DIR$/frontend/sass/style.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/views/trips/tipsPostCodeResults.jade" afterPath="$PROJECT_DIR$/frontend/views/trips/tipsPostCodeResults.jade" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/js/views/trips/tripsCreateView.js" afterPath="$PROJECT_DIR$/frontend/js/views/trips/tripsCreateView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/js/functions/views.js" afterPath="$PROJECT_DIR$/frontend/js/functions/views.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="rnli.hutber.com.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -98,8 +117,8 @@
             <file leaf-file-name="input.jade" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/frontend/views/input/input.jade">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.0" vertical-offset="140" max-vertical-offset="280">
-                    <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+                  <state vertical-scroll-proportion="-6.4" vertical-offset="0" max-vertical-offset="320">
+                    <caret line="8" column="103" selection-start-line="8" selection-start-column="103" selection-end-line="8" selection-end-column="120" />
                     <folding />
                   </state>
                 </provider>
@@ -108,7 +127,7 @@
             <file leaf-file-name="button.jade" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/frontend/views/input/button.jade">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
+                  <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="180">
                     <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="18" />
                     <folding />
                   </state>
@@ -118,8 +137,28 @@
             <file leaf-file-name="initUI.jade" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/frontend/views/ui/initUI.jade">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="140">
-                    <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+                  <state vertical-scroll-proportion="-1.6" vertical-offset="0" max-vertical-offset="160">
+                    <caret line="2" column="17" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="17" />
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file leaf-file-name="contact.jade" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/frontend/views/ui/contact.jade">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state vertical-scroll-proportion="0.1996008" vertical-offset="0" max-vertical-offset="1002">
+                    <caret line="10" column="21" selection-start-line="7" selection-start-column="17" selection-end-line="10" selection-end-column="21" />
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file leaf-file-name="postcodebox.jade" pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/frontend/views/ui/postcodebox.jade">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state vertical-scroll-proportion="-2.4" vertical-offset="0" max-vertical-offset="300">
+                    <caret line="3" column="48" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="48" />
                     <folding />
                   </state>
                 </provider>
@@ -128,8 +167,8 @@
             <file leaf-file-name="box.jade" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/frontend/views/ui/box.jade">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="300">
-                    <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+                  <state vertical-scroll-proportion="-3.2" vertical-offset="0" max-vertical-offset="200">
+                    <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
                     <folding />
                   </state>
                 </provider>
@@ -148,8 +187,18 @@
             <file leaf-file-name="login.jade" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/frontend/views/login/login.jade">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.0" vertical-offset="80" max-vertical-offset="280">
+                  <state vertical-scroll-proportion="-3.2" vertical-offset="0" max-vertical-offset="280">
                     <caret line="4" column="66" selection-start-line="4" selection-start-column="50" selection-end-line="4" selection-end-column="66" />
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file leaf-file-name="profile.jade" pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/frontend/views/user/profile.jade">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state vertical-scroll-proportion="-12.0" vertical-offset="0" max-vertical-offset="500">
+                    <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
                     <folding />
                   </state>
                 </provider>
@@ -158,8 +207,8 @@
             <file leaf-file-name="tipsPostCodeResults.jade" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/frontend/views/trips/tipsPostCodeResults.jade">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.0" vertical-offset="100" max-vertical-offset="260">
-                    <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+                  <state vertical-scroll-proportion="-1.6" vertical-offset="0" max-vertical-offset="260">
+                    <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
                     <folding />
                   </state>
                 </provider>
@@ -185,10 +234,10 @@
                 </provider>
               </entry>
             </file>
-            <file leaf-file-name="tripsCurrent.jade" pinned="false" current-in-tab="true">
+            <file leaf-file-name="tripsCurrent.jade" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/frontend/views/trips/tripsCurrent.jade">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.6257485" vertical-offset="953" max-vertical-offset="1980">
+                  <state vertical-scroll-proportion="-25.08" vertical-offset="953" max-vertical-offset="1980">
                     <caret line="79" column="26" selection-start-line="79" selection-start-column="26" selection-end-line="79" selection-end-column="26" />
                     <folding />
                   </state>
@@ -206,8 +255,8 @@
             <file leaf-file-name="style.scss" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/frontend/sass/style.scss">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.0" vertical-offset="860" max-vertical-offset="3100">
-                    <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+                  <state vertical-scroll-proportion="-7.7777777" vertical-offset="840" max-vertical-offset="3140">
+                    <caret line="63" column="19" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="19" />
                     <folding />
                   </state>
                 </provider>
@@ -216,8 +265,8 @@
             <file leaf-file-name="_variables.scss" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/frontend/sass/_variables.scss">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.0" vertical-offset="440" max-vertical-offset="1120">
-                    <caret line="22" column="5" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="5" />
+                  <state vertical-scroll-proportion="-2.689655" vertical-offset="122" max-vertical-offset="1120">
+                    <caret line="10" column="3" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="3" />
                     <folding />
                   </state>
                 </provider>
@@ -226,8 +275,8 @@
             <file leaf-file-name="_typography.scss" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/frontend/sass/_typography.scss">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="1460">
-                    <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+                  <state vertical-scroll-proportion="-18.551723" vertical-offset="462" max-vertical-offset="1500">
+                    <caret line="50" column="30" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
                     <folding />
                   </state>
                 </provider>
@@ -256,11 +305,9 @@
             <file leaf-file-name="_input.scss" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/frontend/sass/modules/inputs/_input.scss">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.0" vertical-offset="1260" max-vertical-offset="4340">
-                    <caret line="63" column="33" selection-start-line="63" selection-start-column="33" selection-end-line="63" selection-end-column="33" />
-                    <folding>
-                      <marker date="1426184403770" expanded="true" signature="1329:2743" placeholder="{...}" />
-                    </folding>
+                  <state vertical-scroll-proportion="-4.827586" vertical-offset="0" max-vertical-offset="4340">
+                    <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="8" selection-end-column="27" />
+                    <folding />
                   </state>
                 </provider>
               </entry>
@@ -285,6 +332,16 @@
                 </provider>
               </entry>
             </file>
+            <file leaf-file-name="_boxes.scss" pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/frontend/sass/modules/_boxes.scss">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state vertical-scroll-proportion="-3.4482758" vertical-offset="0" max-vertical-offset="520">
+                    <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
             <file leaf-file-name="_landing.scss" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/frontend/sass/pages/_landing.scss">
                 <provider selected="true" editor-type-id="text-editor">
@@ -295,10 +352,10 @@
                 </provider>
               </entry>
             </file>
-            <file leaf-file-name="_users.scss" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/frontend/sass/pages/_users.scss">
+            <file leaf-file-name="_signup.scss" pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/frontend/sass/pages/user/_signup.scss">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.0" vertical-offset="20" max-vertical-offset="560">
+                  <state vertical-scroll-proportion="-0.6896552" vertical-offset="0" max-vertical-offset="560">
                     <caret line="1" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
                     <folding />
                   </state>
@@ -308,18 +365,28 @@
             <file leaf-file-name="_index.scss" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/frontend/sass/pages/_index.scss">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.0" vertical-offset="400" max-vertical-offset="520">
-                    <caret line="20" column="3" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="3" />
+                  <state vertical-scroll-proportion="-8.275862" vertical-offset="0" max-vertical-offset="680">
+                    <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
                     <folding />
                   </state>
                 </provider>
               </entry>
             </file>
-            <file leaf-file-name="_trips.scss" pinned="false" current-in-tab="true">
+            <file leaf-file-name="_trips.scss" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/frontend/sass/pages/_trips.scss">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.93286574" vertical-offset="909" max-vertical-offset="2200">
-                    <caret line="92" column="5" selection-start-line="92" selection-start-column="5" selection-end-line="92" selection-end-column="5" />
+                  <state vertical-scroll-proportion="-29.344828" vertical-offset="909" max-vertical-offset="2200">
+                    <caret line="88" column="5" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file leaf-file-name="_profile.scss" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/frontend/sass/pages/user/_profile.scss">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state vertical-scroll-proportion="0.47895792" vertical-offset="82" max-vertical-offset="1240">
+                    <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
                     <folding />
                   </state>
                 </provider>
@@ -338,22 +405,14 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf>
-          <file leaf-file-name="MDB2.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/db/MDB2.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="29900" max-vertical-offset="91360">
-                  <caret line="1540" column="32" selection-start-line="1540" selection-start-column="20" selection-end-line="1540" selection-end-column="32" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="db.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/db/db.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="160" max-vertical-offset="2820">
+                <state vertical-scroll-proportion="-0.0" vertical-offset="160" max-vertical-offset="2860">
                   <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
-                  <folding />
+                  <folding>
+                    <marker date="1425580223213" expanded="true" signature="1531:1576" placeholder="SELECT uid F..users..." />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -408,6 +467,16 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name="profileView.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/frontend/js/views/users/profileView.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1480">
+                  <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="tripsHomeView.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/frontend/js/views/trips/tripsHomeView.js">
               <provider selected="true" editor-type-id="text-editor">
@@ -418,23 +487,20 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="tripsCreateView.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="tripsCreateView.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/frontend/js/views/trips/tripsCreateView.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.57686883" vertical-offset="482" max-vertical-offset="1980">
-                  <caret line="99" column="26" selection-start-line="99" selection-start-column="26" selection-end-line="99" selection-end-column="26" />
-                  <folding>
-                    <element signature="e#1682#2305#0" expanded="false" />
-                    <element signature="e#2332#2775#0" expanded="false" />
-                  </folding>
+                <state vertical-scroll-proportion="0.0" vertical-offset="1442" max-vertical-offset="2860">
+                  <caret line="136" column="5" selection-start-line="136" selection-start-column="5" selection-end-line="136" selection-end-column="5" />
+                  <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="tripsCurrentTripView.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="tripsCurrentTripView.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/frontend/js/views/trips/tripsCurrentTripView.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1400">
+                <state vertical-scroll-proportion="0.7184628" vertical-offset="0" max-vertical-offset="1400">
                   <caret line="43" column="34" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
                   <folding />
                 </state>
@@ -445,11 +511,11 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/www/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-11.724138" vertical-offset="0" max-vertical-offset="1000">
-                  <caret line="17" column="50" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
+                <state vertical-scroll-proportion="0.42337003" vertical-offset="0" max-vertical-offset="1181">
+                  <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
                   <folding />
                 </state>
               </provider>
@@ -498,8 +564,8 @@
           <file leaf-file-name="router.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/frontend/js/router.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="380" max-vertical-offset="580">
-                  <caret line="19" column="35" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="35" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
+                  <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
                   <folding />
                 </state>
               </provider>
@@ -528,8 +594,8 @@
           <file leaf-file-name="views.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/frontend/js/functions/views.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="1260">
-                  <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1360">
+                  <caret line="35" column="46" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
                   <folding />
                 </state>
               </provider>
@@ -589,12 +655,29 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="location.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="location.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/frontend/js/functions/location.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.606488" vertical-offset="0" max-vertical-offset="1418">
-                  <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
-                  <folding />
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="400">
+                  <caret line="62" column="4" selection-start-line="62" selection-start-column="4" selection-end-line="62" selection-end-column="4" />
+                  <folding>
+                    <element signature="e#0#43#0" expanded="false" />
+                    <element signature="e#161#431#0" expanded="false" />
+                    <element signature="e#227#426#0" expanded="false" />
+                    <element signature="e#340#366#0" expanded="false" />
+                    <element signature="e#396#422#0" expanded="false" />
+                    <element signature="e#494#695#0" expanded="false" />
+                    <element signature="e#505#690#0" expanded="false" />
+                    <element signature="e#595#630#0" expanded="false" />
+                    <element signature="e#660#686#0" expanded="false" />
+                    <element signature="e#740#1126#0" expanded="false" />
+                    <element signature="e#793#968#0" expanded="false" />
+                    <element signature="e#920#962#0" expanded="false" />
+                    <element signature="e#987#1121#0" expanded="false" />
+                    <element signature="e#1173#1368#0" expanded="false" />
+                    <element signature="e#1293#1319#0" expanded="false" />
+                    <element signature="e#1338#1363#0" expanded="false" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -680,16 +763,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/frontend/sass/pages/_index.scss" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/frontend/js/core.js" />
-        <option value="$PROJECT_DIR$/frontend/js/router.js" />
-        <option value="$PROJECT_DIR$/frontend/js/functions/views.js" />
-        <option value="$PROJECT_DIR$/frontend/js/views/indexView.js" />
-        <option value="$PROJECT_DIR$/frontend/js/views/users/signupView.js" />
-        <option value="$PROJECT_DIR$/frontend/js/views/homeView.js" />
-        <option value="$PROJECT_DIR$/frontend/js/views/trips/tripsHomeView.js" />
-        <option value="$PROJECT_DIR$/frontend/js/functions.js" />
         <option value="$PROJECT_DIR$/frontend/js/globals.js" />
         <option value="$PROJECT_DIR$/frontend/js/functions/titlebar.js" />
         <option value="$PROJECT_DIR$/frontend/js/functions/viewSetup.js" />
@@ -718,19 +791,29 @@
         <option value="$PROJECT_DIR$/frontend/js/globalsVars.js" />
         <option value="$PROJECT_DIR$/controllers/api/returnPostcode.php" />
         <option value="$PROJECT_DIR$/frontend/views/mixins.jade" />
-        <option value="$PROJECT_DIR$/frontend/views/ui/initUI.jade" />
         <option value="$PROJECT_DIR$/frontend/views/input/input.jade" />
-        <option value="$PROJECT_DIR$/frontend/sass/style.scss" />
-        <option value="$PROJECT_DIR$/frontend/sass/modules/_boxes.scss" />
-        <option value="$PROJECT_DIR$/frontend/views/ui/box.jade" />
-        <option value="$PROJECT_DIR$/frontend/views/trips/tipsPostCodeResults.jade" />
-        <option value="$PROJECT_DIR$/frontend/sass/modules/inputs/_input.scss" />
         <option value="$PROJECT_DIR$/frontend/js/functions/login.js" />
         <option value="$PROJECT_DIR$/frontend/js/models.js" />
         <option value="$PROJECT_DIR$/frontend/js/models/user.js" />
         <option value="$PROJECT_DIR$/frontend/js/views/trips/tripsCurrentTripView.js" />
         <option value="$PROJECT_DIR$/frontend/js/functions/location.js" />
         <option value="$PROJECT_DIR$/frontend/js/views/trips/tripsCreateView.js" />
+        <option value="$PROJECT_DIR$/frontend/js/router.js" />
+        <option value="$PROJECT_DIR$/frontend/js/functions/views.js" />
+        <option value="$PROJECT_DIR$/frontend/js/views/users/profileView.js" />
+        <option value="$PROJECT_DIR$/frontend/sass/modules/inputs/_input.scss" />
+        <option value="$PROJECT_DIR$/frontend/sass/_typography.scss" />
+        <option value="$PROJECT_DIR$/frontend/sass/pages/_index.scss" />
+        <option value="$PROJECT_DIR$/frontend/views/ui/postcodebox.jade" />
+        <option value="$PROJECT_DIR$/frontend/views/trips/tipsPostCodeResults.jade" />
+        <option value="$PROJECT_DIR$/db/MDB2.php" />
+        <option value="$PROJECT_DIR$/frontend/sass/modules/_boxes.scss" />
+        <option value="$PROJECT_DIR$/frontend/views/ui/initUI.jade" />
+        <option value="$PROJECT_DIR$/frontend/views/user/profile.jade" />
+        <option value="$PROJECT_DIR$/frontend/views/ui/box.jade" />
+        <option value="$PROJECT_DIR$/frontend/sass/style.scss" />
+        <option value="$PROJECT_DIR$/frontend/sass/pages/user/_profile.scss" />
+        <option value="$PROJECT_DIR$/frontend/views/ui/contact.jade" />
       </list>
     </option>
   </component>
@@ -868,6 +951,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="user" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rnli.hutber.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rnli.hutber.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="ui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -930,7 +1035,77 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="login" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rnli.hutber.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rnli.hutber.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="sass" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rnli.hutber.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rnli.hutber.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sass" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rnli.hutber.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rnli.hutber.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sass" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="user" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -971,6 +1146,54 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rnli.hutber.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rnli.hutber.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rnli.hutber.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rnli.hutber.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="users" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1063,12 +1286,13 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\var\www\rnli.hutber.com\frontend\views\ui" />
+      <recent name="C:\var\www\rnli.hutber.com\frontend\sass\pages\user" />
+      <recent name="C:\var\www\rnli.hutber.com\frontend\views\user" />
+      <recent name="C:\var\www\rnli.hutber.com\frontend\js\views\users" />
       <recent name="C:\var\www\rnli.hutber.com\controllers\api" />
-      <recent name="C:\var\www\rnli.hutber.com\frontend\sass\modules" />
-      <recent name="C:\var\www\rnli.hutber.com\frontend\views\trips" />
-      <recent name="C:\var\www\rnli.hutber.com\db\types" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\var\www\rnli.hutber.com\frontend\sass\pages\user" />
       <recent name="C:\var\www\rnli.hutber.com\frontend\sass\modules\inputs" />
       <recent name="C:\var\www\rnli.hutber.com\frontend\js\views\users" />
       <recent name="C:\var\www\rnli.hutber.com\frontend\views\login" />
@@ -1154,7 +1378,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11168522" sideWeight="0.49958438" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1465821" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1465821" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32957748" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1190,93 +1414,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="6" column="34" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/www/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4581152" vertical-offset="0" max-vertical-offset="0">
-          <caret line="210" column="16" selection-start-line="210" selection-start-column="16" selection-end-line="210" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/js/functions/popups.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="1980">
-          <caret line="14" column="22" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#43#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/views/tripMap/tideBox.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25723472" vertical-offset="0" max-vertical-offset="0">
-          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/api/returnData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/views/tripMap/initTrip.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.03215434" vertical-offset="0" max-vertical-offset="0">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/MDB2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="1540" column="32" selection-start-line="1540" selection-start-column="20" selection-end-line="1540" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/js/views/indexView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/js/views/users/signupView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="42" column="20" selection-start-line="41" selection-start-column="57" selection-end-line="59" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/js/views/homeView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/js/views/trips/tripsHomeView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
@@ -1309,30 +1446,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/sass/style.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="860" max-vertical-offset="3100">
-          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/sass/_variables.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/sass/_typography.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/sass/_fontello.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
@@ -1346,16 +1459,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="102" column="7" selection-start-line="102" selection-start-column="7" selection-end-line="102" selection-end-column="7" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/sass/modules/inputs/_input.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="63" column="33" selection-start-line="63" selection-start-column="33" selection-end-line="63" selection-end-column="33" />
-          <folding>
-            <marker date="1426184403770" expanded="true" signature="1329:2743" placeholder="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1379,30 +1482,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="47" column="16" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/sass/pages/_users.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="1" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/sass/pages/_index.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="20" column="3" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/sass/pages/_trips.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.93286574" vertical-offset="909" max-vertical-offset="2200">
-          <caret line="92" column="5" selection-start-line="92" selection-start-column="5" selection-end-line="92" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1431,38 +1510,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/views/input/input.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/views/input/button.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/views/ui/initUI.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/views/ui/box.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/views/login/signup.jade">
       <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
         <state />
@@ -1470,22 +1517,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/views/login/login.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="4" column="66" selection-start-line="4" selection-start-column="50" selection-end-line="4" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/views/trips/tipsPostCodeResults.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
           <folding />
         </state>
       </provider>
@@ -1511,7 +1542,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/views/trips/tripsCurrent.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6257485" vertical-offset="953" max-vertical-offset="1980">
+        <state vertical-scroll-proportion="-25.08" vertical-offset="953" max-vertical-offset="1980">
           <caret line="79" column="26" selection-start-line="79" selection-start-column="26" selection-end-line="79" selection-end-column="26" />
           <folding />
         </state>
@@ -1559,22 +1590,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/js/views/trips/tripsCurrentTripView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1400">
-          <caret line="43" column="34" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/www/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.724138" vertical-offset="0" max-vertical-offset="1000">
-          <caret line="17" column="50" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/HTML5.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33286318" vertical-offset="37308" max-vertical-offset="47120">
@@ -1591,22 +1606,246 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/js/functions/location.js">
+    <entry file="file://$PROJECT_DIR$/frontend/js/views/trips/tripsCreateView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.606488" vertical-offset="0" max-vertical-offset="1418">
-          <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1442" max-vertical-offset="2860">
+          <caret line="136" column="5" selection-start-line="136" selection-start-column="5" selection-end-line="136" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/js/views/trips/tripsCreateView.js">
+    <entry file="file://$PROJECT_DIR$/frontend/js/functions/location.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57686883" vertical-offset="482" max-vertical-offset="1980">
-          <caret line="99" column="26" selection-start-line="99" selection-start-column="26" selection-end-line="99" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="400">
+          <caret line="62" column="4" selection-start-line="62" selection-start-column="4" selection-end-line="62" selection-end-column="4" />
           <folding>
-            <element signature="e#1682#2305#0" expanded="false" />
-            <element signature="e#2332#2775#0" expanded="false" />
+            <element signature="e#0#43#0" expanded="false" />
+            <element signature="e#161#431#0" expanded="false" />
+            <element signature="e#227#426#0" expanded="false" />
+            <element signature="e#340#366#0" expanded="false" />
+            <element signature="e#396#422#0" expanded="false" />
+            <element signature="e#494#695#0" expanded="false" />
+            <element signature="e#505#690#0" expanded="false" />
+            <element signature="e#595#630#0" expanded="false" />
+            <element signature="e#660#686#0" expanded="false" />
+            <element signature="e#740#1126#0" expanded="false" />
+            <element signature="e#793#968#0" expanded="false" />
+            <element signature="e#920#962#0" expanded="false" />
+            <element signature="e#987#1121#0" expanded="false" />
+            <element signature="e#1173#1368#0" expanded="false" />
+            <element signature="e#1293#1319#0" expanded="false" />
+            <element signature="e#1338#1363#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/js/router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
+          <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/js/functions/views.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1360">
+          <caret line="35" column="46" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42337003" vertical-offset="0" max-vertical-offset="1181">
+          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/sass/pages/_trips.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-29.344828" vertical-offset="909" max-vertical-offset="2200">
+          <caret line="88" column="5" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/js/views/users/profileView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1480">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/sass/pages/user/_signup.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6896552" vertical-offset="0" max-vertical-offset="560">
+          <caret line="1" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/sass/_typography.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.551723" vertical-offset="462" max-vertical-offset="1500">
+          <caret line="50" column="30" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/sass/pages/_index.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.275862" vertical-offset="0" max-vertical-offset="680">
+          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11486001" vertical-offset="0" max-vertical-offset="1393">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/MDB2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6943268" vertical-offset="29900" max-vertical-offset="91920">
+          <caret line="1574" column="1" selection-start-line="1574" selection-start-column="1" selection-end-line="1574" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/sass/modules/_boxes.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.4482758" vertical-offset="0" max-vertical-offset="520">
+          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/views/ui/initUI.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.6" vertical-offset="0" max-vertical-offset="160">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/views/input/input.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.4" vertical-offset="0" max-vertical-offset="320">
+          <caret line="8" column="103" selection-start-line="8" selection-start-column="103" selection-end-line="8" selection-end-column="120" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/views/input/button.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/views/login/login.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2" vertical-offset="0" max-vertical-offset="280">
+          <caret line="4" column="66" selection-start-line="4" selection-start-column="50" selection-end-line="4" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/views/trips/tipsPostCodeResults.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.6" vertical-offset="0" max-vertical-offset="260">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/views/ui/box.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2" vertical-offset="0" max-vertical-offset="200">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/views/ui/postcodebox.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.4" vertical-offset="0" max-vertical-offset="300">
+          <caret line="3" column="48" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/views/user/profile.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.0" vertical-offset="0" max-vertical-offset="500">
+          <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="160" max-vertical-offset="2860">
+          <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+          <folding>
+            <marker date="1425580223213" expanded="true" signature="1531:1576" placeholder="SELECT uid F..users..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/sass/modules/inputs/_input.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.827586" vertical-offset="0" max-vertical-offset="4340">
+          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="8" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/sass/_variables.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.689655" vertical-offset="122" max-vertical-offset="1120">
+          <caret line="10" column="3" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/sass/style.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.7777777" vertical-offset="840" max-vertical-offset="3140">
+          <caret line="63" column="19" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/sass/pages/user/_profile.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47895792" vertical-offset="82" max-vertical-offset="1240">
+          <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/js/views/trips/tripsCurrentTripView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7184628" vertical-offset="0" max-vertical-offset="1400">
+          <caret line="43" column="34" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/views/ui/contact.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1996008" vertical-offset="0" max-vertical-offset="1002">
+          <caret line="10" column="21" selection-start-line="7" selection-start-column="17" selection-end-line="10" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
