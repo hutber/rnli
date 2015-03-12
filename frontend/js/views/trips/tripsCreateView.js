@@ -21,7 +21,7 @@ module.exports = RN.glb.gvCreator.extend({
 		var postcode = ev.serializeObject().postcode,
 			self = this;
 
-		//if(postcode.length > 4) {
+		if(postcode.length > 5) {
 			var postcodeResults = RN.fnc.location.getPostCode(postcode, function (data) {
 				if (data.status === 200) {
 					RN.user.setPostCode(data);
@@ -30,7 +30,9 @@ module.exports = RN.glb.gvCreator.extend({
 					$('.postcodearea').html(self.templates.postCode());
 				}
 			});
-		//}
+		}else{
+			$('.postcodearea').html(self.templates.postCode({length:postcode.length}));
+		}
 		return false;
 	},
 	lookUpPostCode : function(ev){
@@ -60,13 +62,14 @@ module.exports = RN.glb.gvCreator.extend({
 			//Add trips details to local storage for later
 			var tripsDetails = {
 				name: items.name,
-				date:  items.date,
-				location: RN.user.get('location')
+				date:  items.date
 			};
 			//Save data to user model
 			RN.user.setTripData(tripsDetails);
 			//Now save to localStorage
 			localStorage.trip = JSON.stringify(tripsDetails);
+			localStorage.location = JSON.stringify(RN.user.get('location'));
+			localStorage.postcode = JSON.stringify(RN.user.get('postcode'));
 			//Push us onto the next page
 			RN.router.navigate('currenttrip',true);
 		}

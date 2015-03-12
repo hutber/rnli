@@ -668,7 +668,7 @@ textarea, input, select {
     .control-group.info textarea:focus, .control-group.info input:focus, .control-group.info select:focus {
       box-shadow: none; }
   textarea[type=radio], input[type=radio], select[type=radio] {
-    -webkit-appearance: radioe; }
+    -webkit-appearance: radio; }
 
 label.error, label.error a {
   border-color: #e74c3c;

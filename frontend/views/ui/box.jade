@@ -7,4 +7,4 @@ mixin box(data, options)
       - if (options.plain === "plain"){options.icon = false;}
       if icon
          div(class="icon-#{iconClass}")
-         | #{data.parliamentary_constituency}
+         | #{data.parliamentary_constituency}, #{data.postcode}
