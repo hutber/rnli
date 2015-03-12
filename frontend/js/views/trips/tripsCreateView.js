@@ -97,8 +97,6 @@ module.exports = RN.glb.gvCreator.extend({
 		$('.selected').removeClass('selected');
 		ev.addClass('selected')
 		var tripData = RN.fnc.location.getLocation(function(returnData){
-			//c(returnData);
-			//RN.user.setLocation(returnData);
 			RN.user.setLocation(returnData);
 			document.getElementById('location').value = 'something';
 			self.readyToSave();
