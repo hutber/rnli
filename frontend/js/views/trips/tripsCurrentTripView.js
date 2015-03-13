@@ -28,7 +28,7 @@ module.exports = RN.glb.gvCreator.extend({
 		var self = this,
 			cords = function()
 			{
-				if (typeof RN.user.get('location').latitude === typeof undefined) {
+				if (typeof say .latitude === typeof undefined) {
 					return  {
 						lat: RN.user.get('location').lat,
 						long: RN.user.get('location').long

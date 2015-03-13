@@ -979,6 +979,10 @@ input[type=checkbox] {
   .box:hover {
     background: #F6F6F6; }
 
+.plusbox {
+  border: dashed 2px #002664;
+  display: block; }
+
 /* v1.0.5 */
 /* Core RS CSS file. 95% of time you shouldn't change anything here. */
 .royalSlider {
@@ -1494,19 +1498,5 @@ body {
 ==================================================
     #Header
 */
-.header {
-  background: #EF8201; }
-  .weather .header {
-    background: #D13924; }
-  .safety .header {
-    background: #9C1B31; }
-  .catch .header {
-    background: #28243b; }
-  .profile .header {
-    background: #002664;
-    color: #FFF; }
-    .profile .header .middle h1 {
-      color: #ffffff; }
-
 
 /*# sourceMappingURL=app/www/css/style.css.map */
