@@ -1,15 +1,15 @@
 include ../mixins
 form
-    +input({place:'Choose a name', type: 'text', value:'', name:'name', id:'name'})
+    +input({place:'Choose a name', type: 'text', value:'', name:'name', id:'createname'})
     +input({place:'Choose a date', type: 'text', value:'', name:'date', id:'dateselector'})
-    +input({type: 'hidden', value:'', name:'date', id:'date'})
-    +input({type: 'hidden', value:'', name:'location', id:'location'})
+    +input({type: 'hidden', value:'', name:'date', id:'createdate'})
+    +input({type: 'hidden', value:'', name:'location', id:'createlocation'})
     .location
         h3 CURRENT LOCATION?
         .locationSelector
             .yes YES
             .no.selected NO
-        button(disabled).save.btn Save
+        button(disabled, id="saveCreateTrip").save.btn Save
 form.postcodeform
     +input({id:'postcode', place:'Post Code', type: 'text', value:'N11 1JB', name:'postcode', icon:'search', autocomplete:'off'})
 .postcodearea

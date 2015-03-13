@@ -7,13 +7,13 @@ module.exports = RN.glb.gvCreator.extend({
 		home: require('../../../views/user/profile.jade'),
 	},
 	events: {
-		'submit .signupForm': 'signupForm',
+		'submit .editForm': 'editProfileForm',
 	},
 	validateEmail: function (email) {
 		var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		return re.test(email);
 	},
-	signupForm: function (el) {
+	editProfileForm: function (el) {
 		var me = $(el.currentTarget),
 			values = me.serializeObject(),
 			noerror = true,
@@ -38,22 +38,22 @@ module.exports = RN.glb.gvCreator.extend({
 			var values = $(el.currentTarget).serializeObject();
 
 			//Turn off signup button
-			$('.btn.signup').attr('disabled','disabled');
+			//$('.btn.signup').attr('disabled','disabled');
 			$.ajax({
 				url: RN.glb.url.ajax + 'users/reg',
 				type: 'POST',
 				dataType: 'json',
 				data: values,
 				error: function (data) {
-					$('.btn.signup').removeAttr('disabled');
-					RN.fnc.popups.message.show('Opps, sorry! The registration failed. Please try again?!... - ' + data.bad, 'bad');
+					//$('.btn.signup').removeAttr('disabled');
+					RN.fnc.popups.message.show('Opps, sorry! Editing failed. Please try again?!... - ' + data.bad, 'bad');
 				},
 				success: function (data) {
 					if (data.error) {
 						RN.fnc.popups.message.show(data.error, 'bad');
-						$('.btn.signup').removeAttr('disabled');
+						//$('.btn.signup').removeAttr('disabled');
 					} else {
-						window.location.href = '#login'
+						$('.btn.signup').text('Saved').addClass('success');
 					}
 				}
 			});

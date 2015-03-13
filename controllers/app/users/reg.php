@@ -19,7 +19,7 @@ class reg extends controller
 			$device = $_POST['device'];
 			$version = $_POST['version'];
 			$email = $_POST['email'];
-			$pkey = $_POST['pkey'];
+			$token = $_POST['token'];
 
 			if ($pword == "") {
 				$data['error'] = 'Please set a Password';
@@ -43,9 +43,9 @@ class reg extends controller
 //				$data['error'] = 'Your password is not right length - Please make sure it is between 8 to 16 characters';
 //				$error = true;
 //			}
-			if(isset($pkey)) {
+			if(isset($token)) {
 				//first check if the user has changed email addresses then check email hasn't been used before
-				if ($dataStore->sessionCheckEmailCheck($email, $pkey) != 1 && $dataStore->adminEmailCheck($email)) {
+				if ($dataStore->sessionCheckEmailCheck($email, $token) != 1 && $dataStore->adminEmailCheck($email)) {
 					$data['error'] = 'Sorry but this email Address is already taken';
 //					$error = true;
 
@@ -54,9 +54,9 @@ class reg extends controller
 				//If no errors then add user to database and send confirmation email
 				if ($error == false) {
 					if($pword == "password"){
-						$pword = $dataStore->getCurrentPword($pkey)[0]['pword'];
+						$pword = $dataStore->getCurrentPword($token)[0]['pword'];
 					}
-					$dataStore->updateUsers($fname, $sname, $email, $pword, $device, $version, $pkey);
+					$dataStore->updateUsers($fname, $sname, $email, $pword, $device, $version, $token);
 					$data['good'] = "Details have been saved";
 				}
 			}else{

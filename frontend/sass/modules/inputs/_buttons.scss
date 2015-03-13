@@ -76,6 +76,15 @@ $mainGreen: #ccc;
 			}
 		}
 	}
+	&.error, .submitted &.ng-invalid {
+		background: $danger;
+	}
+	&.success {
+		background: $success;
+	}
+	&.warning {
+		background: $warning;
+	}
 }
 
 // BUTTON GROUP

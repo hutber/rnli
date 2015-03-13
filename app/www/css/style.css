@@ -441,7 +441,8 @@ h1, h2, h3, h4, h5, h6 {
   color: #002664;
   text-transform: uppercase;
   font-weight: normal;
-  text-align: center; }
+  text-align: center;
+  font-weight: bold; }
 
 .pageheading {
   font-size: 1rem;
@@ -686,7 +687,7 @@ label.error, label.error a {
     right: 0;
     z-index: 2;
     font-size: 1.5rem;
-    padding-top: 5px; }
+    padding-top: 12px; }
   .control-group label, .box label {
     font-size: .8em; }
     .control-group label.error, .control-group label.error a, .box label.error, .box label.error a {
@@ -819,6 +820,12 @@ input[type=checkbox] {
       top: 0; }
       .btn.btn-large > [class^="fui-"].pull-right, a.btn.btn-large > [class^="fui-"].pull-right, button.btn-large > [class^="fui-"].pull-right {
         margin-right: -2px; }
+  .btn.error, .submitted .btn.ng-invalid, a.btn.error, .submitted a.btn.ng-invalid, button.error, .submitted button.ng-invalid {
+    background: #e74c3c; }
+  .btn.success, a.btn.success, button.success {
+    background: #86C555; }
+  .btn.warning, a.btn.warning, button.warning {
+    background: #f1c40f; }
 
 .btn-group > .btn {
   border-radius: 0;
@@ -968,11 +975,6 @@ input[type=checkbox] {
   padding: 5px 8px;
   cursor: pointer;
   text-align: center; }
-  .box.white {
-    background: #fff; }
-  .box.large {
-    margin: 10px 0;
-    padding: 5.26316% 5.26316%; }
   .box .icon-right-open {
     padding-top: 0;
     top: 0; }
@@ -980,8 +982,23 @@ input[type=checkbox] {
     background: #F6F6F6; }
 
 .plusbox {
-  border: dashed 2px #002664;
-  display: block; }
+  text-align: center;
+  color: #002664;
+  text-transform: uppercase;
+  font-weight: bold; }
+  .plusbox.white.large {
+    margin: 5px;
+    padding: 3.44828%; }
+  .plusbox .plusbutton {
+    padding: 20px;
+    border: dashed 2px #002664;
+    display: block; }
+
+.box.white, .plusbox.white {
+  background: #fff; }
+.box.large, .plusbox.large {
+  margin: 10px 0;
+  padding: 5.26316% 5.26316%; }
 
 /* v1.0.5 */
 /* Core RS CSS file. 95% of time you shouldn't change anything here. */
@@ -1284,6 +1301,12 @@ body {
   position: absolute;
   bottom: 0; }
   .footer a {
+    text-decoration: none;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
     width: 18.64407%;
     float: left;
     margin-right: 1.69492%; }
@@ -1295,7 +1318,7 @@ body {
 .index .header, .home .header {
   display: none; }
 
-.index .footer, .signup .footer {
+.index .footer, .signup .footer, .profile .footer {
   display: none; }
 
 #__bs_notify__ {
@@ -1328,7 +1351,8 @@ body {
   border: dashed 2px #002664;
   text-align: center;
   position: relative;
-  background: #fff; }
+  background: #fff;
+  font-weight: bold; }
   .addphoto .photoitems {
     width: 100%;
     color: #002664;
@@ -1354,7 +1378,10 @@ body {
     width: 50px;
     background: #fff;
     position: relative;
-    margin-right: 1px; }
+    margin-right: 1px;
+    color: #002664;
+    font-weight: bold;
+    font-size: 2rem; }
     .contact .number .textnumber {
       position: absolute;
       left: 50%;

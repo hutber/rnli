@@ -11,11 +11,11 @@ module.exports = RN.glb.gvCreator.extend({
 
 	events: {
 		'click .right': 'signupForm',
-		'click .save': 'save',
+		'click #saveCreateTrip': 'save',
 		'click .yes': 'locationOn',
 		'click .no': 'locationOff',
 		'click .box': 'lookUpPostCode',
-		'keyup input': 'readyToSave',
+		'keyup #createname, #createdate, #createlocation': 'readyToSave',
 		'submit .postcodeform': 'postcode'
 	},
 
@@ -55,7 +55,7 @@ module.exports = RN.glb.gvCreator.extend({
 		var self = this;
 		RN.fnc.location.getClosestLocation(data.latitude, data.longitude, function(data){
 			RN.user.setLocation(data);
-			document.getElementById('location').value = 'something';
+			document.getElementById('createlocation').value = 'something';
 			self.readyToSave();
 			callBack(data);
 		});
@@ -86,9 +86,9 @@ module.exports = RN.glb.gvCreator.extend({
 		var checker = true;
 		//Make sure nothing is empty
 		if (
-			document.getElementById('name').value.length === 0 ||
-			document.getElementById('date').value.length === 0 ||
-			document.getElementById('location').value.length === 0
+			document.getElementById('createname').value.length === 0 ||
+			document.getElementById('createdate').value.length === 0 ||
+			document.getElementById('createlocation').value.length === 0
 		){
 			checker = false;
 			$('.save').prop('disabled', true)
@@ -106,7 +106,7 @@ module.exports = RN.glb.gvCreator.extend({
 		ev.addClass('selected')
 		var tripData = RN.fnc.location.getLocation(function(returnData){
 			RN.user.setLocation(returnData);
-			document.getElementById('location').value = 'something';
+			document.getElementById('createlocation').value = 'something';
 			self.readyToSave();
 		});
 	},
@@ -128,7 +128,7 @@ module.exports = RN.glb.gvCreator.extend({
 			field: document.getElementById('dateselector'),
 			format: 'MMMM Do YYYY',
 			onSelect: function() {
-				document.getElementById('date').value = this.getMoment().format();
+				document.getElementById('createdate').value = this.getMoment().format();
 				self.readyToSave();
 			}
 		});

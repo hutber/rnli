@@ -4,13 +4,6 @@
 	padding: 5px 8px;
 	cursor: pointer;
 	text-align: center;
-	&.white {
-		background: #fff;
-	}
-	&.large {
-		margin: 10px 0;
-		padding: gutter(4) gutter(4) ;
-	}
 	.icon-right-open {
 		padding-top: 0;
 		top: 0;
@@ -21,6 +14,27 @@
 }
 
 .plusbox {
-	border: dashed 2px $mainBlue;
-	display: block;
+	&.white.large {
+		margin: 5px;
+		padding: gutter(6);
+	}
+	text-align: center;
+	color: $mainBlue;
+	text-transform: uppercase;
+	font-weight: bold;
+	.plusbutton {
+		padding: 20px;
+		border: dashed 2px $mainBlue;
+		display: block;
+	}
+}
+
+.box, .plusbox {
+	&.white {
+		background: #fff;
+	}
+	&.large {
+		margin: 10px 0;
+		padding: gutter(4) gutter(4);
+	}
 }
