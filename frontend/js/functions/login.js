@@ -70,7 +70,9 @@ module.exports = {
 				token: localStorage.token,
 				uid: localStorage.uid,
 				version: localStorage.version,
-				trip: localStorage.trip
+				trip: localStorage.trip,
+				location: localStorage.location,
+				postcode: localStorage.postcode
 			});
             checker = true;
 		} else if (typeof data !== typeof undefined){
@@ -81,7 +83,9 @@ module.exports = {
 				token: data.token,
 				uid: data.uid,
 				version: data.version,
-				trip: {}
+				trip: {},
+				location: {},
+				postcode: {}
 			}
             checker = true;
 		}

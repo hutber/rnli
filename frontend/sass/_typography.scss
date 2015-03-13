@@ -47,8 +47,10 @@ p a, p a:visited { line-height: inherit; }
 a.selected {color:$softOrange;}
 // #Headers ---------------------------------------------------------------------
 h1, h2, h3, h4, h5, h6 {
-	color: $headerGrey;
+	color: $mainBlue;
+	text-transform: uppercase;
 	font-weight: normal;
+	text-align: center;
 }
 
 //h1 {font-size: 2.5em; line-height: 1.5em;}

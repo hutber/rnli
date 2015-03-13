@@ -1,5 +1,6 @@
 @import
-	"_users",
+	"user/_signup",
+	"user/_profile",
 	"_trips",
 	"_landing";
 /* Table of Contents
@@ -7,15 +8,22 @@
 ==================================================
     #Header
 */
-//.header {
-//	background: $trips;
-//	.weather & {
-//		background: $weather;
-//	}
-//	.safety & {
-//		background: $safety;
-//	}
-//	.catch & {
-//		background: $catch;
-//	}
-//}
+.header {
+	background: $trips;
+	.weather & {
+		background: $weather;
+	}
+	.safety & {
+		background: $safety;
+	}
+	.catch & {
+		background: $catch;
+	}
+	.profile & {
+		background: $mainBlue;
+		color: #FFF;
+		.middle h1 {
+			color: #ffffff;
+		}
+	}
+}

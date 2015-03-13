@@ -47,7 +47,7 @@ module.exports = RN.glb.gvCreator.extend({
 			if(typeof data.weather === typeof undefined || data.weather === null){
 
 			}else {
-				var myLatlng = new google.maps.LatLng(RN.user.get('location').latitude, RN.user.get('location').longitude);
+				var myLatlng = new google.maps.LatLng(cords.lat, cords.long);
 				var mapOptions = {
 					zoom: 13,
 					center: myLatlng,

@@ -31,7 +31,7 @@ module.exports = function(){
 			this.set({
 				location: data
 			})
-		},
+		}
 	});
 
 	//return models;

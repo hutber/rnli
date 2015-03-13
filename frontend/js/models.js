@@ -4,5 +4,4 @@
 'use strict';
 module.exports = {
 	user: require('./models/user')(),
-	location: require('./models/location')(),
 }

@@ -1,7 +1,8 @@
 include ../mixins
 if status && typeof status !== typeof undefined
-    each val in result
-        +box(val, {})
-
+    +postcodebox(result[0], {})
+    //each val in result
+else if(length)
+    | Please enter a valid postcode
 else
     | Sorry No results

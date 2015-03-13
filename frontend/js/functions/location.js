@@ -39,7 +39,10 @@ module.exports = function(){
 		var self = this;
 		location.lookUp(function(data){
 				RN.fnc.popups.spinner.hide();
-				callback(data.coords);
+				location.getClosestLocation(data.coords.latitude, data.coords.longitude, function(data){
+					c(data);
+					callback(data);
+				})
 			},
 			function(data){
 				RN.fnc.popups.spinner.hide();
