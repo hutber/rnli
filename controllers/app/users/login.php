@@ -26,6 +26,7 @@ class login extends Controller {
 				}else {
 					//grab all details from the get stats function
 					$messages = $checkDetails;
+					$messages['contacts'] = $this->login->getUsersContacts($checkDetails['uid']);
 					//add security field
 					$messages['token'] = $this->login->createToken($checkDetails, 3600 * 24 * 30);
 				}

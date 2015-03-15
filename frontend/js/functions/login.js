@@ -57,6 +57,7 @@ module.exports = {
 		localStorage.sname = data.sname;
 		localStorage.email = data.email;
 		localStorage.version = data.version;
+		localStorage.contacts = JSON.stringify(data.contacts);
 	},
 	restoreUserFromLocalStorage : function(data){
 		var dataToLoad = {},
@@ -72,7 +73,8 @@ module.exports = {
 				version: localStorage.version,
 				trip: localStorage.trip,
 				location: localStorage.location,
-				postcode: localStorage.postcode
+				postcode: localStorage.postcode,
+				contacts: localStorage.contacts
 			});
             checker = true;
 		} else if (typeof data !== typeof undefined){
@@ -83,6 +85,7 @@ module.exports = {
 				token: data.token,
 				uid: data.uid,
 				version: data.version,
+				contacts: data.contacts,
 				trip: {},
 				location: {},
 				postcode: {}

@@ -36,7 +36,7 @@ module.exports = RN.glb.gvCreator.extend({
 		}else{
 			$('.postcodearea').html(self.templates.postCode({length:postcode.length}));
 		}
-		return false;
+		return false; 
 	},
 
 	lookUpPostCode : function(ev){

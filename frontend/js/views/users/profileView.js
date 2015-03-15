@@ -5,9 +5,17 @@ module.exports = RN.glb.gvCreator.extend({
 	el: '.content',
 	templates: {
 		home: require('../../../views/user/profile.jade'),
+		contact: require('../../../views/ui/contact.jade'),
 	},
 	events: {
 		'submit .editForm': 'editProfileForm',
+		'click .addEcontact': 'addEcontact',
+	},
+	addEcontact : function(ev){
+		var ev = $(ev.currentTarget);
+		var ordernumber = $('.contact:last').find('.textnumber').html();
+		ordernumber = parseInt(ordernumber);
+		$('.contact:last').after(this.templates.contact({pos:ordernumber}))
 	},
 	validateEmail: function (email) {
 		var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -36,7 +44,7 @@ module.exports = RN.glb.gvCreator.extend({
 
 		if(noerror){
 			var values = $(el.currentTarget).serializeObject();
-
+			c(values);
 			//Turn off signup button
 			//$('.btn.signup').attr('disabled','disabled');
 			$.ajax({

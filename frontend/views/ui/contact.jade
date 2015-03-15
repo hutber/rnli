@@ -1,11 +1,2 @@
-//
-   Created by Hutber on 09/03/2015.
-mixin contact(data, options)
-   .contact(class= data.class)
-        .number #{data.number}
-            .textnumber 1
-        .textInfo
-            .name
-                +input({place:'Name', type: 'text', value:'', name:''})
-            .pnumber
-                +input({place:'Number', type: 'text', value:'', name:''})
+include ../mixins
++contact({pos:pos+1})

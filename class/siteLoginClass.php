@@ -15,8 +15,8 @@ class siteLogin
 
 		require_once $_SERVER['DOCUMENT_ROOT'] .'/db/db.php';
 		$this->db = new DB();
-		require_once $_SERVER['DOCUMENT_ROOT'] .'/db/data.php';
-		$this->dataStore = new Data($this->db);
+		require_once $_SERVER['DOCUMENT_ROOT'] .'/db/types/DBuser.php';
+		$this->dataStore = new DBuser($this->db);
     }
 
 	public function check_user_details($post)
@@ -33,6 +33,11 @@ class siteLogin
 	public function updateUsersVersion($privatekey, $version)
 	{
 		$this->dataStore->updateUsersVersionNumber($privatekey, $version);
+	}
+
+	public function getUsersContacts($uid)
+	{
+		return $this->dataStore->getContacts($uid);
 	}
 
 	private function convertToJson ($data, $type = ""){

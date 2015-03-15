@@ -26,7 +26,7 @@ class Data
 	}
 	function getUsers() //update the users password
 	{
-		$sql = sprintf("SELECT uid, fname, sname, username, email, rank, confirmed, regdate from users order by confirmed, regdate;");
+		$sql = sprintf("SELECT uid, fname, sname, username, email, confirmed, regdate from users order by confirmed, regdate;");
 		return $this->db->get($sql);
 	}
 
@@ -35,7 +35,7 @@ class Data
 		if($start!=""){
 			$datevar = "AND b.submitdate >= '".$start." 00:00:00' AND  b.submitdate <= '".$end." 00:00:00'";
 		}
-		$sql = sprintf("SELECT b.id, u.fname, u.sname, u.rank, b.type, b.comment, b.region, b.vessel, b.submitdate, (SELECT GROUP_CONCAT(observation) FROM observationdetails bd WHERE b.id = bd.oid) as observation FROM observation b, users u WHERE b.uid=u.uid %s order by b.id;", $datevar);
+		$sql = sprintf("SELECT b.id, u.fname, u.sname, b.type, b.comment, b.region, b.vessel, b.submitdate, (SELECT GROUP_CONCAT(observation) FROM observationdetails bd WHERE b.id = bd.oid) as observation FROM observation b, users u WHERE b.uid=u.uid %s order by b.id;", $datevar);
 		return $this->db->get($sql);
 	}
 
@@ -47,7 +47,7 @@ class Data
 	function checkUser($email, $pword)
 	{ //Check username via username
 		$sql = sprintf(
-			"SELECT uid,fname,sname,email,version,confirmed,regdate,rank
+			"SELECT uid,fname,sname,email,version,confirmed,regdate
 			FROM users
 			WHERE email='%s' AND pword = '%s'
 			GROUP BY uid;", $this->db->escape($email), $this->db->escape($pword));
@@ -56,7 +56,7 @@ class Data
 	function checkUserName($email, $pword)
 	{ //Check username via username
 		$sql = sprintf(
-			"SELECT uid,fname,sname,email,version,confirmed,regdate,rank
+			"SELECT uid,fname,sname,email,version,confirmed,regdate
 			FROM users
 			WHERE username='%s' AND pword = '%s'
 			GROUP BY uid;", $this->db->escape($email), $this->db->escape($pword));

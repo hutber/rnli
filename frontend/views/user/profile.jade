@@ -12,9 +12,11 @@ form(action="#{RN.glb.url.ajax}users/reg", class="editForm ajax")
     +input({place:'Confirm password', type: 'text', name: "cpw", value:'jadwiga'})
     +input({type: 'hidden', value:RN.glb.device, name:'device'})
     +input({type: 'hidden', value:RN.glb.version, name:'version'})
-    h3 Emergency Contacts
-    +contact({})
-    +plusbox({text:'Add Another Contact', class: ['large','white']})
+    h3.econtact Emergency Contacts
+    if RN.user.get('contacts') !== 'null'
+        each val, index in RN.user.get('contacts')
+            +contact({name:val.name,number:val.number, pos: index+1})
+    +plusbox({text:'Add Another Contact', class: ['large','white', 'addEcontact']})
     h3 My Favourite Locations
     +box({class:['large','white'], text:'When you create a trip you will have the option of saving it.'})
     +button({value: 'Save', class: ['signup', 'btn']})

@@ -1,0 +1,12 @@
+//
+   Created by Hutber on 09/03/2015.
+mixin contact(data, options)
+   .contact(class= data.class)
+       - c(data);
+        .number
+            .textnumber #{data.pos}
+        .textInfo
+            .name
+                +input({place:'Name', type: 'text', value:data.name, name:''})
+            .pnumber
+                +input({place:'Number', type: 'text', value:data.number, name:''})
