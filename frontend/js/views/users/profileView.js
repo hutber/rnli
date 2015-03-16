@@ -14,8 +14,12 @@ module.exports = RN.glb.gvCreator.extend({
 	addEcontact : function(ev){
 		var ev = $(ev.currentTarget);
 		var ordernumber = $('.contact:last').find('.textnumber').html();
-		ordernumber = parseInt(ordernumber);
-		$('.contact:last').after(this.templates.contact({pos:ordernumber}))
+		if(!ordernumber) {
+			$('.econtact').after(this.templates.contact({pos:0}))
+		}else{
+			ordernumber = parseInt(ordernumber);
+			$('.contact:last').after(this.templates.contact({pos:ordernumber}))
+		}
 	},
 	validateEmail: function (email) {
 		var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -26,7 +30,9 @@ module.exports = RN.glb.gvCreator.extend({
 			values = me.serializeObject(),
 			noerror = true,
 			myself = this;
+		c(me);
 		//check for all errors
+		c(values);
 		me.find('.error').removeClass('error');
 		Object.keys(values).forEach(function(item){
 			var element = values[item];
@@ -43,8 +49,6 @@ module.exports = RN.glb.gvCreator.extend({
 		}
 
 		if(noerror){
-			var values = $(el.currentTarget).serializeObject();
-			c(values);
 			//Turn off signup button
 			//$('.btn.signup').attr('disabled','disabled');
 			$.ajax({
