@@ -11,6 +11,10 @@ class reg extends controller
 
 		require_once $_SERVER['DOCUMENT_ROOT'] .'/db/types/DBregistration.php';
 		$dataStore = new DBregistration($db);
+
+		require_once  $_SERVER['DOCUMENT_ROOT'] .'/db/types/DBuser.php';
+		$DBuser = new DBuser($db);
+
 		if (isset($_POST) && count($_POST) != 0) {
 
 			$fname = ucwords(strtolower($_POST['fname']));
@@ -56,6 +60,23 @@ class reg extends controller
 					if($pword == "password"){
 						$pword = $dataStore->getCurrentPword($token)[0]['pword'];
 					}
+					//work out new people with old people
+					$newContacts = array();
+					forEach ($_POST as $key => $item) {
+						if (stripos($key, 'new')  !== false) {
+							$itemName = 'person_'.substr($key, -1);
+							if (!isset($newContacts[$itemName])) {
+								$newContacts[$itemName] = array();
+							}
+							$newContacts[$itemName][substr($key, 0, stripos($key, '_'))] = $_POST[$key];
+						}
+					};
+					$values['newContacts'] = $newContacts;
+
+					foreach($values['newContacts'] as $key => $item){
+						$DBuser->insertContact($_POST['uid'], $item['name'], $item['number']);
+					}
+
 					$dataStore->updateUsers($fname, $sname, $email, $pword, $device, $version, $token);
 					$data['good'] = "Details have been saved";
 				}

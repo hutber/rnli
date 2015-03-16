@@ -14,7 +14,6 @@ module.exports = {
 		}
 	},
 	rebuildObject : function(item){
-
 		var listOfItems = {},
 			self = this;
 		Object.keys(item).forEach(function(key, val, stuff){

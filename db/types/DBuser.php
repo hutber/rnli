@@ -5,7 +5,7 @@ class DBuser extends Data{
      * General querys
      */
 
-    function insertContact($name,$number)
+    function insertContact($uid,$name,$number)
     {
         $sql = sprintf("INSERT INTO `contacts` (
             `uid` ,
@@ -13,9 +13,9 @@ class DBuser extends Data{
             `number`
         )
         VALUES (
-            '%s', '%s'
+            '%s','%s', '%s'
         );",
-            $this->db->escape($name), $this->db->escape($number)
+			$uid, $this->db->escape($name), $this->db->escape($number)
         );
         $this->db->query($sql);
     }

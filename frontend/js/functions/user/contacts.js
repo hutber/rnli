@@ -3,9 +3,9 @@ module.exports = function () {
 
 	var contact = {};
 
-	contact.saveContact = function(data){
-		c(data);
+	contact.saveContacts = function(data){
+		localStorage.contacts = JSON.stringify(data);
 	};
 
-	return contact
+	return contact;Jami
 };

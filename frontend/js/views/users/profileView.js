@@ -30,6 +30,7 @@ module.exports = RN.glb.gvCreator.extend({
 			values = me.serializeObject(),
 			noerror = true,
 			myself = this;
+			values['uid'] = localStorage.uid
 
 		//check for all errors
 		me.find('.error').removeClass('error');
@@ -53,9 +54,33 @@ module.exports = RN.glb.gvCreator.extend({
 			noerror = false;
 		}
 
+		function toObject(arr) {
+			var rv = {};
+			for (var i = 0; i < arr.length; ++i)
+				if (arr[i] !== undefined) rv[i] = arr[i];
+			return rv;
+		}
+
 		if(noerror){
 			//Turn off signup button
 			//$('.btn.signup').attr('disabled','disabled');
+			var newContacts = [];
+			Object.keys(values).forEach(function(key){
+				if(key.indexOf('new') !== -1 ){
+					var itemName = 'item_'+key.slice(-1);
+					if(!newContacts[itemName]){
+						newContacts[itemName] = [];
+					}
+					newContacts[itemName][key.slice(0, key.indexOf('_'))] = values[key];
+					//delete values[key];
+				}
+			});
+c(newContacts);
+			newContacts.forEach(function(item){
+				c(item);
+				//RN.fnc.user.contacts.saveContact(newContacts)
+			});
+
 			$.ajax({
 				url: RN.glb.url.ajax + 'users/reg',
 				type: 'POST',

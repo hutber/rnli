@@ -7,7 +7,7 @@ mixin  contact(data, options)
             .textnumber #{data.pos}
         .textInfo
             .name
-                +input({place:'Name', type: 'text', value:data.name, name:'name_'+id})
+                +input({place:'Name', type: 'text', value:data.name, name:'name_'+id+'_'+data.pos})
             .pnumber
-                +input({place:'Number', type: 'text', value:data.number, name:'number_'+id})
-       +input({place:'', type: 'hidden', value:id, name:'id_'+id})
+                +input({place:'Number', type: 'text', value:data.number, name:'number_'+id+'_'+data.pos})
+       +input({place:'', type: 'hidden', value:id, name:'id_'+id+'_'+data.pos})
