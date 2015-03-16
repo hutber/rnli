@@ -30,9 +30,8 @@ module.exports = RN.glb.gvCreator.extend({
 			values = me.serializeObject(),
 			noerror = true,
 			myself = this;
-		c(me);
+
 		//check for all errors
-		c(values);
 		me.find('.error').removeClass('error');
 		Object.keys(values).forEach(function(item){
 			var element = values[item];
@@ -45,6 +44,12 @@ module.exports = RN.glb.gvCreator.extend({
 		if(this.validateEmail(values.email)!==true && values.email.length>0){
 			RN.fnc.popups.Dialog('Email Address', 'Please enter a valid email address');
 			$('input[name=email]').parent().addClass('error');
+			noerror = false;
+		}
+
+		if(values.pw!==values.cpw){
+			RN.fnc.popups.message.show('Please make sure your passwords match', 'notice');
+			$('input[name=pw]').parent().addClass('error');
 			noerror = false;
 		}
 
