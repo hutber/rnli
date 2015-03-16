@@ -68,11 +68,15 @@ class reg extends controller
 							if (!isset($newContacts[$itemName])) {
 								$newContacts[$itemName] = array();
 							}
-							$newContacts[$itemName][substr($key, 0, stripos($key, '_'))] = $_POST[$key];
+							$currentItem = substr($key, 0, stripos($key, '_'));
+							if($currentItem == "id"){
+								$newContacts[$itemName][$currentItem] = substr($_POST[$key], stripos($_POST[$key], '_')+1);
+							}else {
+								$newContacts[$itemName][$currentItem] = $_POST[$key];
+							}
 						}
 					};
 					$values['newContacts'] = $newContacts;
-
 					foreach($values['newContacts'] as $key => $item){
 						$DBuser->insertContact($_POST['uid'], $item['name'], $item['number']);
 					}
