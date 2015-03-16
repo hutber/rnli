@@ -33,7 +33,7 @@ module.exports = function (){
 		 ================================================== */
 		,{
 			name: 'profileView',
-				path: require('../views/users/profileView'),
+			path: require('../views/users/profileView'),
 			url: 'profile',
 			title: 'My Profile'
 		}
@@ -57,6 +57,69 @@ module.exports = function (){
 			path: require('../views/trips/tripsCurrentTripView'),
 			url: 'currenttrip',
 			title: 'CURRENT TRIP'
+		}
+		/*==================================================
+		 About
+		 ================================================== */
+		,{
+			name: 'abouthomeView',
+			path: require('../views/about/abouthomeView'),
+			url: 'abouthome',
+			title: 'ABOUT'
+		}
+		,{
+			name: 'aboutView',
+			path: require('../views/about/aboutView'),
+			url: 'about',
+			title: 'ABOUT'
+		}
+		,{
+			name: 'donateView',
+			path: require('../views/about/donateView'),
+			url: 'donate',
+			title: 'Donate'
+		}
+		,{
+			name: 'contactView',
+			path: require('../views/about/contactView'),
+			url: 'contact',
+			title: 'Contact RNLI'
+		}
+		,{
+			name: 'conservationView',
+			path: require('../views/about/conservationView'),
+			url: 'conservation',
+			title: 'About Marine Conservation Society'
+		}
+		,{
+			name: 'legalView',
+			path: require('../views/about/legalView'),
+			url: 'legal',
+			title: 'Lega Disclaimer'
+		}
+		,{
+			name: 'rateView',
+			path: require('../views/about/rateView'),
+			url: 'rate',
+			title: 'Rate this App'
+		}
+		,{
+			name: 'shareView',
+			path: require('../views/about/shareView'),
+			url: 'share',
+			title: 'Share this app'
+		}
+		,{
+			name: 'termsView',
+			path: require('../views/about/termsView'),
+			url: 'terms',
+			title: 'Terms of Service'
+		}
+		,{
+			name: 'privacyView',
+			path: require('../views/about/privacyView'),
+			url: 'privacy',
+			title: 'Privacy policy'
 		}
 	);
 	return currentViews;

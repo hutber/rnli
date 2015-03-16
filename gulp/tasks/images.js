@@ -3,7 +3,7 @@ var gulp       = require('gulp');
 var imagemin   = require('gulp-imagemin');
 
 gulp.task('images', function() {
-  var dest = 'public/img';
+  var dest = 'app/www/img';
 
   return gulp.src('frontend/img/**')
     .pipe(changed(dest)) // Ignore unchanged files

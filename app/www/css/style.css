@@ -1397,6 +1397,17 @@ body {
     .contact .textInfo input {
       margin: 0; }
 
+.urls {
+  margin: 10px 0 0 10px; }
+  .urls a {
+    float: left;
+    width: 100%;
+    display: block;
+    padding: 5px 5px 15px;
+    margin: 5px 0 5px 5px;
+    border-bottom: 1px solid #DDD;
+    text-decoration: none; }
+
 .locationSelector {
   width: 80%;
   margin: 0 auto;

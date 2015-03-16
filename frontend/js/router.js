@@ -2,7 +2,6 @@
  * Created by Hutber on 10/02/2015.
  */
 
-
 //routes from the home page
 var Router = Backbone.Router.extend({
 	routes: {
@@ -19,6 +18,18 @@ var Router = Backbone.Router.extend({
 		'trips': 'trips',
 		'createtrip': 'createtrip',
 		'currenttrip': 'currenttrip',
+
+		// #About ---------------------------------------------------- /
+		'abouthome': 'abouthome',
+		'about': 'about',
+		'donate': 'donate',
+		'contact': 'contact',
+		'conservation': 'conservation',
+		'legal': 'legal',
+		'rate': 'rate',
+		'share': 'share',
+		'terms': 'terms',
+		'privacy': 'privacy',
 	}
 });
 //Set up Routes for backbone.
