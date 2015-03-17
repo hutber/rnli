@@ -16,6 +16,7 @@ module.exports =  function() {
 		events: {
 			//'click a': 'navigate'
 		},
+		$header: null,
 		templates: {
 			login: require('../views/shell.jade')
 		},
@@ -28,6 +29,7 @@ module.exports =  function() {
 		render: function(){
 			//render Page
 			this.$el.html(this.templates.login());
+			this.$header = $('.header .headerbutton');
 		}
 	});
 

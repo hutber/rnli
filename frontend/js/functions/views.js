@@ -68,6 +68,24 @@ module.exports = function (){
 			title: 'CURRENT TRIP'
 		}
 		/*==================================================
+		 Weather Center
+		 ================================================== */
+		,{
+			name: 'weatherCentreView',
+			path: require('../views/weather/weatherCentreView'),
+			url: 'weather',
+			title: 'WEATHER CENTRE'
+		}
+		/*==================================================
+		 Catch Log
+		 ================================================== */
+		,{
+			name: 'catchLogView',
+			path: require('../views/catch/catchLogView'),
+			url: 'catch',
+			title: 'TOTAL CATCH LOG'
+		}
+		/*==================================================
 		 About
 		 ================================================== */
 		,{

@@ -101,7 +101,12 @@ $headerHeight: 75px;
 		position: relative;
 		height: 100%;
 		@include span(1.5 of 12 last);
-		div {
+		a.headerbutton {
+			display: none;
+			border: 1px solid #FFF;
+			background: $softOrange;
+			padding: 5px;
+			cursor: pointer;
 			@include vertical-middle()
 		}
 	}
