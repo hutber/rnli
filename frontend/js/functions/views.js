@@ -38,6 +38,15 @@ module.exports = function (){
 			title: 'My Profile'
 		}
 		/*==================================================
+		 Safety Tips
+		 ================================================== */
+		,{
+			name: 'safetyView',
+			path: require('../views/safety/safetyView'),
+			url: 'safety',
+			title: 'Safety Tips'
+		}
+		/*==================================================
 		 Trips
 		 ================================================== */
 		,{

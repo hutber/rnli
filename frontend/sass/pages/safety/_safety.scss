@@ -1,0 +1,27 @@
+/* Table of Contents
+==================================================
+    #Safety
+*/
+.safetycontrols {
+	border-bottom: 1px solid $grey;
+	text-align: center;
+	@include clear;
+
+	div {
+		display: inline-block;
+	}
+
+	.leftarrow {
+//		float: left;
+	}
+	.middletext {
+		margin: 0 5rem 5px;
+		font-size: 1.4rem;
+		.safety, .safetytotal {
+			display: inline;
+		}
+	}
+	.rightarrow, .leftarrow {
+		font-size: 1.7rem;
+	}
+}

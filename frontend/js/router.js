@@ -14,6 +14,8 @@ var Router = Backbone.Router.extend({
 		'signup': 'signup',
 		'profile': 'profile',
 
+		// #Safety ---------------------------------------------------- /
+		'safety':'safety',
 		// #Home ---------------------------------------------------- /
 		'trips': 'trips',
 		'createtrip': 'createtrip',

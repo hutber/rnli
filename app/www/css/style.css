@@ -1397,6 +1397,24 @@ body {
     .contact .textInfo input {
       margin: 0; }
 
+/* Table of Contents
+==================================================
+    #Safety
+*/
+.safetycontrols {
+  border-bottom: 1px solid #93979D;
+  text-align: center;
+  overflow: hidden; }
+  .safetycontrols div {
+    display: inline-block; }
+  .safetycontrols .middletext {
+    margin: 0 5rem 5px;
+    font-size: 1.4rem; }
+    .safetycontrols .middletext .safety, .safetycontrols .middletext .safetytotal {
+      display: inline; }
+  .safetycontrols .rightarrow, .safetycontrols .leftarrow {
+    font-size: 1.7rem; }
+
 .urls {
   margin: 10px 0 0 10px; }
   .urls a {
