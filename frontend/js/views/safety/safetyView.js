@@ -4,13 +4,12 @@
 module.exports = RN.glb.gvCreator.extend({
 	el: '.content',
 	templates: {
-		home: require('../../../views/safety/safety.jade'),
+		home: require('../../../views/safety/safetyBrowse.jade'),
 	},
 	events: {
-		'submit .signupForm': 'signupForm',
+		//'click div[data-number]': 'moveSlide',
 	},
 	render: function () {
-		//load data in ejs
 		this.$el.html(this.templates.home());
 	}
 });

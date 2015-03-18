@@ -1,9 +1,12 @@
+include ../mixins
 .safetycontrols
-    .leftarrow
+    .leftarrow(data-number=currentView-1)
         i(class='icon-left-circled')
-    .middletext
-        span.safetynumber 1
-        .safetytotal /12
-    .rightarrow
+    .middletext(data-number=currentView)
+        span.safetynumber #{currentView}
+        .safetytotal /#{totalNumber}
+    .rightarrow(data-number=currentView+1)
         i(class='icon-right-circled')
 .safetyarea Load stuff into me
++input({type: 'hidden', value:totalNumber, name:'totalnumber'})
++input({type: 'hidden', value:currentView, name:'currentview'})

@@ -41,6 +41,12 @@ module.exports = function (){
 		 Safety Tips
 		 ================================================== */
 		,{
+			name: 'safetyBrowseView',
+			path: require('../views/safety/safetyBrowseView'),
+			url: 'safetybrowse',
+			title: 'Safety Tips'
+		}
+		,{
 			name: 'safetyView',
 			path: require('../views/safety/safetyView'),
 			url: 'safety',
