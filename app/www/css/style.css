@@ -1279,7 +1279,12 @@ body {
     width: 11.01695%;
     float: right;
     margin-right: 0; }
-    .header .right div {
+    .header .right a.headerbutton {
+      display: none;
+      border: 1px solid #FFF;
+      background: #F1835B;
+      padding: 5px;
+      cursor: pointer;
       position: absolute;
       left: 50%;
       top: 50%;
@@ -1425,6 +1430,9 @@ body {
     margin: 5px 0 5px 5px;
     border-bottom: 1px solid #DDD;
     text-decoration: none; }
+
+.trips .headerbutton {
+  display: block !important; }
 
 .locationSelector {
   width: 80%;

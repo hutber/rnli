@@ -1,16 +1,13 @@
-'user strict';
+ 'user strict';
 
 //extend the view with the default home view
 module.exports = RN.glb.gvCreator.extend({
 	el: '.content',
 	templates: {
-		home: require('../../../views/trips/tripsHome.jade'),
+		home: require('../../../views/catch/catch.jade'),
 	},
 	events: {
-		'click .addtrip': 'jamie',
-	},
-	jamie : function(ev){
-		var ev = $(ev.currentTarget);
+		'submit .signupForm': 'signupForm',
 	},
 	render: function () {
 		//load data in ejs

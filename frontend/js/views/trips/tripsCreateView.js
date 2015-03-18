@@ -10,7 +10,6 @@ module.exports = RN.glb.gvCreator.extend({
 	},
 
 	events: {
-		'click .right': 'signupForm',
 		'click #saveCreateTrip': 'save',
 		'click .yes': 'locationOn',
 		'click .no': 'locationOff',
