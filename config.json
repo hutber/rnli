@@ -7,6 +7,20 @@
   "ascent": 850,
   "glyphs": [
     {
+      "uid": "4a1ed84bb1b512901ec9949a88e4dc8e",
+      "css": "fish",
+      "code": 59443,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M2345 461.4C2345 461.4 1435.2-690.2 135.7 805.7V122.7C135.7 122.7 1269.3 1590.4 2345 461.4Z",
+        "width": 2397
+      },
+      "search": [
+        "pc5oelrei"
+      ]
+    },
+    {
       "uid": "2a6740fc2f9d0edea54205963f662594",
       "css": "spin3",
       "code": 59415,

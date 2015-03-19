@@ -369,6 +369,10 @@ table {
   content: '\e832'; }
 
 /* '' */
+.icon-fish:before {
+  content: '\e833'; }
+
+/* '' */
 .test {
   -moz-transform: skew(25deg, 10deg);
   -o-transform: skew(25deg, 10deg);
@@ -1304,21 +1308,19 @@ body {
   background: #fff;
   text-align: center;
   position: absolute;
-  bottom: 0; }
-  .footer a {
-    text-decoration: none;
+  bottom: 0;
+  text-align: center; }
+  .footer div {
     position: relative;
     top: 50%;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    width: 18.64407%;
-    float: left;
-    margin-right: 1.69492%; }
-    .footer a:last-child {
-      width: 18.64407%;
-      float: right;
-      margin-right: 0; }
+    transform: translateY(-50%); }
+  .footer a {
+    margin: 0 5px;
+    text-decoration: none; }
+  .footer .tripfooter {
+    display: none; }
 
 .index .header, .home .header {
   display: none; }
@@ -1430,6 +1432,22 @@ body {
     margin: 5px 0 5px 5px;
     border-bottom: 1px solid #DDD;
     text-decoration: none; }
+
+.currenttrip .footer, .addhazard .footer {
+  display: block;
+  height: 65px; }
+  .currenttrip .footer .tripfooter, .addhazard .footer .tripfooter {
+    display: block; }
+    .currenttrip .footer .tripfooter a, .addhazard .footer .tripfooter a {
+      display: inline-block; }
+    .currenttrip .footer .tripfooter i, .addhazard .footer .tripfooter i {
+      display: block;
+      font-size: 1.5rem;
+      line-height: 2.1rem; }
+  .currenttrip .footer .normalfooter, .addhazard .footer .normalfooter {
+    display: none; }
+.currenttrip textarea, .addhazard textarea {
+  height: 80%; }
 
 .trips .headerbutton {
   display: block !important; }

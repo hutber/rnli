@@ -22,6 +22,7 @@ var Router = Backbone.Router.extend({
 		'trips': 'trips',
 		'createtrip': 'createtrip',
 		'currenttrip': 'currenttrip',
+		'addhazard': 'addhazard',
 
 		// #Weather Centre ---------------------------------------------------- /
 		'weather': 'weather',

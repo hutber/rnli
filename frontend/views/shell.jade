@@ -9,8 +9,22 @@ include ./mixins
 .content
     | Default State
 .footer
-    a(href='#home') HOME
-    a(href='#profile') MY PROFILE
-    a(href='#abouthome') ABOUT
-    a(href='#settings') SETTINGS
-    a(href='#logou', onclick="RN.fnc.login.doLogOut();") LG
+    .normalfooter
+        a(href='#home') HOME
+        a(href='#profile') MY PROFILE
+        a(href='#abouthome') ABOUT
+        a(href='#settings') SETTINGS
+        a(href='#logou', onclick="RN.fnc.login.doLogOut();") LG
+    .tripfooter
+        a(href='#currenttrip')
+            i(class='icon-home-outline')
+            | Home
+        a(href='#addhazard')
+            i(class='icon-attention')
+            | Add hazard
+        a(href='#abouthome')
+            i(class='icon-pencil')
+            | Add notes
+        a(href='#settings')
+            i(class='icon-fish')
+            | Catch log

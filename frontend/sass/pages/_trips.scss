@@ -1,3 +1,27 @@
+.currenttrip, .addhazard {
+	.footer {
+		display: block;
+		height: 65px;
+		.tripfooter {
+			display: block;
+			a {
+				display: inline-block;
+			}
+			i {
+				display: block;
+				font-size: 1.5rem;
+				line-height: 2.1rem;
+			}
+		}
+		.normalfooter {
+			display: none;
+		}
+	}
+	textarea {
+		height: 80%;
+	}
+}
+
 .trips {
 	.headerbutton {
 		display: block !important;

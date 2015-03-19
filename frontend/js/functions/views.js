@@ -73,6 +73,12 @@ module.exports = function (){
 			url: 'currenttrip',
 			title: 'CURRENT TRIP'
 		}
+		,{
+			name: 'addHazardView',
+			path: require('../views/trips/hazard/addHazardView'),
+			url: 'addhazard',
+			title: 'ADD HAZARD'
+		}
 		/*==================================================
 		 Weather Center
 		 ================================================== */

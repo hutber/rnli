@@ -127,13 +127,20 @@ $headerHeight: 75px;
 	text-align: center;
 	position: absolute;
 	bottom: 0;
-	a {
-		text-decoration: none;
+	text-align: center;
+	div {
 		@include valign;
-		@include span (2.4 of 12);
+	}
+	a {
+		margin: 0 5px;
+		text-decoration: none;
+//		@include span (2.4 of 12);
 		&:last-child {
-			@include span (2.4 of 12 last);
+//			@include span (2.4 of 12 last);
 		}
+	}
+	.tripfooter {
+		display: none;
 	}
 }
 

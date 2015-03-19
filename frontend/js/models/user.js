@@ -9,6 +9,7 @@ module.exports = function(){
 		defaults: {
 			trip:{
 				name:null,
+				hazard:null,
 				date:null
 			},
 			location:null,
@@ -27,13 +28,20 @@ module.exports = function(){
 				trip: data
 			})
 		},
+		setHazardData: function(data){
+			var olddata = this.get('trip');
+			this.set({
+				trip: {
+					name:olddata.name,
+					hazard:data,
+					date:olddata.date
+				}
+			});
+		},
 		setLocation: function(data){
 			this.set({
 				location: data
 			})
 		}
 	});
-
-	//return models;
-
 };
