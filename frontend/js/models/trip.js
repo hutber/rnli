@@ -11,14 +11,15 @@ module.exports = function(){
 			hazard:null,
 			date:null,
 			location:null,
-			postcode: null
+			postcode: null,
+			notes: {}
 		},
 		initialize: function(data){
 			this.set({
 				name: data.trip.name,
 				location: data.trip.location,
 				postcode: data.trip.postcode,
-				date: data.trip.date
+				date: data.trip.date,
 			})
 		},
 		setLocation: function(data){

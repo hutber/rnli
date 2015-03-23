@@ -6,6 +6,7 @@ include ./mixins
         h1 Title
     .right
         a.headerbutton.addtrip(href='#createtrip') Add Trip
+        a.headerbutton.savenote Save
 .content
     | Default State
 .footer
@@ -22,7 +23,7 @@ include ./mixins
         a(href='#addhazard')
             i(class='icon-attention')
             | Add hazard
-        a(href='#addnotes')
+        a(href='#notes')
             i(class='icon-pencil')
             | Add notes
         a(href='#catchlog')

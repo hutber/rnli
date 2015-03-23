@@ -105,9 +105,11 @@ $headerHeight: 75px;
 		a.headerbutton {
 			display: none;
 			border: 1px solid #FFF;
+			color: #FFF;
 			background: $softOrange;
 			padding: 5px;
 			cursor: pointer;
+			text-decoration: none;
 			@include vertical-middle()
 		}
 	}

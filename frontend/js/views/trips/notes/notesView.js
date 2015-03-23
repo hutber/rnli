@@ -5,17 +5,15 @@ module.exports = RN.glb.gvCreator.extend({
 	el: '.content',
 
 	templates: {
-		home: require('../../../../views/trips/note/addnote.jade'),
+		home: require('../../../../views/trips/note/notes.jade'),
 	},
 
 	events: {
-		"submit #addnoteform": 'saveNote'
+		'click .addNote': 'moveToNote',
 	},
 
-	saveNote: function(){
-		var note = $('#notetext').val();
-		RN.fnc.notes.saveLocal(note);
-		RN.router.navigate('notes', true)
+	moveToNote : function(ev){
+		RN.router.navigate('addnotes', true);
 	},
 
 	render: function () {

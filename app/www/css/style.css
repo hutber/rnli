@@ -1276,9 +1276,11 @@ body {
     .header .right a.headerbutton {
       display: none;
       border: 1px solid #FFF;
+      color: #FFF;
       background: #F1835B;
       padding: 5px;
       cursor: pointer;
+      text-decoration: none;
       position: absolute;
       left: 50%;
       top: 50%;
@@ -1423,43 +1425,39 @@ body {
     border-bottom: 1px solid #DDD;
     text-decoration: none; }
 
-.underHeader {
-  background: #DD6D00;
-  overflow: hidden;
-  color: #FFF; }
+/*
+==================================================
+Table of Contents
+==================================================
+#Global Settings
+	#Header Settings
+	#Footer Settings
+	#Reusable Boxes
 
-.currenttrip .footer, .addhazard .footer {
+#Pages
+	#Trip
+
+*/
+.addnotes form {
+  height: 100%; }
+.addnotes a.headerbutton.savenote {
+  display: block; }
+
+.currenttrip .footer, .addhazard .footer, .notes .footer, .addnotes .footer {
   display: block;
   height: 65px; }
-  .currenttrip .footer .tripfooter, .addhazard .footer .tripfooter {
+  .currenttrip .footer .tripfooter, .addhazard .footer .tripfooter, .notes .footer .tripfooter, .addnotes .footer .tripfooter {
     display: block; }
-    .currenttrip .footer .tripfooter a, .addhazard .footer .tripfooter a {
+    .currenttrip .footer .tripfooter a, .addhazard .footer .tripfooter a, .notes .footer .tripfooter a, .addnotes .footer .tripfooter a {
       display: inline-block; }
-    .currenttrip .footer .tripfooter i, .addhazard .footer .tripfooter i {
+    .currenttrip .footer .tripfooter i, .addhazard .footer .tripfooter i, .notes .footer .tripfooter i, .addnotes .footer .tripfooter i {
       display: block;
       font-size: 1.5rem;
       line-height: 2.1rem; }
-  .currenttrip .footer .normalfooter, .addhazard .footer .normalfooter {
+  .currenttrip .footer .normalfooter, .addhazard .footer .normalfooter, .notes .footer .normalfooter, .addnotes .footer .normalfooter {
     display: none; }
-.currenttrip textarea, .addhazard textarea {
+.currenttrip textarea, .addhazard textarea, .notes textarea, .addnotes textarea {
   height: 80%; }
-
-.trips .headerbutton {
-  display: block !important; }
-
-.locationSelector {
-  width: 80%;
-  margin: 0 auto;
-  border: 1px solid #002664;
-  overflow: hidden; }
-  .locationSelector > div {
-    width: 50%;
-    float: left;
-    text-align: center;
-    padding: 6px 3px;
-    cursor: pointer; }
-    .locationSelector > div.selected {
-      background: #002664; }
 
 .tidebox {
   width: 23.72881%;
@@ -1490,6 +1488,28 @@ body {
     .tripbox .text span {
       margin: 0 5px;
       font-family: din, "Lucida Grande", sans-serif; }
+
+.underHeader {
+  background: #DD6D00;
+  overflow: hidden;
+  color: #FFF; }
+
+.trips .headerbutton {
+  display: block !important; }
+
+.locationSelector {
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid #002664;
+  overflow: hidden; }
+  .locationSelector > div {
+    width: 50%;
+    float: left;
+    text-align: center;
+    padding: 6px 3px;
+    cursor: pointer; }
+    .locationSelector > div.selected {
+      background: #002664; }
 
 .tripMap .section {
   margin: 4px 0;
