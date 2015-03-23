@@ -28,15 +28,15 @@ module.exports = RN.glb.gvCreator.extend({
 		var self = this,
 			cords = function()
 			{
-				if (typeof RN.user.get('location').latitude === typeof undefined) {
+				if (typeof RN.currentTrip.get('location').latitude === typeof undefined) {
 					return  {
-						lat: RN.user.get('location').lat,
-						long: RN.user.get('location').long
+						lat: RN.currentTrip.get('location').lat,
+						long: RN.currentTrip.get('location').long
 							}
 				}else{
 					return  {
-						lat: RN.user.get('location').latitude,
-						long: RN.user.get('location').longitude
+						lat: RN.currentTrip.get('location').latitude,
+						long: RN.currentTrip.get('location').longitude
 					}
 				}
 			}();

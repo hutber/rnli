@@ -67,14 +67,14 @@ module.exports = RN.glb.gvCreator.extend({
 			//Add trips details to local storage for later
 			var tripsDetails = {
 				name: items.name,
-				date:  items.date
+				date:  items.date,
+				location: RN.currentTrip.get('location'),
+				postcode: RN.currentTrip.get('postcode')
 			};
 			//Save data to user model
 			RN.currentTrip.setTripData(tripsDetails);
 			//Now save to localStorage
 			localStorage.trip = JSON.stringify(tripsDetails);
-			localStorage.location = JSON.stringify(RN.currentTrip.get('location'));
-			localStorage.postcode = JSON.stringify(RN.currentTrip.get('postcode'));
 			//Push us onto the next page
 			RN.router.navigate('currenttrip',true);
 		}

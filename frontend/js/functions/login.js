@@ -74,10 +74,10 @@ module.exports = {
 				version: localStorage.version,
 				contacts: localStorage.contacts
 			});
+
+	        //Set TRIP INFO
 	        tripDataToLoad = RN.fnc.json.rebuildObject({
-				trip: localStorage.trip,
-				location: localStorage.location,
-				postcode: localStorage.postcode
+				trip: localStorage.trip
 			});
             checker = true;
 		} else if (typeof data !== typeof undefined){
@@ -90,16 +90,12 @@ module.exports = {
 				version: data.version,
 				contacts: data.contacts
 			};
-	        tripDataToLoad = {
-				trip: {},
-				location: {},
-				postcode: {}
-			};
+	        tripDataToLoad = {};
             checker = true;
 		}
 
         if(checker) {
-            //Now we load the home page
+            //Add data to user and a trip
             RN.user = new RN.mdl.user(userDataToLoad);
             RN.currentTrip = new RN.mdl.currentTrip(tripDataToLoad);
             //backup again to local storage

@@ -13,8 +13,18 @@ module.exports = function(){
 			location:null,
 			postcode: null
 		},
-		initialize: function(){
-			//alert("Welcome to this world");
+		initialize: function(data){
+			this.set({
+				name: data.trip.name,
+				location: data.trip.location,
+				postcode: data.trip.postcode,
+				date: data.trip.date
+			})
+		},
+		setLocation: function(data){
+			this.set({
+				location: data
+			})
 		},
 		setPostCode: function(data){
 			this.set({
@@ -23,7 +33,10 @@ module.exports = function(){
 		},
 		setTripData: function(data){
 			this.set({
-				trip: data
+				name: data.name,
+				location: data.location,
+				postcode: data.postcode,
+				date: data.date
 			})
 		},
 		setHazardData: function(data){
@@ -34,11 +47,6 @@ module.exports = function(){
 		setNoteData: function(data){
 			this.set({
 				note: data
-			})
-		},
-		setLocation: function(data){
-			this.set({
-				location: data
 			})
 		}
 	});

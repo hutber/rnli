@@ -1,13 +1,13 @@
 include ../mixins
 if area
     - var newLat = lat.substr(0, 5), newLong = long.substr(0, 5);
-    - var currentDay = moment(RN.user.get('trip').date[1]).format('dddd');
+    - var currentDay = moment(RN.currentTrip.get('date')[1]).format('dddd');
     .tripMap
         .underHeader
             .tripbox
                 i(class='icon-calendar')
                 .text #{currentDay}
-                    span #{RN.user.get('trip').date[0]}
+                    span #{RN.currentTrip.get('date')[0]}
             .tripbox
                 i(class='icon-globe')
                 .text #{area},
