@@ -10,22 +10,25 @@
 ==================================================
     #Header
 */
-//.header {
-//	background: $trips;
-//	.weather & {
-//		background: $weather;
-//	}
-//	.safety & {
-//		background: $safety;
-//	}
-//	.catch & {
-//		background: $catch;
-//	}
-//	.profile & {
-//		background: $mainBlue;
-//		color: #FFF;
-//		.middle h1 {
-//			color: #ffffff;
-//		}
-//	}
-//}
+.header {
+	background: $trips;
+	h1 {
+		color: #FFF;
+	}
+	.weather & {
+		background: $weather;
+	}
+	.safety & {
+		background: $safety;
+	}
+	.catch & {
+		background: $catch;
+	}
+	.profile & {
+		background: $mainBlue;
+		color: #FFF;
+		.middle h1 {
+			color: #ffffff;
+		}
+	}
+}

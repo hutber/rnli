@@ -1,3 +1,9 @@
+.underHeader {
+	background: $tripsDarker;
+	@include clear;
+	color: #FFF;
+}
+
 .currenttrip, .addhazard {
 	.footer {
 		display: block;
@@ -46,33 +52,40 @@
 }
 
 
+.tidebox {
+	@include span(3 of 12);
+	&:last-child {
+		@include span(3 of 12 last);
+	}
+	i {
+		display: block;
+	}
+}
+.tripbox {
+	@include clear;
+	text-transform: uppercase;
+	line-height: 2rem;
+	font-size: 1.1rem;
+	border-bottom: 1px solid $trips;
+	i {
+		@include span(2 of 12);
+		text-align: center;
+	}
+	.text {
+		@include span(10 of 12 last);
+		span {
+			margin: 0 5px;
+			font-family: $headerFont;
+		}
+	}
+}
+
 .tripMap {
 	.section {
 		margin: 4px 0;
 		padding: 4px 0;
 		text-align: center;
 		@include clear;
-	}
-	.tideBox {
-		@include span(3 of 12);
-		&:last-child {
-			@include span(3 of 12 last);
-		}
-		i {
-			display: block;
-		}
-	}
-	.tripBox {
-		i {
-			@include span(2 of 12);
-			text-align: center;
-		}
-		.text {
-			@include span(10 of 12 last);
-			span {
-				font-weight: bold;
-			}
-		}
 	}
 
 	.map {

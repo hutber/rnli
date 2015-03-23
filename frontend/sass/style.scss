@@ -87,14 +87,15 @@ $headerHeight: 75px;
 	}
 	.middle {
 		text-align: center;
-		font-size: .7rem;
 		position: relative;
 		height:  $headerHeight;
 		@include span(9 of 12);
 		h1 {
 			width: 100%;
 			margin: 0;
-			@include vertical-middle()
+			font-size: 1.3rem;
+			line-height: 5rem;
+//			@include vertical-middle()
 		}
 	}
 	.right {

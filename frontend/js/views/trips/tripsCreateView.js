@@ -26,7 +26,7 @@ module.exports = RN.glb.gvCreator.extend({
 		if(postcode.length > 5) {
 			var postcodeResults = RN.fnc.location.getPostCode(postcode, function (data) {
 				if (data.status === 200) {
-					RN.user.setPostCode(data);
+					RN.currentTrip.setPostCode(data);
 					$('.postcodearea').html(self.templates.postCode(data));
 				}else{
 					$('.postcodearea').html(self.templates.postCode());
@@ -40,7 +40,7 @@ module.exports = RN.glb.gvCreator.extend({
 
 	lookUpPostCode : function(ev){
 		var ev = $(ev.currentTarget),
-			currentPostCodeData = RN.user.get('postcode').result;
+			currentPostCodeData = RN.currentTrip.get('postcode').result;
 		//remove success
 		$('#postcode').removeClass('success');
 
@@ -53,7 +53,7 @@ module.exports = RN.glb.gvCreator.extend({
 	getLocation : function(data, callBack){
 		var self = this;
 		RN.fnc.location.getClosestLocation(data.latitude, data.longitude, function(data){
-			RN.user.setLocation(data);
+			RN.currentTrip.setLocation(data);
 			document.getElementById('createlocation').value = 'something';
 			self.readyToSave();
 			callBack(data);
@@ -70,11 +70,11 @@ module.exports = RN.glb.gvCreator.extend({
 				date:  items.date
 			};
 			//Save data to user model
-			RN.user.setTripData(tripsDetails);
+			RN.currentTrip.setTripData(tripsDetails);
 			//Now save to localStorage
 			localStorage.trip = JSON.stringify(tripsDetails);
-			localStorage.location = JSON.stringify(RN.user.get('location'));
-			localStorage.postcode = JSON.stringify(RN.user.get('postcode'));
+			localStorage.location = JSON.stringify(RN.currentTrip.get('location'));
+			localStorage.postcode = JSON.stringify(RN.currentTrip.get('postcode'));
 			//Push us onto the next page
 			RN.router.navigate('currenttrip',true);
 		}
@@ -104,7 +104,7 @@ module.exports = RN.glb.gvCreator.extend({
 		$('.selected').removeClass('selected');
 		ev.addClass('selected')
 		var tripData = RN.fnc.location.getLocation(function(returnData){
-			RN.user.setLocation(returnData);
+			RN.currentTrip.setLocation(returnData);
 			document.getElementById('createlocation').value = 'something';
 			self.readyToSave();
 		});
