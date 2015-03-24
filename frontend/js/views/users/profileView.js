@@ -10,8 +10,19 @@ module.exports = RN.glb.gvCreator.extend({
 	events: {
 		'submit .editForm': 'editProfileForm',
 		'click .addEcontact': 'addEcontact',
+		'click .contactdelete': 'deleteEcontact',
 	},
 	addEcontact : function(ev){
+		var ev = $(ev.currentTarget);
+		var ordernumber = $('.contact:last').find('.textnumber').html();
+		if(!ordernumber) {
+			$('.econtact').after(this.templates.contact({pos:0}))
+		}else{
+			ordernumber = parseInt(ordernumber);
+			$('.contact:last').after(this.templates.contact({pos:ordernumber}))
+		}
+	},
+	deleteEcontact : function(ev){
 		var ev = $(ev.currentTarget);
 		var ordernumber = $('.contact:last').find('.textnumber').html();
 		if(!ordernumber) {

@@ -100,7 +100,7 @@ module.exports = RN.glb.gvCreator.extend({
 
 	locationOn: function(ev){
 		var ev = $(ev.currentTarget),
-			self = this;
+			self = this; 
 		$('.selected').removeClass('selected');
 		ev.addClass('selected')
 		var tripData = RN.fnc.location.getLocation(function(returnData){
