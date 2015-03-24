@@ -9,14 +9,15 @@ class deleteContact extends Controller {
 			$db = new DB();
 
 			require_once $_SERVER['DOCUMENT_ROOT'] . '/db/types/DBtrip.php';
-			$dataStore = new DBtrip($db);
+			$dataStore = new DBuser($db);
 
 			$uid = $_POST['uid'];
 			$id = $_POST['id'];
 			$dataStore->deleteContact($uid, $id);
 
-			$results = $dataStore->getContacts($uid);
-
+			$results['data'] = $dataStore->getContacts($uid);
+			$results['status'] = 'good';
+			$results['message'] = 'Contact Was Deleted';
 			print json_encode($results);
         }
     }

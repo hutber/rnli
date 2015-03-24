@@ -24,13 +24,7 @@ module.exports = RN.glb.gvCreator.extend({
 	},
 	deleteEcontact : function(ev){
 		var ev = $(ev.currentTarget);
-		var ordernumber = $('.contact:last').find('.textnumber').html();
-		if(!ordernumber) {
-			$('.econtact').after(this.templates.contact({pos:0}))
-		}else{
-			ordernumber = parseInt(ordernumber);
-			$('.contact:last').after(this.templates.contact({pos:ordernumber}))
-		}
+		RN.fnc.user.contacts.deleteContactServer(ev.data('id'));
 	},
 	validateEmail: function (email) {
 		var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

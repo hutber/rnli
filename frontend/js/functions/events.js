@@ -42,13 +42,16 @@ module.exports = {
 				clearTimeout(timerAjax);
 				RN.fnc.popups.spinner.hide()
 			}
+			c(request.responseJSON);
 			if(request && request.responseJSON) {
 				var status = request.responseJSON.status,
 					message = request.responseJSON.message;
 
 				if (status === "fail" && RN.fnc.popups.errorBlock) {
-					RN.fnc.popups.message.show(request.responseJSON.message, 'bad', 2);
+					RN.fnc.popups.message.show(message, 'bad', 2);
 					RN.fnc.popups.errorBlock = true;
+				}else if(message && status) {
+					RN.fnc.popups.message.show(message, status, 2);
 				}
 			}
 		});
