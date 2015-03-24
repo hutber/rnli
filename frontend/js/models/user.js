@@ -11,6 +11,11 @@ module.exports = function(){
 		},
 		initialize: function(){
 			//alert("Welcome to this world");
+		},
+		setContacts: function(data){
+			this.set({
+				contacts: data
+			})
 		}
 	});
 };

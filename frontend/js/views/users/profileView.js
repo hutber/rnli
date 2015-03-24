@@ -79,9 +79,9 @@ module.exports = RN.glb.gvCreator.extend({
 				}
 			});
 
-			Object.keys(newContacts).forEach(function(item){
-				RN.fnc.user.contacts.saveContact(newContacts[item])
-			});
+			//Object.keys(newContacts).forEach(function(item){
+			//	RN.fnc.user.contacts.saveContact(newContacts[item])
+			//});
 
 			$.ajax({
 				url: RN.glb.url.ajax + 'users/reg',
@@ -97,6 +97,7 @@ module.exports = RN.glb.gvCreator.extend({
 						RN.fnc.popups.message.show(data.error, 'bad');
 						//$('.btn.signup').removeAttr('disabled');
 					} else {
+						RN.fnc.user.contacts.saveContact(data.contacts)
 						$('.btn.signup').text('Saved').addClass('success');
 					}
 				}

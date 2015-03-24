@@ -23,6 +23,7 @@ class reg extends controller
 			$device = $_POST['device'];
 			$version = $_POST['version'];
 			$email = $_POST['email'];
+			$uid = $_POST['uid'];
 			$token = $_POST['token'];
 
 			if ($pword == "") {
@@ -82,6 +83,7 @@ class reg extends controller
 					}
 
 					$dataStore->updateUsers($fname, $sname, $email, $pword, $device, $version, $token);
+					$data['contacts'] = $DBuser->getContacts($uid);
 					$data['good'] = "Details have been saved";
 				}
 			}else{

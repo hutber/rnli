@@ -15,12 +15,14 @@ module.exports = function(){
 			notes: {}
 		},
 		initialize: function(data){
-			this.set({
-				name: data.trip.name,
-				location: data.trip.location,
-				postcode: data.trip.postcode,
-				date: data.trip.date,
-			})
+			if(data.length > 0) {
+				this.set({
+					name: data.trip.name,
+					location: data.trip.location,
+					postcode: data.trip.postcode,
+					date: data.trip.date,
+				})
+			};
 		},
 		setLocation: function(data){
 			this.set({

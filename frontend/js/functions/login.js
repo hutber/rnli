@@ -90,7 +90,9 @@ module.exports = {
 				version: data.version,
 				contacts: data.contacts
 			};
-	        tripDataToLoad = {};
+	        tripDataToLoad = {
+
+	        };
             checker = true;
 		}
 
