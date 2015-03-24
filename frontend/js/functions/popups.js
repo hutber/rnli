@@ -75,6 +75,9 @@ module.exports = function(){
 		if(typeof type === "undefined"){
 			type = 'alert';
 		}
+		if(button === null){
+			button = ['Yes', 'No'];
+		}
 		if(typeof navigator.notification !== "undefined"){
 			navigator.notification[type](message, function(button){
 				if(button===2){

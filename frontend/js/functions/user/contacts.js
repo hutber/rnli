@@ -8,7 +8,7 @@ module.exports = function () {
 		localStorage.contacts = JSON.stringify(data);
 	};
 
-	contact.deleteContactServer = function (data) {
+	contact.deleteContactServer = function (data, ev) {
 		$.ajax({
 			url: RN.glb.url.ajax + 'contacts/deleteContact',
 			type: 'POST',
@@ -21,7 +21,9 @@ module.exports = function () {
 				c(data);
 			},
 			success: function (data) {
+				ev.parent().fadeOut();
 				contact.saveContact(data.data);
+
 			}
 		});
 	}

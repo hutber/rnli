@@ -24,7 +24,9 @@ module.exports = RN.glb.gvCreator.extend({
 	},
 	deleteEcontact : function(ev){
 		var ev = $(ev.currentTarget);
-		RN.fnc.user.contacts.deleteContactServer(ev.data('id'));
+		RN.fnc.popups.Dialog('Delete Contact?', 'Are you sure you want to delete this contact?', null, function(){
+			RN.fnc.user.contacts.deleteContactServer(ev.data('id'), ev);
+		}, 'confirm');
 	},
 	validateEmail: function (email) {
 		var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

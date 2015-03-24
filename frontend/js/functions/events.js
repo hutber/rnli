@@ -42,7 +42,6 @@ module.exports = {
 				clearTimeout(timerAjax);
 				RN.fnc.popups.spinner.hide()
 			}
-			c(request.responseJSON);
 			if(request && request.responseJSON) {
 				var status = request.responseJSON.status,
 					message = request.responseJSON.message;

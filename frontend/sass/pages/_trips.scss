@@ -22,6 +22,13 @@ Table of Contents
 		}
 	}
 
+	.trips {
+		a.headerbutton.addtrip {
+			display: block;
+		}
+	}
+
+
 ///* #Footer Settings ------------------------------------------------------------------------ */
 	.currenttrip, .addhazard, .notes, .addnotes {
 		.footer {
@@ -81,13 +88,6 @@ Table of Contents
 	background: $tripsDarker;
 	@include clear;
 	color: #FFF;
-}
-
-
-.trips {
-	.headerbutton {
-		display: block !important;
-	}
 }
 
 .locationSelector {

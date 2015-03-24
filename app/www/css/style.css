@@ -1448,6 +1448,9 @@ Table of Contents
 .addnotes a.headerbutton.savenote {
   display: block; }
 
+.trips a.headerbutton.addtrip {
+  display: block; }
+
 .currenttrip .footer, .addhazard .footer, .notes .footer, .addnotes .footer {
   display: block;
   height: 65px; }
@@ -1498,9 +1501,6 @@ Table of Contents
   background: #DD6D00;
   overflow: hidden;
   color: #FFF; }
-
-.trips .headerbutton {
-  display: block !important; }
 
 .locationSelector {
   width: 80%;

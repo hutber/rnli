@@ -26,9 +26,9 @@ class DBuser extends Data{
         return $this->db->get($sql);
     }
 
-	function deleteContact($id)
+	function deleteContact($uid, $id)
 	{ //Add users latest logim
-		$sql = sprintf("DELETE FROM contacts WHERE id = '%s';", $id);
+		$sql = sprintf("DELETE FROM contacts WHERE id = '%s' and uid='%s';", $id, $uid);
 		$this->db->query($sql);
 	}
 }
