@@ -417,6 +417,12 @@ table {
 		#RTL Overrides
 */
 /* #Imported Fonts ------------------------------------------------------------------------ */
+@font-face {
+  font-family: 'din';
+  src: url('../fonts/DINOffc-Bold.eot?#iefix') format('embedded-opentype'), url('../fonts/DINOffc-Bold.woff') format('woff'), url('../fonts/DINOffc-Bold.ttf') format('truetype'), url('../fonts/DINOffc-Bold.svg#DINOffc-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal; }
+
 /* #Text shadow default effects ------------------------------------------------------------- */
 /* #Page Typography ------------------------------------------------------------------------ */
 body {
@@ -442,22 +448,12 @@ a.selected {
   color: #F1835B; }
 
 h1, h2, h3, h4, h5, h6 {
+  font-family: din, "Lucida Grande", sans-serif;
   color: #002664;
   text-transform: uppercase;
   font-weight: normal;
   text-align: center;
   font-weight: bold; }
-
-.pageheading {
-  font-size: 1rem;
-  text-transform: uppercase;
-  padding: 0 0 0px 0;
-  margin: 0 0 20px 0;
-  overflow: hidden; }
-
-.pagesubheading {
-  font-weight: normal;
-  font-size: 1rem; }
 
 .form-group {
   margin-bottom: 2.5641%; }
@@ -1262,7 +1258,6 @@ body {
       margin-top: 20px; }
   .header .middle {
     text-align: center;
-    font-size: .7rem;
     position: relative;
     height: 75px;
     width: 74.57627%;
@@ -1271,13 +1266,8 @@ body {
     .header .middle h1 {
       width: 100%;
       margin: 0;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      -webkit-transform: translate(-50%, -50%);
-      -moz-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%); }
+      font-size: 1.3rem;
+      line-height: 5rem; }
   .header .right {
     position: relative;
     height: 100%;
@@ -1287,9 +1277,11 @@ body {
     .header .right a.headerbutton {
       display: none;
       border: 1px solid #FFF;
+      color: #FFF;
       background: #F1835B;
       padding: 5px;
       cursor: pointer;
+      text-decoration: none;
       position: absolute;
       left: 50%;
       top: 50%;
@@ -1438,21 +1430,74 @@ body {
     border-bottom: 1px solid #DDD;
     text-decoration: none; }
 
-.currenttrip .footer, .addhazard .footer {
+/*
+==================================================
+Table of Contents
+==================================================
+#Global Settings
+	#Header Settings
+	#Footer Settings
+	#Reusable Boxes
+
+#Pages
+	#Trip
+
+*/
+.addnotes form {
+  height: 100%; }
+.addnotes a.headerbutton.savenote {
+  display: block; }
+
+.currenttrip .footer, .addhazard .footer, .notes .footer, .addnotes .footer {
   display: block;
   height: 65px; }
-  .currenttrip .footer .tripfooter, .addhazard .footer .tripfooter {
+  .currenttrip .footer .tripfooter, .addhazard .footer .tripfooter, .notes .footer .tripfooter, .addnotes .footer .tripfooter {
     display: block; }
-    .currenttrip .footer .tripfooter a, .addhazard .footer .tripfooter a {
+    .currenttrip .footer .tripfooter a, .addhazard .footer .tripfooter a, .notes .footer .tripfooter a, .addnotes .footer .tripfooter a {
       display: inline-block; }
-    .currenttrip .footer .tripfooter i, .addhazard .footer .tripfooter i {
+    .currenttrip .footer .tripfooter i, .addhazard .footer .tripfooter i, .notes .footer .tripfooter i, .addnotes .footer .tripfooter i {
       display: block;
       font-size: 1.5rem;
       line-height: 2.1rem; }
-  .currenttrip .footer .normalfooter, .addhazard .footer .normalfooter {
+  .currenttrip .footer .normalfooter, .addhazard .footer .normalfooter, .notes .footer .normalfooter, .addnotes .footer .normalfooter {
     display: none; }
-.currenttrip textarea, .addhazard textarea {
+.currenttrip textarea, .addhazard textarea, .notes textarea, .addnotes textarea {
   height: 80%; }
+
+.tidebox {
+  width: 23.72881%;
+  float: left;
+  margin-right: 1.69492%; }
+  .tidebox:last-child {
+    width: 23.72881%;
+    float: right;
+    margin-right: 0; }
+  .tidebox i {
+    display: block; }
+
+.tripbox {
+  overflow: hidden;
+  text-transform: uppercase;
+  line-height: 2rem;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #EF8201; }
+  .tripbox i {
+    width: 15.25424%;
+    float: left;
+    margin-right: 1.69492%;
+    text-align: center; }
+  .tripbox .text {
+    width: 83.05085%;
+    float: right;
+    margin-right: 0; }
+    .tripbox .text span {
+      margin: 0 5px;
+      font-family: din, "Lucida Grande", sans-serif; }
+
+.underHeader {
+  background: #DD6D00;
+  overflow: hidden;
+  color: #FFF; }
 
 .trips .headerbutton {
   display: block !important; }
@@ -1476,27 +1521,6 @@ body {
   padding: 4px 0;
   text-align: center;
   overflow: hidden; }
-.tripMap .tideBox {
-  width: 23.72881%;
-  float: left;
-  margin-right: 1.69492%; }
-  .tripMap .tideBox:last-child {
-    width: 23.72881%;
-    float: right;
-    margin-right: 0; }
-  .tripMap .tideBox i {
-    display: block; }
-.tripMap .tripBox i {
-  width: 15.25424%;
-  float: left;
-  margin-right: 1.69492%;
-  text-align: center; }
-.tripMap .tripBox .text {
-  width: 83.05085%;
-  float: right;
-  margin-right: 0; }
-  .tripMap .tripBox .text span {
-    font-weight: bold; }
 .tripMap .map {
   position: relative; }
   .tripMap .map .info {
@@ -1585,5 +1609,21 @@ body {
 ==================================================
     #Header
 */
+.header {
+  background: #EF8201; }
+  .header h1 {
+    color: #FFF; }
+  .weather .header {
+    background: #D13924; }
+  .safety .header {
+    background: #9C1B31; }
+  .catch .header {
+    background: #28243b; }
+  .profile .header {
+    background: #002664;
+    color: #FFF; }
+    .profile .header .middle h1 {
+      color: #ffffff; }
+
 
 /*# sourceMappingURL=app/www/css/style.css.map */

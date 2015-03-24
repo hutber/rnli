@@ -14,7 +14,7 @@ module.exports =  function() {
 	globals.gvCreator = Backbone.View.extend({
 		el: '.shell',
 		events: {
-			//'click a': 'navigate'
+			'click .savenote': 'saveNote'
 		},
 		$header: null,
 		templates: {
@@ -30,7 +30,12 @@ module.exports =  function() {
 			//render Page
 			this.$el.html(this.templates.login());
 			this.$header = $('.header .headerbutton');
-		}
+		},
+
+		///* #Custom events ------------------------------------------------------------------- */
+		saveNote : function(){
+			RN.glb.views.addNotesView.saveNote();
+		},
 	});
 
 	//set up the global view for all menu items etc

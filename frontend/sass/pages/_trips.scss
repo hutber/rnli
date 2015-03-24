@@ -1,26 +1,88 @@
-.currenttrip, .addhazard {
-	.footer {
-		display: block;
-		height: 65px;
-		.tripfooter {
+/*
+==================================================
+Table of Contents
+==================================================
+#Global Settings
+	#Header Settings
+	#Footer Settings
+	#Reusable Boxes
+
+#Pages
+	#Trip
+
+*/
+
+///* #Header Settings ------------------------------------------------------------------------ */
+	.addnotes {
+		form {
+			height: 100%;
+		}
+		a.headerbutton.savenote {
 			display: block;
-			a {
-				display: inline-block;
-			}
-			i {
+		}
+	}
+
+///* #Footer Settings ------------------------------------------------------------------------ */
+	.currenttrip, .addhazard, .notes, .addnotes {
+		.footer {
+			display: block;
+			height: 65px;
+			.tripfooter {
 				display: block;
-				font-size: 1.5rem;
-				line-height: 2.1rem;
+				a {
+					display: inline-block;
+				}
+				i {
+					display: block;
+					font-size: 1.5rem;
+					line-height: 2.1rem;
+				}
+			}
+			.normalfooter {
+				display: none;
 			}
 		}
-		.normalfooter {
-			display: none;
+		textarea {
+			height: 80%;
 		}
 	}
-	textarea {
-		height: 80%;
+
+///* #Reusable Boxes ------------------------------------------------------------------------ */
+	.tidebox {
+		@include span(3 of 12);
+		&:last-child {
+			@include span(3 of 12 last);
+		}
+		i {
+			display: block;
+		}
 	}
+	.tripbox {
+		@include clear;
+		text-transform: uppercase;
+		line-height: 2rem;
+		font-size: 1.1rem;
+		border-bottom: 1px solid $trips;
+		i {
+			@include span(2 of 12);
+			text-align: center;
+		}
+		.text {
+			@include span(10 of 12 last);
+			span {
+				margin: 0 5px;
+				font-family: $headerFont;
+			}
+		}
+	}
+
+
+.underHeader {
+	background: $tripsDarker;
+	@include clear;
+	color: #FFF;
 }
+
 
 .trips {
 	.headerbutton {
@@ -45,34 +107,13 @@
 	}
 }
 
-
+///* #Trip ------------------------------------------------------------------------ */
 .tripMap {
 	.section {
 		margin: 4px 0;
 		padding: 4px 0;
 		text-align: center;
 		@include clear;
-	}
-	.tideBox {
-		@include span(3 of 12);
-		&:last-child {
-			@include span(3 of 12 last);
-		}
-		i {
-			display: block;
-		}
-	}
-	.tripBox {
-		i {
-			@include span(2 of 12);
-			text-align: center;
-		}
-		.text {
-			@include span(10 of 12 last);
-			span {
-				font-weight: bold;
-			}
-		}
 	}
 
 	.map {

@@ -60,44 +60,46 @@ module.exports = {
 		localStorage.contacts = JSON.stringify(data.contacts);
 	},
 	restoreUserFromLocalStorage : function(data){
-		var dataToLoad = {},
+		var userDataToLoad = {},
+			tripDataToLoad = {},
             checker = false;
 
         if(typeof data === typeof undefined && typeof localStorage.uid !== typeof undefined){
-			dataToLoad = RN.fnc.json.rebuildObject({
+			userDataToLoad = RN.fnc.json.rebuildObject({
 				fname: localStorage.fname,
 				sname: localStorage.sname,
 				email: localStorage.email,
 				token: localStorage.token,
 				uid: localStorage.uid,
 				version: localStorage.version,
-				trip: localStorage.trip,
-				location: localStorage.location,
-				postcode: localStorage.postcode,
 				contacts: localStorage.contacts
+			});
+
+	        //Set TRIP INFO
+	        tripDataToLoad = RN.fnc.json.rebuildObject({
+				trip: localStorage.trip
 			});
             checker = true;
 		} else if (typeof data !== typeof undefined){
-			dataToLoad = {
+	        userDataToLoad = {
 				fname: data.fname,
 				sname: data.sname,
 				email: data.email,
 				token: data.token,
 				uid: data.uid,
 				version: data.version,
-				contacts: data.contacts,
-				trip: {},
-				location: {},
-				postcode: {}
-			}
+				contacts: data.contacts
+			};
+	        tripDataToLoad = {};
             checker = true;
 		}
 
         if(checker) {
-            //Now we load the home page
-            RN.user = new RN.mdl.user(dataToLoad);
+            //Add data to user and a trip
+            RN.user = new RN.mdl.user(userDataToLoad);
+            RN.currentTrip = new RN.mdl.currentTrip(tripDataToLoad);
             //backup again to local storage
-            RN.fnc.login.addUserToLocalStorage(dataToLoad);
+            RN.fnc.login.addUserToLocalStorage(userDataToLoad);
         }
 
 	},

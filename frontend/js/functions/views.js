@@ -79,6 +79,18 @@ module.exports = function (){
 			url: 'addhazard',
 			title: 'ADD HAZARD'
 		}
+		,{
+			name: 'notesView',
+			path: require('../views/trips/notes/notesView'),
+			url: 'notes',
+			title: 'ADD NOTES'
+		}
+		,{
+			name: 'addNotesView',
+			path: require('../views/trips/notes/addNotesView'),
+			url: 'addnotes',
+			title: 'ADD NOTE'
+		}
 		/*==================================================
 		 Weather Center
 		 ================================================== */
