@@ -12,10 +12,8 @@ module.exports = RN.glb.gvCreator.extend({
 		'keyup #hazardtext': 'updateHazard',
 	},
 
-	updateHazard : function(ev){
-		var ev = $(ev.currentTarget);
-
-		RN.user.setHazardData(ev.val());
+	updateHazard : function(){
+		RN.currentTrip.saveLocal('hazard', document.getElementById('hazardtext').value);
 	},
 
 	render: function () {
