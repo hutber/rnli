@@ -75,7 +75,7 @@ module.exports = {
 				contacts: localStorage.contacts
 			});
 
-	        //Set TRIP INFO
+	        //Do this on page reload
 	        tripDataToLoad = RN.fnc.json.rebuildObject({
 				trip: localStorage.trip
 			});

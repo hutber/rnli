@@ -21,8 +21,12 @@ module.exports = function(){
 					location: data.trip.location,
 					postcode: data.trip.postcode,
 					date: data.trip.date,
+					notes: data.trip.notes,
 				})
 			};
+		},
+		setLocalStorage: function(){
+
 		},
 		setLocation: function(data){
 			this.set({
@@ -39,6 +43,7 @@ module.exports = function(){
 				name: data.name,
 				location: data.location,
 				postcode: data.postcode,
+				notes: data.notes,
 				date: data.date
 			})
 		},
@@ -49,7 +54,7 @@ module.exports = function(){
 		},
 		setNoteData: function(data){
 			this.set({
-				note: data
+				notes: data
 			})
 		}
 	});
