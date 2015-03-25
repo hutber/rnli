@@ -4,8 +4,7 @@ module.exports = function () {
 	var notes = {};
 
 	notes.saveLocal = function(data){
-		RN.currentTrip.setNoteData(data)
-		localStorage.notes = JSON.stringify(data);
+		RN.currentTrip.saveLocal('notes', data);
 	};
 
 	notes.saveServer = function (data) {

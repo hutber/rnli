@@ -22,4 +22,11 @@ module.exports = {
 
 		return listOfItems;
 	},
+	convertToString : function(data){
+		if (typeof data === "object") {
+			return JSON.stringify(data);
+		}else {
+			return data;
+		}
+	},
 }

@@ -40,6 +40,11 @@ class siteLogin
 		return $this->dataStore->getContacts($uid);
 	}
 
+	public function getUsersNotes($uid)
+	{
+		return $this->dataStore->getNotes($uid);
+	}
+
 	private function convertToJson ($data, $type = ""){
 		$workingData = array();
 		foreach(explode(',',$data) as $value){

@@ -1,7 +1,7 @@
 include ../mixins
 if area
     - var newLat = lat.substr(0, 5), newLong = long.substr(0, 5);
-    - var currentDay = moment(RN.currentTrip.get('date')[1]).format('dddd');
+    - var currentDay = moment(RN.currentTrip.get('date')[1]).format('dddd') || null;
     .tripMap
         .underHeader
             .tripbox

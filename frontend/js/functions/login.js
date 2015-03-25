@@ -41,7 +41,6 @@ module.exports = {
 			return false;
 		},
 		success: function (data) {
-			c(data);
 			if (data.token) {
 				RN.fnc.login.restoreUserFromLocalStorage(data);
 				RN.fnc.login.moveToHome();
@@ -50,7 +49,8 @@ module.exports = {
 			}
 		}
 	},
-	addUserToLocalStorage : function(data){
+	saveLoginDataToLocalStorage : function(data){
+		// ## Update localstorage after login
 		localStorage.uid = data.uid;
 		localStorage.token = data.token;
 		localStorage.fname = data.fname;
@@ -64,6 +64,7 @@ module.exports = {
 			tripDataToLoad = {},
             checker = false;
 
+		//Do this on page reload
         if(typeof data === typeof undefined && typeof localStorage.uid !== typeof undefined){
 			userDataToLoad = RN.fnc.json.rebuildObject({
 				fname: localStorage.fname,
@@ -75,11 +76,16 @@ module.exports = {
 				contacts: localStorage.contacts
 			});
 
-	        //Do this on page reload
 	        tripDataToLoad = RN.fnc.json.rebuildObject({
-				trip: localStorage.trip
+		        name:localStorage.ctripname,
+		        hazard:localStorage.ctriphazard,
+		        date:localStorage.ctripdate,
+		        location:localStorage.ctriplocation,
+		        postcode:localStorage.ctrippostcode,
+		        notes:localStorage.ctripnotes
 			});
             checker = true;
+        //do this on login
 		} else if (typeof data !== typeof undefined){
 	        userDataToLoad = {
 				fname: data.fname,
@@ -101,7 +107,7 @@ module.exports = {
             RN.user = new RN.mdl.user(userDataToLoad);
             RN.currentTrip = new RN.mdl.currentTrip(tripDataToLoad);
             //backup again to local storage
-            RN.fnc.login.addUserToLocalStorage(userDataToLoad);
+            RN.fnc.login.saveLoginDataToLocalStorage(userDataToLoad);
         }
 
 	},

@@ -26,7 +26,8 @@ module.exports = RN.glb.gvCreator.extend({
 		if(postcode.length > 5) {
 			var postcodeResults = RN.fnc.location.getPostCode(postcode, function (data) {
 				if (data.status === 200) {
-					RN.currentTrip.setPostCode(data);
+					//save postcode in local storage and model
+					RN.currentTrip.saveLocal('postcode', data.result);
 					$('.postcodearea').html(self.templates.postCode(data));
 				}else{
 					$('.postcodearea').html(self.templates.postCode());
@@ -53,7 +54,7 @@ module.exports = RN.glb.gvCreator.extend({
 	getLocation : function(data, callBack){
 		var self = this;
 		RN.fnc.location.getClosestLocation(data.latitude, data.longitude, function(data){
-			RN.currentTrip.setLocation(data);
+			RN.currentTrip.saveLocal('location', data);
 			document.getElementById('createlocation').value = 'something';
 			self.readyToSave();
 			callBack(data);
@@ -65,16 +66,8 @@ module.exports = RN.glb.gvCreator.extend({
 		if(this.readyToSave()){
 			var items = this.$el.find('form').serializeObject();
 			//Add trips details to local storage for later
-			var tripsDetails = {
-				name: items.name,
-				date:  items.date,
-				location: RN.currentTrip.get('location'),
-				postcode: RN.currentTrip.get('postcode')
-			};
-			//Save data to user model
-			RN.currentTrip.setTripData(tripsDetails);
-			//Now save to localStorage
-			localStorage.trip = JSON.stringify(tripsDetails);
+			RN.currentTrip.saveLocal('name', items.name);
+			RN.currentTrip.saveLocal('date', items.date);
 			//Push us onto the next page
 			RN.router.navigate('currenttrip',true);
 		}
@@ -104,7 +97,7 @@ module.exports = RN.glb.gvCreator.extend({
 		$('.selected').removeClass('selected');
 		ev.addClass('selected')
 		var tripData = RN.fnc.location.getLocation(function(returnData){
-			RN.currentTrip.setLocation(returnData);
+			RN.currentTrip.saveLocal('location', returnData);
 			document.getElementById('createlocation').value = 'something';
 			self.readyToSave();
 		});
