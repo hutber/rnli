@@ -75,15 +75,6 @@ module.exports = {
 				version: localStorage.version,
 				contacts: localStorage.contacts
 			});
-
-	        tripDataToLoad = RN.fnc.json.rebuildObject({
-		        name:localStorage.ctripname,
-		        hazard:localStorage.ctriphazard,
-		        date:localStorage.ctripdate,
-		        location:localStorage.ctriplocation,
-		        postcode:localStorage.ctrippostcode,
-		        notes:localStorage.ctripnotes
-			});
             checker = true;
         //do this on login
 		} else if (typeof data !== typeof undefined){
@@ -96,16 +87,13 @@ module.exports = {
 				version: data.version,
 				contacts: data.contacts
 			};
-	        tripDataToLoad = {
-
-	        };
             checker = true;
 		}
 
         if(checker) {
             //Add data to user and a trip
             RN.user = new RN.mdl.user(userDataToLoad);
-            RN.currentTrip = new RN.mdl.currentTrip(tripDataToLoad);
+            RN.currentTrip = new RN.mdl.currentTrip();
             //backup again to local storage
             RN.fnc.login.saveLoginDataToLocalStorage(userDataToLoad);
         }

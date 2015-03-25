@@ -1001,6 +1001,58 @@ input[type=checkbox] {
   margin: 10px 0;
   padding: 5.26316% 5.26316%; }
 
+.tidebox {
+  width: 23.72881%;
+  float: left;
+  margin-right: 1.69492%; }
+  .tidebox:last-child {
+    width: 23.72881%;
+    float: right;
+    margin-right: 0; }
+  .tidebox i {
+    display: block; }
+
+.tripbox {
+  overflow: hidden;
+  text-transform: uppercase;
+  line-height: 2rem;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #EF8201; }
+  .tripbox i {
+    width: 15.25424%;
+    float: left;
+    margin-right: 1.69492%;
+    text-align: center; }
+  .tripbox .text {
+    width: 83.05085%;
+    float: right;
+    margin-right: 0; }
+    .tripbox .text span {
+      margin: 0 5px;
+      font-family: din, "Lucida Grande", sans-serif; }
+
+.notebox {
+  width: 100%;
+  background: #FFF;
+  border-bottom: 2px solid #EDEDEB;
+  position: relative;
+  color: #002664;
+  text-align: center; }
+  .notebox .notetime {
+    font-family: din, "Lucida Grande", sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.8rem;
+    padding: 10px 0 0; }
+  .notebox .deletenote, .notebox .editnote {
+    position: absolute;
+    right: 0;
+    top: 5px; }
+  .notebox .editnote {
+    right: 25px; }
+  .notebox .notetext {
+    font-size: 1.6rem;
+    padding: 0 0 5px; }
+
 /* v1.0.5 */
 /* Core RS CSS file. 95% of time you shouldn't change anything here. */
 .royalSlider {
@@ -1436,13 +1488,19 @@ Table of Contents
 ==================================================
 #Global Settings
 	#Header Settings
-	#Footer Settings
-	#Reusable Boxes
+	#Trip Boxes
+
+#Components
+	#Trip map
 
 #Pages
-	#Trip
+	#Create Trip
+
+#Footer Settings
 
 */
+/*===============  Global Settings ===============
+///* #Header Settings ------------------------------------------------------------------------ */
 .addnotes form {
   height: 100%; }
 .addnotes a.headerbutton.savenote {
@@ -1451,71 +1509,13 @@ Table of Contents
 .trips a.headerbutton.addtrip {
   display: block; }
 
-.currenttrip .footer, .addhazard .footer, .notes .footer, .addnotes .footer {
-  display: block;
-  height: 65px; }
-  .currenttrip .footer .tripfooter, .addhazard .footer .tripfooter, .notes .footer .tripfooter, .addnotes .footer .tripfooter {
-    display: block; }
-    .currenttrip .footer .tripfooter a, .addhazard .footer .tripfooter a, .notes .footer .tripfooter a, .addnotes .footer .tripfooter a {
-      display: inline-block; }
-    .currenttrip .footer .tripfooter i, .addhazard .footer .tripfooter i, .notes .footer .tripfooter i, .addnotes .footer .tripfooter i {
-      display: block;
-      font-size: 1.5rem;
-      line-height: 2.1rem; }
-  .currenttrip .footer .normalfooter, .addhazard .footer .normalfooter, .notes .footer .normalfooter, .addnotes .footer .normalfooter {
-    display: none; }
-.currenttrip textarea, .addhazard textarea, .notes textarea, .addnotes textarea {
-  height: 80%; }
-
-.tidebox {
-  width: 23.72881%;
-  float: left;
-  margin-right: 1.69492%; }
-  .tidebox:last-child {
-    width: 23.72881%;
-    float: right;
-    margin-right: 0; }
-  .tidebox i {
-    display: block; }
-
-.tripbox {
-  overflow: hidden;
-  text-transform: uppercase;
-  line-height: 2rem;
-  font-size: 1.1rem;
-  border-bottom: 1px solid #EF8201; }
-  .tripbox i {
-    width: 15.25424%;
-    float: left;
-    margin-right: 1.69492%;
-    text-align: center; }
-  .tripbox .text {
-    width: 83.05085%;
-    float: right;
-    margin-right: 0; }
-    .tripbox .text span {
-      margin: 0 5px;
-      font-family: din, "Lucida Grande", sans-serif; }
-
 .underHeader {
   background: #DD6D00;
   overflow: hidden;
   color: #FFF; }
 
-.locationSelector {
-  width: 80%;
-  margin: 0 auto;
-  border: 1px solid #002664;
-  overflow: hidden; }
-  .locationSelector > div {
-    width: 50%;
-    float: left;
-    text-align: center;
-    padding: 6px 3px;
-    cursor: pointer; }
-    .locationSelector > div.selected {
-      background: #002664; }
-
+/*===============  Components ===============
+///* #Trip Map ------------------------------------------------------------------------ */
 .tripMap .section {
   margin: 4px 0;
   padding: 4px 0;
@@ -1553,6 +1553,38 @@ Table of Contents
   margin-right: 0; }
 .tripMap .end, .tripMap .save {
   display: none; }
+
+/*===============  Pages ===============
+///* #Create Trip ------------------------------------------------------------------------ */
+.createtrip .locationSelector {
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid #002664;
+  overflow: hidden; }
+  .createtrip .locationSelector > div {
+    width: 50%;
+    float: left;
+    text-align: center;
+    padding: 6px 3px;
+    cursor: pointer; }
+    .createtrip .locationSelector > div.selected {
+      background: #002664; }
+
+.currenttrip .footer, .addhazard .footer, .notes .footer, .addnotes .footer {
+  display: block;
+  height: 65px; }
+  .currenttrip .footer .tripfooter, .addhazard .footer .tripfooter, .notes .footer .tripfooter, .addnotes .footer .tripfooter {
+    display: block; }
+    .currenttrip .footer .tripfooter a, .addhazard .footer .tripfooter a, .notes .footer .tripfooter a, .addnotes .footer .tripfooter a {
+      display: inline-block; }
+    .currenttrip .footer .tripfooter i, .addhazard .footer .tripfooter i, .notes .footer .tripfooter i, .addnotes .footer .tripfooter i {
+      display: block;
+      font-size: 1.5rem;
+      line-height: 2.1rem; }
+  .currenttrip .footer .normalfooter, .addhazard .footer .normalfooter, .notes .footer .normalfooter, .addnotes .footer .normalfooter {
+    display: none; }
+.currenttrip textarea, .addhazard textarea, .notes textarea, .addnotes textarea {
+  height: 80%; }
 
 .landingpage {
   position: fixed;

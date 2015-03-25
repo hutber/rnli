@@ -14,7 +14,7 @@ module.exports = RN.glb.gvCreator.extend({
 
 	saveNote: function(){
 		var note = $('#notetext').val();
-		RN.currentTrip.saveLocal('notes', note);
+		RN.fnc.notes.saveNoteToObject(note);
 		RN.router.navigate('notes', true)
 	},
 

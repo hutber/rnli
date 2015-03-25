@@ -7,23 +7,9 @@ module.exports = function(){
 
 	return Backbone.Model.extend({
 		defaults: {
-			name:null,
-			date:null,
-			location:{},
-			postcode: {},
-			hazard: {},
-			notes: {}
 		},
-		initialize: function(data){
-			if(data.length > 0) {
-				this.set({
-					name: data.name,
-					location: data.location,
-					postcode: data.postcode,
-					date: data.date,
-					notes: data.notes || {},
-				})
-			};
+		initialize: function(){
+			this.set(this.createDefaults())
 		},
 		saveLocal: function(type, data){
 			//create object to play with
@@ -35,32 +21,14 @@ module.exports = function(){
 			localStorage['ctrip'+type] = RN.fnc.json.convertToString(data);
 		},
 		createDefaults : function(data){
-			return this.defaults;
-		},
-		setTripData: function(data){
-			this.set({
-				name: data.name,
-				location: data.location,
-				postcode: data.postcode,
-				hazard: data.hazard,
-				notes: data.notes,
-				date: data.date
+			return RN.fnc.json.rebuildObject({
+				name:localStorage.ctripname,
+				hazard:localStorage.ctriphazard,
+				date:localStorage.ctripdate,
+				location:localStorage.ctriplocation,
+				postcode:localStorage.ctrippostcode,
+				notes:localStorage.ctripnotes
 			})
 		},
-		setPostCode: function(data){
-			this.set({
-				postcode: data
-			})
-		},
-		setHazardData: function(data){
-			this.set({
-				hazard: data
-			})
-		},
-		setNoteData: function(data){
-			this.set({
-				notes: data
-			})
-		}
 	});
 };

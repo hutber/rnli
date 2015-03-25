@@ -4,14 +4,19 @@ Table of Contents
 ==================================================
 #Global Settings
 	#Header Settings
-	#Footer Settings
-	#Reusable Boxes
+	#Trip Boxes
+
+#Components
+	#Trip map
 
 #Pages
-	#Trip
+	#Create Trip
+
+#Footer Settings
 
 */
 
+/*===============  Global Settings ===============
 ///* #Header Settings ------------------------------------------------------------------------ */
 	.addnotes {
 		form {
@@ -28,86 +33,14 @@ Table of Contents
 		}
 	}
 
-
-///* #Footer Settings ------------------------------------------------------------------------ */
-	.currenttrip, .addhazard, .notes, .addnotes {
-		.footer {
-			display: block;
-			height: 65px;
-			.tripfooter {
-				display: block;
-				a {
-					display: inline-block;
-				}
-				i {
-					display: block;
-					font-size: 1.5rem;
-					line-height: 2.1rem;
-				}
-			}
-			.normalfooter {
-				display: none;
-			}
-		}
-		textarea {
-			height: 80%;
-		}
-	}
-
-///* #Reusable Boxes ------------------------------------------------------------------------ */
-	.tidebox {
-		@include span(3 of 12);
-		&:last-child {
-			@include span(3 of 12 last);
-		}
-		i {
-			display: block;
-		}
-	}
-	.tripbox {
+	.underHeader {
+		background: $tripsDarker;
 		@include clear;
-		text-transform: uppercase;
-		line-height: 2rem;
-		font-size: 1.1rem;
-		border-bottom: 1px solid $trips;
-		i {
-			@include span(2 of 12);
-			text-align: center;
-		}
-		.text {
-			@include span(10 of 12 last);
-			span {
-				margin: 0 5px;
-				font-family: $headerFont;
-			}
-		}
+		color: #FFF;
 	}
 
-
-.underHeader {
-	background: $tripsDarker;
-	@include clear;
-	color: #FFF;
-}
-
-.locationSelector {
-	width: 80%;
-	margin: 0 auto;
-	border: 1px solid $mainBlue;
-	@include clear;
-	> div {
-		width: 50%;
-		float: left;
-		text-align: center;
-		padding: 6px 3px;
-		cursor: pointer;
-		&.selected {
-			background: $mainBlue;
-		}
-	}
-}
-
-///* #Trip ------------------------------------------------------------------------ */
+/*===============  Components ===============
+///* #Trip Map ------------------------------------------------------------------------ */
 .tripMap {
 	.section {
 		margin: 4px 0;
@@ -152,7 +85,7 @@ Table of Contents
 	}
 
 	.nodata {
-//		display: none;
+		//		display: none;
 	}
 
 	.start {
@@ -162,15 +95,51 @@ Table of Contents
 	.end, .save {
 		display: none;
 	}
+}
 
-	///*======= Map Styling ============*/
-	//.gmnoprint a, .gmnoprint span {
-	//	display:none;
-	//}
-	//.gmnoprint div {
-	//	background:none !important;
-	//}
-	//#GMapsID div div a div img{
-	//	display:none;
-	//}
+/*===============  Pages ===============
+///* #Create Trip ------------------------------------------------------------------------ */
+.createtrip {
+	.locationSelector {
+		width: 80%;
+		margin: 0 auto;
+		border: 1px solid $mainBlue;
+		@include clear;
+		> div {
+			width: 50%;
+			float: left;
+			text-align: center;
+			padding: 6px 3px;
+			cursor: pointer;
+			&.selected {
+				background: $mainBlue;
+			}
+		}
+	}
+}
+
+
+///* #Footer Settings ------------------------------------------------------------------------ */
+.currenttrip, .addhazard, .notes, .addnotes {
+	.footer {
+		display: block;
+		height: 65px;
+		.tripfooter {
+			display: block;
+			a {
+				display: inline-block;
+			}
+			i {
+				display: block;
+				font-size: 1.5rem;
+				line-height: 2.1rem;
+			}
+		}
+		.normalfooter {
+			display: none;
+		}
+	}
+	textarea {
+		height: 80%;
+	}
 }

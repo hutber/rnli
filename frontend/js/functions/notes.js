@@ -4,7 +4,28 @@ module.exports = function () {
 	var notes = {};
 
 	notes.saveLocal = function(data){
+		c(data);
 		RN.currentTrip.saveLocal('notes', data);
+	};
+
+	notes.saveNoteToObject = function(data){
+		var singleNote = {},
+			note = {};
+
+		if(typeof localStorage.ctripnotes !== typeof undefined){
+			singleNote = JSON.parse(localStorage.ctripnotes)
+		}
+
+		if(Object.keys(singleNote).length !== 0) {
+			note.id = Object.keys(singleNote).length++;
+		}else{
+			note.id = 0;
+		}
+
+		note.date = moment().format('HH:mm');
+		note.text = data;
+		singleNote[note.id] = note;
+		notes.saveLocal(singleNote)
 	};
 
 	notes.saveServer = function (data) {

@@ -29,6 +29,7 @@
 	}
 }
 
+///* #Plus Boxes ------------------------------------------------------------------------ */
 .box, .plusbox {
 	&.white {
 		background: #fff;
@@ -36,5 +37,62 @@
 	&.large {
 		margin: 10px 0;
 		padding: gutter(4) gutter(4);
+	}
+}
+
+///* #Trip Boxes ------------------------------------------------------------------------ */
+.tidebox {
+	@include span(3 of 12);
+	&:last-child {
+		@include span(3 of 12 last);
+	}
+	i {
+		display: block;
+	}
+}
+.tripbox {
+	@include clear;
+	text-transform: uppercase;
+	line-height: 2rem;
+	font-size: 1.1rem;
+	border-bottom: 1px solid $trips;
+	i {
+		@include span(2 of 12);
+		text-align: center;
+	}
+	.text {
+		@include span(10 of 12 last);
+		span {
+			margin: 0 5px;
+			font-family: $headerFont;
+		}
+	}
+}
+
+///* #Note Boxes ------------------------------------------------------------------------ */
+.notebox {
+	width: 100%;
+	background: #FFF;
+	border-bottom: 2px solid $bg;
+	position: relative;
+	color: $mainBlue;
+	text-align: center;
+	.notetime {
+		font-family: $headerFont;
+		font-size: 1.6rem;
+		line-height: 1.8rem;
+		padding: 10px 0 0;
+	}
+	.deletenote, .editnote {
+		position: absolute;
+		right: 0;
+		top: 5px;
+	}
+	.editnote {
+		right: 25px;
+	}
+	.notetext {
+		font-size: 1.6rem;
+		padding: 0 0 5px;
 	}
 }
