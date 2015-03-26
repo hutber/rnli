@@ -15,5 +15,6 @@ module.exports = {
 		contacts: require('./functions/user/contacts')()
 	},
 	popups: require('./functions/popups')(),
+	catch: require('./functions/catch')(),
 	notes: require('./functions/notes')()
 }

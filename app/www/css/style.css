@@ -1495,6 +1495,7 @@ Table of Contents
 
 #Pages
 	#Create Trip
+	#Catch
 
 #Footer Settings
 
@@ -1507,6 +1508,15 @@ Table of Contents
   display: block; }
 
 .trips a.headerbutton.addtrip {
+  display: block; }
+
+.catch a.headerbutton.addcatch {
+  display: block; }
+
+.addcatch a.headerbutton.nextcatch {
+  display: block; }
+
+.confirmcatch a.headerbutton.savecatch {
   display: block; }
 
 .underHeader {
@@ -1570,20 +1580,20 @@ Table of Contents
     .createtrip .locationSelector > div.selected {
       background: #002664; }
 
-.currenttrip .footer, .addhazard .footer, .notes .footer, .addnotes .footer {
+.currenttrip .footer, .addhazard .footer, .notes .footer, .addnotes .footer, .catch .footer, .addcatch .footer, .confirmcatch .footer {
   display: block;
   height: 65px; }
-  .currenttrip .footer .tripfooter, .addhazard .footer .tripfooter, .notes .footer .tripfooter, .addnotes .footer .tripfooter {
+  .currenttrip .footer .tripfooter, .addhazard .footer .tripfooter, .notes .footer .tripfooter, .addnotes .footer .tripfooter, .catch .footer .tripfooter, .addcatch .footer .tripfooter, .confirmcatch .footer .tripfooter {
     display: block; }
-    .currenttrip .footer .tripfooter a, .addhazard .footer .tripfooter a, .notes .footer .tripfooter a, .addnotes .footer .tripfooter a {
+    .currenttrip .footer .tripfooter a, .addhazard .footer .tripfooter a, .notes .footer .tripfooter a, .addnotes .footer .tripfooter a, .catch .footer .tripfooter a, .addcatch .footer .tripfooter a, .confirmcatch .footer .tripfooter a {
       display: inline-block; }
-    .currenttrip .footer .tripfooter i, .addhazard .footer .tripfooter i, .notes .footer .tripfooter i, .addnotes .footer .tripfooter i {
+    .currenttrip .footer .tripfooter i, .addhazard .footer .tripfooter i, .notes .footer .tripfooter i, .addnotes .footer .tripfooter i, .catch .footer .tripfooter i, .addcatch .footer .tripfooter i, .confirmcatch .footer .tripfooter i {
       display: block;
       font-size: 1.5rem;
       line-height: 2.1rem; }
-  .currenttrip .footer .normalfooter, .addhazard .footer .normalfooter, .notes .footer .normalfooter, .addnotes .footer .normalfooter {
+  .currenttrip .footer .normalfooter, .addhazard .footer .normalfooter, .notes .footer .normalfooter, .addnotes .footer .normalfooter, .catch .footer .normalfooter, .addcatch .footer .normalfooter, .confirmcatch .footer .normalfooter {
     display: none; }
-.currenttrip textarea, .addhazard textarea, .notes textarea, .addnotes textarea {
+.currenttrip textarea, .addhazard textarea, .notes textarea, .addnotes textarea, .catch textarea, .addcatch textarea, .confirmcatch textarea {
   height: 80%; }
 
 .landingpage {
@@ -1649,7 +1659,7 @@ Table of Contents
     background: #D13924; }
   .safety .header {
     background: #9C1B31; }
-  .catch .header {
+  .catchlog .header {
     background: #28243b; }
   .profile .header {
     background: #002664;

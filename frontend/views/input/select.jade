@@ -1,0 +1,6 @@
+mixin select(data)
+    select()&attributes(data.attr).control-group
+        if(data.options)
+            each obj in data.options
+                //- Ensure we always have a value, even if it's empty string
+                option(selected=obj.selected? "selected": undefined, value="#{obj.value? obj.value: obj.text? obj.text: ''}") #{obj.text}

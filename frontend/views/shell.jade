@@ -7,6 +7,9 @@ include ./mixins
     .right
         a.headerbutton.addtrip(href='#createtrip') Add Trip
         a.headerbutton.savenote Save
+        a.headerbutton.addcatch(href='#addcatch') Add
+        a.headerbutton.nextcatch Next
+        a.headerbutton.savecatch Save
 .content
     | Default State
 .footer
@@ -26,6 +29,6 @@ include ./mixins
         a(href='#notes')
             i(class='icon-pencil')
             | Add notes
-        a(href='#catchlog')
-            i(class='icon-fish')
+        a(href='#catch')
+            i(class='icon-waves')
             | Catch log

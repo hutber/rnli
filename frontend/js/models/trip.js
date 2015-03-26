@@ -27,7 +27,8 @@ module.exports = function(){
 				date:localStorage.ctripdate,
 				location:localStorage.ctriplocation,
 				postcode:localStorage.ctrippostcode,
-				notes:localStorage.ctripnotes
+				notes:localStorage.ctripnotes,
+				catch:localStorage.ctripcatch,
 			})
 		},
 	});

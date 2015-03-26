@@ -74,6 +74,24 @@ module.exports = function (){
 			title: 'CURRENT TRIP'
 		}
 		,{
+			name: 'catchView',
+			path: require('../views/trips/catch/catchView'),
+			url: 'catch',
+			title: 'TRIP CATCH LOG'
+		}
+		,{
+			name: 'addCatchView',
+			path: require('../views/trips/catch/addCatchView'),
+			url: 'addcatch',
+			title: 'ADD NEW CATCH'
+		}
+		,{
+			name: 'confirmCatchView',
+			path: require('../views/trips/catch/confirmCatchView'),
+			url: 'confirmcatch',
+			title: 'CONFIRM CATCH'
+		}
+		,{
 			name: 'addHazardView',
 			path: require('../views/trips/hazard/addHazardView'),
 			url: 'addhazard',

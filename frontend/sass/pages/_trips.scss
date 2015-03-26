@@ -11,6 +11,7 @@ Table of Contents
 
 #Pages
 	#Create Trip
+	#Catch
 
 #Footer Settings
 
@@ -29,6 +30,22 @@ Table of Contents
 
 	.trips {
 		a.headerbutton.addtrip {
+			display: block;
+		}
+	}
+
+	.catch {
+		a.headerbutton.addcatch {
+			display: block;
+		}
+	}
+	.addcatch {
+		a.headerbutton.nextcatch {
+			display: block;
+		}
+	}
+	.confirmcatch {
+		a.headerbutton.savecatch {
 			display: block;
 		}
 	}
@@ -118,9 +135,13 @@ Table of Contents
 	}
 }
 
+///* #Catch  ------------------------------------------------------------------------ */
+.catch {
+
+}
 
 ///* #Footer Settings ------------------------------------------------------------------------ */
-.currenttrip, .addhazard, .notes, .addnotes {
+.currenttrip, .addhazard, .notes, .addnotes, .catch, .addcatch, .confirmcatch {
 	.footer {
 		display: block;
 		height: 65px;

@@ -14,7 +14,9 @@ module.exports =  function() {
 	globals.gvCreator = Backbone.View.extend({
 		el: '.shell',
 		events: {
-			'click .savenote': 'saveNote'
+			'click .savenote': 'saveNote',
+			'click .nextcatch': 'nextCatch',
+			'click .savecatch': 'saveCatch'
 		},
 		$header: null,
 		templates: {
@@ -35,6 +37,12 @@ module.exports =  function() {
 		///* #Custom events ------------------------------------------------------------------- */
 		saveNote : function(){
 			RN.glb.views.addNotesView.saveNote();
+		},
+		nextCatch : function(){
+			RN.glb.views.addCatchView.saveFirstPageOfCatch();
+		},
+		saveCatch : function(){
+			RN.glb.views.confirmCatchView.saveCatch();
 		},
 	});
 
