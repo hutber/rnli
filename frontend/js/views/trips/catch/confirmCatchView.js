@@ -19,6 +19,8 @@ module.exports = RN.glb.gvCreator.extend({
 	render: function () {
 		var self = this;
 		//load data in ejs
-		this.$el.html(this.templates.home());
+		var viewsData = RN.currentTrip.get('tmpcatch');
+		c(viewsData);
+		this.$el.html(this.templates.home(viewsData));
 	}
 });

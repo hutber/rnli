@@ -22,8 +22,8 @@ module.exports = RN.glb.gvCreator.extend({
 			released: $('select[name=released]').val(),
 		};
 
-		c(dataToSave);
-		//RN.router.navigate('confirmcatch', true);
+		RN.fnc.catch.saveTempCatchToObject(dataToSave);
+		RN.router.navigate('confirmcatch', true);
 	},
 
 	moveToCatch : function(ev){

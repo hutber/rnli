@@ -28,6 +28,7 @@ module.exports = function(){
 				location:localStorage.ctriplocation,
 				postcode:localStorage.ctrippostcode,
 				notes:localStorage.ctripnotes,
+				tmpcatch:localStorage.ctriptmpcatch,
 				catch:localStorage.ctripcatch,
 			})
 		},
