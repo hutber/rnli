@@ -373,6 +373,14 @@ table {
   content: '\e833'; }
 
 /* '' */
+.icon-plus:before {
+  content: '\e834'; }
+
+/* '' */
+.icon-minus:before {
+  content: '\e835'; }
+
+/* '' */
 .test {
   -moz-transform: skew(25deg, 10deg);
   -o-transform: skew(25deg, 10deg);
@@ -1052,6 +1060,97 @@ input[type=checkbox] {
   .notebox .notetext {
     font-size: 1.6rem;
     padding: 0 0 5px; }
+
+.catchfishbox {
+  overflow: hidden;
+  padding: 1px 0 0;
+  background: #FFF;
+  text-align: left;
+  height: 100px; }
+  .catchfishbox h3 {
+    text-align: left;
+    margin: 4px 0 10px; }
+  .catchfishbox:nth-child(3n) {
+    background: inherit; }
+    .catchfishbox:nth-child(3n):hover, .catchfishbox:nth-child(3n):active {
+      background: inherit; }
+  .catchfishbox .image {
+    width: 32.20339%;
+    float: left;
+    margin-right: 1.69492%;
+    overflow: hidden; }
+    .catchfishbox .image img {
+      height: 100%; }
+  .catchfishbox .text {
+    padding: 10px;
+    text-transform: uppercase;
+    font-family: din, "Lucida Grande", sans-serif;
+    width: 49.15254%;
+    float: left;
+    margin-right: 1.69492%; }
+    .catchfishbox .text .item {
+      padding: 0 0 5px; }
+    .catchfishbox .text span {
+      width: 120px;
+      display: inline-block;
+      color: #002664;
+      float: right; }
+  .catchfishbox .icon {
+    font-size: 2.4rem;
+    width: 15.25424%;
+    float: right;
+    margin-right: 0;
+    height: 100%; }
+    .catchfishbox .icon i {
+      position: relative;
+      top: 27%;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%); }
+    .catchfishbox .icon .icon-minus {
+      display: none;
+      visibility: hidden; }
+  .catchfishbox.down {
+    background: inherit; }
+    .catchfishbox.down .icon-minus {
+      display: block;
+      visibility: visible;
+      top: 50%; }
+    .catchfishbox.down .icon-plus {
+      display: none;
+      visibility: hidden; }
+
+.catchbox {
+  font-size: 1.4rem;
+  line-height: 2.6rem;
+  color: #93979D;
+  background: #FFF;
+  overflow: hidden; }
+  .catchbox:hover, .catchbox:active {
+    background: #FFF; }
+  .confirmcatch .catchbox:nth-child(3n) {
+    background: inherit; }
+    .confirmcatch .catchbox:nth-child(3n):hover, .confirmcatch .catchbox:nth-child(3n):active {
+      background: inherit; }
+  .catchbox .title {
+    width: 57.62712%;
+    float: left;
+    margin-right: 1.69492%; }
+  .catchbox .text {
+    text-transform: uppercase;
+    font-family: din, "Lucida Grande", sans-serif;
+    color: #002664;
+    width: 40.67797%;
+    float: right;
+    margin-right: 0; }
+  .catchbox select {
+    width: 47.91667%;
+    float: left;
+    margin-right: 4.16667%; }
+    .catchbox select:last-child {
+      width: 47.91667%;
+      float: right;
+      margin-right: 0; }
 
 /* v1.0.5 */
 /* Core RS CSS file. 95% of time you shouldn't change anything here. */

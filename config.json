@@ -57,9 +57,21 @@
       "src": "fontawesome"
     },
     {
+      "uid": "44e04715aecbca7f266a17d5a7863c68",
+      "css": "plus",
+      "code": 59444,
+      "src": "fontawesome"
+    },
+    {
       "uid": "4ba33d2607902cf690dd45df09774cb0",
       "css": "plus-circled",
       "code": 59396,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "861ab06e455e2de3232ebef67d60d708",
+      "css": "minus",
+      "code": 59445,
       "src": "fontawesome"
     },
     {

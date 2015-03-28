@@ -4,6 +4,6 @@ mixin selectInt(data)
         - var selectedLbs = data.selected || -1;
         - for (var i = 0; i < data.limit; i++)
         if(selectedLbs === i)
-            option(selected, value= i) #{i}
+            option(selected, value= i) #{i}#{data.attr.name}
         else
-            option(value= i) #{i}
+            option(value= i) #{i}#{data.attr.name}

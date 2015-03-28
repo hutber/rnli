@@ -3,16 +3,11 @@ module.exports = function () {
 
 	var catchVar = {};
 
-	catchVar.saveLocal = function(name, data){
-		RN.currentTrip.saveLocal(name, data);
-	};
-
 	catchVar.saveTempCatchToObject = function(data){
-
-		if(typeof localStorage.ctriptmpcatch !== typeof undefined){
+		if(typeof data === typeof undefined){
 			data = JSON.parse(localStorage.ctriptmpcatch)
 		}
-		catchVar.saveLocal('tmpcatch', data)
+		RN.currentTrip.saveLocal('tmpcatch', data);
 	};
 
 	catchVar.saveCatchToObject = function(data){
@@ -24,15 +19,15 @@ module.exports = function () {
 		}
 
 		if(Object.keys(singleCatch).length !== 0) {
-			note.id = Object.keys(singleCatch).length++;
+			note.id = Object.keys(singleCatch).length+1;
 		}else{
 			note.id = 0;
 		}
 
 		note.date = moment().format('HH:mm');
-		note.data = data;
+		note.data = JSON.parse(data);
 		singleCatch[note.id] = note;
-		catchVar.saveLocal(singleCatch)
+		RN.currentTrip.saveLocal('catch', singleCatch);
 	};
 
 	catchVar.saveServer = function (data) {
@@ -51,8 +46,8 @@ module.exports = function () {
 				if (data.error) {
 					RN.fnc.popups.message.show(data.error, 'bad');
 				} else {
-					c(data);
-					catchVar.saveLocal(data);
+					c('ajax');
+					RN.currentTrip.saveLocal('trip', singleCatch);
 				}
 			}
 		});

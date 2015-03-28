@@ -9,18 +9,23 @@ module.exports = RN.glb.gvCreator.extend({
 	},
 
 	events: {
-		'click .addcatch': 'moveToCatch',
+		'click .catchfishbox': 'viewFishDetails'
 	},
 
-	moveToCatch : function(ev){
-		RN.router.navigate('addcatch', true);
+	viewFishDetails : function(ev){
+		var ev = $(ev.currentTarget);
+		ev.toggleClass('down');
+	},
+
+	saveCatch : function(){
+		RN.fnc.catch.saveCatchToObject(localStorage.ctriptmpcatch);
+		RN.router.navigate('catch', true);
 	},
 
 	render: function () {
 		var self = this;
 		//load data in ejs
 		var viewsData = RN.currentTrip.get('tmpcatch');
-		c(viewsData);
 		this.$el.html(this.templates.home(viewsData));
 	}
 });

@@ -2,9 +2,13 @@ include ../../mixins
 h1 #{species}
 +catchBox({
     title: 'Weight',
-    info: weight
+    info: weight1+'lbs '+weight2+'oz'
 })
 +catchBox({
     title: 'Length',
-    info: height
+    info: height1+'ft '+height2+'in'
+})
++catchBox({
+    title: 'Released?',
+    info: released
 })

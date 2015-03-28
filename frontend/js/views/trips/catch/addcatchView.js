@@ -17,8 +17,10 @@ module.exports = RN.glb.gvCreator.extend({
 		var dataToSave = {
 			species: $('#species').val(),
 			weightType: $('input[name=weightsystem]:checked').val(),
-			weight: $('select[name=lbs]').val()+'.'+$('select[name=oz]').val(),
-			height: $('select[name=ft]').val()+'.'+$('select[name=in]').val(),
+			weight1: $('select[name=lbs]').val(),
+			weight2: $('select[name=oz]').val(),
+			height1: $('select[name=ft]').val(),
+			height2: $('select[name=in]').val(),
 			released: $('select[name=released]').val(),
 		};
 

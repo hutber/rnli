@@ -13,7 +13,7 @@ module.exports = RN.glb.gvCreator.extend({
 		'click #saveCreateTrip': 'save',
 		'click .yes': 'locationOn',
 		'click .no': 'locationOff',
-		'click .box': 'lookUpPostCode',
+		'click .postboxbox': 'lookUpPostCode',
 		'keyup #createname, #createdate, #createlocation': 'readyToSave',
 		'submit .postcodeform': 'postcode'
 	},

@@ -74,24 +74,6 @@ module.exports = function (){
 			title: 'CURRENT TRIP'
 		}
 		,{
-			name: 'catchView',
-			path: require('../views/trips/catch/catchView'),
-			url: 'catch',
-			title: 'TRIP CATCH LOG'
-		}
-		,{
-			name: 'addCatchView',
-			path: require('../views/trips/catch/addCatchView'),
-			url: 'addcatch',
-			title: 'ADD NEW CATCH'
-		}
-		,{
-			name: 'confirmCatchView',
-			path: require('../views/trips/catch/confirmCatchView'),
-			url: 'confirmcatch',
-			title: 'CONFIRM CATCH'
-		}
-		,{
 			name: 'addHazardView',
 			path: require('../views/trips/hazard/addHazardView'),
 			url: 'addhazard',
@@ -122,10 +104,22 @@ module.exports = function (){
 		 Catch Log
 		 ================================================== */
 		,{
-			name: 'catchLogView',
-			path: require('../views/catch/catchLogView'),
+			name: 'catchView',
+			path: require('../views/trips/catch/catchView'),
 			url: 'catch',
-			title: 'TOTAL CATCH LOG'
+			title: 'TRIP CATCH LOG'
+		}
+		,{
+			name: 'addCatchView',
+			path: require('../views/trips/catch/addCatchView'),
+			url: 'addcatch',
+			title: 'ADD NEW CATCH'
+		}
+		,{
+			name: 'confirmCatchView',
+			path: require('../views/trips/catch/confirmCatchView'),
+			url: 'confirmcatch',
+			title: 'CONFIRM CATCH'
 		}
 		/*==================================================
 		 About

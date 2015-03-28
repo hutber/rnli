@@ -45,7 +45,7 @@ module.exports = RN.glb.gvCreator.extend({
 			//load data in ejs
 			self.$el.html(self.templates.home(data));
 			if(typeof data.weather === typeof undefined || data.weather === null){
-
+				c('nothing to get');
 			}else {
 				var myLatlng = new google.maps.LatLng(cords.lat, cords.long);
 				var mapOptions = {
