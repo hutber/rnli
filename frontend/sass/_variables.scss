@@ -21,8 +21,13 @@ $softGrey:										#424447;
 $hardGrey:										#484244;
 $headerGrey:									#383A3D;
 $grey:											#93979D;
-$greyAlt:				  						#a8f927;
+$border:                                        #D7D5CF;
+$greyAlt:				  						#E6E7E6;
 
+
+//  #Links --------------------------------------------
+$wind:                                         #005DC5;
+$current:                                      #007C14;
 
 //  #Links --------------------------------------------
 $linkColor:										$softOrange;
@@ -35,15 +40,13 @@ $notice:           								#f39c12;
 $warning:          								#f1c40f;
 $info:             								#3498db;
 
-//  #Borders -------------------------------------
-$border:										$hardGrey;
-
 /* Pages
 ==================================================
 */
 //  #Base Colours ------------------------------
 $trips:                                         #EF8201;
 $tripsDarker:                                   #DD6D00;
+$mytrips:                                       #E04200;
 $weather:                                       #D13924;
 $safety:                                        #9C1B31;
 $catch:                                         #28243b;

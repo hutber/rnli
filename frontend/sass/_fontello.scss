@@ -136,6 +136,18 @@
 	}
 }
 
+
+.icon-fish {
+	font-size: 1rem !important;
+	&:before {
+		width: auto;
+	}
+}
+
+.icon-tide:before {
+	width: auto;
+}
+
 .icon-menu:before { content: '\e800'; } /* '' */
 .icon-users:before { content: '\e801'; } /* '' */
 .icon-money:before { content: '\e802'; } /* '' */
@@ -190,3 +202,5 @@
 .icon-fish:before { content: '\e833'; } /* '' */
 .icon-plus:before { content: '\e834'; } /* '' */
 .icon-minus:before { content: '\e835'; } /* '' */
+.icon-tide:before { content: '\e836'; } /* '' */
+.icon-air-1:before { content: '\e837'; } /* '' */

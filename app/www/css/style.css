@@ -165,6 +165,14 @@ table {
     -webkit-transform: rotate(359deg);
     transform: rotate(359deg); } }
 
+.icon-fish {
+  font-size: 1rem !important; }
+  .icon-fish:before {
+    width: auto; }
+
+.icon-tide:before {
+  width: auto; }
+
 .icon-menu:before {
   content: '\e800'; }
 
@@ -381,6 +389,14 @@ table {
   content: '\e835'; }
 
 /* '' */
+.icon-tide:before {
+  content: '\e836'; }
+
+/* '' */
+.icon-air-1:before {
+  content: '\e837'; }
+
+/* '' */
 .test {
   -moz-transform: skew(25deg, 10deg);
   -o-transform: skew(25deg, 10deg);
@@ -691,11 +707,15 @@ label.error, label.error a {
 .control-group, .box {
   position: relative; }
   .control-group .icon-right-open, .control-group .icon-search, .box .icon-right-open, .box .icon-search {
-    position: absolute;
-    right: 0;
     z-index: 2;
     font-size: 1.5rem;
-    padding-top: 12px; }
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    position: absolute;
+    right: 0; }
   .control-group label, .box label {
     font-size: .8em; }
     .control-group label.error, .control-group label.error a, .box label.error, .box label.error a {
@@ -785,7 +805,7 @@ input[type=checkbox] {
 
 .btn, a.btn, button {
   border: none;
-  background: #ccc;
+  background: #EF8201;
   color: #fff;
   display: block;
   padding: 12px 0;
@@ -804,19 +824,20 @@ input[type=checkbox] {
   -webkit-transition: 0.25s;
   transition: 0.25s; }
   .btn:hover, .btn:focus, .btn-group:focus .btn.dropdown-toggle, a.btn:hover, a.btn:focus, .btn-group:focus a.btn.dropdown-toggle, button:hover, button:focus, .btn-group:focus button.dropdown-toggle {
-    background-color: #d9d9d9;
+    color: #FFF;
+    background-color: #fe8f0c;
     outline: none;
     -moz-transition: 0.25s;
     -o-transition: 0.25s;
     -webkit-transition: 0.25s;
     transition: 0.25s; }
   .btn:active, .btn-group.open .btn.dropdown-toggle, .btn.active, a.btn:active, .btn-group.open a.btn.dropdown-toggle, a.btn.active, button:active, .btn-group.open button.dropdown-toggle, button.active {
-    background-color: #ccc;
-    color: fade(#ccc, 75%);
+    background-color: #EF8201;
+    color: fade(#EF8201, 75%);
     box-shadow: none; }
   .btn.disabled, .btn[disabled], a.btn.disabled, a.btn[disabled], button.disabled, button[disabled] {
-    background-color: #ccc;
-    color: fade(#ccc, 75%);
+    background-color: #F4F5F5;
+    color: fade(#F4F5F5, 75%);
     box-shadow: none;
     opacity: .4; }
   .btn.btn-large, a.btn.btn-large, button.btn-large {
@@ -849,7 +870,7 @@ input[type=checkbox] {
   .btn-group > .btn + .btn {
     margin-left: 0; }
   .btn-group > .btn + .dropdown-toggle {
-    border-left: 2px solid fade(#ccc, 15%);
+    border-left: 2px solid fade(#F4F5F5, 15%);
     padding-left: 13px;
     padding-right: 13px;
     box-shadow: none; }
@@ -983,12 +1004,10 @@ input[type=checkbox] {
   margin: 0 0 1px;
   padding: 5px 8px;
   cursor: pointer;
-  text-align: center; }
-  .box .icon-right-open {
-    padding-top: 0;
-    top: 0; }
-  .box:hover {
-    background: #F6F6F6; }
+  text-align: center;
+  position: relative; }
+  .box:hover, .box.selected {
+    background: #F6F6F6 !important; }
 
 .plusbox {
   text-align: center;
@@ -1010,13 +1029,13 @@ input[type=checkbox] {
   padding: 5.26316% 5.26316%; }
 
 .tidebox {
-  width: 23.72881%;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  width: 100px;
   float: left;
-  margin-right: 1.69492%; }
+  border-right: 2px solid #D7D5CF; }
   .tidebox:last-child {
-    width: 23.72881%;
-    float: right;
-    margin-right: 0; }
+    border: none; }
   .tidebox i {
     display: block; }
 
@@ -1039,6 +1058,10 @@ input[type=checkbox] {
       margin: 0 5px;
       font-family: din, "Lucida Grande", sans-serif; }
 
+.postboxbox {
+  font-size: 1.4rem;
+  padding: 20px; }
+
 .notebox {
   width: 100%;
   background: #FFF;
@@ -1048,8 +1071,8 @@ input[type=checkbox] {
   text-align: center; }
   .notebox .notetime {
     font-family: din, "Lucida Grande", sans-serif;
-    font-size: 1.6rem;
-    line-height: 1.8rem;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
     padding: 10px 0 0; }
   .notebox .deletenote, .notebox .editnote {
     position: absolute;
@@ -1058,7 +1081,7 @@ input[type=checkbox] {
   .notebox .editnote {
     right: 25px; }
   .notebox .notetext {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     padding: 0 0 5px; }
 
 .catchfishbox {
@@ -1396,7 +1419,8 @@ body {
   height: 75px;
   width: 100%;
   color: #FFF;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  position: relative; }
   .header .left {
     font-size: 2rem;
     height: 100%;
@@ -1411,7 +1435,7 @@ body {
     text-align: center;
     position: relative;
     height: 75px;
-    width: 74.57627%;
+    width: 78.81356%;
     float: left;
     margin-right: 1.69492%; }
     .header .middle h1 {
@@ -1420,11 +1444,11 @@ body {
       font-size: 1.3rem;
       line-height: 5rem; }
   .header .right {
-    position: relative;
-    height: 100%;
-    width: 11.01695%;
-    float: right;
-    margin-right: 0; }
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%); }
     .header .right a.headerbutton {
       display: none;
       border: 1px solid #FFF;
@@ -1432,14 +1456,7 @@ body {
       background: #F1835B;
       padding: 5px;
       cursor: pointer;
-      text-decoration: none;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      -webkit-transform: translate(-50%, -50%);
-      -moz-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%); }
+      text-decoration: none; }
 
 .content {
   overflow-y: scroll;
@@ -1624,60 +1641,186 @@ Table of Contents
   color: #FFF; }
 
 /*===============  Components ===============
-///* #Trip Map ------------------------------------------------------------------------ */
+///* #Wind Direction Arrows ----------------------------------------------------------- */
+.icon-right-circled.N {
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg); }
+.icon-right-circled.NE {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg); }
+.icon-right-circled.SE {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg); }
+.icon-right-circled.S {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg); }
+.icon-right-circled.SW {
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg); }
+.icon-right-circled.W {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg); }
+.icon-right-circled.NW {
+  -webkit-transform: rotate(235deg);
+  transform: rotate(235deg); }
+
 .tripMap .section {
-  margin: 4px 0;
-  padding: 4px 0;
+  color: #002664;
   text-align: center;
+  border-bottom: 3px solid #D7D5CF;
   overflow: hidden; }
 .tripMap .map {
   position: relative; }
   .tripMap .map .info {
     width: 100%;
-    height: 20px;
-    background: rgba(254, 255, 255, 0.54);
+    line-height: 1.6rem;
+    background: rgba(254, 255, 255, 0.85);
     position: absolute;
     bottom: 0;
-    z-index: 3; }
+    z-index: 3;
+    color: #002664; }
+  .tripMap .map #map-canvas.bigmap {
+    height: 440px !important; }
   .tripMap .map .wind {
     width: 23.72881%;
     float: left;
     margin-right: 1.69492%; }
   .tripMap .map .current {
+    color: #54862e;
     width: 23.72881%;
     float: left;
     margin-right: 1.69492%; }
-  .tripMap .map .enlarge {
+  .tripMap .map .enlargetrip {
+    cursor: pointer;
     width: 32.20339%;
     float: right;
     margin-right: 0; }
-.tripMap .air, .tripMap .sea {
-  width: 49.15254%;
-  float: left;
-  margin-right: 1.69492%;
-  text-align: center; }
-.tripMap .sea {
-  width: 49.15254%;
-  float: right;
-  margin-right: 0; }
-.tripMap .end, .tripMap .save {
+.tripMap .tideInfo {
+  margin: 0 auto;
+  overflow: hidden; }
+  .tripMap .tideInfo .tideoverflow {
+    overflow-x: auto; }
+.tripMap .endtrip, .tripMap .savetrip {
   display: none; }
+.tripMap .airsea {
+  background: #E6E7E6;
+  border-top: 3px solid #D7D5CF; }
+  .tripMap .airsea .air, .tripMap .airsea .sea {
+    width: 49.15254%;
+    float: left;
+    margin-right: 1.69492%;
+    text-align: center; }
+  .tripMap .airsea .info {
+    font-family: din, "Lucida Grande", sans-serif;
+    font-size: 2.2rem;
+    padding: 10px 0 15px; }
+    .tripMap .airsea .info span {
+      font-family: inherit;
+      font-size: 1.6rem; }
+  .tripMap .airsea .icon {
+    text-align: left;
+    padding: 15px 5px 0 10px; }
+  .tripMap .airsea .air {
+    margin-right: 0;
+    border-right: 3px solid #D7D5CF; }
+  .tripMap .airsea .sea {
+    width: 49.15254%;
+    float: left;
+    margin-right: 1.69492%;
+    position: relative; }
+    .tripMap .airsea .sea.danger {
+      color: #FFF;
+      background: #e74c3c; }
+      .tripMap .airsea .sea.danger .dangertext {
+        font-size: .6rem;
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 10px; }
+        .tripMap .airsea .sea.danger .dangertext i {
+          color: #f1c40f;
+          font-size: 1.4rem; }
+.tripMap .tide {
+  font-family: din, "Lucida Grande", sans-serif; }
+  .tripMap .tide .title {
+    line-height: 2.8rem;
+    font-family: din, "Lucida Grande", sans-serif; }
+  .tripMap .tide .tides {
+    font-size: 0.8rem;
+    margin-bottom: 15px; }
+    .tripMap .tide .tides i {
+      color: #93979D; }
+    .tripMap .tide .tides span {
+      margin-top: 3px;
+      display: block; }
+  .tripMap .tide .time {
+    margin-bottom: 10px;
+    font-family: din, "Lucida Grande", sans-serif; }
+.tripMap .springtide {
+  background: #D7D5CF;
+  color: #002664;
+  font-size: 1.4rem;
+  line-height: 3.2rem; }
+  .tripMap .springtide span {
+    font-family: din, "Lucida Grande", sans-serif; }
+.tripMap .windcurrent {
+  color: #FFF; }
+  .tripMap .windcurrent .wind, .tripMap .windcurrent .current {
+    padding: 10px;
+    text-align: center;
+    width: 49.15254%;
+    float: left;
+    margin-right: 1.69492%;
+    height: 130px; }
+  .tripMap .windcurrent .wind {
+    margin-right: 0;
+    background: #005DC5;
+    border-right: 3px solid #D7D5CF;
+    text-align: left; }
+  .tripMap .windcurrent .current {
+    background: #007C14; }
+  .tripMap .windcurrent i {
+    font-size: 1.2rem; }
+  .tripMap .windcurrent .icon {
+    text-align: left;
+    margin-bottom: 10px; }
+  .tripMap .windcurrent .info i {
+    font-size: 2.6rem;
+    width: 31.03448%;
+    float: left;
+    margin-right: 3.44828%; }
+  .tripMap .windcurrent .info > span {
+    font-size: 2.1rem;
+    font-family: din, "Lucida Grande", sans-serif;
+    line-height: 1.8rem;
+    width: 65.51724%;
+    float: right;
+    margin-right: 0; }
+    .tripMap .windcurrent .info > span span {
+      font-size: 1.2rem;
+      padding-left: 2px;
+      font-family: arial, helvetica, sans-serif; }
 
 /*===============  Pages ===============
 ///* #Create Trip ------------------------------------------------------------------------ */
 .createtrip .locationSelector {
   width: 80%;
   margin: 0 auto;
-  border: 1px solid #002664;
+  border: 2px solid #002664;
+  border-radius: 3px;
   overflow: hidden; }
   .createtrip .locationSelector > div {
     width: 50%;
     float: left;
     text-align: center;
     padding: 6px 3px;
-    cursor: pointer; }
+    line-height: 2rem;
+    cursor: pointer;
+    font-family: din, "Lucida Grande", sans-serif;
+    color: #002664; }
     .createtrip .locationSelector > div.selected {
-      background: #002664; }
+      background: #002664;
+      color: #FFF; }
 
 .currenttrip .footer, .addhazard .footer, .notes .footer, .addnotes .footer, .catch .footer, .addcatch .footer, .confirmcatch .footer {
   display: block;

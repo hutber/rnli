@@ -1,9 +1,19 @@
-mixin tideBox(data)
+mixin tideBox(data, width)
+    -   c(data);
     .tidebox
         .time
-            | 00:15
-        .tides
-            i(class='icon-waves')
-            span LOW
-        .height
-            | 1.67m
+            | #{data.$}
+        if typeof data.Wh === typeof undefined
+            | No Data
+        else
+            .tides
+                if data.Wh > 3.5
+                    i(class='icon-tide')
+                i(class='icon-tide')
+                span
+                if data.Wh > 3.5
+                    | HIGH
+                else
+                    | LOW
+            .height
+                | #{data.Wh}m

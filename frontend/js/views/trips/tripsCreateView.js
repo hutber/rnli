@@ -18,6 +18,39 @@ module.exports = RN.glb.gvCreator.extend({
 		'submit .postcodeform': 'postcode'
 	},
 
+	locationOn: function(ev){
+		var ev = $(ev.currentTarget),
+			self = this;
+		$('.selected').removeClass('selected');
+		ev.addClass('selected')
+		var tripData = RN.fnc.location.getLocation(function(returnData){
+
+			//Save ajax details to localStorage
+			RN.currentTrip.saveLocal('location', returnData);
+
+			//Set the hidden input to something
+			document.getElementById('createlocation').value = 'something';
+
+			//Check if we can now save
+			self.readyToSave();
+
+			//Reset Postcode
+			$('.postcodearea').empty();
+			document.getElementById('postcode').value = '';
+			$('#postcode').removeClass('success');
+		});
+	},
+	locationOff: function(ev){
+		if(typeof ev !== typeof undefined) {
+			var ev = $(ev.currentTarget);
+			$('.selected').removeClass('selected');
+			ev.addClass('selected')
+		};
+
+		//Remove from local Storage
+		localStorage.removeItem('ctriplocation')
+		//TODO - remove location from save settings
+	},
 	postcode : function(ev){
 		var ev = $('#postcode');
 		var postcode = ev.serializeObject().postcode,
@@ -38,19 +71,20 @@ module.exports = RN.glb.gvCreator.extend({
 		}
 		return false; 
 	},
-
 	lookUpPostCode : function(ev){
 		var ev = $(ev.currentTarget),
-			currentPostCodeData = RN.currentTrip.get('postcode').result;
+			currentPostCodeData = RN.currentTrip.get('postcode'),
+			self = this;
 		//remove success
 		$('#postcode').removeClass('success');
+		$('.postboxbox').removeClass('selected');
 
 		this.getLocation(currentPostCodeData[ev.index()], function(data){
-			$('.postcodearea').empty();
 			$('#postcode').addClass('success');
+			ev.addClass('selected')
+			self.locationOff();
 		});
 	},
-
 	getLocation : function(data, callBack){
 		var self = this;
 		RN.fnc.location.getClosestLocation(data.latitude, data.longitude, function(data){
@@ -73,7 +107,6 @@ module.exports = RN.glb.gvCreator.extend({
 		}
 		return false;
 	},
-
 	readyToSave : function(){
 		var checker = true;
 		//Make sure nothing is empty
@@ -91,25 +124,6 @@ module.exports = RN.glb.gvCreator.extend({
 		return checker;
 	},
 
-	locationOn: function(ev){
-		var ev = $(ev.currentTarget),
-			self = this; 
-		$('.selected').removeClass('selected');
-		ev.addClass('selected')
-		var tripData = RN.fnc.location.getLocation(function(returnData){
-			RN.currentTrip.saveLocal('location', returnData);
-			document.getElementById('createlocation').value = 'something';
-			self.readyToSave();
-		});
-	},
-
-	locationOff: function(ev){
-		var ev = $(ev.currentTarget);
-		$('.selected').removeClass('selected');
-		ev.addClass('selected')
-		//TODO - remove location from save settings
-	},
-
 	render: function () {
 		var self = this;
 		//load data in ejs
@@ -125,6 +139,6 @@ module.exports = RN.glb.gvCreator.extend({
 			}
 		});
 
-		self.postcode();
+		//self.postcode();
 	}
 });

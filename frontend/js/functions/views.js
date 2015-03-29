@@ -91,6 +91,12 @@ module.exports = function (){
 			url: 'addnotes',
 			title: 'ADD NOTE'
 		}
+		,{
+			name: 'closeTripView',
+			path: require('../views/trips/closeTripView'),
+			url: 'closetrip',
+			title: 'TRIP CLOSED'
+		}
 		/*==================================================
 		 Weather Center
 		 ================================================== */

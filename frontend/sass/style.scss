@@ -71,7 +71,8 @@ $headerHeight: 75px;
 	width: 100%;
 	color: #FFF;
 	text-transform: uppercase;
-//  	display: none;
+	position: relative;
+	//  	display: none;
 	h1 {
 //		color: #FFF;
 	}
@@ -89,7 +90,7 @@ $headerHeight: 75px;
 		text-align: center;
 		position: relative;
 		height:  $headerHeight;
-		@include span(9 of 12);
+		@include span(9.5 of 12);
 		h1 {
 			width: 100%;
 			margin: 0;
@@ -99,9 +100,12 @@ $headerHeight: 75px;
 		}
 	}
 	.right {
-		position: relative;
-		height: 100%;
-		@include span(1.5 of 12 last);
+//		@include span(1.5 of 12 last);
+		position: absolute;
+		right: 5px;
+		top: 50%;
+		-webkit-transform: translateY(-50%);
+		transform: translateY(-50%);
 		a.headerbutton {
 			display: none;
 			border: 1px solid #FFF;
@@ -110,7 +114,6 @@ $headerHeight: 75px;
 			padding: 5px;
 			cursor: pointer;
 			text-decoration: none;
-			@include vertical-middle()
 		}
 	}
 }

@@ -4,7 +4,6 @@
 
 // Base styles
 // --------------------------------------------------
-$mainGreen: #ccc;
 .btn,
 .btn-group > .btn,
 .btn-group > .dropdown-menu,
@@ -15,7 +14,7 @@ $mainGreen: #ccc;
 
 .btn, a.btn, button {
 	border: none;
-	background: $mainGreen;
+	background: $trips;
 	color: #fff;
 	display: block;
 	padding: 12px 0;
@@ -36,7 +35,8 @@ $mainGreen: #ccc;
 	&:hover,
 	&:focus,
 	.btn-group:focus &.dropdown-toggle {
-		background-color: lighten($mainGreen, 5%);
+		color: #FFF;
+		background-color: lighten($trips, 5%);
 		outline: none;
 		@include transition(0.25s);
 	}
@@ -45,16 +45,16 @@ $mainGreen: #ccc;
 	&:active,
 	.btn-group.open &.dropdown-toggle,
 	&.active {
-		background-color: $mainGreen;
-		color: fade($mainGreen, 75%);
+		background-color: $trips;
+		color: fade($trips, 75%);
 		@include box-shadow(none);
 	}
 
 	// Disabled state
 	&.disabled,
 	&[disabled] {
-		background-color: $mainGreen;
-		color: fade($mainGreen, 75%);
+		background-color: $darkWhite;
+		color: fade($darkWhite, 75%);
 		@include box-shadow(none);
 		opacity: .4;
 	}
@@ -112,7 +112,7 @@ $mainGreen: #ccc;
 			margin-left: 0;
 		}
 		& + .dropdown-toggle {
-			border-left: 2px solid fade($mainGreen, 15%);
+			border-left: 2px solid fade($darkWhite, 15%);
 			padding-left: 13px;
 			padding-right: 13px;
 			@include box-shadow(none);

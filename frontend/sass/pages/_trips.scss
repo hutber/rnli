@@ -57,12 +57,43 @@ Table of Contents
 	}
 
 /*===============  Components ===============
+///* #Wind Direction Arrows ----------------------------------------------------------- */
+.icon-right-circled {
+	&.N {
+		-webkit-transform: rotate(270deg);
+		transform: rotate(270deg);
+	}
+	&.NE {
+		-webkit-transform: rotate(-45deg);
+		transform: rotate(-45deg);
+	}
+	&.SE {
+		-webkit-transform: rotate(45deg);
+		transform: rotate(45deg);
+	}
+	&.S {
+		-webkit-transform: rotate(90deg);
+		transform: rotate(90deg);
+	}
+	&.SW {
+		-webkit-transform: rotate(135deg);
+		transform: rotate(135deg);
+	}
+	&.W {
+		-webkit-transform: rotate(180deg);
+		transform: rotate(180deg);
+	}
+	&.NW {
+		-webkit-transform: rotate(235deg);
+		transform: rotate(235deg);
+	}
+}
 ///* #Trip Map ------------------------------------------------------------------------ */
 .tripMap {
 	.section {
-		margin: 4px 0;
-		padding: 4px 0;
+		color: $mainBlue;
 		text-align: center;
+		border-bottom: 3px solid $border;
 		@include clear;
 	}
 
@@ -70,20 +101,27 @@ Table of Contents
 		position: relative;
 		.info {
 			width: 100%;
-			height: 20px;
-			background: rgba(254, 255, 255, 0.54);
+			line-height: 1.6rem;
+			background: rgba(254, 255, 255, 0.85);
 			position: absolute;
 			bottom: 0;
 			z-index: 3;
+			color: $mainBlue;
 		}
 
+		#map-canvas.bigmap {
+			height: 440px !important;
+		}
+		
 		.wind {
 			@include span(3 of 12);
 		}
 		.current {
+			color: darken($success, 20%);
 			@include span(3 of 12);
 		}
-		.enlarge {
+		.enlargetrip {
+			cursor: pointer;
 			@include span(4 of 12 last);
 		}
 
@@ -92,13 +130,13 @@ Table of Contents
 		}
 	}
 
-	.air, .sea {
-		@include span(6 of 12);
-		text-align: center;
-	}
+	.tideInfo {
+		margin: 0 auto;
+		overflow: hidden;
+		.tideoverflow {
+			overflow-x: auto;
+		}
 
-	.sea {
-		@include span(6 of 12 last);
 	}
 
 	.nodata {
@@ -109,8 +147,132 @@ Table of Contents
 
 	}
 
-	.end, .save {
+	.endtrip, .savetrip {
 		display: none;
+	}
+
+	//* #Air Sea -------------------------------- */
+	.airsea {
+		background: $greyAlt;
+		border-top: 3px solid $border;
+		.air, .sea {
+			@include span(6 of 12);
+			text-align: center;
+		}
+		.info {
+			font-family: $headerFont;
+			font-size: 2.2rem;
+			padding: 10px 0 15px;
+			span {
+				font-family: inherit;
+				font-size: 1.6rem;
+			}
+		}
+		.icon {
+			text-align: left;
+			padding: 15px 5px 0 10px;
+		}
+		.air {
+			margin-right: 0;
+			border-right: 3px solid $border;
+		}
+		.sea {
+			@include span(6 of 12);
+			position: relative;
+			&.danger {
+				color: #FFF;
+				background: $danger;
+				.dangertext {
+					font-size: .6rem;
+					display: block;
+					position: absolute;
+					top: 10px;
+					right: 10px;
+					i {
+						color: $warning;font-size: 1.4rem;
+					} 
+				}
+			}
+		}
+	}
+
+	//* #Tide Info -------------------------------- */
+	.tide {
+		font-family: $headerFont;
+		 .title {
+			 line-height: 2.8rem;
+			font-family: $headerFont;
+		}
+		.tides {
+			font-size: 0.8rem;
+			margin-bottom: 15px;
+			i {
+				color: $grey;
+			}
+			span {
+				margin-top: 3px;
+				display: block;
+			}
+		}
+		.time {
+			margin-bottom: 10px;
+			font-family: $headerFont;
+		}
+	}
+
+	//* #Next Spring Tide -------------------------------- */
+	.springtide {
+		background: $border;
+		color: $mainBlue;
+		font-size: 1.4rem;
+		line-height: 3.2rem;
+		span {
+			font-family: $headerFont;
+		}
+	}
+
+	//* #Wind Current  -------------------------------- */
+	.windcurrent {
+		color: #FFF;
+		.wind, .current {
+			padding: 10px;
+			text-align: center;
+			@include span(6 of 12);
+			height: 130px;
+		}
+		.wind {
+			margin-right: 0;
+			background: $wind;
+			border-right: 3px solid $border;
+			text-align: left;
+		}
+		.current {
+			background: $current;
+		}
+		i {
+			font-size: 1.2rem;
+		}
+		.icon {
+			text-align: left;
+			margin-bottom: 10px;
+		}
+		.info {
+			i {
+				font-size: 2.6rem;
+				@include span (2 of 6);
+			}
+			& > span {
+				font-size: 2.1rem;
+				font-family: $headerFont;
+				line-height: 1.8rem;
+				@include span (4 of 6 last);
+				& span {
+					font-size: 1.2rem;
+					padding-left: 2px;
+					font-family: arial, helvetica, sans-serif;
+				}
+			}
+		}
 	}
 }
 
@@ -120,16 +282,21 @@ Table of Contents
 	.locationSelector {
 		width: 80%;
 		margin: 0 auto;
-		border: 1px solid $mainBlue;
+		border: 2px solid $mainBlue;
+		border-radius: 3px;
 		@include clear;
 		> div {
 			width: 50%;
 			float: left;
 			text-align: center;
 			padding: 6px 3px;
+			line-height: 2rem;
 			cursor: pointer;
+			font-family: $headerFont;
+			color: $mainBlue;
 			&.selected {
 				background: $mainBlue;
+				color: #FFF;
 			}
 		}
 	}

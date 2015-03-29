@@ -58,7 +58,7 @@ class returnData extends Controller {
 					'area' => $dataFeed->SiteRep->DV->Location->name,
 					'country' => $dataFeed->SiteRep->DV->Location->country,
 					'continent' => $dataFeed->SiteRep->DV->Location->continent,
-					'weather' => $dataFeed->SiteRep->DV->Location->Period[0]->Rep[0],
+					'weather' => $dataFeed->SiteRep->DV->Location->Period[0]->Rep,
 					'key' => $dataFeed->SiteRep->Wx->Param
 				];
             }

@@ -6,24 +6,37 @@ module.exports = RN.glb.gvCreator.extend({
 	templates: {
 		home: require('../../../views/trips/tripsCurrent.jade'),
 	},
+	map: {},
 	events: {
 		'click .retry': 'render',
-		'click .start': 'start',
-		'click .end': 'end',
+		'click .starttrip': 'start',
+		'click .endtrip': 'end',
+		'click .savetrip': 'save',
+		'click .enlargetrip': 'enlargeMap'
 	},
+
 	start : function(ev){
 		var ev = $(ev.currentTarget);
 		ev.hide();
-		$('.end').show();
+		$('.endtrip').show();
 		$('#start')[0].value = moment().format();
 	},
 	end : function(ev){
 		var ev = $(ev.currentTarget);
 		ev.hide();
-		$('.end').hide();
-		$('.save').show();
+		$('.endtrip').hide();
+		$('.savetrip').show();
 		$('#end')[0].value = moment().format();
 	},
+	save : function(ev){
+		var ev = $(ev.currentTarget);
+
+
+	},
+	enlargeMap : function(ev){
+		$('#map-canvas').toggleClass('bigmap');
+	},
+
 	render: function () {
 		var self = this,
 			cords = function()
@@ -41,25 +54,117 @@ module.exports = RN.glb.gvCreator.extend({
 				}
 			}();
 
-		RN.fnc.location.getClosestLocation(cords.lat, cords.long, function(data){
-			//load data in ejs
-			self.$el.html(self.templates.home(data));
-			if(typeof data.weather === typeof undefined || data.weather === null){
-				c('nothing to get');
-			}else {
-				var myLatlng = new google.maps.LatLng(cords.lat, cords.long);
-				var mapOptions = {
-					zoom: 13,
+		var currentLocationData = RN.currentTrip.get('location') || {};
+
+		if(typeof currentLocationData === "undefined") {
+			RN.fnc.location.getClosestLocation(cords.lat, cords.long, function (data) {
+				currentLocationData = data;
+			});
+		}
+		if(currentLocationData){
+			currentLocationData['notsafe'] = 'danger';
+		}
+		//load data in ejs
+		self.$el.html(self.templates.home(currentLocationData));
+		if(typeof currentLocationData.weather === typeof undefined || currentLocationData.weather === null){
+			c('nothing to get');
+		}else {
+			var styles = [
+				{
+					"featureType": "administrative",
+					"elementType": "labels.text.fill",
+					"stylers": [
+						{
+							"color": "#444444"
+						}
+					]
+				},
+				{
+					"featureType": "landscape",
+					"elementType": "all",
+					"stylers": [
+						{
+							"color": "#f2f2f2"
+						}
+					]
+				},
+				{
+					"featureType": "poi",
+					"elementType": "all",
+					"stylers": [
+						{
+							"visibility": "off"
+						}
+					]
+				},
+				{
+					"featureType": "road",
+					"elementType": "all",
+					"stylers": [
+						{
+							"saturation": -100
+						},
+						{
+							"lightness": 45
+						}
+					]
+				},
+				{
+					"featureType": "road.highway",
+					"elementType": "all",
+					"stylers": [
+						{
+							"visibility": "simplified"
+						}
+					]
+				},
+				{
+					"featureType": "road.arterial",
+					"elementType": "labels.icon",
+					"stylers": [
+						{
+							"visibility": "off"
+						}
+					]
+				},
+				{
+					"featureType": "transit",
+					"elementType": "all",
+					"stylers": [
+						{
+							"visibility": "off"
+						}
+					]
+				},
+				{
+					"featureType": "water",
+					"elementType": "all",
+					"stylers": [
+						{
+							"color": "#a5ddf0"
+						},
+						{
+							"visibility": "on"
+						}
+					]
+				}
+				],
+				styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"}),
+				myLatlng = new google.maps.LatLng(cords.lat, cords.long),
+				mapOptions = {
+					zoom: 9,
 					center: myLatlng,
 					disableDefaultUI: true
 				};
-				var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+			var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-				var marker = new google.maps.Marker({
-					position: myLatlng,
-					map: map
-				});
-			}
-		});
+			//Associate the styled map with the MapTypeId and set it to display.
+			map.mapTypes.set('map_style', styledMap);
+			map.setMapTypeId('map_style');
+			var marker = new google.maps.Marker({
+				position: myLatlng,
+				map: map
+			});
+		}
 	}
 });

@@ -74,11 +74,11 @@ label.error, label.error a {
 .control-group, .box {
 	position: relative;
 	.icon-right-open, .icon-search {
-		position: absolute;
-		right: 0;
 		z-index: 2;
 		font-size: 1.5rem;
-		padding-top: 12px;
+		@include valign;
+		position: absolute;
+		right: 0;
 	}
 	label {
 		font-size: .8em;
