@@ -1,0 +1,71 @@
+/* Table of Contents
+==================================================
+    #Users
+*/
+$photoboxHeight: 120px;
+$photoboxWidth: $photoboxHeight;
+
+.addphoto {
+    margin: 20px auto 35px;
+    display: block;
+    height: $photoboxHeight;
+    width: $photoboxWidth;
+    border: dashed 2px $mainBlue;
+    text-align: center;
+    position: relative;
+    background: #fff;
+    font-weight: bold;
+    .photoitems {
+        width: 100%;
+        color: $mainBlue;
+        @include vertical-middle;
+    }
+    i {
+        display: block;
+        margin: 5px 0;
+    }
+}
+
+.contact {
+    height: 94px;
+    display: block;
+    width: 100%;
+    @include clear;
+    .number {
+        float: left;
+        height: 100%;
+        width: 50px;
+        background: #fff;
+        position: relative;
+        margin-right: 1px;
+        color: $mainBlue;
+        font-weight: bold;
+        font-size: 2rem;
+        .textnumber {
+            @include vertical-middle
+        }
+    }
+    .textInfo {
+        float: left;
+        .control-group:first-child input  {
+            margin-bottom: 1px;
+        }
+        input {
+            margin: 0;
+        }
+    }
+    .name {
+    }
+    .pnumber {
+    }
+	.contactdelete {
+		padding-top: 15px;
+		font-size: 2rem;
+		line-height: 2rem;
+//		position: relative;
+//		i {
+//			position: absolute;
+//
+//		}
+	}
+}

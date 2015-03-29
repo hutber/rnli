@@ -1,1 +1,9 @@
-../rnli.hutber.com/.gitignore
+.DS_Store
+/app/plugins
+/app/hooks
+/app/platforms
+/node_modules
+/.sass-cache
+/.idea
+/.idea/workspace.xml
+/old

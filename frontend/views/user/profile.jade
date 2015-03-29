@@ -1,0 +1,23 @@
+include ../mixins
+form(action="#{RN.glb.url.ajax}users/reg", class="editForm ajax")
+    .addphoto
+        .photoitems
+            i(class='icon-plus-circled')
+            | ADD PHOTO
+    h3  Peronsal Details
+    +input({place:'First name', type: 'text', name:"fname", value:'jamie'})
+    +input({place:'Surname', type: 'text', name: "sname", value:'hutber'})
+    +input({place:'Email address', type: 'text', name: "email", value:'jamie@hutber.com'})
+    +input({place:'Create password', type: 'password', name: "pw", value:'jadwiga'})
+    +input({place:'Confirm password', type: 'password', name: "cpw", value:'jadwiga'})
+    +input({type: 'hidden', value:RN.glb.device, name:'device'})
+    +input({type: 'hidden', value:RN.glb.version, name:'version'})
+    h3.econtact Emergency Contacts
+    if RN.user.get('contacts') !== 'null'
+        each val, index in RN.user.get('contacts')
+            +contact({name:val.name,id:val.id,number:val.number, pos: index+1})
+    +plusbox({text:'Add Another Contact', class: ['large','white', 'addEcontact']})
+    h3 My Favourite Locations
+    +box({class:['large','white'], text:'When you create a trip you will have the option of saving it.'})
+    +button({value: 'Save', class: ['signup', 'btn']})
+    +input({type: 'hidden', value:RN.user.get("token"), name:'token'})

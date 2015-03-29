@@ -1,0 +1,171 @@
+@import "/Ruby21-x64/lib/ruby/gems/2.1.0/gems/susy-2.2.2/sass/susy";
+//@import "susy";
+
+/* #Config ------------------------------------------------------------------------ */
+$total-columns: 12;
+$column-width: 4em;
+$gutter-width: 1em;
+$grid-padding: 1em;
+$global-width: 1140px;
+$menuAnimateTime : .2s;
+$susy: (
+	global-box-sizing: border-box,
+	use-custom: (rem: true),
+	columns: 12,
+	gutters: (1/4),
+	debug: (
+		image: hide,
+		color: rgba(#66f, .25),
+		output: background,
+		toggle: top right,
+	)
+);
+
+//Global Heights
+$footerHeight: 12%;
+
+//Any class in here will hide the header
+$headerHide: ".index, .home";
+$footerHide: ".index, .signup, .profile";
+
+@include border-box-sizing;
+
+//* #Imports dependencies ------------------------------------------------------------------------ */
+@import
+"_reset",
+"_fontello",
+"_mixins",
+"_variables",
+"_typography",
+"modules/inputs/_index",
+"modules/_popups",
+"modules/_boxes",
+"modules/_touchcarousel";
+
+/*
+==================================================
+Table of Contents
+==================================================
+#Global Settings
+	#Footer
+	#Page's inports
+*/
+
+.none {display: none !important}
+.left {float: left}
+.right {float: right}
+.containers { margin: 0 auto; width: $global-width;}
+.row {@include clear;}
+
+///* #Main Styles ------------------------------------------------------------------------ */
+body {
+	display: block;
+	overflow: hidden;
+	background: $bg;
+}
+
+///* #Header ------------------------------------------------------------------------ */
+$headerHeight: 75px;
+.header {
+	height: $headerHeight;
+	width: 100%;
+	color: #FFF;
+	text-transform: uppercase;
+	position: relative;
+	//  	display: none;
+	h1 {
+//		color: #FFF;
+	}
+	.left {
+		font-size: 2rem;
+		height: 100%;
+		position: relative;
+		cursor: pointer;
+		@include span(1.5 of 12);
+		div {
+			margin-top: 20px;
+		}
+	}
+	.middle {
+		text-align: center;
+		position: relative;
+		height:  $headerHeight;
+		@include span(9.5 of 12);
+		h1 {
+			width: 100%;
+			margin: 0;
+			font-size: 1.3rem;
+			line-height: 5rem;
+//			@include vertical-middle()
+		}
+	}
+	.right {
+//		@include span(1.5 of 12 last);
+		position: absolute;
+		right: 5px;
+		top: 50%;
+		-webkit-transform: translateY(-50%);
+		transform: translateY(-50%);
+		a.headerbutton {
+			display: none;
+			border: 1px solid #FFF;
+			color: #FFF;
+			background: $softOrange;
+			padding: 5px;
+			cursor: pointer;
+			text-decoration: none;
+		}
+	}
+}
+
+///* #Content ------------------------------------------------------------------------ */
+.content {
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+///* #Footer ------------------------------------------------------------------------ */
+.footer {
+	display: block;
+	height: 40px;
+	width: 100%;
+	background: #fff;
+	text-align: center;
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+	div {
+		@include valign;
+	}
+	a {
+		margin: 0 5px;
+		text-decoration: none;
+//		@include span (2.4 of 12);
+		&:last-child {
+//			@include span (2.4 of 12 last);
+		}
+	}
+	.tripfooter {
+		display: none;
+	}
+}
+
+#{$headerHide} {
+	.header {
+		display: none;
+	}
+}
+#{$footerHide} {
+	.footer {
+		display: none;
+	}
+}
+
+#__bs_notify__ {
+	pointer-events: none;
+	opacity: .7;
+}
+
+
+/* #Page Overrides ------------------------------------------------------------------------ */
+@import "pages/_index";

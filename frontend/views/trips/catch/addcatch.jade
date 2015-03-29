@@ -1,0 +1,56 @@
+include ../../mixins
++input({place:'Species', type: 'text', value:'', name:'species', id: 'species', value:'jamie'})
+.box.large
+    +input({type: 'radio', value: 'metric', name: 'weightsystem', checked: 'checked'})
+    | Metric
+    +input({type: 'radio', value: 'imperial', name: 'weightsystem'})
+    | Imperial
+.box.catchbox
+    .title Weight
+    .text
+        +selectInt({
+            attr: {
+                name: 'lbs'
+            },
+            limit: 50
+        })
+        +selectInt({
+            attr: {
+                name: 'oz'
+            },
+            limit: 50
+        })
+.box.catchbox
+    .title Length
+    .text
+        +selectInt({
+            attr: {
+                name: 'ft'
+            },
+            limit: 8
+        })
+        +selectInt({
+            attr: {
+                name: 'in'
+            },
+            limit: 11
+        })
+
+.box.catchbox
+    .title Released?
+    .text
+        +select({
+            attr: {
+                name: 'released'
+            },
+            options: {
+                1: {
+                    value: 'yes',
+                    text: 'Yes'
+                },
+                2: {
+                    value: 'no',
+                    text: 'No'
+                }
+            }
+        })

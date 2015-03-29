@@ -1,0 +1,84 @@
+/* Table of Contents
+==================================================
+		#Imported Fonts
+    #Fonts
+    #Typography
+    #Blockquotes
+    #Links
+    #Lists
+		#Images
+		#Figures
+		#Tables
+		#File Types
+		#RTL Overrides
+*/
+/* #Imported Fonts ------------------------------------------------------------------------ */
+//@font-face {
+//	font-family: maysFont;
+//	src:
+//		url('/fonts/always_in_my_heart-webfont.woff') format('woff'),
+//		url('/fonts/always_in_my_heart-webfont.ttf')  format('truetype');
+//}
+
+@font-face {
+	font-family: 'din';
+	src: url('../fonts/DINOffc-Bold.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/DINOffc-Bold.woff') format('woff'),
+	url('../fonts/DINOffc-Bold.ttf')  format('truetype'),
+	url('../fonts/DINOffc-Bold.svg#DINOffc-Bold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+//$Ubuntulight: ubuntulight, $sanslight;
+$textFont: Arial, "Lucida Grande", sans-serif;
+$headerFont: din, "Lucida Grande", sans-serif;
+$textColor: #777777;
+$fontSize: 16px;
+$lineheight: 16px;
+
+// Icons
+$icon-normal: 16px;
+$icon-medium: 18px;
+$icon-large:  32px;
+
+/* #Text shadow default effects ------------------------------------------------------------- */
+$default-text-shadow-color: rgba(black, 0.3);
+$default-text-shadow-blur: 3px;
+$default-text-shadow-v-offset: 1px;
+
+/* #Page Typography ------------------------------------------------------------------------ */
+//html {font-size: $fontSize}
+body {padding: 0; margin:0; font-family: $textFont; color: $textColor;}
+
+// #Links ---------------------------------------------------------------------
+a { color: $grey; text-decoration: underline; outline: 0; font-size: 0.8rem;}
+a:hover, a:focus { color: $linkColor; text-decoration: none; }
+p a, p a:visited { line-height: inherit; }
+a.selected {color:$softOrange;}
+// #Headers ---------------------------------------------------------------------
+h1, h2, h3, h4, h5, h6 {
+	font-family: $headerFont;
+	color: $mainBlue;
+	text-transform: uppercase;
+	font-weight: normal;
+	text-align: center;
+	font-weight: bold;
+}
+
+//h1 {font-size: 2.5em; line-height: 1.5em;}
+//.pageheading {
+//	font-size: 1rem;
+//	text-transform: uppercase;
+//	padding: 0 0 0px 0;
+//	margin: 0 0 20px 0;
+//	overflow: hidden;
+//}
+
+//.pagesubheading {
+//	font-weight: normal;
+//	font-size: 1rem;
+//}
+// #Img ---------------------------------------------------------------------
+//img {width: 100%}

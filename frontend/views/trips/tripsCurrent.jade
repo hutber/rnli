@@ -1,0 +1,105 @@
+include ../mixins
+if area
+    - var newLat = lat.substr(0, 5), newLong = long.substr(0, 5);
+    - var currentDay = moment(RN.currentTrip.get('date')[1]).format('dddd') || null;
+    - var currentWeather = weather[0];
+    .tripMap
+        .underHeader
+            .tripbox
+                i(class='icon-calendar')
+                .text #{currentDay}
+                    span #{RN.currentTrip.get('date')[0]}
+            .tripbox
+                i(class='icon-globe')
+                .text #{area},
+                    span #{country}
+            .tripbox
+                i(class='icon-map')
+                .text Lat
+                    span #{newLat}
+                    | Long
+                    span #{newLong}
+        .map
+            .info
+                .wind
+                    i(class='icon-right-circled')
+                    | #{currentWeather.G}
+                .current
+                    i(class='icon-right-circled')
+                    | #{currentWeather.D}
+                .enlargetrip
+                    i(class='icon-zoom-in-outline')
+                    | ENLARGE
+            div(id="map-canvas", style="width:100%; height:170px;")
+        .tripData
+            .section.airsea
+                .air
+                    .icon
+                        i(class='icon-air')
+                        span AIR
+                    .info
+                        | #{currentWeather.T}
+                        span.degrees &#8451
+                .sea(class= notsafe)
+                    .icon
+                        i(class='icon-temperatire')
+                        span SEA
+                    .info
+                        if typeof currentWeather.St === typeof undefined
+                            | No Data
+                        else
+                            | #{currentWeather.St}
+                            span.degrees &#8451
+                    .dangertext
+                        | DANGER
+                        i(class='icon-attention')
+            .section.tide
+                .title
+                    i(class='icon-tide')
+                    | TIDE
+                .tideInfo(style ="width: "+weather.length*100+"px")
+                    .tideoverflow
+                        each val, index in weather
+                            +tideBox(val)
+            .section.springtide NEXT SPRING TIDE
+                span 23 JAN 2015
+            .section.windcurrent
+                .wind
+                    .icon
+                        span WIND
+                        i(class='icon-wind')
+                    .info
+                        | #{currentWeather.T}
+                .current
+                    .icon
+                        span SEA
+                        i(class='icon-right-circled')
+                    .info
+                        | #{1.5}
+                        span.degrees 0
+                        span.celceus C
+            .section.large
+                .title PESSURE
+                    i(class='icon-gauge')
+                .info 1015MB
+                    span rising
+            .section.large
+                .title SWELL
+                    i(class='icon-gauge')
+                .info 0.25
+                    span m
+            .section.large
+                +input({type: 'radio', value:'on', name:'gpstracking', checked:'checked'})
+                | On
+                +input({type: 'radio', value:'off', name:'gpstracking'})
+                | Off
+            .section
+                .btn.starttrip START TRIP
+                .btn.endtrip END TRIP
+                .btn.savetrip CLOSE TRIP
+    +input({type: 'hidden', value:'', name:'start', id:'start'})
+    +input({type: 'hidden', value:'', name:'end', id:'end'})
+else
+    .nodata
+        | No Data, try again
+    a(href='#currenttrip', class="btn retry") Retry

@@ -1,0 +1,3 @@
+mixin button(data)
+    - data.type = data.type || 'text'
+    button(type="submit", value="#{data.value}", class=data.class) #{data.value}

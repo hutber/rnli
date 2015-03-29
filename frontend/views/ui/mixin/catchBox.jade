@@ -1,0 +1,7 @@
+mixin catchBox(data, options)
+   - data.attr = data.attr || {}
+   .box.catchbox&attributes(data.attr)
+      .title
+         | #{data.title}
+      .text
+         | #{data.info}

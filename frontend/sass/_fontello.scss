@@ -1,0 +1,206 @@
+@font-face {
+	font-family: 'fontello';
+	src: url('../fonts/fontello.eot?24134951');
+	src: url('../fonts/fontello.eot?24134951#iefix') format('embedded-opentype'),
+	url('../fonts/fontello.woff?24134951') format('woff'),
+	url('../fonts/fontello.ttf?24134951') format('truetype'),
+	url('../fonts/fontello.svg?24134951#fontello') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?24134951#fontello') format('svg');
+  }
+}
+*/
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+	font-family: "fontello";
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+
+	display: inline-block;
+	text-decoration: inherit;
+	width: 1em;
+	margin-right: .2em;
+	text-align: center;
+	/* opacity: .8; */
+
+	/* For safety - reset parent styles, that can break glyph codes*/
+	font-variant: normal;
+	text-transform: none;
+
+	/* fix buttons height, for twitter bootstrap */
+	//	line-height: 1em;
+
+	/* Animation center compensation - margins should be symmetric */
+	/* remove if not needed */
+	margin-left: .2em;
+
+	/* you can be more comfortable with increased icons size */
+	/* font-size: 120%; */
+
+	/* Uncomment for 3D effect */
+	/* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+/*
+   Animation example, for spinners
+*/
+.animate-spin {
+	-moz-animation: spin 2s infinite linear;
+	-o-animation: spin 2s infinite linear;
+	-webkit-animation: spin 2s infinite linear;
+	animation: spin 2s infinite linear;
+	display: inline-block;
+}
+@-moz-keyframes spin {
+	0% {
+		-moz-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+
+	100% {
+		-moz-transform: rotate(359deg);
+		-o-transform: rotate(359deg);
+		-webkit-transform: rotate(359deg);
+		transform: rotate(359deg);
+	}
+}
+@-webkit-keyframes spin {
+	0% {
+		-moz-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+
+	100% {
+		-moz-transform: rotate(359deg);
+		-o-transform: rotate(359deg);
+		-webkit-transform: rotate(359deg);
+		transform: rotate(359deg);
+	}
+}
+@-o-keyframes spin {
+	0% {
+		-moz-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+
+	100% {
+		-moz-transform: rotate(359deg);
+		-o-transform: rotate(359deg);
+		-webkit-transform: rotate(359deg);
+		transform: rotate(359deg);
+	}
+}
+@-ms-keyframes spin {
+	0% {
+		-moz-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+
+	100% {
+		-moz-transform: rotate(359deg);
+		-o-transform: rotate(359deg);
+		-webkit-transform: rotate(359deg);
+		transform: rotate(359deg);
+	}
+}
+@keyframes spin {
+	0% {
+		-moz-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+
+	100% {
+		-moz-transform: rotate(359deg);
+		-o-transform: rotate(359deg);
+		-webkit-transform: rotate(359deg);
+		transform: rotate(359deg);
+	}
+}
+
+
+.icon-fish {
+	font-size: 1rem !important;
+	&:before {
+		width: auto;
+	}
+}
+
+.icon-tide:before {
+	width: auto;
+}
+
+.icon-menu:before { content: '\e800'; } /* '' */
+.icon-users:before { content: '\e801'; } /* '' */
+.icon-money:before { content: '\e802'; } /* '' */
+.icon-ok-circled:before { content: '\e803'; } /* '' */
+.icon-plus-circled:before { content: '\e804'; } /* '' */
+.icon-calendar:before { content: '\e805'; } /* '' */
+.icon-table:before { content: '\e806'; } /* '' */
+.icon-lock-filled:before { content: '\e807'; } /* '' */
+.icon-clock:before { content: '\e808'; } /* '' */
+.icon-pencil:before { content: '\e809'; } /* '' */
+.icon-cog-outline:before { content: '\e80a'; } /* '' */
+.icon-wrench:before { content: '\e80b'; } /* '' */
+.icon-home-outline:before { content: '\e80c'; } /* '' */
+.icon-basket:before { content: '\e80d'; } /* '' */
+.icon-lock:before { content: '\e80e'; } /* '' */
+.icon-lock-open:before { content: '\e80f'; } /* '' */
+.icon-login:before { content: '\e810'; } /* '' */
+.icon-logout:before { content: '\e811'; } /* '' */
+.icon-left-open:before { content: '\e812'; } /* '' */
+.icon-globe-1:before { content: '\e813'; } /* '' */
+.icon-lock-open-filled:before { content: '\e814'; } /* '' */
+.icon-user:before { content: '\e815'; } /* '' */
+.icon-globe:before { content: '\e816'; } /* '' */
+.icon-spin3:before { content: '\e817'; } /* '' */
+.icon-left:before { content: '\e818'; } /* '' */
+.icon-user-add:before { content: '\e819'; } /* '' */
+.icon-search:before { content: '\e81a'; } /* '' */
+.icon-left-big:before { content: '\e81b'; } /* '' */
+.icon-map:before { content: '\e81c'; } /* '' */
+.icon-location:before { content: '\e81d'; } /* '' */
+.icon-chart-alt-outline:before { content: '\e81e'; } /* '' */
+.icon-chart-bar-outline:before { content: '\e81f'; } /* '' */
+.icon-chart-pie-outline:before { content: '\e820'; } /* '' */
+.icon-list-bullet:before { content: '\e821'; } /* '' */
+.icon-down-open:before { content: '\e822'; } /* '' */
+.icon-down:before { content: '\e823'; } /* '' */
+.icon-trash:before { content: '\e824'; } /* '' */
+.icon-male:before { content: '\e825'; } /* '' */
+.icon-female:before { content: '\e826'; } /* '' */
+.icon-cancel-circled:before { content: '\e827'; } /* '' */
+.icon-right-open:before { content: '\e828'; } /* '' */
+.icon-zoom-in-outline:before { content: '\e829'; } /* '' */
+.icon-left-circled:before { content: '\e82a'; } /* '' */
+.icon-right-circled:before { content: '\e82b'; } /* '' */
+.icon-air:before { content: '\e82c'; } /* '' */
+.icon-temperatire:before { content: '\e82d'; } /* '' */
+.icon-attention:before { content: '\e82e'; } /* '' */
+.icon-waves:before { content: '\e82f'; } /* '' */
+.icon-wind:before { content: '\e830'; } /* '' */
+.icon-globe-2:before { content: '\e831'; } /* '' */
+.icon-gauge:before { content: '\e832'; } /* '' */
+.icon-fish:before { content: '\e833'; } /* '' */
+.icon-plus:before { content: '\e834'; } /* '' */
+.icon-minus:before { content: '\e835'; } /* '' */
+.icon-tide:before { content: '\e836'; } /* '' */
+.icon-air-1:before { content: '\e837'; } /* '' */

@@ -1,0 +1,206 @@
+// #Box -------------------------------------------------------------------
+.box {
+	margin: 0 0 1px;
+	padding: 5px 8px;
+	cursor: pointer;
+	text-align: center;
+	position: relative;
+	&:hover, &.selected {
+		background: #F6F6F6 !important;
+	}
+}
+
+.plusbox {
+	&.white.large {
+		margin: 5px;
+		padding: gutter(6);
+	}
+	text-align: center;
+	color: $mainBlue;
+	text-transform: uppercase;
+	font-weight: bold;
+	.plusbutton {
+		padding: 20px;
+		border: dashed 2px $mainBlue;
+		display: block;
+	}
+}
+
+///* #Plus Boxes ------------------------------------------------------------------------ */
+.box, .plusbox {
+	&.white {
+		background: #fff;
+	}
+	&.large {
+		margin: 10px 0;
+		padding: gutter(4) gutter(4);
+	}
+}
+
+///* #Trip Boxes ------------------------------------------------------------------------ */
+.tidebox {
+	padding-bottom: 10px;
+	margin-top: 10px;
+	width: 100px;
+	float: left;
+	border-right: 2px solid $border;
+	&:last-child {
+		border: none;
+	}
+	i {
+		display: block;
+	}
+}
+.tripbox {
+	@include clear;
+	text-transform: uppercase;
+	line-height: 2rem;
+	font-size: 1.1rem;
+	border-bottom: 1px solid $trips;
+	i {
+		@include span(2 of 12);
+		text-align: center;
+	}
+	.text {
+		@include span(10 of 12 last);
+		span {
+			margin: 0 5px;
+			font-family: $headerFont;
+		}
+	}
+}
+
+///* #Post Box Boxes ------------------------------------------------------------------------ */
+.postboxbox {
+	font-size: 1.4rem;
+	padding: 20px;
+}
+
+///* #Note Boxes ------------------------------------------------------------------------ */
+.notebox {
+	width: 100%;
+	background: #FFF;
+	border-bottom: 2px solid $bg;
+	position: relative;
+	color: $mainBlue;
+	text-align: center;
+	.notetime {
+		font-family: $headerFont;
+		font-size: 1.4rem;
+		line-height: 1.6rem;
+		padding: 10px 0 0;
+	}
+	.deletenote, .editnote {
+		position: absolute;
+		right: 0;
+		top: 5px;
+	}
+	.editnote {
+		right: 25px;
+	}
+	.notetext {
+		font-size: 1.3rem;
+		padding: 0 0 5px;
+	}
+}
+///* #Catch Fish Box ------------------------------------------------------------------------ */
+.catchfishbox {
+	@include clear;
+	padding: 1px 0 0;
+	background: #FFF;
+	text-align: left;
+	height: 100px;
+	h3 {
+		text-align: left;
+		margin: 4px 0 10px;
+	}
+	&:nth-child(3n) {
+		background: inherit;
+		&:hover, &:active {
+			background: inherit;
+		}
+	}
+	.image {
+		@include span (4 of 12);
+		overflow: hidden;
+		img {
+			height: 100%;
+		}
+	}
+	.text {
+		padding: 10px;
+		text-transform: uppercase;
+		font-family: $headerFont;
+		@include span (6 of 12);
+		.item {
+			padding: 0 0 5px;
+		}
+		span {
+			width: 120px;
+			display: inline-block;
+			color: $mainBlue;
+			float: right;
+		}
+	}
+	.icon {
+		font-size: 2.4rem;
+		@include span (2 of 12 last);
+		height: 100%;
+		i {
+			position: relative;
+			top: 27%;
+			-webkit-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			transform: translateY(-50%);
+		}
+		.icon-minus {
+			display: none;
+			visibility: hidden;
+		}
+	}
+	&.down {
+		background: inherit;
+		.icon-minus {
+			display: block;
+			visibility: visible;
+			top: 50%;
+		}
+		.icon-plus {
+			display: none;
+			visibility: hidden;
+		}
+	}
+}
+
+///* #Catch Box ------------------------------------------------------------------------ */
+.catchbox {
+	font-size: 1.4rem;
+	line-height: 2.6rem;
+	color: $grey;
+	background: #FFF;
+	@include clear;
+	&:hover, &:active {
+		background: #FFF;
+	}
+	.confirmcatch &:nth-child(3n) {
+		background: inherit;
+		&:hover, &:active {
+			background: inherit;
+		}
+	}
+	.title {
+		@include span(7 of 12);
+	}
+	.text {
+		text-transform: uppercase;
+		font-family: $headerFont;
+		color: $mainBlue;
+		@include span (5 of 12 last);
+	}
+	select {
+		@include span (2.5 of 5);
+		&:last-child {
+			@include span (2.5 of 5 last);
+		}
+	}
+}

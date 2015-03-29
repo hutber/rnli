@@ -1,0 +1,247 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title><?php o($title) ?></title>
+	<meta charset="utf-8">
+	<link href="/app/www/css/style.css" rel="stylesheet" type="text/css">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, height=device-height" />
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<script src="/app/www/js/libs/plugins/datepicker.js"></script>
+	<style>
+
+	.date-picker
+	{
+		width:170px !important;
+		height:25px !important;
+		padding:0 !important;
+		border:0 !important;
+		line-height:25px !important;
+		padding-left:10px !important;
+		font-size:12px !important;
+		font-family:Arial !important;
+		font-weight:bold !important;
+		cursor:pointer !important;
+		color:#303030 !important;
+		position:relative !important;
+		z-index:2 !important;
+	}
+	.date-picker-wrapper
+	{
+		position:absolute !important;
+		z-index:1 !important;
+		border:1px solid #bfbfbf !important;
+		background-color:#efefef !important;
+		width:428px !important;
+		padding: 5px 12px !important;
+		font-size:12px !important;
+		line-height:20px !important;
+		color:#aaa !important;
+		font-family:Arial !important;
+		box-shadow:3px 3px 10px rgba(0,0,0,0.5) !important;
+	}
+	.date-picker-wrapper.single-date {
+		width:auto !important;
+	}
+	.date-picker-wrapper.no-shortcuts { padding-bottom:12px !important;}
+	.date-picker-wrapper .footer
+	{
+		font-size:11px !important;
+		padding-top: 3px !important;
+	}
+	.date-picker-wrapper b
+	{
+		color:#666 !important;
+		font-weight:700 !important;
+	}
+	.date-picker-wrapper a
+	{
+		color: rgb(107, 180, 214) !important;
+		text-decoration:underline !important;
+	}
+	.date-picker-wrapper .month-wrapper
+	{
+		border:1px solid #bfbfbf !important;
+		border-radius:3px !important;
+		background-color:#fff !important;
+		padding:5px !important;
+		cursor:default !important;
+		position:relative !important;
+		_overflow:hidden !important;
+	}
+	.date-picker-wrapper .month-wrapper table
+	{
+		width:190px !important;
+		float:left !important;
+	}
+	.date-picker-wrapper .month-wrapper table.month2
+	{
+		width:190px !important;
+		float:right !important;
+	}
+	.date-picker-wrapper .month-wrapper table th,
+	.date-picker-wrapper .month-wrapper table td
+	{
+		vertical-align:middle !important;
+		text-align:center !important;
+		line-height:14px !important;
+		margin : 0px !important;
+		padding : 0px !important;
+	}
+	.date-picker-wrapper .month-wrapper table .day
+	{
+		height:19px !important;
+		line-height:19px !important;
+		font-size:12px !important;
+		margin-bottom:1px !important;
+		color:#999 !important;
+		cursor:default !important;
+	}
+	.date-picker-wrapper .month-wrapper table div.day.lastMonth,
+	.date-picker-wrapper .month-wrapper table div.day.nextMonth
+	{
+		color:#999 !important;
+		cursor:default !important;
+	}
+	.date-picker-wrapper .month-wrapper table .day.checked
+	{
+		background-color: rgb(156, 219, 247) !important;
+	}
+	.date-picker-wrapper .month-wrapper table .week-name
+	{
+		height:20px !important;
+		line-height:20px !important;
+		font-weight:100 !important;
+	}
+
+	.date-picker-wrapper .month-wrapper table .day.has-tooltip { cursor:help !important !important;}
+
+	.date-picker-wrapper .month-wrapper table .day.toMonth.valid
+	{
+		color:#333 !important;
+		cursor:pointer !important;
+	}
+
+	.date-picker-wrapper .month-wrapper table .day.real-today { background-color: rgb(255, 230, 132) !important; }
+	.date-picker-wrapper .month-wrapper table .day.real-today.checked { background-color: rgb(112, 204, 213) !important; }
+
+
+	.date-picker-wrapper table .caption
+	{
+		height:40px !important;
+	}
+	.date-picker-wrapper table .caption .next,
+	.date-picker-wrapper table .caption .prev
+	{
+		padding:0 5px !important;
+		cursor:pointer !important;
+	}
+	.date-picker-wrapper table .caption .next:hover,
+	.date-picker-wrapper table .caption .prev:hover
+	{
+		background-color:#ccc !important;
+		color:white !important;
+	}
+	.date-picker-wrapper .gap
+	{
+		position:absolute !important;
+		display:none !important;
+		top:0px !important;
+		left:204px !important;
+		z-index: 1 !important;
+		width:15px !important;
+		height: 100% !important;
+		background-color:red !important;
+		font-size:0 !important;
+		line-height:0 !important;
+	}
+	.date-picker-wrapper .gap .gap-lines { height: 100% !important; overflow:hidden !important; }
+	.date-picker-wrapper .gap .gap-line { height:15px !important;width:15px !important; position:relative !important;  }
+	.date-picker-wrapper .gap .gap-line .gap-1 { z-index:1 !important; height:0 !important; border-left:8px solid white !important; border-top:8px solid #eee !important;border-bottom:8px solid #eee !important; }
+	.date-picker-wrapper .gap .gap-line .gap-2 { position:absolute !important; right:0 !important; top:0px !important; z-index:2 !important; height:0 !important; border-left:8px solid transparent !important; border-top:8px solid white !important; }
+	.date-picker-wrapper .gap .gap-line .gap-3 { position:absolute !important; right:0 !important; top:8px !important; z-index:2 !important; height:0 !important; border-left:8px solid transparent !important; border-bottom:8px solid white !important; }
+	.date-picker-wrapper .gap .gap-top-mask { width: 6px !important; height:1px !important; position:absolute !important; top: -1px !important; left: 1px !important; background-color: #eee !important; z-index:3 !important; }
+	.date-picker-wrapper .gap .gap-bottom-mask { width: 6px !important; height:1px !important; position:absolute !important; bottom: -1px !important; left: 7px !important; background-color: #eee !important; z-index:3 !important; }
+
+	.date-picker-wrapper .selected-days
+	{
+		display:none !important;
+	}
+	.date-picker-wrapper .drp_top-bar
+	{
+		line-height:40px !important;
+		height:40px !important;
+		position:relative !important;
+	}
+	.date-picker-wrapper .drp_top-bar .error-top { display:none !important; }
+	.date-picker-wrapper .drp_top-bar .normal-top { display:none !important; }
+	.date-picker-wrapper .drp_top-bar .default-top { display:block !important; }
+
+	.date-picker-wrapper .drp_top-bar.error .default-top { display:none !important; }
+	.date-picker-wrapper .drp_top-bar.error .error-top { display:block !important; color:red !important; }
+
+	.date-picker-wrapper .drp_top-bar.normal .default-top { display:none !important; }
+	.date-picker-wrapper .drp_top-bar.normal .normal-top { display:block !important; }
+
+	.date-picker-wrapper .drp_top-bar .apply-btn
+	{
+		position:absolute !important;
+		right: 0px !important;
+		top: 6px !important;
+		padding:3px 5px !important;
+		margin:0 !important;
+		font-size:12px !important;
+		border-radius:4px !important;
+		cursor:pointer !important;
+
+		color: #d9eef7 !important;
+		border: solid 1px #0076a3 !important;
+		background: #0095cd !important;
+		background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5)) !important;
+		background: -moz-linear-gradient(top,  #00adee,  #0078a5) !important;
+		filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#00adee', endColorstr='#0078a5') !important;
+		color:white !important;
+	}
+
+	.date-picker-wrapper .drp_top-bar .apply-btn.disabled
+	{
+		cursor: pointer !important;
+		color: #606060 !important;
+		border: solid 1px #b7b7b7 !important;
+		background: #fff !important;
+		background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed)) !important;
+		background: -moz-linear-gradient(top,  #fff,  #ededed) !important;
+		filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed') !important;
+	}
+	/*time styling*/
+	.time {
+		position: relative !important;
+	}
+	.time input[type=range] {
+		vertical-align: middle !important;
+	}
+	.time1, .time2 {
+		width: 180px !important;
+		padding: 0 5px !important;
+		text-align: center !important;
+	}
+	.time1 {
+		float: left !important;
+	}
+	.time2 {
+		float: right !important;
+	}
+	.hour, .minute {
+		text-align: right !important;
+	}
+	.hide {
+		display: none !important;
+	}
+	</style>
+</head>
+<body class="site">
+<div class="shell">
+	<header><img src="/app/www/img/logo.png" alt=""/></header>
+	<?php require_once($viewname); ?>
+</div>
+</body>
+</html>

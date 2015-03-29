@@ -1,0 +1,34 @@
+@import
+	"user/_signup",
+	"user/_profile",
+	"safety/_safety",
+	"_about",
+	"_trips",
+	"_landing";
+/* Table of Contents
+/* Page is used to import all of the different pages settings
+==================================================
+    #Header
+*/
+.header {
+	background: $trips;
+	h1 {
+		color: #FFF;
+	}
+	.weather & {
+		background: $weather;
+	}
+	.safety & {
+		background: $safety;
+	}
+	.catchlog & {
+		background: $catch;
+	}
+	.profile & {
+		background: $mainBlue;
+		color: #FFF;
+		.middle h1 {
+			color: #ffffff;
+		}
+	}
+}

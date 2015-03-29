@@ -1,0 +1,10 @@
+mixin notebox(data, options)
+    - c(data);
+    .notebox
+        .noteheader
+            .notetime #{data.date}
+            .editnote(data.id= data.id)
+                i(class='icon-pencil')
+            .deletenote(data.id= data.id)
+                i(class='icon-trash')
+        .notetext #{data.text}

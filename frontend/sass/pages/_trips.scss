@@ -1,0 +1,275 @@
+/*
+==================================================
+Table of Contents
+==================================================
+#Global Settings
+	#Header Settings
+	#Trip Boxes
+
+#Components
+	#Trip map
+
+#Pages
+	#Create Trip
+	#Catch
+
+#Footer Settings
+
+*/
+
+/*===============  Global Settings ===============
+///* #Header Settings ------------------------------------------------------------------------ */
+	.addnotes {
+		form {
+			height: 100%;
+		}
+		a.headerbutton.savenote {
+			display: block;
+		}
+	}
+
+	.trips {
+		a.headerbutton.addtrip {
+			display: block;
+		}
+	}
+
+	.catch {
+		a.headerbutton.addcatch {
+			display: block;
+		}
+	}
+	.addcatch {
+		a.headerbutton.nextcatch {
+			display: block;
+		}
+	}
+	.confirmcatch {
+		a.headerbutton.savecatch {
+			display: block;
+		}
+	}
+
+	.underHeader {
+		background: $tripsDarker;
+		@include clear;
+		color: #FFF;
+	}
+
+/*===============  Components ===============
+///* #Trip Map ------------------------------------------------------------------------ */
+.tripMap {
+	.section {
+		color: $mainBlue;
+		text-align: center;
+		border-bottom: 3px solid $border;
+		@include clear;
+	}
+
+	.map {
+		position: relative;
+		.info {
+			width: 100%;
+			line-height: 1.6rem;
+			background: rgba(254, 255, 255, 0.85);
+			position: absolute;
+			bottom: 0;
+			z-index: 3;
+			color: $mainBlue;
+		}
+
+		#map-canvas.bigmap {
+			height: 440px !important;
+		}
+		
+		.wind {
+			@include span(3 of 12);
+		}
+		.current {
+			color: darken($success, 20%);
+			@include span(3 of 12);
+		}
+		.enlargetrip {
+			cursor: pointer;
+			@include span(4 of 12 last);
+		}
+
+		#map-canvas {
+
+		}
+	}
+
+	.tideInfo {
+		margin: 0 auto;
+		overflow: hidden;
+		.tideoverflow {
+			overflow-x: auto;
+		}
+
+	}
+
+	.nodata {
+		//		display: none;
+	}
+
+	.start {
+
+	}
+
+	.endtrip, .savetrip {
+		display: none;
+	}
+
+	//* #Air Sea -------------------------------- */
+	.airsea {
+		background: $greyAlt;
+		border-top: 3px solid $border;
+		.air, .sea {
+			@include span(6 of 12);
+			text-align: center;
+		}
+		.info {
+			font-family: $headerFont;
+			font-size: 2.2rem;
+			padding: 10px 0 15px;
+			span {
+				font-family: inherit;
+				font-size: 1.6rem;
+			}
+		}
+		.icon {
+			text-align: left;
+			padding: 15px 5px 0 10px;
+		}
+		.air {
+			margin-right: 0;
+			border-right: 3px solid $border;
+		}
+		.sea {
+			@include span(6 of 12);
+			position: relative;
+			&.danger {
+				color: #FFF;
+				background: $danger;
+				.dangertext {
+					font-size: .6rem;
+					display: block;
+					position: absolute;
+					top: 10px;
+					right: 10px;
+					i {
+						color: $warning;font-size: 1.4rem;
+					} 
+				}
+			}
+		}
+	}
+
+	//* #Tide Info -------------------------------- */
+	.tide {
+		font-family: $headerFont;
+		 .title {
+			 line-height: 2.8rem;
+			font-family: $headerFont;
+		}
+		.tides {
+			font-size: 0.8rem;
+			margin-bottom: 15px;
+			i {
+				color: $grey;
+			}
+			span {
+				margin-top: 3px;
+				display: block;
+			}
+		}
+		.time {
+			margin-bottom: 10px;
+			font-family: $headerFont;
+		}
+	}
+
+	//* #Next Spring Tide -------------------------------- */
+	.springtide {
+		background: $border;
+		color: $mainBlue;
+		font-size: 1.4rem;
+		line-height: 3.2rem;
+		span {
+			font-family: $headerFont;
+		}
+	}
+
+	//* #Wind Current  -------------------------------- */
+	.windcurrent {
+		color: #FFF;
+		.wind, .current {
+			@include span(6 of 12);
+			text-align: center;
+		}
+		.wind {
+			margin-right: 0;
+			background: $wind;
+			border-right: 3px solid $border;
+		}
+		.current {
+			background: $current;
+		}
+	}
+}
+
+/*===============  Pages ===============
+///* #Create Trip ------------------------------------------------------------------------ */
+.createtrip {
+	.locationSelector {
+		width: 80%;
+		margin: 0 auto;
+		border: 2px solid $mainBlue;
+		border-radius: 3px;
+		@include clear;
+		> div {
+			width: 50%;
+			float: left;
+			text-align: center;
+			padding: 6px 3px;
+			line-height: 2rem;
+			cursor: pointer;
+			font-family: $headerFont;
+			color: $mainBlue;
+			&.selected {
+				background: $mainBlue;
+				color: #FFF;
+			}
+		}
+	}
+}
+
+///* #Catch  ------------------------------------------------------------------------ */
+.catch {
+
+}
+
+///* #Footer Settings ------------------------------------------------------------------------ */
+.currenttrip, .addhazard, .notes, .addnotes, .catch, .addcatch, .confirmcatch {
+	.footer {
+		display: block;
+		height: 65px;
+		.tripfooter {
+			display: block;
+			a {
+				display: inline-block;
+			}
+			i {
+				display: block;
+				font-size: 1.5rem;
+				line-height: 2.1rem;
+			}
+		}
+		.normalfooter {
+			display: none;
+		}
+	}
+	textarea {
+		height: 80%;
+	}
+}

@@ -1,0 +1,34 @@
+include ./mixins
+.header
+    .left(onclick="window.history.back()")
+        .icon-left-open
+    .middle
+        h1 Title
+    .right
+        a.headerbutton.addtrip(href='#createtrip') Add Trip
+        a.headerbutton.savenote Save
+        a.headerbutton.addcatch(href='#addcatch') Add
+        a.headerbutton.nextcatch Next
+        a.headerbutton.savecatch Save
+.content
+    | Default State
+.footer
+    .normalfooter
+        a(href='#home') HOME
+        a(href='#profile') MY PROFILE
+        a(href='#abouthome') ABOUT
+        a(href='#settings') SETTINGS
+        a(href='#logou', onclick="RN.fnc.login.doLogOut();") LG
+    .tripfooter
+        a(href='#currenttrip')
+            i(class='icon-home-outline')
+            | Home
+        a(href='#addhazard')
+            i(class='icon-attention')
+            | Add hazard
+        a(href='#notes')
+            i(class='icon-pencil')
+            | Add notes
+        a(href='#catch')
+            i(class='icon-fish')
+            | Catch log

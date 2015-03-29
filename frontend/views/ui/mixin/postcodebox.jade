@@ -1,0 +1,8 @@
+mixin postcodebox(data, options)
+   - var iconClass = options.icon || 'right-open';
+   .box.postboxbox.white
+      - var icon = true;
+      - if (options.plain === "plain"){options.icon = false;}
+      if icon
+         div(class="icon-#{iconClass}")
+         | #{data.parliamentary_constituency}, #{data.postcode}

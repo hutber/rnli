@@ -1,0 +1,55 @@
+/* Table of Contents
+==================================================
+    #Base
+      #Greys
+    #Links
+    #Warnings
+    #Borders
+*/
+//  #Base Colours --------------------------------------
+
+$bg:                                            #EDEDEB;
+$softOrange:    								#F1835B;
+$hardOrange: 									#FF5434;
+$darkWhite:										#F4F5F5;
+$brdLight:										#F6F6F6;
+$darkerWhite:									#EDEEEE;
+$mainBlue:                                      #002664;
+
+//  #Greys --------------------------------------------
+$softGrey:										#424447;
+$hardGrey:										#484244;
+$headerGrey:									#383A3D;
+$grey:											#93979D;
+$border:                                        #D7D5CF;
+$greyAlt:				  						#E6E7E6;
+
+
+//  #Links --------------------------------------------
+$wind:                                         #005DC5;
+$current:                                      #007C14;
+
+//  #Links --------------------------------------------
+$linkColor:										$softOrange;
+$linkColorHover:								$hardOrange;
+
+//  #Warnings -------------------------------------
+$success:          								#86C555;
+$danger:           								#e74c3c;
+$notice:           								#f39c12;
+$warning:          								#f1c40f;
+$info:             								#3498db;
+
+/* Pages
+==================================================
+*/
+//  #Base Colours ------------------------------
+$trips:                                         #EF8201;
+$tripsDarker:                                   #DD6D00;
+$mytrips:                                       #E04200;
+$weather:                                       #D13924;
+$safety:                                        #9C1B31;
+$catch:                                         #28243b;
+
+//  #Users -------------------------------------
+$userHeaderBG:                                 $mainBlue;

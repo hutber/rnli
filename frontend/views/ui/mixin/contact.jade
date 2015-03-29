@@ -1,0 +1,13 @@
+mixin  contact(data, options)
+    .contact(class= data.class)
+        - var id = data.id || 'new';
+        .number
+            .textnumber #{data.pos}
+        .textInfo
+            .name
+                +input({place: 'Name', type: 'text', value: data.name, name: 'name_' + id + '_' + data.pos})
+            .pnumber
+                +input({place: 'Number', type: 'text', value: data.number, name: 'number_' + id + '_' + data.pos})
+        .contactdelete(data-id=id)
+            i(class=['icon-cancel-circled'])
+        +input({place: '', type: 'hidden', value: id + '_' + data.pos, name: 'id_' + id + '_' + data.pos})

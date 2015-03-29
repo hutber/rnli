@@ -1,0 +1,4 @@
+include ../../mixins
+if RN.currentTrip.get('catch') !== null
+   each val, index in RN.currentTrip.get('catch')
+      +catchFish(val)

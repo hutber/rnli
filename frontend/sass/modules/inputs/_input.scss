@@ -1,0 +1,212 @@
+//
+// Inputs
+// --------------------------------------------------
+
+// Text fields
+textarea,
+input,
+select {
+	border: 1px solid #FFF;
+	color: $mainBlue;
+	padding: 15px 15px;
+	text-indent: 7px;
+	margin: 1px auto;
+	-webkit-appearance: none;
+	font-weight: bold;
+	display: block;
+	width: 100%;
+	-webkit-user-select: auto !important;
+	@include box-shadow(none);
+	@include placeholder-color(darken($grey, 20%));
+	@include transition(0.25s);
+
+	// Alternate state
+	// --------------------------------------------------
+	.control-group.focus &,
+	&:focus {
+		border-color: $grey;
+		@include box-shadow(none);
+	}
+
+	.row-fluid & {
+		height: 41px;
+		width: 100%;
+	}
+
+	// Flat (without border)
+	&.flat {
+		border-color: transparent;
+		&:hover {
+			border-color: $grey;
+		}
+		&:focus {
+			border-color: $grey;
+		}
+	}
+
+	// Alternate Colors
+	// --------------------------------------------------
+	&.error, .submitted &.ng-invalid {
+		@include input-states($danger);
+	}
+	&.success {
+		@include input-states($success);
+	}
+	&.warning {
+		@include input-states($warning);
+	}
+	.control-group.info & {
+		@include input-states($info);
+	}
+
+	//  .control-group & { margin-bottom: 0; }
+	&[type=radio]{
+		-webkit-appearance: radio;
+	}
+}
+
+label.error, label.error a {
+	@include input-states($danger);
+}
+
+// INPUT ICONS
+// ----------------------
+.control-group, .box {
+	position: relative;
+	.icon-right-open, .icon-search {
+		z-index: 2;
+		font-size: 1.5rem;
+		@include valign;
+		position: absolute;
+		right: 0;
+	}
+	label {
+		font-size: .8em;
+		&.error, &.error a {
+			@include input-states($danger);
+		}
+	}
+	> .input-icon {
+		position: absolute;
+		top: 2px;
+		right: 2px;
+		line-height: 37px;
+		vertical-align: middle;
+		color: desaturate(lighten($textColor, 45%), 15%);
+		background-color: #ffffff;
+		padding: 0 10px;
+		border-radius: 6px;
+	}
+
+	input:focus + .input-icon {
+		color: $textColor;
+	}
+
+	// Icon Sizes
+	// --------------------------------------------------
+
+	// Huge
+	&.huge {
+		> .input-icon {
+			line-height: 49px;
+		}
+	}
+
+	//Large
+	&.large {
+		> .input-icon {
+			line-height: 41px;
+		}
+	}
+
+	// Small
+	&.small {
+		> .input-icon {
+			line-height: 30px;
+		}
+	}
+
+	// Icon Colors
+	// --------------------------------------------------
+	&.success {
+		> .input-icon, input + .input-icon, .icon-right-open, input {
+			color: $success;
+		}
+	}
+	&.warning {
+		> .input-icon, input + .input-icon, .icon-right-open, input {
+			color: $warning;
+		}
+	}
+	&.error {
+		> .input-icon, input + .input-icon, .icon-right-open, input {
+			color: $danger;
+			@include placeholder-color(darken($danger, 20%));
+		}
+	}
+	&.disabled {
+		> .input-icon, input + .input-icon, .icon-right-open, input {
+			color: mix($grey, white, 40%);
+			background-color: mix($grey, white, 10%);
+		}
+	}
+
+}
+
+// Disabled state
+input[disabled],
+//input[readonly],
+textarea[disabled],
+select[disabled],
+textarea[readonly] {
+	background-color: mix($grey, white, 10%);
+	border-color: mix($grey, white, 40%);
+	color: mix($grey, white, 40%);
+	cursor: default;
+}
+
+//Buttons
+
+.btn, button {
+	padding: 0px 0px;
+	font: 300 12px/15px "Ubuntu", sans-serif;
+	color: $headerGrey;
+	background: none;
+	border: none;
+	white-space: normal;
+	text-transform: uppercase;
+	letter-spacing: -1px;
+	cursor: pointer;
+	&:hover {
+		color: $softOrange;
+	}
+}
+
+// Textarea
+textarea {
+	height: auto;
+	line-height: 24px;
+	padding: 5px 11px;
+	text-indent: 0;
+
+	.row-fluid & {
+		height: auto;
+		width: 100% !important;
+	}
+}
+
+
+select {
+	padding-left: 0;
+	color: $grey;
+	text-indent: 3px;
+}
+
+input[type=checkbox] {
+	padding: 6px;
+	display: inline-block;
+	vertical-align: middle;
+	&:checked {
+		background: #000;
+	}
+}
