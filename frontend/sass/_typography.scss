@@ -53,7 +53,7 @@ $default-text-shadow-v-offset: 1px;
 body {padding: 0; margin:0; font-family: $textFont; color: $textColor;}
 
 // #Links ---------------------------------------------------------------------
-a { color: $grey; text-decoration: underline; outline: 0; font-size: 0.8rem;}
+a { color: $mainBlue; text-decoration: underline; outline: 0; font-size: 0.8rem;}
 a:hover, a:focus { color: $linkColor; text-decoration: none; }
 p a, p a:visited { line-height: inherit; }
 a.selected {color:$softOrange;}

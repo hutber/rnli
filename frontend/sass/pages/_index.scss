@@ -18,7 +18,7 @@
 	.weather & {
 		background: $weather;
 	}
-	.safety & {
+	.safety &, .safetybrowse & {
 		background: $safety;
 	}
 	.catchlog & {

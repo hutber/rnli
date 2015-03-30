@@ -28,6 +28,9 @@ $footerHeight: 12%;
 $headerHide: ".index, .home";
 $footerHide: ".index, .signup, .profile";
 
+//Complex Page Classes
+$about: ".about, .abouthome";
+
 @include border-box-sizing;
 
 //* #Imports dependencies ------------------------------------------------------------------------ */
@@ -127,7 +130,8 @@ $headerHeight: 75px;
 ///* #Footer ------------------------------------------------------------------------ */
 .footer {
 	display: block;
-	height: 40px;
+	min-height: 40px;
+	height: 4%;
 	width: 100%;
 	background: #fff;
 	text-align: center;
@@ -138,6 +142,8 @@ $headerHeight: 75px;
 		@include valign;
 	}
 	a {
+		font-family: $headerFont;
+		color: $mainBlue;
 		margin: 0 5px;
 		text-decoration: none;
 //		@include span (2.4 of 12);

@@ -397,6 +397,198 @@ table {
   content: '\e837'; }
 
 /* '' */
+.icon-compass:before {
+  content: '\e838'; }
+
+/* '' */
+.icon-lifebuoy:before {
+  content: '\e839'; }
+
+/* '' */
+.icon-sun:before {
+  content: '\e83a'; }
+
+/* '' */
+.icon-sun-inv:before {
+  content: '\e83b'; }
+
+/* '' */
+.icon-cloud-sun-inv:before {
+  content: '\e83c'; }
+
+/* '' */
+.icon-sunrise:before {
+  content: '\e83d'; }
+
+/* '' */
+.icon-cloud-sun:before {
+  content: '\e83e'; }
+
+/* '' */
+.icon-fog-sun:before {
+  content: '\e83f'; }
+
+/* '' */
+.icon-windy-rain-inv:before {
+  content: '\e840'; }
+
+/* '' */
+.icon-snow-inv:before {
+  content: '\e841'; }
+
+/* '' */
+.icon-snow-heavy-inv:before {
+  content: '\e842'; }
+
+/* '' */
+.icon-hail-inv:before {
+  content: '\e843'; }
+
+/* '' */
+.icon-clouds-inv:before {
+  content: '\e844'; }
+
+/* '' */
+.icon-clouds-flash-inv:before {
+  content: '\e845'; }
+
+/* '' */
+.icon-compass-1:before {
+  content: '\e846'; }
+
+/* '' */
+.icon-temperature:before {
+  content: '\e847'; }
+
+/* '' */
+.icon-na:before {
+  content: '\e848'; }
+
+/* '' */
+.icon-celcius:before {
+  content: '\e849'; }
+
+/* '' */
+.icon-fahrenheit:before {
+  content: '\e84a'; }
+
+/* '' */
+.icon-clouds-flash-alt:before {
+  content: '\e84b'; }
+
+/* '' */
+.icon-moon-inv:before {
+  content: '\e84c'; }
+
+/* '' */
+.icon-cloud-moon-inv:before {
+  content: '\e84d'; }
+
+/* '' */
+.icon-cloud-flash-inv:before {
+  content: '\e84e'; }
+
+/* '' */
+.icon-cloud-inv:before {
+  content: '\e84f'; }
+
+/* '' */
+.icon-drizzle-inv:before {
+  content: '\e850'; }
+
+/* '' */
+.icon-rain-inv:before {
+  content: '\e851'; }
+
+/* '' */
+.icon-windy:before {
+  content: '\e852'; }
+
+/* '' */
+.icon-rain:before {
+  content: '\e853'; }
+
+/* '' */
+.icon-drizzle:before {
+  content: '\e854'; }
+
+/* '' */
+.icon-cloud-flash-alt:before {
+  content: '\e855'; }
+
+/* '' */
+.icon-cloud-flash:before {
+  content: '\e856'; }
+
+/* '' */
+.icon-cloud:before {
+  content: '\e857'; }
+
+/* '' */
+.icon-fog:before {
+  content: '\e858'; }
+
+/* '' */
+.icon-fog-cloud:before {
+  content: '\e859'; }
+
+/* '' */
+.icon-fog-moon:before {
+  content: '\e85a'; }
+
+/* '' */
+.icon-snowflake:before {
+  content: '\e85b'; }
+
+/* '' */
+.icon-cloud-moon:before {
+  content: '\e85c'; }
+
+/* '' */
+.icon-mist:before {
+  content: '\e85d'; }
+
+/* '' */
+.icon-eclipse:before {
+  content: '\e85e'; }
+
+/* '' */
+.icon-snow:before {
+  content: '\e85f'; }
+
+/* '' */
+.icon-snow-alt:before {
+  content: '\e860'; }
+
+/* '' */
+.icon-moon:before {
+  content: '\e861'; }
+
+/* '' */
+.icon-snow-heavy:before {
+  content: '\e862'; }
+
+/* '' */
+.icon-hail:before {
+  content: '\e863'; }
+
+/* '' */
+.icon-clouds:before {
+  content: '\e864'; }
+
+/* '' */
+.icon-clouds-flash:before {
+  content: '\e865'; }
+
+/* '' */
+.icon-windy-inv:before {
+  content: '\e866'; }
+
+/* '' */
+.icon-windy-rain:before {
+  content: '\e867'; }
+
+/* '' */
 .test {
   -moz-transform: skew(25deg, 10deg);
   -o-transform: skew(25deg, 10deg);
@@ -456,7 +648,7 @@ body {
   color: #777777; }
 
 a {
-  color: #93979D;
+  color: #002664;
   text-decoration: underline;
   outline: 0;
   font-size: 0.8rem; }
@@ -1464,7 +1656,8 @@ body {
 
 .footer {
   display: block;
-  height: 40px;
+  min-height: 40px;
+  height: 4%;
   width: 100%;
   background: #fff;
   text-align: center;
@@ -1478,6 +1671,8 @@ body {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%); }
   .footer a {
+    font-family: din, "Lucida Grande", sans-serif;
+    color: #002664;
     margin: 0 5px;
     text-decoration: none; }
   .footer .tripfooter {
@@ -1573,23 +1768,96 @@ body {
 ==================================================
     #Safety
 */
-.safetycontrols {
-  border-bottom: 1px solid #93979D;
+.safety h3, .safetybrowse h3 {
+  text-align: left;
+  font-size: 1.4rem;
+  line-height: 1.9rem; }
+.safety p, .safetybrowse p {
+  font-size: 1.3rem;
+  line-height: 1.6rem; }
+.safety .safetycontrols, .safetybrowse .safetycontrols {
+  background: #FFF;
   text-align: center;
   overflow: hidden; }
-  .safetycontrols div {
-    display: inline-block; }
-  .safetycontrols .middletext {
-    margin: 0 5rem 5px;
-    font-size: 1.4rem; }
-    .safetycontrols .middletext .safety, .safetycontrols .middletext .safetytotal {
+  .safety .safetycontrols .rightarrow, .safety .safetycontrols .leftarrow, .safetybrowse .safetycontrols .rightarrow, .safetybrowse .safetycontrols .leftarrow {
+    font-size: 2.5rem;
+    padding: 10px 0;
+    color: #002664; }
+    .safety .safetycontrols .rightarrow.disabled, .safety .safetycontrols .leftarrow.disabled, .safetybrowse .safetycontrols .rightarrow.disabled, .safetybrowse .safetycontrols .leftarrow.disabled {
+      opacity: .2; }
+  .safety .safetycontrols .leftarrow, .safetybrowse .safetycontrols .leftarrow {
+    width: 23.72881%;
+    float: left;
+    margin-right: 1.69492%; }
+  .safety .safetycontrols .rightarrow, .safetybrowse .safetycontrols .rightarrow {
+    width: 23.72881%;
+    float: right;
+    margin-right: 0; }
+  .safety .safetycontrols .middletext, .safetybrowse .safetycontrols .middletext {
+    font-size: 1.4rem;
+    line-height: 4rem;
+    font-family: din, "Lucida Grande", sans-serif;
+    width: 49.15254%;
+    float: left;
+    margin-right: 1.69492%;
+    overflow: hidden; }
+    .safety .safetycontrols .middletext div, .safetybrowse .safetycontrols .middletext div {
       display: inline; }
-  .safetycontrols .rightarrow, .safetycontrols .leftarrow {
-    font-size: 1.7rem; }
+    .safety .safetycontrols .middletext .safetynumber, .safetybrowse .safetycontrols .middletext .safetynumber {
+      color: #002664; }
+    .safety .safetycontrols .middletext .safetyseperater, .safetybrowse .safetycontrols .middletext .safetyseperater {
+      padding: 0 5px; }
+.safety .safetyarea, .safetybrowse .safetyarea {
+  margin: 10px 20px;
+  color: #002664; }
+.safety .safetyheader, .safetybrowse .safetyheader {
+  display: block;
+  text-align: center;
+  font-size: 1.7rem;
+  line-height: 3rem;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #002664;
+  font-family: din, "Lucida Grande", sans-serif; }
+.safety ol, .safetybrowse ol {
+  border-bottom: 1px solid #D7D5CF;
+  padding-bottom: 10px; }
+.safety li, .safetybrowse li {
+  padding: 10px;
+  font-size: 1.1rem;
+  color: #002664;
+  counter-increment: step-counter; }
+.safety li::before, .safetybrowse li::before {
+  content: counter(step-counter);
+  margin-right: 10px;
+  font-size: 80%;
+  background-color: #9C1B31;
+  color: white;
+  font-weight: bold;
+  border-radius: 50px;
+  display: inline-block;
+  padding: 5px 8px 4px 7px;
+  margin-bottom: 15px;
+  float: left; }
 
-.urls {
+.about .header, .abouthome .header {
+  background: #002664; }
+  .about .header .middle h1, .abouthome .header .middle h1 {
+    color: #ffffff; }
+.about h3, .abouthome h3 {
+  text-align: left;
+  font-size: 1.4rem;
+  line-height: 1.9rem; }
+.about p, .abouthome p {
+  margin: 10px 0;
+  color: #002664;
+  font-size: 1.3rem;
+  line-height: 1.6rem; }
+.about .content, .abouthome .content {
+  margin: 10px 7.14286%; }
+.about .urls, .abouthome .urls {
   margin: 10px 0 0 10px; }
-  .urls a {
+  .about .urls a, .abouthome .urls a {
     float: left;
     width: 100%;
     display: block;
@@ -1597,6 +1865,9 @@ body {
     margin: 5px 0 5px 5px;
     border-bottom: 1px solid #DDD;
     text-decoration: none; }
+
+.abouthome .content {
+  margin: 0; }
 
 /*
 ==================================================
@@ -1845,7 +2116,7 @@ Table of Contents
   background: #EF8201;
   color: #FFF; }
   .landingpage a {
-    height: 25%;
+    height: 24%;
     width: 100%;
     position: relative;
     text-align: center;
@@ -1857,6 +2128,7 @@ Table of Contents
     color: #FFF; }
     .landingpage a > div {
       width: 100%;
+      line-height: 4rem;
       position: absolute;
       left: 50%;
       top: 50%;
@@ -1865,6 +2137,7 @@ Table of Contents
       -moz-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%); }
       .landingpage a > div i {
+        font-size: 2.4rem;
         width: 15.25424%;
         float: left;
         margin-right: 1.69492%; }
@@ -1899,7 +2172,7 @@ Table of Contents
     color: #FFF; }
   .weather .header {
     background: #D13924; }
-  .safety .header {
+  .safety .header, .safetybrowse .header {
     background: #9C1B31; }
   .catchlog .header {
     background: #28243b; }

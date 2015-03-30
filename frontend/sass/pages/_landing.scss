@@ -5,7 +5,7 @@
 	background: #EF8201;
 	color: #FFF;
 	a {
-		height: 25%;
+		height: 24%;
 		width: 100%;
 		position: relative;
 		text-align: center;
@@ -17,8 +17,10 @@
 		color: #FFF;
 		> div {
 			width: 100%;
+			line-height: 4rem;
 			@include vertical-middle();
 			i {
+				font-size: 2.4rem;
 				@include span(2 of 12);
 			}
 			span {

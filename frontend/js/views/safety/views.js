@@ -9,9 +9,26 @@ module.exports = function (){
 			view: require('../../../views/safety/safety.jade')
 		};
 
-	currentViews.vests = {
-		view: require('../../../views/safety/items/vests.jade')
-	};
+	//# Shore -------------------------------------------------/
+	currentViews.shore = [
+		require('../../../views/safety/shore/amateur.jade'),
+		require('../../../views/safety/shore/heavy.jade'),
+		require('../../../views/safety/shore/carry.jade'),
+	];
+
+	//# Boats -------------------------------------------------/
+	currentViews.boat = [
+		require('../../../views/safety/boat/amateur.jade'),
+		require('../../../views/safety/boat/carry.jade'),
+		require('../../../views/safety/boat/check.jade'),
+	];
+
+	//# Kayak -------------------------------------------------/
+	currentViews.kayak = [
+		require('../../../views/safety/kayak/always.jade'),
+		require('../../../views/safety/kayak/carry.jade'),
+		require('../../../views/safety/kayak/check.jade'),
+	];
 
 	return currentViews;
 }

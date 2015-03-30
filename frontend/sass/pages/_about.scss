@@ -1,12 +1,39 @@
-.urls {
-	margin: 10px 0 0 10px;
-	a {
-		float: left;
-		width: 100%;
-		display: block;
-		padding: 5px 5px 15px;
-		margin: 5px 0 5px 5px;
-		border-bottom: 1px solid #DDD;
-		text-decoration: none;
+#{$about} {
+	.header {
+		background: $mainBlue;
+		.middle h1 {
+			color: #ffffff;
+		}
+	}
+	h3 {
+		text-align: left;
+		font-size: 1.4rem;
+		line-height: 1.9rem;
+	}
+	p {
+		margin: 10px 0;
+		color: $mainBlue;
+		font-size: 1.3rem;
+		line-height: 1.6rem;
+	}
+	.content {
+		margin: 10px gutter(3);
+	}
+	.urls {
+		margin: 10px 0 0 10px;
+		a {
+			float: left;
+			width: 100%;
+			display: block;
+			padding: 5px 5px 15px;
+			margin: 5px 0 5px 5px;
+			border-bottom: 1px solid #DDD;
+			text-decoration: none;
+		}
+	}	
+}
+.abouthome {
+	.content {
+		margin: 0;
 	}
 }

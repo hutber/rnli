@@ -2,26 +2,91 @@
 ==================================================
     #Safety
 */
-.safetycontrols {
-	border-bottom: 1px solid $grey;
-	text-align: center;
-	@include clear;
-
-	div {
-		display: inline-block;
-	}
-
-	.leftarrow {
-//		float: left;
-	}
-	.middletext {
-		margin: 0 5rem 5px;
+.safety, .safetybrowse {
+	h3 {
+		text-align: left;
 		font-size: 1.4rem;
-		.safety, .safetytotal {
-			display: inline;
+		line-height: 1.9rem;
+	}
+	p {
+		font-size: 1.3rem;
+		line-height: 1.6rem;
+	}
+	.safetycontrols {
+		background: #FFF;
+		text-align: center;
+		@include clear;
+
+		.rightarrow, .leftarrow {
+			font-size: 2.5rem;
+			padding: 10px 0;
+			color: $mainBlue;
+			&.disabled {
+				opacity: .2;
+			}
+		}
+		.leftarrow {
+			@include span (3 of 12);
+		}
+		.rightarrow {
+			@include span (3 of 12 last);
+		}
+
+		.middletext {
+			font-size: 1.4rem;
+			line-height: 4rem;
+			font-family: $headerFont;
+			@include span (6 of 12);
+			@include clear;
+			div {
+				display: inline;
+			}
+			.safetynumber {
+				color: $mainBlue;
+			}
+			.safetyseperater {
+				padding: 0 5px;
+			}
 		}
 	}
-	.rightarrow, .leftarrow {
+
+	.safetyarea {
+		margin: 10px 20px;
+		color: $mainBlue;
+	}
+
+
+	.safetyheader {
+		display: block;
+		text-align: center;
 		font-size: 1.7rem;
+		line-height: 3rem;
+		margin-top: 10px;
+		text-decoration: none;
+		color: $mainBlue;
+		font-family: $headerFont;
+	}
+	ol {
+		border-bottom: 1px solid $border;
+		padding-bottom: 10px;
+	}
+	li {
+		padding: 10px;
+		font-size: 1.1rem;
+		color: $mainBlue;
+		counter-increment: step-counter;
+	}
+	li::before {
+		content: counter(step-counter);
+		margin-right: 10px;
+		font-size: 80%;
+		background-color: $safety;
+		color: white;
+		font-weight: bold;
+		border-radius: 50px;
+		display: inline-block;
+		padding: 5px 8px 4px 7px;
+		margin-bottom: 15px;
+		float: left;
 	}
 }
