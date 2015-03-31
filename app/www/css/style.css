@@ -1940,10 +1940,19 @@ Table of Contents
   text-align: center;
   border-bottom: 3px solid #D7D5CF;
   overflow: hidden; }
+.tripMap .notide {
+  background: #D7D5CF; }
+.tripMap .titeInfo.notide {
+  background: #E7ECE9;
+  font-size: 1.3rem;
+  line-height: 1.4rem;
+  font-family: arial, helvetica, sans-serif;
+  padding: 1rem 4.5rem; }
 .tripMap .map {
   position: relative; }
   .tripMap .map .info {
     width: 100%;
+    font-size: .8rem;
     line-height: 1.6rem;
     background: rgba(254, 255, 255, 0.85);
     position: absolute;
@@ -1951,18 +1960,20 @@ Table of Contents
     z-index: 3;
     color: #002664; }
   .tripMap .map #map-canvas.bigmap {
-    height: 440px !important; }
+    height: 330px !important; }
   .tripMap .map .wind {
-    width: 23.72881%;
+    width: 32.20339%;
     float: left;
     margin-right: 1.69492%; }
   .tripMap .map .current {
     color: #54862e;
-    width: 23.72881%;
+    width: 32.20339%;
     float: left;
     margin-right: 1.69492%; }
   .tripMap .map .enlargetrip {
     cursor: pointer;
+    text-align: right;
+    padding-right: 15px;
     width: 32.20339%;
     float: right;
     margin-right: 0; }
@@ -2003,14 +2014,16 @@ Table of Contents
       color: #FFF;
       background: #e74c3c; }
       .tripMap .airsea .sea.danger .dangertext {
-        font-size: .6rem;
-        display: block;
-        position: absolute;
-        top: 10px;
-        right: 10px; }
-        .tripMap .airsea .sea.danger .dangertext i {
-          color: #f1c40f;
-          font-size: 1.4rem; }
+        display: block; }
+    .tripMap .airsea .sea .dangertext {
+      display: none;
+      font-size: .6rem;
+      position: absolute;
+      top: 10px;
+      right: 10px; }
+      .tripMap .airsea .sea .dangertext i {
+        color: #f1c40f;
+        font-size: 1.4rem; }
 .tripMap .tide {
   font-family: din, "Lucida Grande", sans-serif; }
   .tripMap .tide .title {
@@ -2033,6 +2046,7 @@ Table of Contents
   font-size: 1.4rem;
   line-height: 3.2rem; }
   .tripMap .springtide span {
+    margin-left: 5px;
     font-family: din, "Lucida Grande", sans-serif; }
 .tripMap .windcurrent {
   color: #FFF; }
@@ -2049,7 +2063,18 @@ Table of Contents
     border-right: 3px solid #D7D5CF;
     text-align: left; }
   .tripMap .windcurrent .current {
+    position: relative;
     background: #007C14; }
+    .tripMap .windcurrent .current .icon {
+      position: absolute;
+      top: 10px;
+      left: 5px; }
+    .tripMap .windcurrent .current .info {
+      position: relative;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%); }
   .tripMap .windcurrent i {
     font-size: 1.2rem; }
   .tripMap .windcurrent .icon {

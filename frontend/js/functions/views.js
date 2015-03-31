@@ -74,6 +74,12 @@ module.exports = function (){
 			title: 'CURRENT TRIP'
 		}
 		,{
+			name: 'tripclosedView',
+			path: require('../views/trips/tripclosedView'),
+			url: 'tripclosed',
+			title: 'TRIP CLOSED'
+		}
+		,{
 			name: 'addHazardView',
 			path: require('../views/trips/hazard/addHazardView'),
 			url: 'addhazard',
@@ -90,12 +96,6 @@ module.exports = function (){
 			path: require('../views/trips/notes/addNotesView'),
 			url: 'addnotes',
 			title: 'ADD NOTE'
-		}
-		,{
-			name: 'closeTripView',
-			path: require('../views/trips/closeTripView'),
-			url: 'closetrip',
-			title: 'TRIP CLOSED'
 		}
 		/*==================================================
 		 Weather Center

@@ -11,7 +11,7 @@ module.exports = RN.glb.gvCreator.extend({
 		'click .retry': 'render',
 		'click .starttrip': 'start',
 		'click .endtrip': 'end',
-		'click .savetrip': 'save',
+		'click .closetrip': 'close',
 		'click .enlargetrip': 'enlargeMap'
 	},
 
@@ -28,10 +28,12 @@ module.exports = RN.glb.gvCreator.extend({
 		$('.savetrip').show();
 		$('#end')[0].value = moment().format();
 	},
-	save : function(ev){
-		var ev = $(ev.currentTarget);
+	close : function(){
 
+		var finalData = RN.currentTrip.prePareDataForDB();
+		RN.currentTrip.finaliseTrip(finalData);
 
+		//RN.router.navigate('tripclosed', true);
 	},
 	enlargeMap : function(ev){
 		$('#map-canvas').toggleClass('bigmap');
@@ -61,7 +63,7 @@ module.exports = RN.glb.gvCreator.extend({
 				currentLocationData = data;
 			});
 		}
-		if(currentLocationData){
+		if(currentLocationData.weather[0].Wh > 3){
 			currentLocationData['notsafe'] = 'danger';
 		}
 		//load data in ejs
@@ -166,5 +168,6 @@ module.exports = RN.glb.gvCreator.extend({
 				map: map
 			});
 		}
+		this.close();
 	}
 });

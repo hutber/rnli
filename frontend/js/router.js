@@ -25,6 +25,7 @@ var Router = Backbone.Router.extend({
 		'catch': 'catch',
 		'addcatch': 'addcatch',
 		'confirmcatch': 'confirmcatch',
+		'tripclosed': 'tripclosed',
 		'addhazard': 'addhazard',
 		'notes': 'notes',
 		'addnotes': 'addnotes',
