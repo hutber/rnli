@@ -25,16 +25,16 @@ class forgotten extends controller {
 
                 require($_SERVER['DOCUMENT_ROOT'] .'/class/sendMail.php');
 
-                $from_address = 'noreply@topazmarinesafetyapp.com';
+                $from_address = 'noreply@mayfieldafc.com';
 
                 $from_group = 'Forgotten';
                 $article_date = date('l, jS F y');
 
 				//Email Subjet
-				$subject = 'Topaz Safety App Forgotten Details';
+				$subject = 'RNLI Safety App Forgotten Details';
 
                 //Fixture Details Array
-                $email_vars = array('title' => 'Topaz Safety App Forgotten Details', 'code' => $confirmation_code, 'fname' => $fname);
+                $email_vars = array('title' => 'RNLI Safety App Forgotten Details', 'code' => $confirmation_code, 'fname' => $fname);
 
 				//Build Up email details
 				$registars_details = array();
@@ -43,7 +43,7 @@ class forgotten extends controller {
 				$registars_details[0]['type'] = $from_group;
 
                 //Do oop function
-                $myMail = new Email('[TopazMarineSafetyapp] Forgotten Details', $subject, $from_group, $from_address, $article_date, $email_vars, $registars_details);
+                $myMail = new Email('[RNLI] Forgotten Details', $subject, $from_group, $from_address, $article_date, $email_vars, $registars_details);
                 //$subject, $title, $from_group, $from, $email_date, $email_vars,$email_notifications
                 //(Email Subject, Emails Title, email type aka which template to use, From Address, Email Date)
                 $myMail->createEmailVars();

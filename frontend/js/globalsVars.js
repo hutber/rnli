@@ -14,7 +14,7 @@ module.exports =  function() {
 	globals.url = {};
 	globals.url.protocol = 'http';
 	globals.url.envioment = 'liveApp';
-	globals.url.cdn = 'www.topazmarinesafetyapp.com/';
+	globals.url.cdn = 'rnli.mayfieldafc.com/';
 
 	//check type of envoiment we are in
 	globals.url.checkEnvio = function () {
@@ -23,7 +23,7 @@ module.exports =  function() {
 				globals.url.envioment = 'localApp',
 					globals.url.cdn = 'rnli.local/'
 				break;
-			case "www.topazmarinesafetyapp.com" :
+			case "rnli.mayfieldafc.com" :
 				globals.url.website = 'website';
 				break;
 			case "192.168.0.25":

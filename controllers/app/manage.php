@@ -29,16 +29,16 @@ class manage extends Controller {
 		if($_POST['confirmed']==1){
 			require_once $_SERVER['DOCUMENT_ROOT'] .'/class/sendMail.php';
 
-			$from_address = 'noreply@topazmarinesafetyapp.com';
+			$from_address = 'noreply@mayfieldafc.com';
 
 			$from_group = 'Approvals';
 			$article_date = date('l, jS F y');
 
 			//Email Subjet
-			$subject = 'Your Topaz Account has been approved';
+			$subject = 'Your RNLI Account has been approved';
 
 			//Email Details to inset into the email Array
-			$email_vars = array('title' => 'Your Topaz Account has been approved', 'fname' => $thisUser['fname'], 'email' => $thisUser['email'], 'username' => $thisUser['username']);
+			$email_vars = array('title' => 'Your RNLI Account has been approved', 'fname' => $thisUser['fname'], 'email' => $thisUser['email'], 'username' => $thisUser['username']);
 
 			//Build Up email details
 			$registars_details = array();
@@ -48,7 +48,7 @@ class manage extends Controller {
 			$registars_details[0]['type'] = 'Approved';
 
 			//Do oop function
-			$myMail = new Email('[TopazMarineSafetyapp] Approval Complete', $subject, $from_group, $from_address, $article_date, $email_vars, $registars_details);
+			$myMail = new Email('[RNLI] Approval Complete', $subject, $from_group, $from_address, $article_date, $email_vars, $registars_details);
 			//$subject, $title, $from_group, $from, $email_date, $email_vars,$email_notifications
 			//(Email Subject, Emails Title, email type aka which template to use, From Address, Email Date)
 			$myMail->createEmailVars();

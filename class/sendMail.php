@@ -70,7 +70,7 @@ class Email {
                 //$headers .= 'Content-type: text/html; charset=iso-8859-1'."\r \n";
                 //$headers = 'MIME-Version: 1.0'."\r \n";
                 // From header
-                $headers = 'From: Topaz Marines Safety <'.$this->from.'>'."\r\n";
+                $headers = 'From: RNLI <'.$this->from.'>'."\r\n";
                 //$headers .= "MIME-Version: 1.0\r\n";
                 $headers .= 'Content-type: text/plain; charset=UTF-8'."\r \n";
                 //$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";

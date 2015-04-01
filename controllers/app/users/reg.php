@@ -121,7 +121,7 @@ class reg extends controller
 								$article_date = date('l, jS F y');
 
 								//Email Subjet
-								$subject = 'Your Topaz Account is being reviewed';
+								$subject = 'Your RNLI Account is being reviewed';
 
 								//Email Details to inset into the email Array
 								$email_vars = array('title' => 'Account Registered', 'fname' => $newUser['fname'], 'email' => $newUser['email'], 'uname' => $newUser['uname']);

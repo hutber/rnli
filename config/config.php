@@ -7,7 +7,7 @@ define('DATABASE_NAME', 'rnli');
 define('DATABASE_USR', 'rnliheathy');
 define('DATABASE_PWD', 'jamiehutber');
 
-define('ADMIN_USER', 'topazAdmin');
-define('ADMIN_PWD', 'topazisgreat');
+define('ADMIN_USER', 'rnli');
+define('ADMIN_PWD', 'rnli');
 
-define('PAGE_TITLE', 'Topaz Marine Admin');
+define('PAGE_TITLE', 'RNLI App');
