@@ -26,7 +26,7 @@ class Email {
         if($_SERVER['REMOTE_ADDR']=='127.0.0.1') {
             $this->email_message = file_get_contents('views/emails/'.$this->from_group.'.html');
         }else {
-            $this->email_message = file_get_contents('/home/topazmar/public_html/views/emails/'.$this->from_group.'.html');
+            $this->email_message = file_get_contents('/var/www/rnli.hutber.com/views/emails/'.$this->from_group.'.html');
         }
         //Body Replaces
         $this->email_message = str_replace('%%title%%', $this->subject, $this->email_message);
