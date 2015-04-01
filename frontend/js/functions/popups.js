@@ -13,6 +13,7 @@ module.exports = function(){
 		close: null,
 		blocker: false,
 		show: function(message, type, duration, blocker) {
+			c(arguments);
 			if(message.length > 0) {
 				if (!blocker) {
 					popups.message.blocker = true;
