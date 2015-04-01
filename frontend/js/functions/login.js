@@ -45,7 +45,7 @@ module.exports = {
 				RN.fnc.login.restoreUserFromLocalStorage(data);
 				RN.fnc.login.moveToHome();
 			} else {
-				RN.fnc.popups.message.show(data.message, 'Something went wrong. Please try again.');
+				RN.fnc.popups.message.show(data.message, 'bad');
 			}
 		}
 	},
