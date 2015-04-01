@@ -331,8 +331,39 @@ Table of Contents
 }
 
 ///* #Catch  ------------------------------------------------------------------------ */
-.catch {
-
+.previouscatch {
+	.catchsortby {
+		text-align: center;
+		background: $catch;
+		@include clear;
+		span {
+			line-height: 1.5rem;
+			color: #FFF;
+			font-family: $headerFont;
+		}
+		.sortoptions {
+			border-radius: 4px;
+			background: #FFF;
+			width: 80%;
+			margin: 0 auto;
+			border: 1px solid #FFF;
+			margin-bottom: 10px;
+			font-family: $headerFont;
+			@include clear;
+			div {
+				line-height: 2.5rem;
+				border-radius: 4px;
+				@include span (3 of 12);
+				&:last-child {
+					@include span (3 of 12 last);
+				}
+				&.selected {
+					background: $catch;
+					color: #FFF;
+				}
+			}
+		}
+	}
 }
 
 ///* #Footer Settings ------------------------------------------------------------------------ */

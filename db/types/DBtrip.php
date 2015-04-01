@@ -7,8 +7,35 @@ class DBtrip extends Data{
 Table of Contents
 ==================================================
 	#Notes
+	#Catch
 */
 
+//* #Location   -------------------------------------------------- */
+    function insertLocation($uid,$tid,$lat,$long,$area,$continent,$country,$pcode)
+    {
+        $sql = sprintf("INSERT INTO `location` (
+            `uid` ,
+            `tid` ,
+            `lat` ,
+            `long`,
+            `area`,
+            `continent`,
+            `country`,
+            `pcode`
+        )
+        VALUES (
+            '%d','%d','%d','%s','%s','%s','%s','%s'
+        );",
+            $uid,$tid, $lat, $long, $this->db->escape($area), $this->db->escape($continent), $this->db->escape($country), $this->db->escape($pcode)
+        );
+        $this->db->query($sql);
+    }
+
+    function getLocation ($uid)
+    {
+        $sql = sprintf("SELECT * FROM location WHERE uid = %d;", $uid);
+        return $this->db->get($sql);
+    }
 //* #Notes   -------------------------------------------------- */
     function insertNote($uid,$tid,$note,$date)
     {
@@ -32,9 +59,11 @@ Table of Contents
         return $this->db->get($sql);
     }
 
-    function insertCatch($tid,$species,$lbs,$oz,$ft,$ins,$released,$image,$date)
+//* #Catch   -------------------------------------------------- */
+    function insertCatch($uid,$tid,$species,$lbs,$oz,$ft,$ins,$released,$image,$date)
     {
         $sql = sprintf("INSERT INTO `catch` (
+            `uid` ,
             `tid` ,
             `species`,
             `lbs`,
@@ -46,13 +75,20 @@ Table of Contents
             `date`
         )
         VALUES (
-            '%d','%s','%d','%d','%d','%d','%d','%d','%d'
+            '%d','%d','%s','%d','%d','%d','%d','%d','%d','%d'
         );",
-            $tid,$this->db->escape($species),$lbs,$oz,$ft,$ins,$released,$image,$date
+            $uid, $tid,$this->db->escape($species),$lbs,$oz,$ft,$ins,$released,$image,$date
         );
         $this->db->query($sql);
     }
 
+    function getCatches ($uid)
+    {
+        $sql = sprintf("SELECT * FROM catch WHERE uid = %d ORDER BY ID DESC;", $uid);
+        return $this->db->get($sql);
+    }
+
+//* #Trips   -------------------------------------------------- */
     function insertTrip(
                 $uid,
                 $name,
@@ -114,5 +150,11 @@ Table of Contents
             $waveperiod
         );
         $this->db->query($sql);
+    }
+
+    function getTrips ($uid)
+    {
+        $sql = sprintf("SELECT * FROM trip WHERE uid = %d ORDER BY date DESC;", $uid);
+        return $this->db->get($sql);
     }
 }

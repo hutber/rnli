@@ -24,13 +24,28 @@ class login extends Controller {
 					$messages['message'] = "Email or Password Incorrect";
 					$messages['code'] = 0;
 				}else {
+					//DB init
+					require_once $_SERVER['DOCUMENT_ROOT'] . '/db/db.php';
+					$db = new DB();
+					require_once $_SERVER['DOCUMENT_ROOT'] . '/db/types/DBtrip.php';
+					$dataStore = new DBtrip($db);
+
 					//grab all details from the get stats function
 					$messages = $checkDetails;
+
+					//all previous info items
 					$messages['contacts'] = $this->login->getUsersContacts($checkDetails['uid']);
+					$messages['catch'] = $dataStore->getCatches($checkDetails['uid']);
+					$messages['trips'] = $dataStore->getTrips($checkDetails['uid']);
+					$messages['notes'] = $dataStore->getNotes($checkDetails['uid']);
+					$messages['trips'] = $dataStore->getLocation($checkDetails['uid']);
+
+
 					//add security field
 					$messages['token'] = $this->login->createToken($checkDetails, 3600 * 24 * 30);
 				}
 			}
+			header('Content-Type: application/javascript');
 			print json_encode($messages);
 		}
 	}

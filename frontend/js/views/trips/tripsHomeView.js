@@ -7,10 +7,11 @@ module.exports = RN.glb.gvCreator.extend({
 		home: require('../../../views/trips/tripsHome.jade'),
 	},
 	events: {
-		'click .addtrip': 'jamie',
+		'click .tripHomeBox': 'moveToTrip',
 	},
-	jamie : function(ev){
+	moveToTrip : function(ev){
 		var ev = $(ev.currentTarget);
+		c(ev);
 	},
 	render: function () {
 		//load data in ejs

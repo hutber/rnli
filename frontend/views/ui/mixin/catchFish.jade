@@ -1,15 +1,15 @@
 mixin catchFish(data)
-   - c(data.data);
+   - c(data);
    - data.attr = data.attr || {}
    .box.catchfishbox&attributes(data.attr)
       .image
          img(src='img/about.jpg')
       .text
-         h3 #{data.data.species}
+         h3 #{data.species}
          .item W
-            span #{data.data.weight1}lb #{data.data.weight2}oz
+            span #{data.weight1}lb #{data.weight2}oz
          .item L
-            span #{data.data.height1}ft #{data.data.height2}in
+            span #{data.height1}ft #{data.height2}in
       .icon
          i(class='icon-minus')
          i(class='icon-plus')

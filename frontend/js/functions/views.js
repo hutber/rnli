@@ -110,9 +110,15 @@ module.exports = function (){
 		 Catch Log
 		 ================================================== */
 		,{
+			name: 'previousCatchView',
+			path: require('../views/catch/previousCatchView'),
+			url: 'previouscatch',
+			title: 'TOTAL CATCH LOG'
+		}
+		,{
 			name: 'catchView',
 			path: require('../views/trips/catch/catchView'),
-			url: 'catch',
+			url: 'tripcatch',
 			title: 'TRIP CATCH LOG'
 		}
 		,{

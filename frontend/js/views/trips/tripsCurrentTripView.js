@@ -63,111 +63,116 @@ module.exports = RN.glb.gvCreator.extend({
 				currentLocationData = data;
 			});
 		}
-		if(currentLocationData.weather[0].Wh > 3){
-			currentLocationData['notsafe'] = 'danger';
-		}
-		//load data in ejs
-		self.$el.html(self.templates.home(currentLocationData));
-		if(typeof currentLocationData.weather === typeof undefined || currentLocationData.weather === null){
-			c('nothing to get');
-		}else {
-			var styles = [
-				{
-					"featureType": "administrative",
-					"elementType": "labels.text.fill",
-					"stylers": [
-						{
-							"color": "#444444"
-						}
-					]
-				},
-				{
-					"featureType": "landscape",
-					"elementType": "all",
-					"stylers": [
-						{
-							"color": "#f2f2f2"
-						}
-					]
-				},
-				{
-					"featureType": "poi",
-					"elementType": "all",
-					"stylers": [
-						{
-							"visibility": "off"
-						}
-					]
-				},
-				{
-					"featureType": "road",
-					"elementType": "all",
-					"stylers": [
-						{
-							"saturation": -100
-						},
-						{
-							"lightness": 45
-						}
-					]
-				},
-				{
-					"featureType": "road.highway",
-					"elementType": "all",
-					"stylers": [
-						{
-							"visibility": "simplified"
-						}
-					]
-				},
-				{
-					"featureType": "road.arterial",
-					"elementType": "labels.icon",
-					"stylers": [
-						{
-							"visibility": "off"
-						}
-					]
-				},
-				{
-					"featureType": "transit",
-					"elementType": "all",
-					"stylers": [
-						{
-							"visibility": "off"
-						}
-					]
-				},
-				{
-					"featureType": "water",
-					"elementType": "all",
-					"stylers": [
-						{
-							"color": "#a5ddf0"
-						},
-						{
-							"visibility": "on"
-						}
-					]
-				}
-				],
-				styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"}),
-				myLatlng = new google.maps.LatLng(cords.lat, cords.long),
-				mapOptions = {
-					zoom: 9,
-					center: myLatlng,
-					disableDefaultUI: true
-				};
-			var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-			//Associate the styled map with the MapTypeId and set it to display.
-			map.mapTypes.set('map_style', styledMap);
-			map.setMapTypeId('map_style');
-			var marker = new google.maps.Marker({
-				position: myLatlng,
-				map: map
-			});
+		if(currentLocationData === 'null'){
+			RN.router.navigate('createtrip ', true);
+		}else {
+			if (currentLocationData.weather[0].Wh > 3) {
+				currentLocationData['notsafe'] = 'danger';
+			}
+			//load data in ejs
+			self.$el.html(self.templates.home(currentLocationData));
+			if (typeof currentLocationData.weather === typeof undefined || currentLocationData.weather === null) {
+				c('nothing to get');
+			} else {
+				var styles = [
+						{
+							"featureType": "administrative",
+							"elementType": "labels.text.fill",
+							"stylers": [
+								{
+									"color": "#444444"
+								}
+							]
+						},
+						{
+							"featureType": "landscape",
+							"elementType": "all",
+							"stylers": [
+								{
+									"color": "#f2f2f2"
+								}
+							]
+						},
+						{
+							"featureType": "poi",
+							"elementType": "all",
+							"stylers": [
+								{
+									"visibility": "off"
+								}
+							]
+						},
+						{
+							"featureType": "road",
+							"elementType": "all",
+							"stylers": [
+								{
+									"saturation": -100
+								},
+								{
+									"lightness": 45
+								}
+							]
+						},
+						{
+							"featureType": "road.highway",
+							"elementType": "all",
+							"stylers": [
+								{
+									"visibility": "simplified"
+								}
+							]
+						},
+						{
+							"featureType": "road.arterial",
+							"elementType": "labels.icon",
+							"stylers": [
+								{
+									"visibility": "off"
+								}
+							]
+						},
+						{
+							"featureType": "transit",
+							"elementType": "all",
+							"stylers": [
+								{
+									"visibility": "off"
+								}
+							]
+						},
+						{
+							"featureType": "water",
+							"elementType": "all",
+							"stylers": [
+								{
+									"color": "#a5ddf0"
+								},
+								{
+									"visibility": "on"
+								}
+							]
+						}
+					],
+					styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"}),
+					myLatlng = new google.maps.LatLng(cords.lat, cords.long),
+					mapOptions = {
+						zoom: 9,
+						center: myLatlng,
+						disableDefaultUI: true
+					};
+				var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+				//Associate the styled map with the MapTypeId and set it to display.
+				map.mapTypes.set('map_style', styledMap);
+				map.setMapTypeId('map_style');
+				var marker = new google.maps.Marker({
+					position: myLatlng,
+					map: map
+				});
+			}
+			this.close();
 		}
-		this.close();
 	}
 });

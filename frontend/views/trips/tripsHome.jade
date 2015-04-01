@@ -1,1 +1,4 @@
 include ../mixins
+if RN.trips.get('trips') !== null
+    each val, index in RN.trips.get('trips')
+        +tripBox(val)

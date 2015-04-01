@@ -10,7 +10,7 @@ module.exports = {
 		if (reload) {
 			location.reload();
 		} else {
-			window.location.href = "#home";
+			RN.router.navigate('home', true);
 		}
 	},
 	doLogin: {
@@ -58,6 +58,8 @@ module.exports = {
 		localStorage.email = data.email;
 		localStorage.version = data.version;
 		localStorage.contacts = JSON.stringify(data.contacts);
+		localStorage.catch = JSON.stringify(data.catch);
+		localStorage.trips = JSON.stringify(data.trips);
 	},
 	restoreUserFromLocalStorage : function(data){
 		var userDataToLoad = {},
@@ -73,7 +75,9 @@ module.exports = {
 				token: localStorage.token,
 				uid: localStorage.uid,
 				version: localStorage.version,
-				contacts: localStorage.contacts
+				contacts: localStorage.contacts,
+				catch: localStorage.catch,
+				trips: localStorage.trips
 			});
             checker = true;
         //do this on login
@@ -85,7 +89,9 @@ module.exports = {
 				token: data.token,
 				uid: data.uid,
 				version: data.version,
-				contacts: data.contacts
+				contacts: data.contacts,
+		        catch: data.catch,
+		        trips: data.trips
 			};
             checker = true;
 		}
@@ -93,6 +99,7 @@ module.exports = {
         if(checker) {
             //Add data to user and a trip
             RN.user = new RN.mdl.user(userDataToLoad);
+            RN.trips = new RN.mdl.trips(userDataToLoad.trips);
             RN.currentTrip = new RN.mdl.currentTrip();
             //backup again to local storage
             RN.fnc.login.saveLoginDataToLocalStorage(userDataToLoad);
@@ -155,14 +162,14 @@ module.exports = {
 		}
 
 		if (loggedInState && logInOrOutChecker) {
-			window.location.href = "#home";
+			RN.router.navigate('home', true);
 		} else if (!loggedInState && !logInOrOutChecker) {
-			document.location.replace('#login');
+			RN.router.navigate('', true);
 		}
 	},
 	doLogOut: function(){
 		localStorage.clear();
-		document.location.replace('');
+		RN.router.navigate('', true);
 		return false;
 	}
 }

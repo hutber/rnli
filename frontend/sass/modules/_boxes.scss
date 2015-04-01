@@ -104,9 +104,10 @@
 	}
 }
 ///* #Catch Fish Box ------------------------------------------------------------------------ */
-.catchfishbox {
+.catchfishbox,.tripHomeBox {
 	@include clear;
 	padding: 1px 0 0;
+	border-bottom: 2px solid #FFF;
 	background: #FFF;
 	text-align: left;
 	height: 100px;
@@ -114,7 +115,7 @@
 		text-align: left;
 		margin: 4px 0 10px;
 	}
-	&:nth-child(3n) {
+	&:nth-child(2n) {
 		background: inherit;
 		&:hover, &:active {
 			background: inherit;

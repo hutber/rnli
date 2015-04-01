@@ -1276,62 +1276,63 @@ input[type=checkbox] {
     font-size: 1.3rem;
     padding: 0 0 5px; }
 
-.catchfishbox {
+.catchfishbox, .tripHomeBox {
   overflow: hidden;
   padding: 1px 0 0;
+  border-bottom: 2px solid #FFF;
   background: #FFF;
   text-align: left;
   height: 100px; }
-  .catchfishbox h3 {
+  .catchfishbox h3, .tripHomeBox h3 {
     text-align: left;
     margin: 4px 0 10px; }
-  .catchfishbox:nth-child(3n) {
+  .catchfishbox:nth-child(2n), .tripHomeBox:nth-child(2n) {
     background: inherit; }
-    .catchfishbox:nth-child(3n):hover, .catchfishbox:nth-child(3n):active {
+    .catchfishbox:nth-child(2n):hover, .catchfishbox:nth-child(2n):active, .tripHomeBox:nth-child(2n):hover, .tripHomeBox:nth-child(2n):active {
       background: inherit; }
-  .catchfishbox .image {
+  .catchfishbox .image, .tripHomeBox .image {
     width: 32.20339%;
     float: left;
     margin-right: 1.69492%;
     overflow: hidden; }
-    .catchfishbox .image img {
+    .catchfishbox .image img, .tripHomeBox .image img {
       height: 100%; }
-  .catchfishbox .text {
+  .catchfishbox .text, .tripHomeBox .text {
     padding: 10px;
     text-transform: uppercase;
     font-family: din, "Lucida Grande", sans-serif;
     width: 49.15254%;
     float: left;
     margin-right: 1.69492%; }
-    .catchfishbox .text .item {
+    .catchfishbox .text .item, .tripHomeBox .text .item {
       padding: 0 0 5px; }
-    .catchfishbox .text span {
+    .catchfishbox .text span, .tripHomeBox .text span {
       width: 120px;
       display: inline-block;
       color: #002664;
       float: right; }
-  .catchfishbox .icon {
+  .catchfishbox .icon, .tripHomeBox .icon {
     font-size: 2.4rem;
     width: 15.25424%;
     float: right;
     margin-right: 0;
     height: 100%; }
-    .catchfishbox .icon i {
+    .catchfishbox .icon i, .tripHomeBox .icon i {
       position: relative;
       top: 27%;
       -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
       transform: translateY(-50%); }
-    .catchfishbox .icon .icon-minus {
+    .catchfishbox .icon .icon-minus, .tripHomeBox .icon .icon-minus {
       display: none;
       visibility: hidden; }
-  .catchfishbox.down {
+  .catchfishbox.down, .tripHomeBox.down {
     background: inherit; }
-    .catchfishbox.down .icon-minus {
+    .catchfishbox.down .icon-minus, .tripHomeBox.down .icon-minus {
       display: block;
       visibility: visible;
       top: 50%; }
-    .catchfishbox.down .icon-plus {
+    .catchfishbox.down .icon-plus, .tripHomeBox.down .icon-plus {
       display: none;
       visibility: hidden; }
 
@@ -2118,6 +2119,37 @@ Table of Contents
       background: #002664;
       color: #FFF; }
 
+.previouscatch .catchsortby {
+  text-align: center;
+  background: #28243b;
+  overflow: hidden; }
+  .previouscatch .catchsortby span {
+    line-height: 1.5rem;
+    color: #FFF;
+    font-family: din, "Lucida Grande", sans-serif; }
+  .previouscatch .catchsortby .sortoptions {
+    border-radius: 4px;
+    background: #FFF;
+    width: 80%;
+    margin: 0 auto;
+    border: 1px solid #FFF;
+    margin-bottom: 10px;
+    font-family: din, "Lucida Grande", sans-serif;
+    overflow: hidden; }
+    .previouscatch .catchsortby .sortoptions div {
+      line-height: 2.5rem;
+      border-radius: 4px;
+      width: 23.72881%;
+      float: left;
+      margin-right: 1.69492%; }
+      .previouscatch .catchsortby .sortoptions div:last-child {
+        width: 23.72881%;
+        float: right;
+        margin-right: 0; }
+      .previouscatch .catchsortby .sortoptions div.selected {
+        background: #28243b;
+        color: #FFF; }
+
 .currenttrip .footer, .addhazard .footer, .notes .footer, .addnotes .footer, .catch .footer, .addcatch .footer, .confirmcatch .footer {
   display: block;
   height: 65px; }
@@ -2199,7 +2231,7 @@ Table of Contents
     background: #D13924; }
   .safety .header, .safetybrowse .header {
     background: #9C1B31; }
-  .catchlog .header {
+  .previouscatch .header {
     background: #28243b; }
   .profile .header {
     background: #002664;

@@ -4,5 +4,6 @@
 'use strict';
 module.exports = {
 	user: require('./models/user')(),
-	currentTrip: require('./models/trip')(),
+	currentTrip: require('./models/currentTrip')(),
+	trips: require('./models/trips')(),
 }

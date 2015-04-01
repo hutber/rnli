@@ -11,15 +11,7 @@ module.exports = function(){
 		initialize: function(){
 			this.set(this.createDefaults())
 		},
-		saveLocal: function(type, data){
-			//create object to play with
-			var modelObject = {};
-			modelObject[type] = data;
-			//set models value
-			this.set(modelObject);
-			//set local storage for later
-			localStorage['ctrip'+type] = RN.fnc.json.convertToString(data);
-		},
+
 		createDefaults: function(data){
 			return RN.fnc.json.rebuildObject({
 				name:localStorage.ctripname,
@@ -31,6 +23,27 @@ module.exports = function(){
 				tmpcatch:localStorage.ctriptmpcatch,
 				catch:localStorage.ctripcatch,
 			})
+		},
+
+		saveLocal: function(type, data){
+			//create object to play with
+			var modelObject = {};
+			modelObject[type] = data;
+			//set models value
+			this.set(modelObject);
+			//set local storage for later
+			localStorage['ctrip'+type] = RN.fnc.json.convertToString(data);
+		},
+
+		resetData : function(){
+			c(RN.currentTrip.attributes);
+			var data = this.createDefaults();
+			Object.keys(data).forEach(function(item){
+				localStorage['ctrip'+item] = null;
+			})
+
+			this.initialize();
+			c(RN.currentTrip.attributes);
 		},
 
 		prePareDataForDB : function(){
@@ -77,7 +90,7 @@ module.exports = function(){
 
 		finaliseTrip: function(data){
 			c(data);
-
+			var self = this;
 			$.ajax({
 				url: RN.glb.url.api + 'addTrip',
 				type: 'POST',
@@ -97,8 +110,8 @@ module.exports = function(){
 					if (data.error) {
 						RN.fnc.popups.message.show(data.error, 'bad');
 					} else {
-						c(data);
-						notes.saveLocal(data);
+						self.resetData();
+						self.saveLocal(data);
 					}
 				}
 			});

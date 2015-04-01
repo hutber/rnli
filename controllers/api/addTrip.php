@@ -45,13 +45,15 @@ class addTrip extends Controller {
 
 			foreach($catch as $key => $item){
 				$catch = $item['data'];
-				$dataStore->insertCatch($tripdId,$catch['species'],$catch['weight1'],$catch['weight2'],$catch['height1'],$catch['height2'],$catch['released'],$catch['image'],$item['date']);
+				$dataStore->insertCatch($uid,$tripdId,$catch['species'],$catch['weight1'],$catch['weight2'],$catch['height1'],$catch['height2'],$catch['released'],$catch['image'],$item['date']);
 			}
 
-			
+			$dataStore->insertLocation($uid,$tripdId, $location['lat'], $location['long'], $location['area'], $location['continent'], $location['country'], $location['pcode']);
+
+			$data['catch'] = $dataStore->getCatches($uid);
 
 			header('Content-Type: application/javascript');
-			print json_encode($trip);
+			print json_encode($data);
         }
     }
 }
