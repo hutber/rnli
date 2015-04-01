@@ -11,7 +11,14 @@ module.exports = RN.glb.gvCreator.extend({
 		'submit .editForm': 'editProfileForm',
 		'click .addEcontact': 'addEcontact',
 		'click .contactdelete': 'deleteEcontact',
+		'click .addprofilephoto': 'addprofilephoto',
 	},
+
+	addprofilephoto : function(ev){
+		var ev = $(ev.currentTarget);
+		RN.fnc.popups.Dialog('In Dev', 'Photo Upload')
+	},
+
 	addEcontact : function(ev){
 		var ev = $(ev.currentTarget);
 		var ordernumber = $('.contact:last').find('.textnumber').html();

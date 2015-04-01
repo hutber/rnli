@@ -1,15 +1,15 @@
 include ../mixins
 form(action="#{RN.glb.url.ajax}users/reg", class="editForm ajax")
-    .addphoto
+    .addprofilephoto
         .photoitems
             i(class='icon-plus-circled')
             | ADD PHOTO
     h3  Peronsal Details
-    +input({place:'First name', type: 'text', name:"fname", value:'jamie'})
-    +input({place:'Surname', type: 'text', name: "sname", value:'hutber'})
-    +input({place:'Email address', type: 'text', name: "email", value:'jamie@hutber.com'})
-    +input({place:'Create password', type: 'password', name: "pw", value:'jadwiga'})
-    +input({place:'Confirm password', type: 'password', name: "cpw", value:'jadwiga'})
+    +input({place:'First name', type: 'text', name:"fname", value:RN.user.get('fname')})
+    +input({place:'Surname', type: 'text', name: "sname", value:RN.user.get('sname')})
+    +input({place:'Email address', type: 'text', name: "email", value:RN.user.get('email')})
+    +input({place:'Create password', type: 'password', name: "pw"})
+    +input({place:'Confirm password', type: 'password', name: "cpw"})
     +input({type: 'hidden', value:RN.glb.device, name:'device'})
     +input({type: 'hidden', value:RN.glb.version, name:'version'})
     h3.econtact Emergency Contacts

@@ -1707,7 +1707,7 @@ body {
 ==================================================
     #Users
 */
-.addphoto {
+.addprofilephoto {
   margin: 20px auto 35px;
   display: block;
   height: 120px;
@@ -1717,7 +1717,7 @@ body {
   position: relative;
   background: #fff;
   font-weight: bold; }
-  .addphoto .photoitems {
+  .addprofilephoto .photoitems {
     width: 100%;
     color: #002664;
     position: absolute;
@@ -1727,7 +1727,7 @@ body {
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%); }
-  .addphoto i {
+  .addprofilephoto i {
     display: block;
     margin: 5px 0; }
 

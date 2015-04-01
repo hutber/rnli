@@ -1,11 +1,11 @@
 include ../mixins
 form(action="#{RN.glb.url.ajax}users/reg", class="signupForm ajax")
     h3  Peronsal Details
-    +input({place:'First name', type: 'text', name:"fname", value:'jamie'})
-    +input({place:'Surname', type: 'text', name: "sname", value:'hutber'})
-    +input({place:'Email address', type: 'text', name: "email", value:'jamie@hutber.com'})
-    +input({place:'Create password', type: 'text', name: "pw", value:'jadwiga'})
-    +input({place:'Confirm password', type: 'text', name: "cpw", value:'jadwiga'})
+    +input({place:'First name', type: 'text', name:"fname"})
+    +input({place:'Surname', type: 'text', name: "sname"})
+    +input({place:'Email address', type: 'text', name: "email"})
+    +input({place:'Create password', type: 'text', name: "pw"})
+    +input({place:'Confirm password', type: 'text', name: "cpw"})
     +button({value:'Save', class:['signup', 'btn']})
     .termsbox
         a(href='#terms') Terms of service
