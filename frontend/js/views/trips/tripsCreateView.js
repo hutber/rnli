@@ -11,11 +11,11 @@ module.exports = RN.glb.gvCreator.extend({
 
 	events: {
 		'click #saveCreateTrip': 'save',
-		'click .yes': 'locationOn',
-		'click .no': 'locationOff',
-		'click .postboxbox': 'lookUpPostCode',
-		'keyup #createname, #createdate, #createlocation': 'readyToSave',
-		'submit .postcodeform': 'postcode'
+		'click .createnewtrip .yes': 'locationOn',
+		'click .createnewtrip .no': 'locationOff',
+		'click .createnewtrip .postboxbox': 'lookUpPostCode',
+		'keyup .createnewtrip .postcodeform': 'postcode',
+		'keyup #createname, #createdate, #createlocation': 'readyToSave'
 	},
 
 	locationOn: function(ev){

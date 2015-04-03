@@ -1915,6 +1915,25 @@ body {
   .safety .safetytips h3, .safetybrowse .safetytips h3 {
     text-align: center; }
 
+.locationSelector {
+  width: 80%;
+  margin: 0 auto;
+  border: 2px solid #002664;
+  border-radius: 3px;
+  overflow: hidden; }
+  .locationSelector > div {
+    width: 50%;
+    float: left;
+    text-align: center;
+    padding: 6px 3px;
+    line-height: 2rem;
+    cursor: pointer;
+    font-family: din, "Lucida Grande", sans-serif;
+    color: #002664; }
+    .locationSelector > div.selected {
+      background: #002664;
+      color: #FFF; }
+
 .about .header, .abouthome .header, .privacy .header, .legal .header {
   background: #002664; }
   .about .header .middle h1, .abouthome .header .middle h1, .privacy .header .middle h1, .legal .header .middle h1 {
@@ -1974,7 +1993,7 @@ Table of Contents
 .trips a.headerbutton.addtrip {
   display: block; }
 
-.catch a.headerbutton.addcatch {
+.tripcatch a.headerbutton.addcatch {
   display: block; }
 
 .addcatch a.headerbutton.nextcatch {
@@ -2176,25 +2195,6 @@ Table of Contents
 
 /*===============  Pages ===============
 ///* #Create Trip ------------------------------------------------------------------------ */
-.createtrip .locationSelector {
-  width: 80%;
-  margin: 0 auto;
-  border: 2px solid #002664;
-  border-radius: 3px;
-  overflow: hidden; }
-  .createtrip .locationSelector > div {
-    width: 50%;
-    float: left;
-    text-align: center;
-    padding: 6px 3px;
-    line-height: 2rem;
-    cursor: pointer;
-    font-family: din, "Lucida Grande", sans-serif;
-    color: #002664; }
-    .createtrip .locationSelector > div.selected {
-      background: #002664;
-      color: #FFF; }
-
 .previouscatch .catchsortby {
   text-align: center;
   background: #28243b;

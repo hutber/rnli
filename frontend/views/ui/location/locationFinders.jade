@@ -1,0 +1,10 @@
+mixin locationFinders(data)
+   .location(class=data.topClass)
+      h3 CURRENT LOCATION?
+      .locationSelector
+         .yes YES
+         .no.selected NO
+      br
+      .postcodeform
+         +input({id: 'postcode', place: 'Post Code', type: 'text', name: 'postcode', icon: 'search', autocomplete: 'off'})
+      .postcodearea

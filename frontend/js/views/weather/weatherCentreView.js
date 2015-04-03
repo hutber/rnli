@@ -10,6 +10,7 @@ module.exports = RN.glb.gvCreator.extend({
 		'submit .signupForm': 'signupForm',
 	},
 	render: function () {
+		RN.weather = new RN.mdl.weather();
 		//load data in ejs
 		this.$el.html(this.templates.home());
 	}

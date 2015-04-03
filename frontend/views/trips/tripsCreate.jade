@@ -4,12 +4,5 @@ form
     +input({place:'Choose a date', type: 'text', value:'', name:'date', id:'dateselector'})
     +input({type: 'hidden', value:'', name:'date', id:'createdate'})
     +input({type: 'hidden', value:'', name:'location', id:'createlocation'})
-    .location
-        h3 CURRENT LOCATION?
-        .locationSelector
-            .yes YES
-            .no.selected NO
-        button(disabled, id="saveCreateTrip").save.btn Save
-form.postcodeform
-    +input({id:'postcode', place:'Post Code', type: 'text', name:'postcode', icon:'search', autocomplete:'off'})
-.postcodearea
+    +locationFinders({topClass: 'createnewtrip'})
+    button(disabled, id="saveCreateTrip").save.btn Save

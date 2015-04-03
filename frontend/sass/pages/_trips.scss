@@ -34,7 +34,7 @@ Table of Contents
 		}
 	}
 
-	.catch {
+	.tripcatch {
 		a.headerbutton.addcatch {
 			display: block;
 		}
@@ -307,27 +307,6 @@ Table of Contents
 /*===============  Pages ===============
 ///* #Create Trip ------------------------------------------------------------------------ */
 .createtrip {
-	.locationSelector {
-		width: 80%;
-		margin: 0 auto;
-		border: 2px solid $mainBlue;
-		border-radius: 3px;
-		@include clear;
-		> div {
-			width: 50%;
-			float: left;
-			text-align: center;
-			padding: 6px 3px;
-			line-height: 2rem;
-			cursor: pointer;
-			font-family: $headerFont;
-			color: $mainBlue;
-			&.selected {
-				background: $mainBlue;
-				color: #FFF;
-			}
-		}
-	}
 }
 
 ///* #Catch  ------------------------------------------------------------------------ */
