@@ -161,12 +161,6 @@ module.exports = function (){
 			title: 'Contact RNLI'
 		}
 		,{
-			name: 'conservationView',
-			path: require('../views/about/conservationView'),
-			url: 'conservation',
-			title: 'About Marine Conservation Society'
-		}
-		,{
 			name: 'legalView',
 			path: require('../views/about/legalView'),
 			url: 'legal',
