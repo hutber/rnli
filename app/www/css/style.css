@@ -1896,24 +1896,24 @@ body {
   .safety .safetytips h3, .safetybrowse .safetytips h3 {
     text-align: center; }
 
-.about .header, .abouthome .header {
+.about .header, .abouthome .header, .privacy .header {
   background: #002664; }
-  .about .header .middle h1, .abouthome .header .middle h1 {
+  .about .header .middle h1, .abouthome .header .middle h1, .privacy .header .middle h1 {
     color: #ffffff; }
-.about h3, .abouthome h3 {
+.about h3, .abouthome h3, .privacy h3 {
   text-align: left;
   font-size: 1.4rem;
   line-height: 1.9rem; }
-.about p, .abouthome p {
+.about p, .abouthome p, .privacy p {
   margin: 10px 0;
   color: #002664;
   font-size: 1.3rem;
   line-height: 1.6rem; }
-.about .content, .abouthome .content {
+.about .content, .abouthome .content, .privacy .content {
   margin: 10px 7.14286%; }
-.about .urls, .abouthome .urls {
+.about .urls, .abouthome .urls, .privacy .urls {
   margin: 10px 0 0 10px; }
-  .about .urls a, .abouthome .urls a {
+  .about .urls a, .abouthome .urls a, .privacy .urls a {
     float: left;
     width: 100%;
     display: block;
