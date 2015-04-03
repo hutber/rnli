@@ -1840,6 +1840,10 @@ body {
   padding: 5px 8px 4px 7px;
   margin-bottom: 15px;
   float: left; }
+.safety .safetytips, .safetybrowse .safetytips {
+  text-align: center; }
+  .safety .safetytips h3, .safetybrowse .safetytips h3 {
+    text-align: center; }
 
 .about .header, .abouthome .header {
   background: #002664; }
