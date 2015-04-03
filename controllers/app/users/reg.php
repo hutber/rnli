@@ -24,10 +24,15 @@ class reg extends controller
 			$version = $_POST['version'];
 			$email = $_POST['email'];
 			$uid = $_POST['uid'];
+			$terms = $_POST['acc_tc'];
 			$token = $_POST['token'];
 
 			if ($pword == "") {
 				$data['error'] = 'Please set a Password';
+				$error = true;
+			}
+			if ($terms != 1) {
+				$data['error'] = 'Please Accept our Terms';
 				$error = true;
 			}
 			if ($email == "") {

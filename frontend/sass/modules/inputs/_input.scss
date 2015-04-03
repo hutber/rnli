@@ -139,8 +139,8 @@ label.error, label.error a {
 		}
 	}
 	&.error {
+		color: $danger;
 		> .input-icon, input + .input-icon, .icon-right-open, input {
-			color: $danger;
 			@include placeholder-color(darken($danger, 20%));
 		}
 	}
@@ -148,6 +148,22 @@ label.error, label.error a {
 		> .input-icon, input + .input-icon, .icon-right-open, input {
 			color: mix($grey, white, 40%);
 			background-color: mix($grey, white, 10%);
+		}
+	}
+
+	&.checkbox {
+		text-align: center;
+		margin: 15px 0;
+		input {
+			display: inline-block;
+			margin-right: gutter(12);
+			background: $border;
+			border: 1px solid $softOrange;
+			border-radius: 3px;
+			width: auto;
+		}
+		p {
+			display: inline;
 		}
 	}
 
@@ -207,6 +223,7 @@ input[type=checkbox] {
 	display: inline-block;
 	vertical-align: middle;
 	&:checked {
-		background: #000;
+		border-color: $wind;
+		background: $mainBlue;
 	}
 }

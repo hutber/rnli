@@ -24,10 +24,16 @@ module.exports = RN.glb.gvCreator.extend({
 		Object.keys(values).forEach(function(item){
 			var element = values[item];
 			if(element.length===0){
-				$('input[name='+item+'], select[name='+item+']').parent().addClass('error');
+				$('.signupForm input[name='+item+'],.signupForm select[name='+item+']').parent().addClass('error');
 				noerror = false;
 			}
 		});
+
+
+		if(!$('.signupForm .checkbox input').is(':checked')) {
+			$('.signupForm .checkbox').addClass('error');
+			noerror = false;
+		}
 
 		if(this.validateEmail(values.email)!==true && values.email.length>0){
 			RN.fnc.popups.Dialog('Email Address', 'Please enter a valid email address');

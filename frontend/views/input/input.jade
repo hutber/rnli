@@ -1,9 +1,11 @@
 mixin input(data)
     - data.type = data.type || 'text';
     - var iconClass = data.icon || 'right-open';
-    .control-group
+    .control-group(class= data.labelClass)
         - var icon = true;
-        - if (data.plain === "plain" || data.type === "hidden" || data.type === "radio"){icon = false;}
+        - if (data.plain === "plain" || data.labelClass === "checkbox" || data.type === "hidden" || data.type === "radio"){icon = false;}
         if icon
             div(class="icon-#{iconClass}")
         input(id= data.id, placeholder= data.place, type= data.type, name=data.name, value=data.value, class= data.class, checked=data.checked, autocomplete=data.autocomplete)
+        if(data.text)
+           label(for= data.id)= data.text

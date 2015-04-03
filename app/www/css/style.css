@@ -956,7 +956,7 @@ label.error, label.error a {
     color: #86C555; }
   .control-group.warning > .input-icon, .control-group.warning input + .input-icon, .control-group.warning .icon-right-open, .control-group.warning input, .box.warning > .input-icon, .box.warning input + .input-icon, .box.warning .icon-right-open, .box.warning input {
     color: #f1c40f; }
-  .control-group.error > .input-icon, .control-group.error input + .input-icon, .control-group.error .icon-right-open, .control-group.error input, .box.error > .input-icon, .box.error input + .input-icon, .box.error .icon-right-open, .box.error input {
+  .control-group.error, .box.error {
     color: #e74c3c; }
     .control-group.error > .input-icon:-moz-placeholder, .control-group.error input + .input-icon:-moz-placeholder, .control-group.error .icon-right-open:-moz-placeholder, .control-group.error input:-moz-placeholder, .box.error > .input-icon:-moz-placeholder, .box.error input + .input-icon:-moz-placeholder, .box.error .icon-right-open:-moz-placeholder, .box.error input:-moz-placeholder {
       color: #a82315; }
@@ -967,6 +967,18 @@ label.error, label.error a {
   .control-group.disabled > .input-icon, .control-group.disabled input + .input-icon, .control-group.disabled .icon-right-open, .control-group.disabled input, .box.disabled > .input-icon, .box.disabled input + .input-icon, .box.disabled .icon-right-open, .box.disabled input {
     color: #d3d5d7;
     background-color: #f4f4f5; }
+  .control-group.checkbox, .box.checkbox {
+    text-align: center;
+    margin: 15px 0; }
+    .control-group.checkbox input, .box.checkbox input {
+      display: inline-block;
+      margin-right: 1.69492%;
+      background: #D7D5CF;
+      border: 1px solid #F1835B;
+      border-radius: 3px;
+      width: auto; }
+    .control-group.checkbox p, .box.checkbox p {
+      display: inline; }
 
 input[disabled], textarea[disabled], select[disabled], textarea[readonly] {
   background-color: #f4f4f5;
@@ -1006,7 +1018,8 @@ input[type=checkbox] {
   display: inline-block;
   vertical-align: middle; }
   input[type=checkbox]:checked {
-    background: #000; }
+    border-color: #005DC5;
+    background: #002664; }
 
 .btn, .btn-group > .btn, .btn-group > .dropdown-menu, .btn-group > .popover {
   font-size: 17.136px;
