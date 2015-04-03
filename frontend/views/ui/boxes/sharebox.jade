@@ -1,11 +1,12 @@
 mixin sharebox(data, options)
-   .sharebox
+   h3 SHARE
+   .sharebox(class=data.classes)
       .facebook
          .bg
             i(class='icon-facebook')
-      .twitter
+      a(href='https://twitter.com/intent/tweet?text=We%20Love%20RNLI%20App&url=http%3A%2F%2Frnli.mayfieldafc.com', target="_blank").twitter
          .bg
             i(class='icon-twitter')
-      .mail
+      a(href='mailto:?body=Download the RNLI app, its great. %%LINK%%&subject=We Love RNLI').mail
          .bg
             i(class='icon-email')

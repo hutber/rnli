@@ -32,7 +32,7 @@
 	margin: 0 auto;
 	text-align: center;
 	@include clear;
-	> div {
+	> div, a {
 		text-align: center;
 		margin: 0 auto;
 		@include span (3 of 9);

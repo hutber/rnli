@@ -7,8 +7,20 @@ module.exports = RN.glb.gvCreator.extend({
 		home: require('../../../views/about/share.jade'),
 	},
 	events: {
-		'submit .signupForm': 'signupForm',
+		'click .aboutshare .facebook': 'facebook',
 	},
+
+	facebook : function(ev){
+		var ev = $(ev.currentTarget);
+
+		FB.ui({
+			method: 'share',
+			href: 'http://rnli.mayfieldafc.com/app/www/'
+		}, function(data){
+			c(data);
+		});
+	},
+
 	render: function () {
 		//load data in ejs
 		this.$el.html(this.templates.home());
