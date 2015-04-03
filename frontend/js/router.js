@@ -40,9 +40,6 @@ var Router = Backbone.Router.extend({
 		// #About ---------------------------------------------------- /
 		'abouthome': 'abouthome',
 		'about': 'about',
-		'donate': 'donate',
-		'contact': 'contact',
-		'conservation': 'conservation',
 		'legal': 'legal',
 		'rate': 'rate',
 		'share': 'share',

@@ -589,6 +589,22 @@ table {
   content: '\e867'; }
 
 /* '' */
+.icon-info-circled-alt:before {
+  content: '\e868'; }
+
+/* '' */
+.icon-twitter:before {
+  content: '\e86d'; }
+
+/* '' */
+.icon-facebook:before {
+  content: '\e86e'; }
+
+/* '' */
+.icon-email:before {
+  content: '\e86f'; }
+
+/* '' */
 .test {
   -moz-transform: skew(25deg, 10deg);
   -o-transform: skew(25deg, 10deg);
@@ -1213,6 +1229,41 @@ input[type=checkbox] {
     padding: 20px;
     border: dashed 2px #002664;
     display: block; }
+
+.sharebox {
+  padding: 3.44828% 1.69492%;
+  margin: 0 auto;
+  text-align: center;
+  overflow: hidden; }
+  .sharebox > div {
+    text-align: center;
+    margin: 0 auto;
+    width: 31.81818%;
+    float: left;
+    margin-right: 2.27273%; }
+    .sharebox > div:last-child {
+      width: 31.81818%;
+      float: right;
+      margin-right: 0; }
+    .sharebox > div.twitter .bg {
+      background: #2DAAE1; }
+    .sharebox > div.mail .bg {
+      background: #669C41; }
+    .sharebox > div .bg {
+      height: 70px;
+      width: 70px;
+      margin: 0 auto;
+      background: #3B5B9B;
+      position: relative; }
+      .sharebox > div .bg i {
+        color: #FFF;
+        font-size: 2rem; }
+        .sharebox > div .bg i:before {
+          position: relative;
+          top: 50%;
+          -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          transform: translateY(-50%); }
 
 .box.white, .plusbox.white {
   background: #fff; }

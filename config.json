@@ -637,10 +637,34 @@
       "src": "meteocons"
     },
     {
+      "uid": "15ba51cbb4d05e6fb88f03a31a7c711c",
+      "css": "info-circled-alt",
+      "code": 59496,
+      "src": "mfglabs"
+    },
+    {
       "uid": "a6267a0b7262e1deffcc83076bc0e197",
       "css": "trash",
       "code": 59428,
       "src": "mfglabs"
+    },
+    {
+      "uid": "b1ec8e90c2c85cf0035849980a3789b3",
+      "css": "twitter",
+      "code": 59501,
+      "src": "zocial"
+    },
+    {
+      "uid": "a58032f4aafd0eec54803075f5b320d4",
+      "css": "email",
+      "code": 59503,
+      "src": "zocial"
+    },
+    {
+      "uid": "6f7586c6f99798c3c1de6123d1f6cfa9",
+      "css": "facebook",
+      "code": 59502,
+      "src": "zocial"
     },
     {
       "uid": "64abb7c56aefca89046bb69f7251d2e2",

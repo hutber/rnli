@@ -149,18 +149,6 @@ module.exports = function (){
 			title: 'ABOUT'
 		}
 		,{
-			name: 'donateView',
-			path: require('../views/about/donateView'),
-			url: 'donate',
-			title: 'Donate'
-		}
-		,{
-			name: 'contactView',
-			path: require('../views/about/contactView'),
-			url: 'contact',
-			title: 'Contact RNLI'
-		}
-		,{
 			name: 'legalView',
 			path: require('../views/about/legalView'),
 			url: 'legal',

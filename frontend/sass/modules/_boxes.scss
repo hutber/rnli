@@ -26,6 +26,42 @@
 	}
 }
 
+///* #Share Boxes ------------------------------------------------------------------------ */
+.sharebox {
+	padding: gutter(6) gutter(12);
+	margin: 0 auto;
+	text-align: center;
+	@include clear;
+	> div {
+		text-align: center;
+		margin: 0 auto;
+		@include span (3 of 9);
+		&:last-child {
+			@include span(3 of 9 last);
+		}
+		&.twitter .bg {
+			background: $twitter;
+		}
+		&.mail .bg {
+			background: $email;
+		}
+		.bg {
+			height: 70px;
+			width: 70px;
+			margin: 0 auto;
+			background: $facebook;
+			position: relative;
+			i {
+				color: #FFF;
+				font-size: 2rem;
+				&:before {
+					@include valign;
+				}
+			}
+		}
+	}
+}
+
 ///* #Plus Boxes ------------------------------------------------------------------------ */
 .box, .plusbox {
 	&.white {
