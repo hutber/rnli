@@ -67,6 +67,9 @@
 		font-family: $headerFont;
 	}
 	ol {
+		margin: 0;
+		padding: 0;
+		text-align: left;
 		border-bottom: 1px solid $border;
 		padding-bottom: 10px;
 	}
@@ -74,6 +77,7 @@
 		padding: 10px;
 		font-size: 1.1rem;
 		color: $mainBlue;
+		list-style: none;
 		counter-increment: step-counter;
 	}
 	li::before {

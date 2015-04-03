@@ -5,6 +5,17 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
+/* Table of Contents
+==================================================
+    #Base
+      #Greys
+    #Links
+    #Warnings
+    #Borders
+*/
+/* Pages
+==================================================
+*/
 /*
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -35,9 +46,11 @@ body {
   line-height: 1; }
 
 ol, ul {
-  list-style: none;
-  margin: 0;
-  padding: 0; }
+  margin: 0; }
+
+li {
+  font-size: 1.1rem;
+  color: #002664; }
 
 blockquote, q {
   quotes: none; }
@@ -623,17 +636,6 @@ table {
   right: 25%;
   background-color: rgba(20, 20, 20, 0.5); }
 
-/* Table of Contents
-==================================================
-    #Base
-      #Greys
-    #Links
-    #Warnings
-    #Borders
-*/
-/* Pages
-==================================================
-*/
 /* Table of Contents
 ==================================================
 		#Imported Fonts
@@ -1872,12 +1874,16 @@ body {
   color: #002664;
   font-family: din, "Lucida Grande", sans-serif; }
 .safety ol, .safetybrowse ol {
+  margin: 0;
+  padding: 0;
+  text-align: left;
   border-bottom: 1px solid #D7D5CF;
   padding-bottom: 10px; }
 .safety li, .safetybrowse li {
   padding: 10px;
   font-size: 1.1rem;
   color: #002664;
+  list-style: none;
   counter-increment: step-counter; }
 .safety li::before, .safetybrowse li::before {
   content: counter(step-counter);
@@ -1921,6 +1927,8 @@ body {
     margin: 5px 0 5px 5px;
     border-bottom: 1px solid #DDD;
     text-decoration: none; }
+.about li, .abouthome li, .privacy li {
+  padding: 10px 0; }
 
 .abouthome .content {
   margin: 0; }
