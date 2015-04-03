@@ -1902,24 +1902,24 @@ body {
   .safety .safetytips h3, .safetybrowse .safetytips h3 {
     text-align: center; }
 
-.about .header, .abouthome .header, .privacy .header {
+.about .header, .abouthome .header, .privacy .header, .legal .header {
   background: #002664; }
-  .about .header .middle h1, .abouthome .header .middle h1, .privacy .header .middle h1 {
+  .about .header .middle h1, .abouthome .header .middle h1, .privacy .header .middle h1, .legal .header .middle h1 {
     color: #ffffff; }
-.about h3, .abouthome h3, .privacy h3 {
+.about .content, .abouthome .content, .privacy .content, .legal .content {
+  padding: 10px 7.14286%; }
+.about h3, .abouthome h3, .privacy h3, .legal h3 {
   text-align: left;
   font-size: 1.4rem;
   line-height: 1.9rem; }
-.about p, .abouthome p, .privacy p {
+.about p, .abouthome p, .privacy p, .legal p {
   margin: 10px 0;
   color: #002664;
   font-size: 1.3rem;
   line-height: 1.6rem; }
-.about .content, .abouthome .content, .privacy .content {
-  margin: 10px 7.14286%; }
-.about .urls, .abouthome .urls, .privacy .urls {
+.about .urls, .abouthome .urls, .privacy .urls, .legal .urls {
   margin: 10px 0 0 10px; }
-  .about .urls a, .abouthome .urls a, .privacy .urls a {
+  .about .urls a, .abouthome .urls a, .privacy .urls a, .legal .urls a {
     float: left;
     width: 100%;
     display: block;
@@ -1927,7 +1927,7 @@ body {
     margin: 5px 0 5px 5px;
     border-bottom: 1px solid #DDD;
     text-decoration: none; }
-.about li, .abouthome li, .privacy li {
+.about li, .abouthome li, .privacy li, .legal li {
   padding: 10px 0; }
 
 .abouthome .content {

@@ -5,6 +5,9 @@
 			color: #ffffff;
 		}
 	}
+	.content {
+		padding: 10px gutter(3);
+	}
 	h3 {
 		text-align: left;
 		font-size: 1.4rem;
@@ -15,9 +18,6 @@
 		color: $mainBlue;
 		font-size: 1.3rem;
 		line-height: 1.6rem;
-	}
-	.content {
-		margin: 10px gutter(3);
 	}
 	.urls {
 		margin: 10px 0 0 10px;
