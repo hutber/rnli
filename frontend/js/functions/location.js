@@ -39,11 +39,12 @@ module.exports = function(){
 		var self = this;
 		location.lookUp(function(data){
 				location.getClosestLocation(data.coords.latitude, data.coords.longitude, function(data){
-					c(data);
 					callback(data);
+					RN.fnc.popups.spinner.hide();
 				})
 			},
 			function(data){
+				RN.fnc.popups.spinner.hide();
 				RN.fnc.popups.message.show('Please make sure your GPS is turned on and try again', 'bad')
 			});
 	};
@@ -52,10 +53,8 @@ module.exports = function(){
 		RN.fnc.popups.spinner.show('Looking up location', true)
 		navigator.geolocation.getCurrentPosition(function(details){
 			success(details);
-			RN.fnc.popups.spinner.hide();
 		}, function(details){
 			failed(details);
-			RN.fnc.popups.spinner.hide();
 		});
 	};
 	return location;

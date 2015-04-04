@@ -74,11 +74,9 @@ module.exports = RN.glb.gvCreator.extend({
 				if (currentLocationData.weather[0].Wh > 3) {
 					currentLocationData['notsafe'] = 'danger';
 				}
-				//load data in ejs
+				//load in view with data
 				self.$el.html(self.templates.home(currentLocationData));
-				if (typeof currentLocationData.weather === typeof undefined || currentLocationData.weather === null) {
-					c('nothing to get');
-				} else {
+				if (typeof currentLocationData.weather !== typeof undefined || currentLocationData.weather !== null) {
 					var styles = [
 							{
 								"featureType": "administrative",

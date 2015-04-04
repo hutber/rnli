@@ -302,6 +302,11 @@ Table of Contents
 			}
 		}
 	}
+	.weather & {
+		.tripControls, .gpscontrols {
+			display: none;
+		}
+	}
 }
 
 /*===============  Pages ===============

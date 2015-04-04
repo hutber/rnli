@@ -1684,7 +1684,8 @@ body {
   width: 100%;
   color: #FFF;
   text-transform: uppercase;
-  position: relative; }
+  position: relative;
+  z-index: 9; }
   .header .left {
     font-size: 2rem;
     height: 100%;
@@ -2207,6 +2208,8 @@ Table of Contents
       font-size: 1.2rem;
       padding-left: 2px;
       font-family: arial, helvetica, sans-serif; }
+.weather .tripMap .tripControls, .weather .tripMap .gpscontrols {
+  display: none; }
 
 /*===============  Pages ===============
 ///* #Create Trip ------------------------------------------------------------------------ */

@@ -17,13 +17,25 @@ module.exports = RN.glb.gvCreator.extend({
 	},
 
 	getForcast : function(ev){
-		var ev = $(ev.currentTarget);
+		var ev = $(ev.currentTarget),
+			self = this;
 
 		RN.weather.getThreeHour(RN.weather.get('location').latitude, RN.weather.get('location').longitude, function(data){
-			var todaysWeather = function(){
-				
-			}();
-			//$('.weatherinfo').html(this.templates.weatherinfo())
+			var currentValue = $('select').val(),
+				todaysWeather;
+
+			$.each(data.weather, function(val, item){
+				if(item.value===currentValue){
+					todaysWeather = item;
+				};
+			});
+			$('.weatherinfo').html(self.templates.weatherinfo({
+					currentWeather: todaysWeather.Rep[0],
+					weatherKey: data.key
+				})
+			);
+			RN.fnc.popups.spinner.hide();
+			$('.slideAreaAeather').slideUp();
 		});
 	},
 
@@ -34,14 +46,14 @@ module.exports = RN.glb.gvCreator.extend({
 		ev.addClass('selected')
 		var tripData = RN.fnc.location.lookUp(function(returnData){
 				RN.weather.setLocation(returnData.coords);
-c(RN.weather.get('location'));
+
 				//display getforcast
 				$('.getforcast').show();
 
 				//Reset Postcode
 				$('.postcodearea').empty();
+				RN.fnc.popups.spinner.hide();
 				document.getElementById('postcode').value = '';
-				$('#postcode').removeClass('success');
 			},function(){
 				RN.fnc.popups.message.show('Please make sure your GPS is turned on and try again', 'bad')
 			}
@@ -83,14 +95,12 @@ c(RN.weather.get('location'));
 			currentPostCodeData = RN.weather.get('postcode'),
 			self = this;
 
-		//remove success
 		$('.postboxbox').removeClass('selected');
-		$('#postcode').addClass('success');
 		ev.addClass('selected');
 
 		//set location
 		RN.weather.setLocation(currentPostCodeData[ev.index()]);
-c(RN.weather.get('location'));
+
 		self.locationOff();
 		$('.getforcast').show();
 	},

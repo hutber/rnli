@@ -41,6 +41,7 @@ module.exports = function(){
 				},
 				success: function (data) {
 					callBack(data);
+					RN.fnc.popups.spinner.hide();
 				}
 			});
 		},

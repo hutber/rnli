@@ -3,7 +3,7 @@ include ../mixins
 -  var returnData = {};
 -  for(var i = 0; i < 5; i++) {
 -     returnData[i] = {
--         value: moment(moment().add(i, 'days')).format("YYYY-MM-DD"),
+-         value: moment(moment().add(i, 'days')).format("YYYY-MM-DD")+'Z',
 -         text: moment(moment().add(i, 'days')).format("DD MMMM YYYY")
 -     };
 -  }
@@ -16,6 +16,7 @@ include ../mixins
    options: dates,
    class: ['dateselector']
 })
-+locationFinders({topClass: 'weathercentre'})
+.slideAreaAeather
+   +locationFinders({topClass: 'weathercentre'})
 +box({class:'large plain getforcast', text:'GET FORCAST'})
 .weatherinfo

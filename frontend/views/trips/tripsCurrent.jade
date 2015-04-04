@@ -3,6 +3,7 @@ if area
     - var newLat = lat.substr(0, 5), newLong = long.substr(0, 5);
     - var currentDay = moment(RN.currentTrip.get('date')[1]).format('dddd') || null;
     - var currentWeather = weather[0];
+    - var weatherKey = weather;
     .tripMap
         .underHeader
             .tripbox
@@ -31,7 +32,7 @@ if area
                     i(class='icon-zoom-in-outline')
                     | ENLARGE
             div(id="map-canvas", style="width:100%; height:170px;")
-        +tripInfo(currentWeather, weather)
+        +tripInfo(currentWeather, weatherKey)
     +input({type: 'hidden', value:'', name:'start', id:'start'})
     +input({type: 'hidden', value:'', name:'end', id:'end'})
 else
