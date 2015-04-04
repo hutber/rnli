@@ -26,6 +26,24 @@
 	}
 }
 
+.box, .plusbox {
+	&.white {
+		background: #fff;
+	}
+	&.large {
+		margin: 10px 0;
+		padding: gutter(4) gutter(4);
+	}
+	&.plain {
+		margin: gutter(4) gutter(4);
+		border: 1px solid $mainBlue;
+		color: $mainBlue;
+		font-family: $headerFont;
+	}
+}
+
+
+
 ///* #Share Boxes ------------------------------------------------------------------------ */
 .sharebox {
 	padding: gutter(6) gutter(12);
@@ -59,17 +77,6 @@
 				}
 			}
 		}
-	}
-}
-
-///* #Plus Boxes ------------------------------------------------------------------------ */
-.box, .plusbox {
-	&.white {
-		background: #fff;
-	}
-	&.large {
-		margin: 10px 0;
-		padding: gutter(4) gutter(4);
 	}
 }
 

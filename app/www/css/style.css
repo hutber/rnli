@@ -1245,6 +1245,17 @@ input[type=checkbox] {
     border: dashed 2px #002664;
     display: block; }
 
+.box.white, .plusbox.white {
+  background: #fff; }
+.box.large, .plusbox.large {
+  margin: 10px 0;
+  padding: 5.26316% 5.26316%; }
+.box.plain, .plusbox.plain {
+  margin: 5.26316% 5.26316%;
+  border: 1px solid #002664;
+  color: #002664;
+  font-family: din, "Lucida Grande", sans-serif; }
+
 .sharebox {
   padding: 3.44828% 1.69492%;
   margin: 0 auto;
@@ -1279,12 +1290,6 @@ input[type=checkbox] {
           -webkit-transform: translateY(-50%);
           -ms-transform: translateY(-50%);
           transform: translateY(-50%); }
-
-.box.white, .plusbox.white {
-  background: #fff; }
-.box.large, .plusbox.large {
-  margin: 10px 0;
-  padding: 5.26316% 5.26316%; }
 
 .tidebox {
   padding-bottom: 10px;
@@ -1914,6 +1919,16 @@ body {
   text-align: center; }
   .safety .safetytips h3, .safetybrowse .safetytips h3 {
     text-align: center; }
+
+.weather select {
+  font-family: din, "Lucida Grande", sans-serif;
+  color: #002664;
+  font-size: 1.4rem;
+  text-align: center; }
+  .weather select option {
+    text-align: center; }
+.weather .getforcast {
+  display: none; }
 
 .locationSelector {
   width: 80%;

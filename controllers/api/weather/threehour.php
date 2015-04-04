@@ -1,6 +1,6 @@
  <?php
 
-class returnWeather extends Controller {
+class threehour extends Controller {
     function get()
     {
 
@@ -20,7 +20,7 @@ class returnWeather extends Controller {
         if(isset($_GET['type'])){
             $type = $_GET['type'];
         }else{
-            $type = 'wxobs';
+            $type = 'wxfcs';
         };
         $error = [
             'status'=>'fail',
@@ -53,12 +53,13 @@ class returnWeather extends Controller {
                 $dataFeed = json_decode($query);
 				//turn data into something we can use
 				$dataToReturn = [
+					'id' => $dataFeed->SiteRep->DV->Location->i,
 					'lat' => $lat,
 					'long' => $long,
 					'area' => $dataFeed->SiteRep->DV->Location->name,
 					'country' => $dataFeed->SiteRep->DV->Location->country,
 					'continent' => $dataFeed->SiteRep->DV->Location->continent,
-					'weather' => $dataFeed->SiteRep->DV->Location->Period[0]->Rep,
+					'weather' => $dataFeed->SiteRep->DV->Location->Period,
 					'key' => $dataFeed->SiteRep->Wx->Param
 				];
             }

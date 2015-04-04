@@ -1,6 +1,6 @@
  <?php
 
-class returnData extends Controller {
+class hourly extends Controller {
     function get()
     {
 
@@ -20,7 +20,7 @@ class returnData extends Controller {
         if(isset($_GET['type'])){
             $type = $_GET['type'];
         }else{
-            $type = 'wxfcs';
+            $type = 'wxobs';
         };
         $error = [
             'status'=>'fail',
@@ -59,7 +59,7 @@ class returnData extends Controller {
 					'country' => $dataFeed->SiteRep->DV->Location->country,
 					'continent' => $dataFeed->SiteRep->DV->Location->continent,
 					'weather' => $dataFeed->SiteRep->DV->Location->Period[0]->Rep,
-					'key' => $dataFeed->SiteRep->Wx->Param,
+					'key' => $dataFeed->SiteRep->Wx->Param
 				];
             }
 

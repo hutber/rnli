@@ -69,7 +69,7 @@ module.exports = RN.glb.gvCreator.extend({
 		}else{
 			$('.postcodearea').html(self.templates.postCode({length:postcode.length}));
 		}
-		return false; 
+		return false;
 	},
 	lookUpPostCode : function(ev){
 		var ev = $(ev.currentTarget),
@@ -86,6 +86,7 @@ module.exports = RN.glb.gvCreator.extend({
 		});
 	},
 	getLocation : function(data, callBack){
+		c(arguments);
 		var self = this;
 		RN.fnc.location.getClosestLocation(data.latitude, data.longitude, function(data){
 			RN.currentTrip.saveLocal('location', data);

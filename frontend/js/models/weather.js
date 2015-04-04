@@ -3,22 +3,52 @@
  */
 module.exports = function(){
 
- 	return Backbone.Model.extend({
+	//var models = {};
+
+	return Backbone.Model.extend({
 		defaults: {
 		},
-		initialize: function(data){
-			this.set(this.createDefaults(data))
+		initialize: function(){
+			this.set(this.createDefaults())
 		},
+
 		createDefaults: function(data){
-			if(data){
-				return {
-					trips:data
-				}
-			}else{
-				return RN.fnc.json.rebuildObject({
-					trips:localStorage.trips,
-				})
-			}
+			return RN.fnc.json.rebuildObject({
+				date:localStorage.weatherdate,
+				location:localStorage.weatherlocation,
+				postcode:localStorage.weatherpostcode,
+			})
 		},
+
+		saveLocal: function(type, data){
+			//create object to play with
+			var modelObject = {};
+			modelObject[type] = data;
+			//set models value
+			this.set(modelObject);
+			//set local storage for later
+			localStorage['weather'+type] = RN.fnc.json.convertToString(data);
+		},
+
+		getThreeHour: function(lat, long, callBack){
+			$.ajax({
+				url: RN.glb.url.api + 'weather/threehour',
+				//type: 'POST',
+				dataType: 'json',
+				data: {
+					lat: lat,
+					long: long
+				},
+				success: function (data) {
+					callBack(data);
+				}
+			});
+		},
+
+		setLocation: function(data){
+			this.set({
+				location: data
+			});
+		}
 	});
 };

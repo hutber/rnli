@@ -1,2 +1,21 @@
 include ../mixins
+- var dates = function(){
+-  var returnData = {};
+-  for(var i = 0; i < 5; i++) {
+-     returnData[i] = {
+-         value: moment(moment().add(i, 'days')).format("YYYY-MM-DD"),
+-         text: moment(moment().add(i, 'days')).format("DD MMMM YYYY")
+-     };
+-  }
+-  return returnData;
+- }()
++select({
+   attr: {
+      name: 'date'
+   },
+   options: dates,
+   class: ['dateselector']
+})
 +locationFinders({topClass: 'weathercentre'})
++box({class:'large plain getforcast', text:'GET FORCAST'})
+.weatherinfo

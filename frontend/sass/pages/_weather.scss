@@ -1,3 +1,14 @@
 .weather {
-
+	select {
+		font-family: $headerFont;
+		color: $mainBlue;
+		font-size: 1.4rem;
+		text-align: center;
+		option {
+			text-align: center;
+		}
+	}
+	.getforcast {
+		display: none;
+	}
 }

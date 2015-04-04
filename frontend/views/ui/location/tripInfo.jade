@@ -1,0 +1,79 @@
+mixin tripInfo(currentWeather, weather)
+    .tripData
+        .section.airsea
+            .air
+                .icon
+                    i(class='icon-air')
+                    span AIR
+                .info
+                    | #{currentWeather.T}
+                    span.degrees &#8451
+            .sea(class= notsafe)
+                .icon
+                    i(class='icon-temperatire')
+                    span SEA
+                .info
+                    if typeof currentWeather.St === typeof undefined
+                        | No Data
+                    else
+                        | #{currentWeather.St}
+                        span.degrees &#8451
+                .dangertextcurrentWeather.T
+                    | DANGER
+                    i(class='icon-attention')
+        .section.tide
+            if typeof weather.Wh === typeof undefined
+                .title.notide No Tide Info
+            else
+                .title
+                    i(class='icon-tide')
+                    | TIDE
+                .tideInfo(style ="width: " + weather.length * 100 + "px")
+                    .tideoverflow
+                        each val, index in weather
+                            +tideBox(val)
+        .section.springtide Weather conditions not available at this time
+            //span 23 JAN 2015
+        .section.windcurrent
+            .wind
+                .icon
+                    i(class='icon-wind')
+                    span WIND
+                .info
+                    i(class='icon-right-circled #{currentWeather.D}')
+                    span #{currentWeather.D}
+                    span #{currentWeather.T}
+                        span mph
+            .current
+                .icon
+                    i(class='icon-right-circled')
+                    span CURRENT
+                .info
+                    | No Data
+        if typeof weather.P !== typeof undefined
+            .section.large
+                .title
+                    i(class='icon-gauge')
+                    | PESSURE
+                .info #{weather.P}MB
+                    span rising
+        if typeof weather.Swell !== typeof undefined
+            .section.large
+                .title
+                    i(class='icon-gauge')
+                    | SWELL
+                .info 0.25
+                    span m
+        .section.large
+            h3
+                i(class='icon-location')
+                | TRACK ME
+            +input({type: 'radio', value: 'on', name: 'gpstracking', checked: 'checked'})
+            | On
+            +input({type: 'radio', value: 'off', name: 'gpstracking'})
+            | Off
+            .infobox
+        .section
+            .btn.starttrip START TRIP
+            .btn.endtrip END TRIP
+            .btn.savetrip CLOSE TRIP

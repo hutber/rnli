@@ -101,6 +101,7 @@ module.exports = {
             RN.user = new RN.mdl.user(userDataToLoad);
             RN.trips = new RN.mdl.trips(userDataToLoad.trips);
             RN.currentTrip = new RN.mdl.currentTrip();
+	        RN.weather = new RN.mdl.weather();
             //backup again to local storage
             RN.fnc.login.saveLoginDataToLocalStorage(userDataToLoad);
         }
