@@ -1,7 +1,17 @@
 include ../mixins
+- var uname = 'jamie@hutber.com', pword = 'jadwiga';
+- if(RN.glb.url.envioment!=="localApp"){
+-  uname = null;
+-  pword = null;
+- }
 form.loginForm
-   +input({place:'USERNAME', type: 'text', value:'jamie@hutber.com', name:'email'})
-   +input({place:'PASSWORD', type: 'password', value:'jadwiga', name:'pword'})
-   +button({value:'Login', class:['']})
-   p or
-   a(href='#signup') Create New Account
+   img(src='img/logo.png').logo
+   +input({place:'USERNAME', type: 'text', value:uname, name:'email'})
+   +input({place:'PASSWORD', type: 'password', value:pword, name:'pword'})
+   a(href='#forgotten').forgotten Forgot password?
+   +button({value:'SIGN IN', class:['signin']})
+   .box.createaccount
+      a(href='#signup') Create New Account
+   .imagesBottom
+      div.lifeboat
+      div.respect

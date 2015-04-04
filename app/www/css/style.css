@@ -1754,7 +1754,7 @@ body {
 .index .header, .home .header {
   display: none; }
 
-.index .footer, .signup .footer, .profile .footer {
+.index .footer, .signup .footer, .profile .footer, .forgotten .footer {
   display: none; }
 
 #__bs_notify__ {
@@ -1774,6 +1774,60 @@ body {
     display: block;
     margin-top: 5px;
     text-decoration: none; }
+
+.index {
+  background: url(../img/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; }
+  .index .logo {
+    width: 200px;
+    margin: 40px auto;
+    display: block; }
+  .index .content {
+    width: 80%;
+    margin: 0 auto; }
+  .index .forgotten {
+    text-align: right;
+    font-weight: bold;
+    display: block;
+    margin: 10px;
+    text-decoration: none; }
+  .index input {
+    border: 1px solid #D7D5CF;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding-left: 50px; }
+  .index .signin {
+    font-family: din, "Lucida Grande", sans-serif;
+    padding: 15px 20px;
+    background: #002664;
+    margin: 10px 0 20px;
+    width: 100%;
+    font-size: 1.3rem; }
+  .index .createaccount {
+    border: 1px solid #002664;
+    font-family: din, "Lucida Grande", sans-serif;
+    padding: 15px 20px; }
+    .index .createaccount a {
+      font-size: 1.3rem;
+      text-decoration: none; }
+  .index .imagesBottom {
+    margin-top: 15px; }
+    .index .imagesBottom div {
+      height: 110px;
+      width: 49.15254%;
+      float: left;
+      margin-right: 1.69492%;
+      background-size: contain;
+      background-image: url(../img/lifeboats.png);
+      background-repeat: no-repeat;
+      background-position: center center; }
+      .index .imagesBottom div.respect {
+        background-image: url(../img/respect.png); }
+    .index .imagesBottom div:last-child {
+      width: 49.15254%;
+      float: right;
+      margin-right: 0; }
 
 /* Table of Contents
 ==================================================

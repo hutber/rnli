@@ -25,7 +25,7 @@ class forgotten extends controller {
 
                 require($_SERVER['DOCUMENT_ROOT'] .'/class/sendMail.php');
 
-                $from_address = 'noreply@mayfieldafc.com';
+                $from_address = 'noreply@rnli.com';
 
                 $from_group = 'Forgotten';
                 $article_date = date('l, jS F y');
@@ -49,9 +49,11 @@ class forgotten extends controller {
                 $myMail->createEmailVars();
                 $myMail->send();
 
-				$errors['good'] = 'Mail has been sent, please make sure you check your Junk Mail';
+				$errors['status'] = 'good';
+				$errors['message'] = 'Mail has been sent, please make sure you check your Junk Mail';
             }else{
-				$errors['bad'] = 'Whoops, no email was found using this email address';
+                $errors['status'] = 'bad';
+                $errors['message'] = 'Sorry, we could not find this username';
 			}
         }
 		header('Content-Type: application/javascript');

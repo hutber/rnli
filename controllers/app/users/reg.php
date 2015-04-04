@@ -31,10 +31,6 @@ class reg extends controller
 				$data['error'] = 'Please set a Password';
 				$error = true;
 			}
-			if ($terms != 1) {
-				$data['error'] = 'Please Accept our Terms';
-				$error = true;
-			}
 			if ($email == "") {
 				$data['error'] = 'Please set a Email';
 				$error = true;
@@ -93,6 +89,10 @@ class reg extends controller
 					$data['good'] = "Details have been saved";
 				}
 			}else{
+				if ($terms != 1) {
+					$data['error'] = 'Please Accept our Terms';
+					$error = true;
+				}
 				//check email hasn't been used before
 				$numemailcheck = $dataStore->adminEmailCheck($email);
 				$uname = strtolower($fname.$sname);
@@ -148,24 +148,28 @@ class reg extends controller
 							}
 
 //							if($confirmed==0) {
-								$data['good'] = "Registration complete, please log in";
+							$errors['status'] = 'good';
+							$errors['message'] = 'Registration complete, please log in';
 //							}else{
 //								$data['good'] = "Thank you, you have been auto logged in.";
 //							}
 							$data['uname'] = $uname;
 							$data['previous'] = $numunamecheck;
 						} else {
-							$data['error'] = "Sorry, but the registration failed on our end";
+							$errors['status'] = 'bad';
+							$errors['message'] = 'Sorry, but the registration failed on our end';
 						}
 
 					}
 				}else{
-					$data['error'] = 'Sorry but this email Address is already taken';
+					$errors['status'] = 'bad';
+					$errors['message'] = 'Sorry but this email Address is already taken';
 					$error = true;
 				}
 			}
 		}else{
-			$data['bad'] = "Nothing was posted :/";
+			$errors['status'] = 'bad';
+			$errors['message'] = 'Nothing was posted :/';
 		}
 		print json_encode($data);
 	}

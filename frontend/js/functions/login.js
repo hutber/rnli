@@ -26,8 +26,6 @@ module.exports = {
 				error: function (data) {
 					if (data.status === 200) {
 						RN.fnc.popups.spinner.show('Still Logging you in...');
-					} else {
-						RN.fnc.popups.message.show('Sorry Login Failed: ' + data.status, 'bad');
 					}
 				},
 				success: function (data) {

@@ -21,6 +21,7 @@ class login extends Controller {
 					$checkDetails = $this->login->check_user_details_username($detailsSent);
 				}
 				if (!$checkDetails['uid']) {
+					$errors['status'] = 'bad';
 					$messages['message'] = "Email or Password Incorrect";
 					$messages['code'] = 0;
 				}else {

@@ -13,6 +13,8 @@ var Router = Backbone.Router.extend({
 		//User Parts
 		'signup': 'signup',
 		'profile': 'profile',
+		'forgotten': 'forgotten',
+		'settings': 'settings',
 
 		// #Safety ---------------------------------------------------- /
 		'safety':'safety',

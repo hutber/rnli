@@ -27,6 +27,12 @@ module.exports = function (){
 			url: 'home',
 			title: 'Landing Page'
 		}
+		,{
+			name: 'settingsView',
+			path: require('../views/settings/settingsView'),
+			url: 'settings',
+			title: 'SETTINGS'
+		}
 
 		/*==================================================
 		 Users
@@ -36,6 +42,12 @@ module.exports = function (){
 			path: require('../views/users/profileView'),
 			url: 'profile',
 			title: 'My Profile'
+		}
+		,{
+			name: 'forgottenView',
+			path: require('../views/users/forgottenView'),
+			url: 'forgotten',
+			title: 'FORGOTTEN DETAILS'
 		}
 		/*==================================================
 		 Safety Tips

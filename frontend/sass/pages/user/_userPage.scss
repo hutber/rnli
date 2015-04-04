@@ -1,0 +1,85 @@
+/* Table of Contents
+==================================================
+    #Users
+*/
+
+.signup {
+    .header {
+//        background: $userHeaderBG;
+    }
+}
+
+.signup {
+    .termsbox {
+        width: 100px;
+        margin: 0 auto;
+        text-align: center;
+        a {
+            display: block;
+            margin-top: 5px;
+            text-decoration: none;
+        }
+    }
+}
+
+.index {
+    background: url(../img/bg.jpg);
+    background-repeat:no-repeat;
+    background-size:cover;
+    .logo {
+        width: 200px;
+        margin: 40px auto;
+        display: block;
+    }
+    .content {
+        width: 80%;
+        margin: 0 auto;
+    }
+    .forgotten {
+        text-align: right;
+        font-weight: bold;
+        display: block;
+        margin: 10px;
+        text-decoration: none;
+    }
+    input {
+        border: 1px solid $border;
+        border-radius: 5px;
+        margin: 10px 0;
+        padding-left: 50px;
+    }
+    .signin {
+        font-family: $headerFont;
+        padding: 15px 20px;
+        background: $mainBlue;
+        margin: 10px 0 20px;
+        width: 100%;
+        font-size: 1.3rem;
+    }
+    .createaccount {
+        border: 1px solid $mainBlue;
+        font-family: $headerFont;
+        padding: 15px 20px;
+        a {
+            font-size: 1.3rem;
+            text-decoration: none;
+        }
+    }
+    .imagesBottom {
+        margin-top: 15px;
+        div {
+            height: 110px;
+            @include span (6 of 12);
+            background-size: contain;
+            background-image: url(../img/lifeboats.png);
+            background-repeat: no-repeat;
+            background-position: center center;
+            &.respect {
+                background-image: url(../img/respect.png);
+            }
+        }
+        div:last-child {
+            @include span (6 of 12 last);
+        }
+    }
+}
