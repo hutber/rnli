@@ -1,19 +1,17 @@
 include ../mixins
-if area
-    - var newLat = lat.substr(0, 5), newLong = long.substr(0, 5);
+if data.area
+    - var newLat = data.latitude.substr(0, 5), newLong = data.longitude.substr(0, 5);
     - var currentDay = moment(RN.currentTrip.get('date')[1]).format('dddd') || null;
-    - var currentWeather = weather[0];
-    - var weatherKey = weather;
     .tripMap
         .underHeader
             .tripbox
                 i(class='icon-calendar')
-                .text #{currentDay}
+                .text #{data.currentDay}
                     span #{RN.currentTrip.get('date')[0]}
             .tripbox
                 i(class='icon-globe')
-                .text #{area},
-                    span #{country}
+                .text #{data.area},
+                    span #{data.country}
             .tripbox
                 i(class='icon-map')
                 .text Lat
@@ -24,7 +22,7 @@ if area
             .info
                 .wind
                     i(class='icon-right-circled')
-                    | #{currentWeather.D} #{currentWeather.G}mph
+                    | #{data.winddirection} #{data.windgust}mph
                 .current
                     i(class='icon-right-circled')
                     | No Data
@@ -32,7 +30,7 @@ if area
                     i(class='icon-zoom-in-outline')
                     | ENLARGE
             div(id="map-canvas", style="width:100%; height:170px;")
-        +tripInfo(currentWeather, weatherKey)
+        +tripInfo(data)
     +input({type: 'hidden', value:'', name:'start', id:'start'})
     +input({type: 'hidden', value:'', name:'end', id:'end'})
 else

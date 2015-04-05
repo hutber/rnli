@@ -51,15 +51,34 @@ class returnData extends Controller {
 				$dataToReturn = $error;
             }else{
                 $dataFeed = json_decode($query);
+                $weather = $dataFeed->SiteRep->DV->Location->Period[0]->Rep;
+
 				//turn data into something we can use
 				$dataToReturn = [
-					'lat' => $lat,
-					'long' => $long,
-					'area' => $dataFeed->SiteRep->DV->Location->name,
+                    'area' => $dataFeed->SiteRep->DV->Location->name,
 					'country' => $dataFeed->SiteRep->DV->Location->country,
 					'continent' => $dataFeed->SiteRep->DV->Location->continent,
-					'weather' => $dataFeed->SiteRep->DV->Location->Period[0]->Rep,
-					'key' => $dataFeed->SiteRep->Wx->Param,
+                    'readingtime'=> $weather[0]->{'$'},
+                    'latitude' => $lat,
+                    'longitude' => $long,
+                    'winddirection'=> $weather[0]->D,
+                    'dewpoint'=> $weather[0]->Dp,
+                    'feelsliketemperature'=> $weather[0]->F,
+                    'windgust'=> $weather[0]->G,
+                    'humidity'=> $weather[0]->H,
+                    'pressure'=> $weather[0]->P,
+                    'precipitationprobability'=> $weather[0]->Pp,
+                    'pressuretendency'=> $weather[0]->Pt,
+                    'windspeed'=> $weather[0]->S,
+                    'seatemperature'=> $weather[0]->St,
+                    'temperature'=> $weather[0]->T,
+                    'maxUVindex'=> $weather[0]->U,
+                    'visibility'=> $weather[0]->V,
+                    'weathertype'=> $weather[0]->W,
+                    'waveheight'=> $weather[0]->Wh,
+                    'waveperiod'=> $weather[0]->Wp,
+                    'swell'=> null,
+					'key' => $dataFeed->SiteRep->Wx->Param
 				];
             }
 

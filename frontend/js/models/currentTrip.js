@@ -17,7 +17,7 @@ module.exports = function(){
 				name:localStorage.ctripname,
 				hazard:localStorage.ctriphazard,
 				date:localStorage.ctripdate,
-				location:localStorage.ctriplocation,
+				details:localStorage.ctripdetails,
 				postcode:localStorage.ctrippostcode,
 				notes:localStorage.ctripnotes,
 				tmpcatch:localStorage.ctriptmpcatch,
@@ -47,7 +47,7 @@ module.exports = function(){
 		prePareDataForDB : function(){
 
 			var data = RN.currentTrip.attributes,
-				location = RN.currentTrip.attributes.location,
+				details = RN.currentTrip.attributes.details,
 				weather = RN.currentTrip.attributes.location.weather[0],
 				rdata = {};
 
@@ -94,7 +94,7 @@ module.exports = function(){
 				dataType: 'json',
 				data: {
 					trip: data.trip,
-					location: data.location,
+					details: data.details,
 					notes: data.notes,
 					catch: data.catch,
 					uid: RN.user.get('uid')

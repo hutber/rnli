@@ -1,18 +1,18 @@
 mixin tideBox(data, width)
     .tidebox
         .time
-            | #{data.$}
-        if typeof data.Wh === typeof undefined
+            | #{readingtime}
+        if typeof waveheight === typeof undefined
             | No Data
         else
             .tides
-                if data.Wh > 3.5
+                if waveheight > 3.5
                     i(class='icon-tide')
                 i(class='icon-tide')
                 span
-                if data.Wh > 3.5
+                if waveheight > 3.5
                     | HIGH
                 else
                     | LOW
             .height
-                | #{data.Wh}m
+                | #{waveheight}m

@@ -1,4 +1,5 @@
-mixin tripInfo(currentweather, weatherKey)
+mixin tripInfo(data)
+    -c(data);
     .tripData
         .section.airsea
             .air
@@ -6,31 +7,31 @@ mixin tripInfo(currentweather, weatherKey)
                     i(class='icon-air')
                     span AIR
                 .info
-                    | #{currentWeather.T}
+                    | #{data.temperature}
                     span.degrees &#8451
             .sea(class= notsafe)
                 .icon
                     i(class='icon-temperatire')
                     span SEA
                 .info
-                    if typeof currentWeather.St === typeof undefined
+                    if typeof data.seatemperature === typeof undefined
                         | No Data
                     else
-                        | #{currentWeather.St}
+                        | #{data.seatemperature}
                         span.degrees &#8451
                 .dangertext
                     | DANGER
                     i(class='icon-attention')
         .section.tide
-            if typeof weatherKey.Wh === typeof undefined
+            if typeof data.waveheight === typeof undefined
                 .title.notide No Tide Info
             else
                 .title
                     i(class='icon-tide')
                     | TIDE
-                .tideInfo(style ="width: " + weatherKey.length * 100 + "px")
+                .tideInfo(style ="width: " + data.length * 100 + "px")
                     .tideoverflow
-                        each val, index in weatherKey
+                        each val, index in data
                             +tideBox(val)
         .section.springtide Weather conditions not available at this time
             //span 23 JAN 2015
@@ -40,9 +41,9 @@ mixin tripInfo(currentweather, weatherKey)
                     i(class='icon-wind')
                     span WIND
                 .info
-                    i(class='icon-right-circled #{currentWeather.D}')
-                    span #{currentWeather.D}
-                    span #{currentWeather.T}
+                    i(class='icon-right-circled #{data.winddirection}')
+                    span #{data.winddirection}
+                    span #{data.temperature}
                         span mph
             .current
                 .icon
@@ -50,14 +51,14 @@ mixin tripInfo(currentweather, weatherKey)
                     span CURRENT
                 .info
                     | No Data
-        if typeof weatherKey.P !== typeof undefined
+        if typeof data.pressure !== typeof undefined
             .section.large
                 .title
                     i(class='icon-gauge')
                     | PESSURE
-                .info #{weatherKey.P}MB
+                .info #{data.pressure}MB
                     span rising
-        if typeof weatherKey.Swell !== typeof undefined
+        if typeof data.swell !== typeof undefined
             .section.large
                 .title
                     i(class='icon-gauge')

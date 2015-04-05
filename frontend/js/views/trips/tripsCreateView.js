@@ -26,7 +26,7 @@ module.exports = RN.glb.gvCreator.extend({
 		var tripData = RN.fnc.location.getLocation(function(returnData){
 
 			//Save ajax details to localStorage
-			RN.currentTrip.saveLocal('location', returnData);
+			RN.currentTrip.saveLocal('details', returnData);
 
 			//Set the hidden input to something
 			document.getElementById('createlocation').value = 'something';
@@ -89,7 +89,7 @@ module.exports = RN.glb.gvCreator.extend({
 		c(arguments);
 		var self = this;
 		RN.fnc.location.getClosestLocation(data.latitude, data.longitude, function(data){
-			RN.currentTrip.saveLocal('location', data);
+			RN.currentTrip.saveLocal('details', data);
 			document.getElementById('createlocation').value = 'something';
 			self.readyToSave();
 			callBack(data);
