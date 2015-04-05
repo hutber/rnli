@@ -96,7 +96,11 @@ Table of Contents
 		border-bottom: 3px solid $border;
 		@include clear;
 	}
-	
+
+	.tide, .springtide {
+		display: none;
+	}
+
 	.notide {
 		background: $border;
 	}
@@ -168,11 +172,13 @@ Table of Contents
 
 	//* #Air Sea -------------------------------- */
 	.airsea {
-		background: $greyAlt;
+		background: $border;
 		border-top: 3px solid $border;
 		.air, .sea {
-			@include span(6 of 12);
+			width: 49.5%;
+			float: left;
 			text-align: center;
+			background: $greyAlt;
 		}
 		.info {
 			font-family: $headerFont;
@@ -189,10 +195,10 @@ Table of Contents
 		}
 		.air {
 			margin-right: 0;
-			border-right: 3px solid $border;
+			padding-right: 1%;
 		}
 		.sea {
-			@include span(6 of 12);
+			float: right;
 			position: relative;
 			&.danger {
 				color: #FFF;
@@ -253,21 +259,24 @@ Table of Contents
 	//* #Wind Current  -------------------------------- */
 	.windcurrent {
 		color: #FFF;
+		background: $border;
 		.wind, .current {
 			padding: 10px;
 			text-align: center;
-			@include span(6 of 12);
+			width: 49.5%;
+			float: left;
 			height: 130px;
 		}
 		.wind {
 			margin-right: 0;
 			background: $wind;
-			border-right: 3px solid $border;
+			padding-right: 1%;
 			text-align: left;
 		}
 		.current {
 			position: relative;
 			background: $current;
+			float: right;
 			.icon {
 				position: absolute;
 				top: 10px;
@@ -312,8 +321,22 @@ Table of Contents
 /*===============  Pages ===============
 ///* #Create Trip ------------------------------------------------------------------------ */
 .createtrip {
+	#createname {
+		text-transform: capitalize;
+	}
+	#postcode {
+		color: $mainBlue;
+		font-size: 1.3rem;
+		text-transform: uppercase;
+	}
 }
 
+///* #Current Trip ------------------------------------------------------------------------ */
+.currenttrip {
+	.tripControls .btn {
+		padding: 25px 20px;
+	}
+}
 ///* #Catch  ------------------------------------------------------------------------ */
 .previouscatch {
 	.catchsortby {

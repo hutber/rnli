@@ -1021,6 +1021,60 @@ input[type=checkbox] {
     border-color: #005DC5;
     background: #002664; }
 
+.switch {
+  position: relative;
+  height: 40px;
+  width: 80px;
+  margin: 20px auto;
+  border-radius: 20px;
+  background: #F1835B; }
+  .switch .switch-label {
+    position: absolute;
+    z-index: 2;
+    float: left;
+    width: 120px;
+    left: -60px;
+    line-height: 2.8rem;
+    font-size: 1.5rem;
+    font-family: din, "Lucida Grande", sans-serif;
+    color: #D7D5CF;
+    text-align: left;
+    cursor: pointer; }
+  .switch .switch-label:active {
+    font-weight: bold; }
+  .switch .switch-label-off {
+    padding-left: 2px; }
+    .switch .switch-label-off:checked {
+      color: #002664; }
+  .switch .switch-label-on {
+    left: 25px;
+    padding-right: 2px;
+    text-align: right; }
+  .switch .switch-input {
+    display: none; }
+  .switch .switch-input:checked + .switch-label {
+    font-weight: bold;
+    color: #002664;
+    -webkit-transition: 0.15s ease-out;
+    transition: 0.15s ease-out;
+    -webkit-transition-property: color, text-shadow;
+    transition-property: color, text-shadow; }
+  .switch .switch-input:checked + .switch-label-on ~ .switch-selection {
+    left: 45px;
+    /* Note: left: 50%; doesn't transition in WebKit */ }
+  .switch .switch-selection {
+    position: absolute;
+    z-index: 1;
+    top: 5px;
+    left: 2px;
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    background: #FFF;
+    -webkit-transition: left 0.15s ease-out;
+    transition: left 0.15s ease-out; }
+
 .btn, .btn-group > .btn, .btn-group > .dropdown-menu, .btn-group > .popover {
   font-size: 17.136px;
   /* 15px */
@@ -2106,6 +2160,8 @@ Table of Contents
   text-align: center;
   border-bottom: 3px solid #D7D5CF;
   overflow: hidden; }
+.tripMap .tide, .tripMap .springtide {
+  display: none; }
 .tripMap .notide {
   background: #D7D5CF; }
 .tripMap .titeInfo.notide {
@@ -2151,13 +2207,13 @@ Table of Contents
 .tripMap .endtrip, .tripMap .savetrip {
   display: none; }
 .tripMap .airsea {
-  background: #E6E7E6;
+  background: #D7D5CF;
   border-top: 3px solid #D7D5CF; }
   .tripMap .airsea .air, .tripMap .airsea .sea {
-    width: 49.15254%;
+    width: 49.5%;
     float: left;
-    margin-right: 1.69492%;
-    text-align: center; }
+    text-align: center;
+    background: #E6E7E6; }
   .tripMap .airsea .info {
     font-family: din, "Lucida Grande", sans-serif;
     font-size: 2.2rem;
@@ -2170,11 +2226,9 @@ Table of Contents
     padding: 15px 5px 0 10px; }
   .tripMap .airsea .air {
     margin-right: 0;
-    border-right: 3px solid #D7D5CF; }
+    padding-right: 1%; }
   .tripMap .airsea .sea {
-    width: 49.15254%;
-    float: left;
-    margin-right: 1.69492%;
+    float: right;
     position: relative; }
     .tripMap .airsea .sea.danger {
       color: #FFF;
@@ -2215,22 +2269,23 @@ Table of Contents
     margin-left: 5px;
     font-family: din, "Lucida Grande", sans-serif; }
 .tripMap .windcurrent {
-  color: #FFF; }
+  color: #FFF;
+  background: #D7D5CF; }
   .tripMap .windcurrent .wind, .tripMap .windcurrent .current {
     padding: 10px;
     text-align: center;
-    width: 49.15254%;
+    width: 49.5%;
     float: left;
-    margin-right: 1.69492%;
     height: 130px; }
   .tripMap .windcurrent .wind {
     margin-right: 0;
     background: #005DC5;
-    border-right: 3px solid #D7D5CF;
+    padding-right: 1%;
     text-align: left; }
   .tripMap .windcurrent .current {
     position: relative;
-    background: #007C14; }
+    background: #007C14;
+    float: right; }
     .tripMap .windcurrent .current .icon {
       position: absolute;
       top: 10px;
@@ -2267,6 +2322,16 @@ Table of Contents
 
 /*===============  Pages ===============
 ///* #Create Trip ------------------------------------------------------------------------ */
+.createtrip #createname {
+  text-transform: capitalize; }
+.createtrip #postcode {
+  color: #002664;
+  font-size: 1.3rem;
+  text-transform: uppercase; }
+
+.currenttrip .tripControls .btn {
+  padding: 25px 20px; }
+
 .previouscatch .catchsortby {
   text-align: center;
   background: #28243b;

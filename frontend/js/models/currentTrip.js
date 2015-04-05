@@ -21,7 +21,7 @@ module.exports = function(){
 				postcode:localStorage.ctrippostcode,
 				notes:localStorage.ctripnotes,
 				tmpcatch:localStorage.ctriptmpcatch,
-				catch:localStorage.ctripcatch,
+				catch:localStorage.ctripcatch
 			})
 		},
 
@@ -36,14 +36,12 @@ module.exports = function(){
 		},
 
 		resetData : function(){
-			c(RN.currentTrip.attributes);
 			var data = this.createDefaults();
 			Object.keys(data).forEach(function(item){
 				localStorage['ctrip'+item] = null;
 			})
 
 			this.initialize();
-			c(RN.currentTrip.attributes);
 		},
 
 		prePareDataForDB : function(){
@@ -69,7 +67,7 @@ module.exports = function(){
 				seatemperature: weather.St || null,
 				windspeed: weather.S || null,
 				waveheight: weather.Wh || null,
-				waveperiod: weather.Wp || null,
+				waveperiod: weather.Wp || null
 			};
 
 			rdata.location = {
@@ -78,7 +76,7 @@ module.exports = function(){
 				area: location.area || null,
 				continent: location.continent || null,
 				country: location.country || null,
-				pcode: location.pcode || null,
+				pcode: location.pcode || null
 			};
 
 			rdata.notes = RN.currentTrip.attributes.notes;
@@ -89,7 +87,6 @@ module.exports = function(){
 		},
 
 		finaliseTrip: function(data){
-			c(data);
 			var self = this;
 			$.ajax({
 				url: RN.glb.url.api + 'addTrip',
@@ -100,13 +97,12 @@ module.exports = function(){
 					location: data.location,
 					notes: data.notes,
 					catch: data.catch,
-					uid: RN.user.get('uid'),
+					uid: RN.user.get('uid')
 				},
 				error: function (data) {
 					c(data);
 				},
 				success: function (data) {
-					c(data);
 					if (data.error) {
 						RN.fnc.popups.message.show(data.error, 'bad');
 					} else {
@@ -115,6 +111,6 @@ module.exports = function(){
 					}
 				}
 			});
-		},
+		}
 	});
 };

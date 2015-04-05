@@ -68,11 +68,13 @@ mixin tripInfo(currentweather, weatherKey)
             h3
                 i(class='icon-location')
                 | TRACK ME
-            +input({type: 'radio', value: 'on', name: 'gpstracking', checked: 'checked'})
-            | On
-            +input({type: 'radio', value: 'off', name: 'gpstracking'})
-            | Off
-            .infobox
+                +switch('gpstracking', 'no', 'yes')
+        .section.large.safetynetcontrols
+            h3
+                i(class='icon-user')
+                | ACTIVATE SAFETY NET
+                +switch('safetynet', 'no', 'yes')
+        .infobox
         .section.tripControls
             .btn.starttrip START TRIP
             .btn.endtrip END TRIP

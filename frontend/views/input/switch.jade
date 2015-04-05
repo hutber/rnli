@@ -1,0 +1,7 @@
+mixin switch(name, left, right)
+   .switch
+       input.switch-input(type='radio', name=name, value=left, id=name+left)
+       label.switch-label.switch-label-off(for=name+left) #{left}
+       input.switch-input(type='radio', name=name, value=right, checked, id=name+right)
+       label.switch-label.switch-label-on(for=name+right) #{right}
+       span.switch-selection
