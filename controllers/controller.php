@@ -8,7 +8,7 @@ class Controller
 
 	function __construct()
 	{
-		require_once '/class/siteLoginClass.php';
+		require_once 'class/siteLoginClass.php';
 		//Set up check access
 		$this->login = new siteLogin();
 	}
