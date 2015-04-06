@@ -13,9 +13,9 @@ class siteLogin
 //            session_start();
 //        }
 
-		require_once $_SERVER['DOCUMENT_ROOT'] .'/db/db.php';
+		require_once SITEROOT .'/db/db.php';
 		$this->db = new DB();
-		require_once $_SERVER['DOCUMENT_ROOT'] .'/db/types/DBuser.php';
+		require_once SITEROOT .'/db/types/DBuser.php';
 		$this->dataStore = new DBuser($this->db);
     }
 

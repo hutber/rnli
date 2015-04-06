@@ -11,3 +11,6 @@ define('ADMIN_USER', 'rnli');
 define('ADMIN_PWD', 'rnli');
 
 define('PAGE_TITLE', 'RNLI App');
+
+define('SITEROOT', '/var/www/rnli.hutber.com');
+
