@@ -22,7 +22,7 @@ module.exports = function(){
 
 	location.getClosestLocation = function(lat, long, callBack){
 		$.ajax({
-			url: RN.glb.url.api + 'returndata',
+			url: RN.glb.url.api + 'returnData',
 			//type: 'POST',
 			dataType: 'json',
 			data: {
