@@ -44,27 +44,27 @@ class Controller
 	 */
 	function view($viewname = '404.html', $data = array(), $shell = 'shell.html', $return = false)
 	{
-		if (file_exists('views/'.$viewname)) {
+		if (file_exists('../views/'.$viewname)) {
 			self::$viewData = $data;
 			extract($data, EXTR_SKIP);
 
 			if ($shell) {
 				if (!isset($title)) {$title = PAGE_TITLE;}
 				else{$title = PAGE_TITLE.' | '.$title;}
-				require_once 'views/'.$shell;
+				require_once '../views/'.$shell;
 			} elseif ($return) {
 				// Return contents, mainly for emails
 				ob_start();
-				require_once 'views/'.$viewname;
+				require_once '../views/'.$viewname;
 				$view_contents = ob_get_contents();
 				@ob_end_clean();
 				return $view_contents;
 			} else {
 				// Otherwise continue to output view
-				require_once 'views/'.$viewname;
+				require_once '../views/'.$viewname;
 			}
 		} else {
-			throw new Exception('View "../views/'.$viewname.'" not found');
+			throw new Exception('View "views/'.$viewname.'" not found');
 		}
 	}
 }
