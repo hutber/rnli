@@ -22,10 +22,10 @@ class returnData extends Controller {
         }else{
             $type = 'wxfcs';
         };
-        $error = [
+        $error = array(
             'status'=>'fail',
             'message'=>'Couldn\'t find location, please try again'
-        ];
+        );
 
         if($latitude !="" && $longitude !="") {
             //Get nearest Location Site
