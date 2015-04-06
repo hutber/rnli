@@ -23,27 +23,28 @@ module.exports = RN.glb.gvCreator.extend({
 			self = this;
 		$('.selected').removeClass('selected');
 		ev.addClass('selected')
-		var tripData = RN.fnc.location.getLocation(function(returnData){
+		var tripData = RN.fnc.location.getLocation(
+				function(returnData){
+					//Save ajax details to localStorage
+					RN.currentTrip.saveLocal('details', returnData);
 
-			//Save ajax details to localStorage
-			RN.currentTrip.saveLocal('details', returnData);
+					//Set the hidden input to something
+					document.getElementById('createlocation').value = 'something';
 
-			//Set the hidden input to something
-			document.getElementById('createlocation').value = 'something';
+					//Check if we can now save
+					self.readyToSave();
 
-			//Check if we can now save
-			self.readyToSave();
-
-			//Reset Postcode
-			$('.postcodearea').empty();
-			document.getElementById('postcode').value = '';
-			$('#postcode').removeClass('success');
-		}, function(){
-			//If the users GPS is turned off put the button back to NO on the "current Loction"
-			$('.selected').removeClass('selected');
-			$('.locationSelector .no').addClass('selected');
-			RN.fnc.popups.spinner.hide();
-		});
+					//Reset Postcode
+					$('.postcodearea').empty();
+					document.getElementById('postcode').value = '';
+					$('#postcode').removeClass('success');
+				}, function(){
+					//If the users GPS is turned off put the button back to NO on the "current Loction"
+					$('.selected').removeClass('selected');
+					$('.locationSelector .no').addClass('selected');
+					RN.fnc.popups.spinner.hide();
+				}
+		);
 	},
 	locationOff: function(ev){
 		if(typeof ev !== typeof undefined) {
@@ -84,13 +85,13 @@ module.exports = RN.glb.gvCreator.extend({
 		$('#postcode').removeClass('success');
 		$('.postboxbox').removeClass('selected');
 
-		this.getLocation(currentPostCodeData[ev.index()], function(data){
+		this.getPostCodeLocation(currentPostCodeData[ev.index()], function(data){
 			$('#postcode').addClass('success');
 			ev.addClass('selected')
 			self.locationOff();
 		});
 	},
-	getLocation : function(data, callBack){
+	getPostCodeLocation : function(data, callBack){
 		var self = this;
 		RN.fnc.location.getClosestLocation(data.latitude, data.longitude, function(data){
 			RN.currentTrip.saveLocal('details', data);

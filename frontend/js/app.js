@@ -22,11 +22,4 @@ $(document).ready(function() {
 
 	//start backbone app
 	Backbone.history.start();
-
-	if(RN.glb.url.envioment==="liveApp") {
-		//initialise GPS
-		RN.fnc.gps = RN.fnc.gps();
-		//start geoLocation background service
-		RN.fnc.gps.init();
-	}
 });

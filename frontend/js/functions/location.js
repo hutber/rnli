@@ -37,45 +37,55 @@ module.exports = function(){
 
 	location.getLocation = function(callback, cancelBack){
 		var self = this;
-		location.lookUp(function(data){
-				location.getClosestLocation(data.coords.latitude, data.coords.longitude, function(data){
+		//Get users Location first
+		this.lookUp(
+			function(data){
+			//Now we have users location look up via ajax the area ID from met office DataPoint
+				self.getClosestLocation(data.coords.latitude, data.coords.longitude, function(data){
 					callback(data);
-					c(data);
 					RN.fnc.popups.spinner.hide();
-				})
-			}, cancelBack);
+				});
+			},
+			cancelBack
+		);
 	};
 
 	location.lookUp = function(callBack, cancelBack){
-		var self = this;
+		var self = this,
+			options = {
+				enableHighAccuracy: true,
+				timeout: 5000,
+				maximumAge: 0
+			};
+
 		RN.fnc.popups.spinner.show('Looking up location');
 
-		navigator.geolocation.watchPosition((function (_this) {
-			return function (position) {
-				callBack(position);
-			};
-		})(this), function (error) {
-			var errorMsg, errorTitle;
-			errorTitle = "Location Services";
-			if (error.code === 1) {
-				errorMsg = "RNLI App needs access to your location. Please turn on Location Services in your device settings.";
-			}
-			if (error.code === 2) {
-				errorMsg = "This device is unable to retrieve a position. Make sure you are connected to a network";
-			}
-			if (error.code === 3) {
-				errorMsg = "This device is unable to retrieve a position. Make sure you have Location Services enabled for RNLI or turned on";
-			}
-			if (error.code === 1 || error.code === 2 || error.code === 3) {
-				return RN.fnc.popups.Dialog(errorTitle, errorMsg, ['Ok', 'Retry'], function(){
-					self.lookUp(callBack);
+		navigator.geolocation.getCurrentPosition(
+			function(details){
+				callBack(details);
+			}, function(error){
+				var errorMsg, errorTitle;
+				errorTitle = "Location Services: "+error.message;
+				switch(error.code) {
+					case 1:
+						errorMsg = "RNLI App needs access to your location. Please turn on Location Services in your device settings."
+						break;
+					case 2:
+						errorMsg = "This device is unable to retrieve a position. Make sure you are connected to a network."
+						break;
+					case 3:
+						errorMsg = "This device is unable to retrieve a position. Make sure you have Location Services enabled for RNLI or turned on."
+						break;
+					default:
+						errorMsg = "An unknown error occurred."
+						break;
+				}
+				RN.fnc.popups.Dialog(errorTitle, errorMsg, ['Ok', 'Retry'], function(){
+					self.lookUp(callBack, cancelBack);
 				}, 'confirm', cancelBack);
-			}
-		}, {
-			enableHighAccuracy: true,
-			maximumAge: 20000,
-			timeout: 10000
-		});
+			},
+			options
+		);
 	};
 	return location;
 }();

@@ -30,6 +30,9 @@ module.exports = RN.glb.gvCreator.extend({
 		$('.endtrip').hide();
 		$('.savetrip').show();
 		$('#end')[0].value = moment().format();
+
+		//start gps
+		RN.fnc.gps.stop();
 	},
 	savetrip : function(){
 		var finalData = RN.currentTrip.prePareDataForDB();
@@ -164,6 +167,13 @@ module.exports = RN.glb.gvCreator.extend({
 					position: myLatlng,
 					map: map
 				});
+			}
+
+			if(RN.glb.url.envioment==="liveApp") {
+				//initialise GPS
+				RN.fnc.gps = RN.fnc.gps();
+				//start geoLocation background service
+				RN.fnc.gps.init();
 			}
 		}
 	}

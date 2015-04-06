@@ -104,7 +104,7 @@ module.exports = RN.glb.gvCreator.extend({
 		self.locationOff();
 		$('.getforcast').show();
 	},
-	getLocation : function(data, callBack){
+	getWeatherLocation : function(data, callBack){
 		var self = this;
 		RN.fnc.location.getClosestLocation(data.latitude, data.longitude, function(data){
 			RN.weather.saveLocal('location', data);
