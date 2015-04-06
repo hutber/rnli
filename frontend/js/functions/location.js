@@ -74,7 +74,7 @@ module.exports = function(){
 		}, {
 			enableHighAccuracy: true,
 			maximumAge: 20000,
-			timeout: 1000
+			timeout: 10000
 		});
 	};
 	return location;
