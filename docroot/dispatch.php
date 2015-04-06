@@ -5,21 +5,20 @@
 date_default_timezone_set('UTC');
 
 // config
-require_once 'config/config.php';
+require_once '../config/config.php';
 
 // deconstruct request
-$url = $_GET['url'];
+$url = substr($_GET['url'], 1);
 
 $method = strtolower($_SERVER['REQUEST_METHOD']);
+
 $format = 'html'; // default output format
 //
 // strip of extension
 $pos = strrpos($url, '.');
 $parts = explode("/", $url);
 
-//echo '<pre>'; print_r($_SERVER); echo '</pre><br>';
-//echo '<pre>'; print_r($_SERVER); echo '</pre><br>';
-//echo '<pre>'; print_r($parts); echo '</pre><br>';
+#echo '<pre>'; print_r($parts); echo '</pre><br>';
 
 //reset the url so we can work with it to get the current controller.
 $url = '';
@@ -39,8 +38,8 @@ if(count($parts)==1){
 }
 
 // load controller
-require_once 'controllers/controller.php';
-$controllerFilename = 'controllers' . $url . '.php';
+require_once '../controllers/controller.php';
+$controllerFilename = '../controllers' . $url . '.php';
 #echo $controllerFilename;
 if (file_exists($controllerFilename)) {
 
@@ -58,11 +57,11 @@ if (file_exists($controllerFilename)) {
 //		echo 'false';
         $controller = new Controller();
         header('HTTP/1.1 405 Method Not Allowed');
-//        $controller->view('errors/405.html');
+        $controller->view('errors/405.html');
     }
 } else { // not found, 404
     $controller = new Controller();
     header('HTTP/1.1 404 Not Found');
-//    $controller->view('errors/404.html');
+    $controller->view('errors/404.html');
 }
 
