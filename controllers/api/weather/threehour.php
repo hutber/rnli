@@ -16,7 +16,7 @@ class threehour extends Controller {
         $key = '9ef3f3a2-f189-4cb4-a0c4-31b52691f81f';
         $lat = $_GET['lat'];
         $long = $_GET['long'];
-        $dataToReturn = [];
+        $dataToReturn = array();
         if(isset($_GET['type'])){
             $type = $_GET['type'];
         }else{
