@@ -5,7 +5,7 @@
 date_default_timezone_set('UTC');
 
 // config
-require_once '../config/config.php';
+require_once '/config/config.php';
 
 // deconstruct request
 $url = substr($_GET['url'], 1);
@@ -38,8 +38,8 @@ if(count($parts)==1){
 }
 
 // load controller
-require_once '../controllers/controller.php';
-$controllerFilename = '../controllers' . $url . '.php';
+require_once '/controllers/controller.php';
+$controllerFilename = '/controllers' . $url . '.php';
 #echo $controllerFilename;
 if (file_exists($controllerFilename)) {
 
