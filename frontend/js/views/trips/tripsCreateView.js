@@ -86,7 +86,6 @@ module.exports = RN.glb.gvCreator.extend({
 		});
 	},
 	getLocation : function(data, callBack){
-		c(arguments);
 		var self = this;
 		RN.fnc.location.getClosestLocation(data.latitude, data.longitude, function(data){
 			RN.currentTrip.saveLocal('details', data);
@@ -134,12 +133,14 @@ module.exports = RN.glb.gvCreator.extend({
 		var picker = new Pikaday({
 			field: document.getElementById('dateselector'),
 			format: 'MMMM Do YYYY',
+			defaultDate: moment().toDate(),
 			onSelect: function() {
 				document.getElementById('createdate').value = this.getMoment().format();
 				self.readyToSave();
 			}
 		});
-
-		//self.postcode();
+		//set todays date
+		document.getElementById('createdate').value = picker.getMoment().format();
+		document.getElementById('dateselector').value = picker.getMoment().format('MMMM Do YYYY');
 	}
 });

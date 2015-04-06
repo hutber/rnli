@@ -40,13 +40,12 @@ module.exports = function () {
 				note: data
 			},
 			error: function (data) {
-				c(data);
+				c('error');
 			},
 			success: function (data) {
 				if (data.error) {
 					RN.fnc.popups.message.show(data.error, 'bad');
 				} else {
-					c('ajax');
 					RN.currentTrip.saveLocal('trip', singleCatch);
 				}
 			}

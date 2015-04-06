@@ -95,13 +95,21 @@ module.exports = {
 		}
 
         if(checker) {
-            //Add data to user and a trip
-            RN.user = new RN.mdl.user(userDataToLoad);
-            RN.trips = new RN.mdl.trips(userDataToLoad.trips);
-            RN.currentTrip = new RN.mdl.currentTrip();
-	        RN.weather = new RN.mdl.weather();
+            //Start trip model
+	        RN.trips = new RN.mdl.trips(userDataToLoad.trips);
+
             //backup again to local storage
             RN.fnc.login.saveLoginDataToLocalStorage(userDataToLoad);
+
+	        //delete trips so it doesn't end up in the user model
+	        delete userDataToLoad.trips;
+
+	        //Add data to user and a trip
+	        RN.user = new RN.mdl.user(userDataToLoad);
+
+	        //Start other models
+	        RN.currentTrip = new RN.mdl.currentTrip();
+	        RN.weather = new RN.mdl.weather();
         }
 
 	},

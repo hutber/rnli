@@ -11,13 +11,13 @@ Table of Contents
 */
 
 //* #Location   -------------------------------------------------- */
-    function insertLocation($uid,$tid,$lat,$long,$area,$continent,$country,$pcode)
+    function insertLocation($uid,$tid,$latitude,$long,$area,$continent,$country,$pcode)
     {
         $sql = sprintf("INSERT INTO `location` (
             `uid` ,
             `tid` ,
-            `lat` ,
-            `long`,
+            `latitude` ,
+            `longitude`,
             `area`,
             `continent`,
             `country`,
@@ -26,7 +26,7 @@ Table of Contents
         VALUES (
             '%d','%d','%d','%s','%s','%s','%s','%s'
         );",
-            $uid,$tid, $lat, $long, $this->db->escape($area), $this->db->escape($continent), $this->db->escape($country), $this->db->escape($pcode)
+            $uid,$tid, $latitude, $long, $this->db->escape($area), $this->db->escape($continent), $this->db->escape($country), $this->db->escape($pcode)
         );
         $this->db->query($sql);
     }
@@ -154,7 +154,7 @@ Table of Contents
 
     function getTrips ($uid)
     {
-        $sql = sprintf("SELECT * FROM trip WHERE uid = %d ORDER BY date DESC;", $uid);
+        $sql = sprintf("SELECT * FROM trip t, location l WHERE t.uid = %d and t.id = l.tid ORDER BY t.date DESC;", $uid);
         return $this->db->get($sql);
     }
 }

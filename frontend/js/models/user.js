@@ -16,6 +16,11 @@ module.exports = function(){
 			this.set({
 				contacts: data
 			})
+		},
+		setCatches: function(data){
+			this.set({
+				catch: data
+			})
 		}
 	});
 };

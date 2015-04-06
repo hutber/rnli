@@ -1,0 +1,23 @@
+mixin tripdetails(data)
+    - var newLat = data.latitude.substr(0, 5), newLong = data.longitude.substr(0, 5);
+    .underHeader
+        if(typeof data.id !== typeof undefined)
+            .tripbox.tripid
+                i(class='icon-location')
+                .text
+                    span TRIP
+                    | #{data.id}
+        .tripbox
+            i(class='icon-calendar')
+            .text #{data.currentDay}
+                span #{data.date}
+        .tripbox
+            i(class='icon-globe')
+            .text #{data.area},
+                span #{data.country}
+        .tripbox
+            i(class='icon-table')
+            .text Lat
+                span #{newLat}
+                | Long
+                span #{newLong}

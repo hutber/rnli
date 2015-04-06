@@ -48,7 +48,6 @@ module.exports = function(){
 
 			var data = RN.currentTrip.attributes,
 				details = RN.currentTrip.attributes.details,
-				weather = RN.currentTrip.attributes.location.weather[0],
 				rdata = {};
 
 			rdata.trip = {
@@ -56,27 +55,28 @@ module.exports = function(){
 				date: data.date[1],
 				rating: data.rating || null,
 				hazard: data.hazard || null,
-				temperature: weather.T || null,
-				visibility: weather.V || null,
-				winddirection: weather.D || null,
-				weathertype: weather.W || null,
-				pressure: weather.P || null,
-				pressuretendency: weather.Pt || null,
-				dewpoint: weather.Dp || null,
-				humidity: weather.H || null,
-				seatemperature: weather.St || null,
-				windspeed: weather.S || null,
-				waveheight: weather.Wh || null,
-				waveperiod: weather.Wp || null
+				temperature: details.temperature || null,
+				visibility: details.visibility || null,
+				winddirection: details.winddirection || null,
+				weathertype: details.weathertype || null,
+				pressure: details.pressure || null,
+				pressuretendency: details.pressuretendency || null,
+				dewpoint: details.dewpoint || null,
+				humidity: details.humidity || null,
+				seatemperature: details.seatemperature || null,
+				swell: details.swell || null,
+				windspeed: details.windspeed || null,
+				waveheight: details.waveheight || null,
+				waveperiod: details.waveperiod || null
 			};
 
 			rdata.location = {
-				lat: location.lat,
-				long: location.long,
-				area: location.area || null,
-				continent: location.continent || null,
-				country: location.country || null,
-				pcode: location.pcode || null
+				latitude: details.latitude,
+				longitude: details.longitude,
+				area: details.area || null,
+				continent: details.continent || null,
+				country: details.country || null,
+				pcode: details.pcode || null
 			};
 
 			rdata.notes = RN.currentTrip.attributes.notes;
@@ -86,7 +86,7 @@ module.exports = function(){
 
 		},
 
-		finaliseTrip: function(data){
+		finaliseTrip: function(data, callBack){
 			var self = this;
 			$.ajax({
 				url: RN.glb.url.api + 'addTrip',
@@ -94,20 +94,29 @@ module.exports = function(){
 				dataType: 'json',
 				data: {
 					trip: data.trip,
-					details: data.details,
+					location: data.location,
 					notes: data.notes,
 					catch: data.catch,
 					uid: RN.user.get('uid')
 				},
 				error: function (data) {
-					c(data);
+					c('error currenttrip');
 				},
 				success: function (data) {
 					if (data.error) {
 						RN.fnc.popups.message.show(data.error, 'bad');
 					} else {
+						//remove previous trips data
 						self.resetData();
-						self.saveLocal(data);
+
+						//save the returned data into our models
+						RN.trips.saveLocal('trips',data.trips);
+
+						//user data to reload
+						RN.user.setCatches('catch',data.catch);
+
+						//Run callback
+						callBack();
 					}
 				}
 			});

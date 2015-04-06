@@ -14,8 +14,8 @@ class returnPostcode extends Controller {
 
         //Variables
         $key = '9ef3f3a2-f189-4cb4-a0c4-31b52691f81f';
-        $lat = $_GET['lat'];
-        $long = $_GET['long'];
+        $latitude = $_GET['latitude'];
+        $longitude = $_GET['longitude'];
         $dataToReturn = [];
         if(isset($_GET['type'])){
             $type = $_GET['type'];
@@ -27,9 +27,9 @@ class returnPostcode extends Controller {
             'message'=>'Couldn\'t find location, please try again'
         ];
 
-        if($lat !="" && $long !="") {
+        if($latitude !="" && $longitude !="") {
             //Get nearest Location Site
-            $siteInfo = $dataStore->getArea($lat, $long);
+            $siteInfo = $dataStore->getArea($latitude, $longitude);
             $siteID = $siteInfo[0]['id'];
 
             //get data from feed
@@ -53,8 +53,8 @@ class returnPostcode extends Controller {
                 $dataFeed = json_decode($query);
 				//turn data into something we can use
 				$dataToReturn = [
-					'lat' => $lat,
-					'long' => $long,
+					'latitude' => $latitude,
+					'longitude' => $longitude,
 					'area' => $dataFeed->SiteRep->DV->Location->name,
 					'country' => $dataFeed->SiteRep->DV->Location->country,
 					'continent' => $dataFeed->SiteRep->DV->Location->continent,

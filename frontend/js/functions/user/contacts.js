@@ -18,7 +18,7 @@ module.exports = function () {
 				id: data
 			},
 			error: function (data) {
-				c(data);
+				c('error contact');
 			},
 			success: function (data) {
 				ev.parent().fadeOut();

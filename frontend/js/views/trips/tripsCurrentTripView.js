@@ -11,7 +11,7 @@ module.exports = RN.glb.gvCreator.extend({
 		'click .retry': 'render',
 		'click .starttrip': 'start',
 		'click .endtrip': 'end',
-		'click .closetrip': 'close',
+		'click .savetrip': 'savetrip',
 		'click .enlargetrip': 'enlargeMap'
 	},
 
@@ -28,12 +28,11 @@ module.exports = RN.glb.gvCreator.extend({
 		$('.savetrip').show();
 		$('#end')[0].value = moment().format();
 	},
-	close : function(){
-
+	savetrip : function(){
 		var finalData = RN.currentTrip.prePareDataForDB();
-		RN.currentTrip.finaliseTrip(finalData);
-
-		RN.router.navigate('tripclosed', true);
+		RN.currentTrip.finaliseTrip(finalData, function(){
+			RN.router.navigate('tripclosed', true);
+		});
 	},
 	enlargeMap : function(ev){
 		$('#map-canvas').toggleClass('bigmap');
@@ -46,14 +45,14 @@ module.exports = RN.glb.gvCreator.extend({
 		}else{
 			var self = this,
 				cords = {
-					long: RN.currentTrip.get('details').longitude,
-					lat: RN.currentTrip.get('details').latitude
+					longitude: RN.currentTrip.get('details').longitude,
+					latitude: RN.currentTrip.get('details').latitude
 				},
 				currentLocationData = RN.currentTrip.get('details') || {};
 
 			//for local dev
 			if(typeof currentLocationData === "undefined" && RN.glb.url.envioment === 'localApp') {
-				RN.fnc.location.getClosestLocation(cords.lat, cords.long,  function (data) {
+				RN.fnc.location.getClosestLocation(cords.latitude, cords.long,  function (data) {
 					currentLocationData = data;
 				});
 			}
@@ -65,6 +64,7 @@ module.exports = RN.glb.gvCreator.extend({
 				}
 				//load in view with data
 				self.$el.html(self.templates.home({data: currentLocationData}));
+
 				var styles = [
 						{
 							"featureType": "administrative",
@@ -146,7 +146,7 @@ module.exports = RN.glb.gvCreator.extend({
 						}
 					],
 					styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"}),
-					myLatlng = new google.maps.LatLng(cords.lat, cords.long),
+					myLatlng = new google.maps.LatLng(cords.latitude, cords.longitude),
 					mapOptions = {
 						zoom: 9,
 						center: myLatlng,

@@ -4,7 +4,6 @@ module.exports = function () {
 	var notes = {};
 
 	notes.saveLocal = function(data){
-		c(data);
 		RN.currentTrip.saveLocal('notes', data);
 	};
 
@@ -38,13 +37,12 @@ module.exports = function () {
 				note: data
 			},
 			error: function (data) {
-				c(data);
+				c('error');
 			},
 			success: function (data) {
 				if (data.error) {
 					RN.fnc.popups.message.show(data.error, 'bad');
 				} else {
-					c(data);
 					notes.saveLocal(data);
 				}
 			}

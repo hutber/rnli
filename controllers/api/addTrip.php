@@ -38,19 +38,26 @@ class addTrip extends Controller {
 				$trip['waveperiod']
 			);
 			$tripdId = $db->getLastID();
-
-			foreach($notes as $key => $item){
-				$dataStore->insertNote($uid, $tripdId, $item['text'], $item['date']);
+			if(is_array($notes)) {
+				foreach ($notes as $key => $item) {
+					$dataStore->insertNote($uid, $tripdId, $item['text'], $item['date']);
+				}
 			}
 
-			foreach($catch as $key => $item){
-				$catch = $item['data'];
-				$dataStore->insertCatch($uid,$tripdId,$catch['species'],$catch['weight1'],$catch['weight2'],$catch['height1'],$catch['height2'],$catch['released'],$catch['image'],$item['date']);
+			if(is_array($catch)) {
+				foreach ($catch as $key => $item) {
+					$catch = $item['data'];
+					$dataStore->insertCatch($uid, $tripdId, $catch['species'], $catch['weight1'], $catch['weight2'], $catch['height1'], $catch['height2'], $catch['released'], $catch['image'], $item['date']);
+				}
 			}
 
-			$dataStore->insertLocation($uid,$tripdId, $location['lat'], $location['long'], $location['area'], $location['continent'], $location['country'], $location['pcode']);
+			$dataStore->insertLocation($uid,$tripdId, $location['latitude'], $location['longitude'], $location['area'], $location['continent'], $location['country'], $location['pcode']);
 
 			$data['catch'] = $dataStore->getCatches($uid);
+			$data['trips'] = $dataStore->getTrips($uid);
+			$data['notes'] = $dataStore->getNotes($uid);
+			$data['locations'] = $dataStore->getLocation($uid);
+			$data['thistrip'] = $tripdId;
 
 			header('Content-Type: application/javascript');
 			print json_encode($data);

@@ -11,7 +11,6 @@ module.exports = RN.glb.gvCreator.extend({
 	},
 	moveToTrip : function(ev){
 		var ev = $(ev.currentTarget);
-		c(ev);
 	},
 	render: function () {
 		//load data in ejs

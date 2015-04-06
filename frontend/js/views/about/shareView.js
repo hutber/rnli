@@ -17,7 +17,7 @@ module.exports = RN.glb.gvCreator.extend({
 			method: 'share',
 			href: 'http://rnli.mayfieldafc.com/app/www/'
 		}, function(data){
-			c(data);
+			c('fb stuff');
 		});
 	},
 

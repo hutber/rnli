@@ -1,0 +1,11 @@
+mixin  rating(data, options)
+    .rating
+        .stars
+            form(action='')
+                - var i = 5, checked = false;
+                while i > 0
+                    - checked = false;
+                    - if(i===data) var checked = true;
+                    input(type='radio', name='star', class=['star','star-#{i}'], id='star-'+i, checked=checked, disabled=options)
+                    label(for='star-#{i}', class=['star','star-#{i}'])
+                    - i--

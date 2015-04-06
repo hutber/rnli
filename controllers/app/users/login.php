@@ -39,7 +39,7 @@ class login extends Controller {
 					$messages['catch'] = $dataStore->getCatches($checkDetails['uid']);
 					$messages['trips'] = $dataStore->getTrips($checkDetails['uid']);
 					$messages['notes'] = $dataStore->getNotes($checkDetails['uid']);
-					$messages['trips'] = $dataStore->getLocation($checkDetails['uid']);
+					$messages['locations'] = $dataStore->getLocation($checkDetails['uid']);
 
 
 					//add security field

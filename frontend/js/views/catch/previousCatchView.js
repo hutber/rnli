@@ -19,7 +19,6 @@ module.exports = RN.glb.gvCreator.extend({
 
 	render: function () {
 		//load data in ejs
-		c(this.templates);
 		this.$el.html(this.templates.home());
 	}
 });

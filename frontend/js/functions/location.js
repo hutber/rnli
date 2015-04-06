@@ -26,8 +26,8 @@ module.exports = function(){
 			//type: 'POST',
 			dataType: 'json',
 			data: {
-				lat: lat,
-				long: long
+				latitude: lat,
+				longitude: long
 			},
 			success: function (data) {
 				callBack(data);

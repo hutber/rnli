@@ -606,6 +606,14 @@ table {
   content: '\e868'; }
 
 /* '' */
+.icon-star-empty:before {
+  content: '\e869'; }
+
+/* '' */
+.icon-star:before {
+  content: '\e86a'; }
+
+/* '' */
 .icon-twitter:before {
   content: '\e86d'; }
 
@@ -1460,6 +1468,12 @@ input[type=checkbox] {
     .catchfishbox.down .icon-plus, .tripHomeBox.down .icon-plus {
       display: none;
       visibility: hidden; }
+  .catchfishbox .rating .stars, .tripHomeBox .rating .stars {
+    text-align: left;
+    width: auto; }
+    .catchfishbox .rating .stars label.star, .tripHomeBox .rating .stars label.star {
+      padding: 2px;
+      font-size: 1.3rem; }
 
 .catchbox {
   font-size: 1.4rem;
@@ -2317,8 +2331,44 @@ Table of Contents
       font-size: 1.2rem;
       padding-left: 2px;
       font-family: arial, helvetica, sans-serif; }
+.tripMap .pressure, .tripMap .swell {
+  margin: 15px 0; }
+  .tripMap .pressure .info, .tripMap .swell .info {
+    font-size: 2rem;
+    font-family: din, "Lucida Grande", sans-serif;
+    margin: 10px 0; }
+    .tripMap .pressure .info span, .tripMap .swell .info span {
+      font-size: 1.5rem;
+      font-family: Arial, "Lucida Grande", sans-serif; }
 .weather .tripMap .tripControls, .weather .tripMap .gpscontrols {
   display: none; }
+
+/*******************************************
+  = RATING
+*******************************************/
+.rating div.stars {
+  width: 270px;
+  display: inline-block; }
+.rating input.star {
+  display: none; }
+.rating label.star {
+  float: right;
+  padding: 10px;
+  font-size: 36px;
+  color: #444;
+  transition: all .2s; }
+.rating input.star:checked ~ label.star:before {
+  content: '\e86a';
+  color: #EF8201;
+  transition: all .25s; }
+.rating input.star-5:checked ~ label.star:before {
+  color: #FE7;
+  text-shadow: 0 0 20px #952; }
+.rating input.star-1:checked ~ label.star:before {
+  color: #F62; }
+.rating label.star:before {
+  content: '\e869';
+  font-family: fontello; }
 
 /*===============  Pages ===============
 ///* #Create Trip ------------------------------------------------------------------------ */
@@ -2331,6 +2381,9 @@ Table of Contents
 
 .currenttrip .tripControls .btn {
   padding: 25px 20px; }
+
+.tripclosed .section {
+  border-bottom: none; }
 
 .previouscatch .catchsortby {
   text-align: center;

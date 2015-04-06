@@ -14,8 +14,8 @@ class returnData extends Controller {
 
         //Variables
         $key = '9ef3f3a2-f189-4cb4-a0c4-31b52691f81f';
-        $lat = $_GET['lat'];
-        $long = $_GET['long'];
+        $latitude = $_GET['latitude'];
+        $longitude = $_GET['longitude'];
         $dataToReturn = [];
         if(isset($_GET['type'])){
             $type = $_GET['type'];
@@ -27,9 +27,9 @@ class returnData extends Controller {
             'message'=>'Couldn\'t find location, please try again'
         ];
 
-        if($lat !="" && $long !="") {
+        if($latitude !="" && $longitude !="") {
             //Get nearest Location Site
-            $siteInfo = $dataStore->getArea($lat, $long);
+            $siteInfo = $dataStore->getArea($latitude, $longitude);
             $siteID = $siteInfo[0]['id'];
 
             //get data from feed
@@ -59,8 +59,8 @@ class returnData extends Controller {
 					'country' => $dataFeed->SiteRep->DV->Location->country,
 					'continent' => $dataFeed->SiteRep->DV->Location->continent,
                     'readingtime'=> $weather[0]->{'$'},
-                    'latitude' => $lat,
-                    'longitude' => $long,
+                    'latitude' => $latitude,
+                    'longitude' => $longitude,
                     'winddirection'=> $weather[0]->D,
                     'dewpoint'=> $weather[0]->Dp,
                     'feelsliketemperature'=> $weather[0]->F,

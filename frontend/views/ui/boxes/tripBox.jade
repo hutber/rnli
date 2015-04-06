@@ -1,4 +1,5 @@
 mixin tripBox(data)
+   - data.date = moment(data.date).format('MMMM Do YYYY');
    - var currentCatchItem = function(){
    -     var i = 0;
    -     while (i < RN.user.get('catch').length) {
@@ -11,14 +12,12 @@ mixin tripBox(data)
    .box.tripHomeBox
          .image
             if(typeof data.image !=="undefined")
-               img(src='img/')
+               img(src='img/uploads/'+data.image)
             else
                img(src='img/placeholder.gif')
          .text
-            h3 #{data.species}
-            .item W
-               span #{data.weight1}lb #{data.weight2}oz
-            .item L
-               span #{data.height1}ft #{data.height2}in
+            h3 #{data.name}
+            .item #{data.date}
+            +rating(data.rating, 'disabled')
          .icon
             i(class='icon-right-open')
