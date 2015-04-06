@@ -38,6 +38,11 @@ module.exports = RN.glb.gvCreator.extend({
 			$('.postcodearea').empty();
 			document.getElementById('postcode').value = '';
 			$('#postcode').removeClass('success');
+		}, function(){
+			//If the users GPS is turned off put the button back to NO on the "current Loction"
+			$('.selected').removeClass('selected');
+			$('.locationSelector .no').addClass('selected');
+			RN.fnc.popups.spinner.hide();
 		});
 	},
 	locationOff: function(ev){

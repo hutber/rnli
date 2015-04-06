@@ -35,48 +35,46 @@ module.exports = function(){
 		});
 	};
 
-	location.getLocation = function(callback){
+	location.getLocation = function(callback, cancelBack){
 		var self = this;
 		location.lookUp(function(data){
 				location.getClosestLocation(data.coords.latitude, data.coords.longitude, function(data){
 					callback(data);
+					c(data);
 					RN.fnc.popups.spinner.hide();
 				})
-			},
-			function(data){
-				RN.fnc.popups.spinner.hide();
-				RN.fnc.popups.message.show('Please make sure your GPS is turned on and try again', 'bad')
-			});
+			}, cancelBack);
 	};
 
-	location.lookUp = function(success, failed){
-		RN.fnc.popups.spinner.show('Looking up location', true)
+	location.lookUp = function(callBack, cancelBack){
+		var self = this;
+		RN.fnc.popups.spinner.show('Looking up location');
 
 		navigator.geolocation.watchPosition((function (_this) {
 			return function (position) {
-				success(position);
+				callBack(position);
 			};
 		})(this), function (error) {
-			var errorButton, errorMsg, errorTitle;
+			var errorMsg, errorTitle;
 			errorTitle = "Location Services";
-			errorButton = "Ok";
 			if (error.code === 1) {
-				errorMsg = "\"AppName\" needs access to your location. Please turn on Location Services in your device settings.";
+				errorMsg = "RNLI App needs access to your location. Please turn on Location Services in your device settings.";
 			}
 			if (error.code === 2) {
 				errorMsg = "This device is unable to retrieve a position. Make sure you are connected to a network";
 			}
 			if (error.code === 3) {
-				errorMsg = "This device is unable to retrieve a position. Make sure you have Location Services enabled for \"AppName\"";
+				errorMsg = "This device is unable to retrieve a position. Make sure you have Location Services enabled for RNLI or turned on";
 			}
 			if (error.code === 1 || error.code === 2 || error.code === 3) {
-				return RN.fnc.popups.Dialog(errorTitle, errorMsg, errorButton, errorDismissed, 'confirm');
+				return RN.fnc.popups.Dialog(errorTitle, errorMsg, ['Ok', 'Retry'], function(){
+					self.lookUp(callBack);
+				}, 'confirm', cancelBack);
 			}
-			failed(error);
 		}, {
 			enableHighAccuracy: true,
 			maximumAge: 20000,
-			timeout: 10000
+			timeout: 1000
 		});
 	};
 	return location;

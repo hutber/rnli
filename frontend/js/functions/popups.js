@@ -73,7 +73,7 @@ module.exports = function(){
 	 Dialogs
 	 ================================================== */
 	//RN.fnc.popups.Dialog('Private Session Key has expired.', 'This is often from logging on a different device. We will log you out for security.');
-	popups.Dialog = function(title, message, button, callback, type){
+	popups.Dialog = function(title, message, button, callback, type, cancelBack){
 		if(typeof type === "undefined"){
 			type = 'alert';
 		}
@@ -84,6 +84,8 @@ module.exports = function(){
 			navigator.notification[type](message, function(button){
 				if(button===2){
 					callback();
+				}else{
+					cancelBack();
 				}
 			}, title, button);
 		}else{
