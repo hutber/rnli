@@ -1047,7 +1047,8 @@ input[type=checkbox] {
     font-family: din, "Lucida Grande", sans-serif;
     color: #D7D5CF;
     text-align: left;
-    cursor: pointer; }
+    cursor: pointer;
+    text-transform: uppercase; }
   .switch .switch-label:active {
     font-weight: bold; }
   .switch .switch-label-off {
@@ -1082,6 +1083,12 @@ input[type=checkbox] {
     background: #FFF;
     -webkit-transition: left 0.15s ease-out;
     transition: left 0.15s ease-out; }
+  .addcatch .switch .switch-label {
+    left: -105px;
+    width: 145px; }
+  .addcatch .switch .switch-label-on {
+    left: 35px;
+    width: 170px; }
 
 .btn, .btn-group > .btn, .btn-group > .dropdown-menu, .btn-group > .popover {
   font-size: 17.136px;
@@ -2416,20 +2423,20 @@ Table of Contents
         background: #28243b;
         color: #FFF; }
 
-.currenttrip .footer, .addhazard .footer, .notes .footer, .addnotes .footer, .catch .footer, .addcatch .footer, .confirmcatch .footer {
+.currenttrip .footer, .addhazard .footer, .notes .footer, .addnotes .footer, .catch .footer, .addcatch .footer, .confirmcatch .footer, .tripcatch .footer {
   display: block;
   height: 65px; }
-  .currenttrip .footer .tripfooter, .addhazard .footer .tripfooter, .notes .footer .tripfooter, .addnotes .footer .tripfooter, .catch .footer .tripfooter, .addcatch .footer .tripfooter, .confirmcatch .footer .tripfooter {
+  .currenttrip .footer .tripfooter, .addhazard .footer .tripfooter, .notes .footer .tripfooter, .addnotes .footer .tripfooter, .catch .footer .tripfooter, .addcatch .footer .tripfooter, .confirmcatch .footer .tripfooter, .tripcatch .footer .tripfooter {
     display: block; }
-    .currenttrip .footer .tripfooter a, .addhazard .footer .tripfooter a, .notes .footer .tripfooter a, .addnotes .footer .tripfooter a, .catch .footer .tripfooter a, .addcatch .footer .tripfooter a, .confirmcatch .footer .tripfooter a {
+    .currenttrip .footer .tripfooter a, .addhazard .footer .tripfooter a, .notes .footer .tripfooter a, .addnotes .footer .tripfooter a, .catch .footer .tripfooter a, .addcatch .footer .tripfooter a, .confirmcatch .footer .tripfooter a, .tripcatch .footer .tripfooter a {
       display: inline-block; }
-    .currenttrip .footer .tripfooter i, .addhazard .footer .tripfooter i, .notes .footer .tripfooter i, .addnotes .footer .tripfooter i, .catch .footer .tripfooter i, .addcatch .footer .tripfooter i, .confirmcatch .footer .tripfooter i {
+    .currenttrip .footer .tripfooter i, .addhazard .footer .tripfooter i, .notes .footer .tripfooter i, .addnotes .footer .tripfooter i, .catch .footer .tripfooter i, .addcatch .footer .tripfooter i, .confirmcatch .footer .tripfooter i, .tripcatch .footer .tripfooter i {
       display: block;
       font-size: 1.5rem;
       line-height: 2.1rem; }
-  .currenttrip .footer .normalfooter, .addhazard .footer .normalfooter, .notes .footer .normalfooter, .addnotes .footer .normalfooter, .catch .footer .normalfooter, .addcatch .footer .normalfooter, .confirmcatch .footer .normalfooter {
+  .currenttrip .footer .normalfooter, .addhazard .footer .normalfooter, .notes .footer .normalfooter, .addnotes .footer .normalfooter, .catch .footer .normalfooter, .addcatch .footer .normalfooter, .confirmcatch .footer .normalfooter, .tripcatch .footer .normalfooter {
     display: none; }
-.currenttrip textarea, .addhazard textarea, .notes textarea, .addnotes textarea, .catch textarea, .addcatch textarea, .confirmcatch textarea {
+.currenttrip textarea, .addhazard textarea, .notes textarea, .addnotes textarea, .catch textarea, .addcatch textarea, .confirmcatch textarea, .tripcatch textarea {
   height: 80%; }
 
 .landingpage {

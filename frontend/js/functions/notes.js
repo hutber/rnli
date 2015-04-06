@@ -9,10 +9,11 @@ module.exports = function () {
 
 	notes.saveNoteToObject = function(data){
 		var singleNote = {},
-			note = {};
+			note = {},
+			localNotes = JSON.parse(localStorage.ctripnotes);
 
-		if(typeof localStorage.ctripnotes !== typeof undefined){
-			singleNote = JSON.parse(localStorage.ctripnotes)
+		if(localNotes !== null){
+			singleNote = localNotes
 		}
 
 		if(Object.keys(singleNote).length !== 0) {

@@ -23,7 +23,6 @@ module.exports = function(){
 			localStorage[type] = RN.fnc.json.convertToString(data);
 		},
 		createDefaults: function(data){
-			c(data);
 			if(data){
 				return {
 					trips:data

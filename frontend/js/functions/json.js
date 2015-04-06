@@ -7,9 +7,14 @@ module.exports = {
 			return JSON.parse(data);
 		}  else if (typeof data !== typeof undefined && (data.substring(0,1) === "{" || data.substring(0,1) === "[")) {
             return JSON.parse(data);
-		}  else if (typeof data === "object" || typeof data === "string") {
+		} else if (data === "null") {
+
+			return JSON.parse(data);
+		} else if (typeof data === "object" || typeof data === "string") {
+
 			return data;
 		} else {
+
 			return null;
 		}
 	},
@@ -17,7 +22,11 @@ module.exports = {
 		var listOfItems = {},
 			self = this;
 		Object.keys(item).forEach(function(key, val, stuff){
-			listOfItems[key] = self.checkParseOrObject(item[key]);
+			//if(item[key] === null) {
+			//	listOfItems[key] = null;
+			//}else{
+				listOfItems[key] = self.checkParseOrObject(item[key]);
+			//}
 		});
 
 		return listOfItems;

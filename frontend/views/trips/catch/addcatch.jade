@@ -1,10 +1,6 @@
 include ../../mixins
-+input({place:'Species', type: 'text', value:'', name:'species', id: 'species', value:'jamie'})
-.box.large
-    +input({type: 'radio', value: 'metric', name: 'weightsystem', checked: 'checked'})
-    | Metric
-    +input({type: 'radio', value: 'imperial', name: 'weightsystem'})
-    | Imperial
++input({place:'Species', type: 'text', value:'', name:'species', id: 'species'})
++switch('weightsystem', 'metric', 'imperial')
 .box.catchbox
     .title Weight
     .text

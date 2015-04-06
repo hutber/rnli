@@ -1,5 +1,5 @@
 // -
    Created by Hutber on 18/03/2015.
-- var hazardCopy = localStorage.ctriphazard;
+- var hazardCopy = RN.currentTrip.get('hazard');
 - if(hazardCopy === null) hazardCopy = '';
 textarea(placeholder="Log your hazard here..", id="hazardtext") #{hazardCopy}

@@ -10,9 +10,11 @@ module.exports = {
 					html.clientHeight, html.scrollHeight, html.offsetHeight );
 		if($('.footer').is(':visible')){
 			RN.glb.pageHeight = height - ($('.header').outerHeight() + $('.footer').outerHeight());
-		}else{
+		}else if(!$('.footer').is(':visible') && !$('.header').is(':visible')){
+			RN.glb.pageHeight = height - 25;
+		}else {
 			RN.glb.pageHeight = height - ($('.header').outerHeight());
 		}
-		$('.content').css({height:RN.glb.pageHeight});
+		$('.content, .shell').css({height:RN.glb.pageHeight});
 	}
 }

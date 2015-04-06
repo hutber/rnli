@@ -9,7 +9,8 @@ module.exports = function(){
 		defaults: {
 		},
 		initialize: function(){
-			this.set(this.createDefaults())
+			var data = this.createDefaults();
+			this.set(data)
 		},
 
 		createDefaults: function(data){
@@ -37,9 +38,10 @@ module.exports = function(){
 
 		resetData : function(){
 			var data = this.createDefaults();
+
 			Object.keys(data).forEach(function(item){
 				localStorage['ctrip'+item] = null;
-			})
+			});
 
 			this.initialize();
 		},

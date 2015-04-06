@@ -249,6 +249,7 @@ input[type=checkbox] {
 		color: $border;
 		text-align: left;
 		cursor: pointer;
+		text-transform: uppercase;
 	}
 	.switch-label:active {
 		font-weight: bold;
@@ -292,5 +293,15 @@ input[type=checkbox] {
 		background: #FFF;
 		-webkit-transition: left 0.15s ease-out;
 		transition: left 0.15s ease-out;
+	}
+	.addcatch & {
+		.switch-label {
+			left: -105px;
+			width: 145px;
+		}
+		.switch-label-on {
+			left: 35px;
+			width: 170px;
+		}
 	}
 }

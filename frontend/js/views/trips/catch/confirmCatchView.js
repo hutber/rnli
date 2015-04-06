@@ -19,7 +19,7 @@ module.exports = RN.glb.gvCreator.extend({
 
 	saveCatch : function(){
 		RN.fnc.catch.saveCatchToObject(localStorage.ctriptmpcatch);
-		RN.router.navigate('catch', true);
+		RN.router.navigate('tripcatch', true);
 	},
 
 	render: function () {

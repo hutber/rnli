@@ -1,6 +1,7 @@
 mixin catchFish(data)
-   - data.attr = data.attr || {}
-   .box.catchfishbox&attributes(data.attr)
+   - var attr = data.attr || {}
+   - data = data.data;
+   .box.catchfishbox&attributes(attr)
       .image
          img(src='img/placeholder.gif')
       .text
@@ -11,7 +12,7 @@ mixin catchFish(data)
             span #{data.height1}ft #{data.height2}in
          .item
             Rating
-      .icon
+      //.icon
          i(class='icon-minus')
          i(class='icon-plus')
       .fishdetails

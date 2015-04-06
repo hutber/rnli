@@ -36,22 +36,22 @@ module.exports =  function() {
 	};
 
 	// #Check if we are in the app... If we are do nothing
-	if(window.location.protocol === "file:"){
-		$.ajax({
-			url:'icon-76-2x.png',
-			type:'HEAD',
-			error: function()
-			{
-				globals.url.checkEnvio();
-			},
-			success: function()
-			{
-//					c('//file exists');
-			}
-		});
-	}else{
+//	if(window.location.protocol === "file:"){
+//		$.ajax({
+//			url:'icon-76-2x.png',
+//			type:'HEAD',
+//			error: function()
+//			{
+//				globals.url.checkEnvio();
+//			},
+//			success: function()
+//			{
+////					c('//file exists');
+//			}
+//		});
+//	}else{
 		globals.url.checkEnvio();
-	}
+	//}
 
 	//Hash's
 	globals.hash = 'index';

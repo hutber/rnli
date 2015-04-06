@@ -9,6 +9,7 @@ module.exports = {
 	login: require('./functions/login'),
 	connection: require('./functions/connection'),
 	location: require('./functions/location'),
+	gps: require('./functions/gps'),
 	json: require('./functions/json'),
 	heights: require('./functions/heights'),
 	user: {

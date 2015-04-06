@@ -30,5 +30,6 @@ module.exports = RN.glb.gvCreator.extend({
 	},
 	render: function(){
 		this.$el.html(this.templates.login());
+		RN.fnc.login.checkLoginState();
 	}
 });
