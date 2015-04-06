@@ -3,7 +3,7 @@ var gulp = require('gulp');
 
 gulp.task('browserSync', ['build'], function () {
 	browserSync({
-		proxy: "rnli.local/app/www/",
+		proxy: "app.rnli",
 		files: [
 			// Php files n stuff.
 			//"./controllers/**/*.php",

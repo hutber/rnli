@@ -39,7 +39,7 @@ if(count($parts)==1){
 
 // load controller
 require_once '/controllers/controller.php';
-$controllerFilename = '/controllers' . $url . '.php';
+$controllerFilename = 'controllers' . $url . '.php';
 #echo $controllerFilename;
 if (file_exists($controllerFilename)) {
 
