@@ -16,7 +16,7 @@ class returnData extends Controller {
         $key = '9ef3f3a2-f189-4cb4-a0c4-31b52691f81f';
         $latitude = $_GET['latitude'];
         $longitude = $_GET['longitude'];
-        $dataToReturn = [];
+        $dataToReturn = array();
         if(isset($_GET['type'])){
             $type = $_GET['type'];
         }else{
