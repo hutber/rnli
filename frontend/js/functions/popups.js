@@ -6,6 +6,7 @@ module.exports = function(){
 
 	popups.errorBlock = true;
 // #Popup message ------------------------------------------------------
+	//RN.fnc.popups.message.show(message, 'bad', 2); time is in s
 	popups.message = {
 		timer: null,
 		box: $('#messagebox'),
@@ -71,6 +72,7 @@ module.exports = function(){
 	/*==================================================
 	 Dialogs
 	 ================================================== */
+	//RN.fnc.popups.Dialog('Private Session Key has expired.', 'This is often from logging on a different device. We will log you out for security.');
 	popups.Dialog = function(title, message, button, callback, type){
 		if(typeof type === "undefined"){
 			type = 'alert';

@@ -20,6 +20,8 @@ module.exports = RN.glb.gvCreator.extend({
 		ev.hide();
 		$('.endtrip').show();
 		$('#start')[0].value = moment().format();
+
+		RN.fnc.gps.init();
 	},
 	end : function(ev){
 		var ev = $(ev.currentTarget);
