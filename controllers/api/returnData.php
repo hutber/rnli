@@ -54,7 +54,7 @@ class returnData extends Controller {
                 $weather = $dataFeed->SiteRep->DV->Location->Period[0]->Rep;
 
 				//turn data into something we can use
-				$dataToReturn = [
+				$dataToReturn = array (
                     'area' => $dataFeed->SiteRep->DV->Location->name,
 					'country' => $dataFeed->SiteRep->DV->Location->country,
 					'continent' => $dataFeed->SiteRep->DV->Location->continent,
@@ -79,7 +79,7 @@ class returnData extends Controller {
                     'waveperiod'=> $weather[0]->Wp,
                     'swell'=> null,
 					'key' => $dataFeed->SiteRep->Wx->Param
-				];
+                );
             }
 
             print json_encode($dataToReturn);
