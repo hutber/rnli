@@ -54,7 +54,7 @@ module.exports = function(){
 		var self = this,
 			options = {
 				enableHighAccuracy: true,
-				timeout: 5000,
+				timeout: 10000,
 				maximumAge: 0
 			};
 

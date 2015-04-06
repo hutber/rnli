@@ -3,26 +3,33 @@ module.exports = function () {
 
 	var gps = {};
 
-	gps.bgGeo = window.plugins.backgroundGeoLocation;
+	gps.bgGeo = null;
 
 	gps.init = function(data){
-		var self = this;
-		c(this);
+		this.bgGeo = window.plugins.backgroundGeoLocation;
 
-		var callbackFn = function(location){
-			self.onBackgroundSuccess(location);
-		};
-
-		var failureFn = function(error){
-			alert('Geolocation Error');
-		};
-
-		this.bgGeo.configure(callbackFn, failureFn, {
+		this.bgGeo.configure(this.callbackFn, this.failureFn, {
+			authToken: 'hutber',
 			desiredAccuracy: 10,
 			stationaryRadius: 10,
 			distanceFilter: 30,
-			debug: true
+			debug: true,
+			url: RN.glb.url.ajax + 'api/location/takeGPS',
+			notificationTitle: 'Hutber',
+			notificationText: 'Jamie',
+			activityType: 'AutomotiveNavigation',
+			stopOnTerminate: false,
+		//  locationTimeout: 10
 		});
+	};
+
+
+	gps.callbackFn = function(location){
+		this.onBackgroundSuccess(location);
+	};
+
+	gps.failureFn = function(error){
+		alert('Geolocation Error');
 	};
 
 	gps.start = function(data){

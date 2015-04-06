@@ -54,4 +54,21 @@ class DBApi extends Data {
         );
         return $this->db->get($sql);
     }
+
+    function addGPS($lat, $long)
+    {
+        //Now add data
+        $sql = sprintf(
+            "INSERT INTO  `rnli`.`gps` (
+            `id` ,
+            `latitude` ,
+            `longitude` ,
+            `date`
+            )
+            VALUES (
+            NULL ,  '12312',  '123123', NOW( )
+            );"
+        );
+        $this->db->query($sql);
+    }
 }
