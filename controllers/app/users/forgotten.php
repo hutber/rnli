@@ -5,9 +5,9 @@ class forgotten extends controller {
     function post($type) {
         if (isset($_POST)) {
 
-            require_once $_SERVER['DOCUMENT_ROOT'] .'/db/db.php';
+            require_once SITEROOT.'/db/db.php';
             $db = new DB();
-            require_once $_SERVER['DOCUMENT_ROOT'] .'/db/data.php';
+            require_once SITEROOT.'/db/data.php';
             $dataStore = new Data($db);
 
             $getUserDetails = $dataStore->checkForgottenDetails($_POST['email']);
@@ -23,7 +23,7 @@ class forgotten extends controller {
                 //add code to database
 //                $dataStore->insertResetCode($getUserDetails['uid'],$confirmation_code);
 
-                require($_SERVER['DOCUMENT_ROOT'] .'/class/sendMail.php');
+                require(SITEROOT.'/class/sendMail.php');
 
                 $from_address = 'noreply@rnli.com';
 

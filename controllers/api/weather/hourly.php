@@ -6,10 +6,10 @@ class hourly extends Controller {
 
         header('Content-type: application/javascript');
 
-        require_once $_SERVER['DOCUMENT_ROOT'] .'/db/db.php';
+        require_once SITEROOT.'/db/db.php';
         $db = new DB();
 
-        require_once $_SERVER['DOCUMENT_ROOT'] .'/db/types/DBApi.php';
+        require_once SITEROOT.'/db/types/DBApi.php';
         $dataStore = new DBApi($db);
 
         //Variables

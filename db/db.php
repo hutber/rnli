@@ -1,6 +1,6 @@
 <?php
 
-include_once $_SERVER['DOCUMENT_ROOT'] .'/db/MDB2.php';
+include_once SITEROOT.'/db/MDB2.php';
 
 class DB {
     function __construct() {

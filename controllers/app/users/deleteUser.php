@@ -7,10 +7,10 @@ class deleteUser extends webController {
         if (isset($_POST)) {
 
 
-			require_once  $_SERVER['DOCUMENT_ROOT'] .'/db/db.php';
+			require_once  SITEROOT.'/db/db.php';
 			$db = new DB();
 
-			require_once  $_SERVER['DOCUMENT_ROOT'] .'/db/data.php';
+			require_once  SITEROOT.'/db/data.php';
 			$dataStore = new Data($db);
 
 			$dataStore->delUser($_POST['sess']);

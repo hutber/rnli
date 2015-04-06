@@ -6,13 +6,13 @@ class reg extends controller
 	{
 		$data = array();
 
-		require_once $_SERVER['DOCUMENT_ROOT'] .'/db/db.php';
+		require_once SITEROOT.'/db/db.php';
 		$db = new DB();
 
-		require_once $_SERVER['DOCUMENT_ROOT'] .'/db/types/DBregistration.php';
+		require_once SITEROOT.'/db/types/DBregistration.php';
 		$dataStore = new DBregistration($db);
 
-		require_once  $_SERVER['DOCUMENT_ROOT'] .'/db/types/DBuser.php';
+		require_once  SITEROOT.'/db/types/DBuser.php';
 		$DBuser = new DBuser($db);
 
 		if (isset($_POST) && count($_POST) != 0) {
@@ -103,7 +103,7 @@ class reg extends controller
 					//If no errors then add user to database and send confirmation email
 					if ($error == false) {
 
-						require_once $_SERVER['DOCUMENT_ROOT'] .'/class/sendMail.php';
+						require_once SITEROOT.'/class/sendMail.php';
 
 //						if(strpos($email,'@topaz-marine.com') !== false){
 							$confirmed = 1;

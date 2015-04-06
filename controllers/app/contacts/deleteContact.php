@@ -5,10 +5,10 @@ class deleteContact extends Controller {
     function post($type)
     {
         if (isset($_POST)) {
-			require_once $_SERVER['DOCUMENT_ROOT'] . '/db/db.php';
+			require_once SITEROOT. '/db/db.php';
 			$db = new DB();
 
-			require_once $_SERVER['DOCUMENT_ROOT'] . '/db/types/DBtrip.php';
+			require_once SITEROOT. '/db/types/DBtrip.php';
 			$dataStore = new DBuser($db);
 
 			$uid = $_POST['uid'];

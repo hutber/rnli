@@ -27,7 +27,7 @@ class manage extends Controller {
 		$thisUser = $this->login->dataStore->adminUserLookUp($_POST['uid'])[0];
 
 		if($_POST['confirmed']==1){
-			require_once $_SERVER['DOCUMENT_ROOT'] .'/class/sendMail.php';
+			require_once SITEROOT.'/class/sendMail.php';
 
 			$from_address = 'noreply@mayfieldafc.com';
 

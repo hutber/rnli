@@ -55,9 +55,9 @@ class Email {
             //Loop through all the matching results for users
             foreach ($this->email_notifications as $value) {
 
-                require_once $_SERVER['DOCUMENT_ROOT'] .'/db/db.php';
+                require_once SITEROOT.'/db/db.php';
                 $db = new DB();
-                require_once $_SERVER['DOCUMENT_ROOT'] .'/db/types/DBemail.php';
+                require_once SITEROOT.'/db/types/DBemail.php';
                 $dataStore = new DBemail($db);
 
                 //insert email notification

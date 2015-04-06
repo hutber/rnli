@@ -4,10 +4,10 @@ class prepareData extends Controller {
     function get()
     {
 
-        require_once $_SERVER['DOCUMENT_ROOT'] .'/db/db.php';
+        require_once SITEROOT.'/db/db.php';
         $db = new DB();
 
-        require_once $_SERVER['DOCUMENT_ROOT'] .'/db/types/DBApi.php';
+        require_once SITEROOT.'/db/types/DBApi.php';
         $dataStore = new DBApi($db);
 
         $data = json_decode(file_get_contents(SUPERBASE.'/config/sitelist.json'));

@@ -26,9 +26,9 @@ class login extends Controller {
 					$messages['code'] = 0;
 				}else {
 					//DB init
-					require_once $_SERVER['DOCUMENT_ROOT'] . '/db/db.php';
+					require_once SITEROOT. '/db/db.php';
 					$db = new DB();
-					require_once $_SERVER['DOCUMENT_ROOT'] . '/db/types/DBtrip.php';
+					require_once SITEROOT. '/db/types/DBtrip.php';
 					$dataStore = new DBtrip($db);
 
 					//grab all details from the get stats function

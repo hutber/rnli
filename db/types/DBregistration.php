@@ -1,6 +1,6 @@
 <?php
 
-include_once $_SERVER['DOCUMENT_ROOT'] .'/db/data.php';
+include_once SITEROOT.'/db/data.php';
 
 class DBregistration extends Data {
 
