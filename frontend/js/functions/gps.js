@@ -34,7 +34,7 @@ module.exports = function () {
 		this.onBackgroundSuccess(location);
 		console.log('[js] BackgroundGeoLocation callback:  ' + location.latitudue + ',' + location.longitude);
 		$.ajax({
-			url: RN.glb.url.ajax + 'api/location/takeGPS',
+			url: RN.glb.url.api + 'location/takeGPS',
 			type: 'POST',
 			dataType: "json",
 			data: {
