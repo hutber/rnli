@@ -7,6 +7,7 @@ module.exports = RN.glb.gvCreator.extend({
 		home: require('../../../views/trips/tripsCurrent.jade'),
 	},
 	map: {},
+	when: 'present',
 	events: {
 		'click .retry': 'render',
 		'click .starttrip': 'start',
@@ -47,6 +48,21 @@ module.exports = RN.glb.gvCreator.extend({
 		$('#map-canvas').toggleClass('bigmap');
 	},
 
+	whenTrip : function(data){
+		var now = moment(),
+			self = this,
+			difference = now.diff(RN.currentTrip.get('date')[1], 'days');
+
+		if(moment(RN.currentTrip.get('date')[1]).isSame(moment(), 'day')) {
+			self.when = "present";
+		}
+		else if(difference < 0) {
+			self.when = "future";
+		}else if (difference > 0) {
+			self.when = "past";
+		}
+	},
+
 	render: function () {
 		if(RN.currentTrip.get('details')===null){
 			RN.fnc.popups.message.show('Error', 'bad', 2);
@@ -65,9 +81,22 @@ module.exports = RN.glb.gvCreator.extend({
 					currentLocationData = data;
 				});
 			}
+
+			//Check when were are
+			this.whenTrip();
+			c(this.when);
+			if(this.when === "past"){
+				$('.middle h1').text('PAST TRIP')
+			}else if (this.when === "future"){
+				$('.middle h1').text('FUTURE TRIP')
+			}
+
 			if(currentLocationData === 'null'){
+				//for the user home
 				RN.router.navigate('createtrip ', true);
 			}else {
+
+				//Load the page
 				if (currentLocationData.waveheight > 3) {
 					currentLocationData['notsafe'] = 'danger';
 				}

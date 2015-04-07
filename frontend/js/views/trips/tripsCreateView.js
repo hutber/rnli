@@ -135,19 +135,33 @@ module.exports = RN.glb.gvCreator.extend({
 		//load data in ejs
 		this.$el.html(this.templates.home());
 
+
+		var defaultDate = moment().toDate();
+		if(RN.currentTrip.get('date')[1]){
+			//set todays date
+			defaultDate = RN.currentTrip.get('date')[1];
+		}
+
 		//Initiate the datepick
 		var picker = new Pikaday({
 			field: document.getElementById('dateselector'),
 			format: 'MMMM Do YYYY',
-			defaultDate: moment().toDate(),
+			defaultDate: defaultDate,
 			onSelect: function() {
 				document.getElementById('createdate').value = this.getMoment().format();
 				self.readyToSave();
 			}
 		});
-		//set todays date
-		document.getElementById('createdate').value = picker.getMoment().format();
-		document.getElementById('dateselector').value = picker.getMoment().format('MMMM Do YYYY');
+
+		if(RN.currentTrip.get('date')){
+			//set todays date
+			document.getElementById('createdate').value = moment(RN.currentTrip.get('date')[1]).format();
+			document.getElementById('dateselector').value = moment(RN.currentTrip.get('date')[1]).format('MMMM Do YYYY');
+		}else{
+			//set todays date
+			document.getElementById('createdate').value = picker.getMoment().format();
+			document.getElementById('dateselector').value = picker.getMoment().format('MMMM Do YYYY');
+		}
 
 	}
 });
