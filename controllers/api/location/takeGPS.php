@@ -12,8 +12,13 @@ class takeGPS extends Controller {
 		require_once SITEROOT. '/db/types/DBApi.php';
 		$dataStore = new DBApi($db);
 		
-		$location = json_decode('{"auth_token":"hutber","foo":"bar","location":{"latitude":"51.6177441","longitude":"-0.1385274","accuracy":"25.0","speed":"0.0","bearing":"0.0","altitude":"0.0","recorded_at":"2015-04-07T16:00Z"}}');
-c($location);
+		// $location = json_decode();
+// c($location->location);
+
+		$post = '{"auth_token":"hutber","foo":"bar","location":{"latitude":"51.6177441","longitude":"-0.1385274","accuracy":"25.0","speed":"0.0","bearing":"0.0","altitude":"0.0","recorded_at":"2015-04-07T16:00Z"}}';
+		$data = json_decode($post);
+		$location = $data->location;
+
 		$accuracy = $location->accuracy;
 		$altitude = $location->altitude;
 		$altitudeAccuracy = $location->altitudeAccuracy;
@@ -33,7 +38,8 @@ c($location);
 		require_once SITEROOT. '/db/types/DBApi.php';
 		$dataStore = new DBApi($db);
 
-		$location = json_decode($_POST);
+		$data = json_decode($_POST);
+		$location = $data->location;
 
 		$accuracy = $location->accuracy;
 		$altitude = $location->altitude;

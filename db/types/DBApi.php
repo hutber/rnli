@@ -59,14 +59,14 @@ class DBApi extends Data {
     {
         //Now add data
         $sql = sprintf(
-            "INSERT INTO  'rnli'.'gps' (
-                    'accuracy' ,
-                    'altitude' ,
-                    'altitudeAccuracy' ,
-                    'heading' ,
-                    'latitude' ,
-                    'longitude' ,
-                    'speed'
+            "INSERT INTO  `rnli`.`gps` (
+                    `accuracy` ,
+                    `altitude` ,
+                    `altitudeAccuracy` ,
+                    `heading` ,
+                    `latitude` ,
+                    `longitude` ,
+                    `speed`
                 )
                 VALUES (
                     '%s' ,
