@@ -12,7 +12,10 @@ class takeGPS extends Controller {
 
         //Variables
         $dataToReturn = array();
-        $dataStore -> addGPS();
+        $lat = $_POST['lat'];
+        $long = $_POST['long'];
+
+        $dataStore -> addGPS($lat, $long);
 
         header('Content-type: application/javascript');
         print json_encode($dataToReturn);

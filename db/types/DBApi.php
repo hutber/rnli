@@ -66,8 +66,9 @@ class DBApi extends Data {
             `date`
             )
             VALUES (
-            NULL ,  '12312',  '123123', NOW( )
-            );"
+            NULL ,  '%s',  '%s', NOW( )
+            );",
+            $lat, $long
         );
         $this->db->query($sql);
     }

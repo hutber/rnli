@@ -168,11 +168,6 @@ module.exports = RN.glb.gvCreator.extend({
 					map: map
 				});
 			}
-
-			if(RN.glb.url.envioment==="liveApp") {
-				//start geoLocation background service
-				RN.fnc.gps.init();
-			}
 		}
 	}
 });
