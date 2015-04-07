@@ -2,7 +2,7 @@
 
 $messages = array();
 
-class takeGPS extends Controller {
+class takeGPS extends controller {
 
     function get (){
 
@@ -27,10 +27,14 @@ class takeGPS extends Controller {
 		$longitude = $location->longitude;
 		$speed = $location->speed;
 
-		$dataStore -> addGPS($accuracy, $altitude, $altitudeAccuracy, $heading, $latitude, $longitude, $speed);
+		//$dataStore -> addGPS($accuracy, $altitude, $altitudeAccuracy, $heading, $latitude, $longitude, $speed);
+		// $arr1 = array ('a'=>1,'b'=>2,'c'=>3,'d'=>4,'e'=>5);
+		// file_put_contents("/var/www/rnli.hutber.com/controllers/api/location/array.json",json_encode($post));
 	}
 
-    function post (){
+    function post ($type){
+		
+		$data = array();
 		
 		//DB init
 		require_once SITEROOT. '/db/db.php';
@@ -39,7 +43,7 @@ class takeGPS extends Controller {
 		$dataStore = new DBApi($db);
 
 		$data = json_decode($_POST);
-		$location = $data->location;
+		$location = json_decode(file_get_contents('php://input'))->location;
 
 		$accuracy = $location->accuracy;
 		$altitude = $location->altitude;
@@ -50,6 +54,7 @@ class takeGPS extends Controller {
 		$speed = $location->speed;
 
 		$dataStore -> addGPS($accuracy, $altitude, $altitudeAccuracy, $heading, $latitude, $longitude, $speed);
+
 	}
 
 };
