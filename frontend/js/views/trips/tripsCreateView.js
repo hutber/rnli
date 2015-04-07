@@ -15,7 +15,25 @@ module.exports = RN.glb.gvCreator.extend({
 		'click .createnewtrip .no': 'locationOff',
 		'click .createnewtrip .postboxbox': 'lookUpPostCode',
 		'keyup .createnewtrip .postcodeform': 'postcode',
+		'click .startGPS': 'startgps',
+		'click .stopGPS': 'stopgps',
 		'keyup #createname, #createdate, #createlocation': 'readyToSave'
+	},
+
+	stop : function(ev){
+		var ev = $(ev.currentTarget);
+
+		//start gps
+		RN.gps.stop();
+
+	},
+
+	startgps : function(ev){
+		var ev = $(ev.currentTarget);
+
+		//start gps
+		RN.gps.start();
+
 	},
 
 	locationOn: function(ev){
@@ -148,5 +166,11 @@ module.exports = RN.glb.gvCreator.extend({
 		//set todays date
 		document.getElementById('createdate').value = picker.getMoment().format();
 		document.getElementById('dateselector').value = picker.getMoment().format('MMMM Do YYYY');
+
+
+		if(RN.glb.url.envioment==="liveApp") {
+			//Now lets start up GPS tracking
+			RN.gps = require('../../functions/gps')();
+		}
 	}
 });

@@ -18,8 +18,8 @@ module.exports = function () {
 	gps.bgGeo.configure(gps.callbackFn, gps.failureFn, {
 		authToken: 'hutber',
 		desiredAccuracy: 10,
-		stationaryRadius: 10,
-		distanceFilter: 30,
+		stationaryRadius: 200,
+		distanceFilter:0,
 		debug: true,
 		url: RN.glb.url.ajax + 'api/location/takeGPS',
 		notificationTitle: 'RNLI',
