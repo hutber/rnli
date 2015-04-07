@@ -30,14 +30,15 @@ class takeGPS extends Controller {
 		require_once SITEROOT. '/db/types/DBApi.php';
 		$dataStore = new DBApi($db);
 
+		$location = json_decode($_POST['location']);
 
-		$accuracy = $_POST['accuracy'];
-		$altitude = $_POST['altitude'];
-		$altitudeAccuracy = $_POST['altitudeAccuracy'];
-		$heading = $_POST['heading'];
-		$latitude = $_POST['latitude'];
-		$longitude = $_POST['longitude'];
-		$speed = $_POST['speed'];
+		$accuracy = $location['accuracy'];
+		$altitude = $location['altitude'];
+		$altitudeAccuracy = $location['altitudeAccuracy'];
+		$heading = $location['heading'];
+		$latitude = $location['latitude'];
+		$longitude = $location['longitude'];
+		$speed = $location['speed'];
 
 		$dataStore -> addGPS($accuracy, $altitude, $altitudeAccuracy, $heading, $latitude, $longitude, $speed);
 	}

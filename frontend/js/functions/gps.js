@@ -65,6 +65,7 @@ module.exports = function () {
 
 			var failureFn = function(error) {
 				console.log('BackgroundGeoLocation error');
+				c('something');
 			};
 
 			// Only ios emits this stationary event
@@ -118,16 +119,16 @@ module.exports = function () {
 		 */
 		onPause: function() {
 			console.log('- onPause');
-			gps.stopPositionWatch();
-			//gps.bgGeo.stop();
+			//gps.stopPositionWatch();
+			gps.bgGeo.stop();
 		},
 		/**
 		 * Once in foreground, re-engage foreground geolocation watch with standard Cordova GeoLocation api
 		 */
 		onResume: function() {
 			console.log('- onResume');
-			//gps.bgGeo.start();
-			gps.watchPosition();
+			gps.bgGeo.start();
+			//gps.watchPosition();
 		},
 		// Update DOM on a Received Event
 		setCurrentLocation: function(location) {
