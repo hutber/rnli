@@ -60,14 +60,25 @@ class DBApi extends Data {
         //Now add data
         $sql = sprintf(
             "INSERT INTO  `rnli`.`gps` (
-            `id` ,
-            `latitude` ,
-            `longitude` ,
-            `date`
-            )
-            VALUES (
-            NULL ,  '%s',  '%s', NOW( )
-            );",
+                    `id` ,
+                    `accuracy` ,
+                    `altitude` ,
+                    `altitudeAccuracy` ,
+                    `heading` ,
+                    `latitude` ,
+                    `longitude` ,
+                    `speed` ,
+                )
+                VALUES (
+                    `id` ,
+                    `accuracy` ,
+                    `altitude` ,
+                    `altitudeAccuracy` ,
+                    `heading` ,
+                    `latitude` ,
+                    `longitude` ,
+                    `speed` ,
+                );",
             $lat, $long
         );
         $this->db->query($sql);

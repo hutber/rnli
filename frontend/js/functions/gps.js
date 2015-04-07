@@ -15,11 +15,13 @@ module.exports = function () {
 		/**
 		 * @private
 		 */
-		btnEnabled: undefined,
-		btnPace: undefined,
-		btnHome: undefined,
-		btnReset: undefined,
-
+		addToLocalStorage: function (data) {
+			var item = {},
+				previousStorage = JSON.parse(localStorage.gps);
+			previousStorage[new Date()] = data;
+			localStorage.setItem('gps', JSON.stringify(previousStorage));
+			c(JSON.parse(localStorage.gps));
+		},
 		send: function(){
 			$.ajax({
 				url: 'http://rnli.hutber.com/api/location/takeGPS',
@@ -44,6 +46,7 @@ module.exports = function () {
 			 */
 			var yourAjaxCallback = function(response) {
 				console.info(response);
+				c('something');
 				gps.bgGeo.finish();
 			};
 
@@ -54,6 +57,7 @@ module.exports = function () {
 				console.log('[js] BackgroundGeoLocation callback:  ' + location.latitude + ',' + location.longitude);
 				// Update our current-position marker.
 				gps.setCurrentLocation(location);
+				c('something');
 
 				// After you Ajax callback is complete, you MUST signal to the native code, which is running a background-thread, that you're done and it can gracefully kill that thread.
 				yourAjaxCallback.call(this);
@@ -85,56 +89,6 @@ module.exports = function () {
 				stopOnTerminate: false // <-- enable this to clear background location settings when the gps terminates
 			});
 		},
-		onClickHome: function() {
-			var fgGeo = window.navigator.geolocation;
-
-			// Your gps must execute AT LEAST ONE call for the current position via standard Cordova geolocation,
-			//  in order to prompt the user for Location permission.
-			fgGeo.getCurrentPosition(function(location) {
-				console.info('getCurrentPosition');
-			});
-		},
-		onClickChangePace: function(value) {
-			var  btnPace = gps.btnPace;
-
-			btnPace.removeClass('btn-success');
-			btnPace.removeClass('btn-danger');
-
-			var isAggressive = ENV.toggle('aggressive');
-			if (isAggressive == 'true') {
-				btnPace.addClass('btn-danger');
-				gps.bgGeo.changePace(true);
-			} else {
-				btnPace.addClass('btn-success');
-				gps.bgGeo.changePace(false);
-			}
-		},
-		onClickReset: function() {
-			// Clear prev location markers.
-			var locations = gps.locations;
-			console.info(locations)
-			gps.locations = [];
-
-			// Clear Polyline.
-			gps.path = undefined;
-		},
-		onClickToggleEnabled: function(value) {
-			var btnEnabled  = gps.btnEnabled,
-				isEnabled   = ENV.toggle('enabled');
-
-			btnEnabled.removeClass('btn-danger');
-			btnEnabled.removeClass('btn-success');
-
-			if (isEnabled == 'true') {
-				btnEnabled.addClass('btn-danger');
-				btnEnabled[0].innerHTML = 'Stop';
-				gps.bgGeo.start();
-			} else {
-				btnEnabled.addClass('btn-success');
-				btnEnabled[0].innerHTML = 'Start';
-				gps.bgGeo.stop();
-			}
-		},
 		watchPosition: function() {
 			var fgGeo = window.navigator.geolocation;
 			if (gps.watchId) {
@@ -165,29 +119,22 @@ module.exports = function () {
 		onPause: function() {
 			console.log('- onPause');
 			gps.stopPositionWatch();
-			gps.bgGeo.stop();
+			//gps.bgGeo.stop();
 		},
 		/**
 		 * Once in foreground, re-engage foreground geolocation watch with standard Cordova GeoLocation api
 		 */
 		onResume: function() {
 			console.log('- onResume');
-			gps.bgGeo.start();
+			//gps.bgGeo.start();
 			gps.watchPosition();
 		},
 		// Update DOM on a Received Event
 		setCurrentLocation: function(location) {
-			gps.send();
-			console.info('getCurrentLocation');
-			console.info(location);
-			if (!gps.location) {
-
-			}
-			if (!gps.path) {
-
-			}
+			gps.addToLocalStorage(location);
 
 			if (gps.previousLocation) {
+				//c('We have not moved');
 			}
 
 			// Add breadcrumb to current Polyline path.
