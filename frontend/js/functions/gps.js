@@ -5,7 +5,7 @@ module.exports = function () {
 
 	gps.bgGeo = null;
 
-	if (window.plugins.backgroundGeoLocation) {
+	if (window.plugins && typeof window.plugins.backgroundGeoLocation !== typeof undefined) {
 		gps.bgGeo = window.plugins.backgroundGeoLocation;
 	}
 	setTimeout(function(){
@@ -13,7 +13,7 @@ module.exports = function () {
 			gps.bgGeo = window.plugins.backgroundGeoLocation;
 		}
 		//your code to be executed after 1 seconds
-	},1000);
+	},5000);
 
 	gps.bgGeo.configure(gps.callbackFn, gps.failureFn, {
 		authToken: 'hutber',

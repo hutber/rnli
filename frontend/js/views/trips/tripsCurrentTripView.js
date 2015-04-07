@@ -22,7 +22,7 @@ module.exports = RN.glb.gvCreator.extend({
 		$('#start')[0].value = moment().format();
 
 		//start gps
-		RN.fnc.gps.start();
+		RN.gps.start();
 	},
 	end : function(ev){
 		var ev = $(ev.currentTarget);
@@ -32,7 +32,7 @@ module.exports = RN.glb.gvCreator.extend({
 		$('#end')[0].value = moment().format();
 
 		//start gps
-		RN.fnc.gps.stop();
+		RN.gps.stop();
 	},
 	savetrip : function(){
 		var finalData = RN.currentTrip.prePareDataForDB();
@@ -168,6 +168,11 @@ module.exports = RN.glb.gvCreator.extend({
 					map: map
 				});
 			}
+		}
+
+		if(RN.glb.url.envioment==="liveApp") {
+			//Now lets start up GPS tracking
+			RN.gps = require('../../functions/gps')();
 		}
 	}
 });
