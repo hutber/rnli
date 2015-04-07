@@ -20,11 +20,11 @@ module.exports = RN.glb.gvCreator.extend({
 		'keyup #createname, #createdate, #createlocation': 'readyToSave'
 	},
 
-	stop : function(ev){
+	stopgps : function(ev){
 		var ev = $(ev.currentTarget);
 
 		//start gps
-		RN.gps.stop();
+		RN.gps.onPause();
 
 	},
 
@@ -32,7 +32,7 @@ module.exports = RN.glb.gvCreator.extend({
 		var ev = $(ev.currentTarget);
 
 		//start gps
-		RN.gps.start();
+		RN.gps.onResume()
 
 	},
 
@@ -168,9 +168,9 @@ module.exports = RN.glb.gvCreator.extend({
 		document.getElementById('dateselector').value = picker.getMoment().format('MMMM Do YYYY');
 
 
-		if(RN.glb.url.envioment==="liveApp") {
+		//if(RN.glb.url.envioment==="liveApp") {
 			//Now lets start up GPS tracking
 			RN.gps = require('../../functions/gps')();
-		}
+		//}
 	}
 });
