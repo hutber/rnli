@@ -6,7 +6,7 @@ class DBApi extends Data {
 
     function removeSites(){
         //Truncate the DB first
-        $this->db->query('TRUNCATE TABLE 'sites';');
+        $this->db->query('TRUNCATE TABLE `sites`;');
     }
 
     function insertSites($id, $elevation, $latitude, $longitude, $name, $region, $unitaryAuthArea)

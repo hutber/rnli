@@ -77,8 +77,7 @@ module.exports = function () {
 			gps.bgGeo.configure(callbackFn, failureFn, {
 				url: 'http://rnli.hutber.com/api/location/takeGPS', // <-- Android ONLY:  your server url to send locations to
 				params: {
-					auth_token: 'hutber',    //  <-- Android ONLY:  HTTP POST params sent to your server when persisting locations.
-					foo: 'bar'                              //  <-- Android ONLY:  HTTP POST params sent to your server when persisting locations.
+					auth_token: 'hutber'
 				},
 				desiredAccuracy: 0,
 				stationaryRadius: 50,
