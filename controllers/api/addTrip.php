@@ -18,8 +18,7 @@ class addTrip extends Controller {
 			$location = $_POST['location'];
 			$notes = $_POST['notes'];
 			$gps = $_POST['gps'];
-			c($gps);
-			exit;
+			
 			$dataStore->insertTrip(
 				$uid,
 				$trip['name'],
