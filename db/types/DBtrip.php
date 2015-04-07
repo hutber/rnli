@@ -89,11 +89,13 @@ Table of Contents
     }
 
 //* #GPS   -------------------------------------------------- */
-    function insertGPS($accuracy, $altitude, $altitudeAccuracy, $heading, $latitude, $longitude, $speed)
+    function insertGPS($uid,$tid,$accuracy, $altitude, $altitudeAccuracy, $heading, $latitude, $longitude, $speed)
     {
         //Now add data
         $sql = sprintf(
             "INSERT INTO  `rnli`.`gps` (
+                    `uid` ,
+                    `tid` ,
                     `accuracy` ,
                     `altitude` ,
                     `altitudeAccuracy` ,
@@ -109,9 +111,11 @@ Table of Contents
                     '%s' ,
                     '%s' ,
                     '%s' ,
+                    '%s' ,
+                    '%s' ,
                     '%s'
                 );",
-            $accuracy, $altitude, $altitudeAccuracy, $heading, $latitude, $longitude, $speed
+            $uid,$tid,$accuracy, $altitude, $altitudeAccuracy, $heading, $latitude, $longitude, $speed
         );
         $this->db->query($sql);
     }
