@@ -91,6 +91,7 @@ module.exports = function () {
 			});
 		},
 		watchPosition: function() {
+			c('something');
 			var fgGeo = window.navigator.geolocation;
 			if (gps.watchId) {
 				gps.stopPositionWatch();
