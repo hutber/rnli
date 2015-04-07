@@ -41,22 +41,21 @@ class addTrip extends Controller {
 			$tripdId = $db->getLastID();
 			if(is_array($notes)) {
 				foreach ($notes as $key => $item) {
-					$dataStore->insertNote($uid, $tripdId, $item['text'], $item['date']);
+					// $dataStore->insertNote($uid, $tripdId, $item['text'], $item['date']);
 				}
 			}
 
 			if(is_array($catch)) {
 				foreach ($catch as $key => $item) {
 					$catch = $item['data'];
-					$dataStore->insertGPS($uid, $tripdId, $gps['accuracy'], $gps['altitude'], $gps['altitudeAccuracy'], $gps['heading'], $gps['latitude'], $gps['longitude'], $gps['speed'], $key);
+					$dataStore->insertCatch($uid, $tripdId, $catch['species'], $catch['weight1'], $catch['weight2'], $catch['height1'], $catch['height2'], $catch['released'], $catch['image'], $item['date']);
 				}
 			}
 
 			if(is_array($gps)) {
 				foreach ($gps as $key => $item) {
-					$gpsItem = $item['data'];
-					$dataStore->insertCatch(
-						$uid, $tripdId, $catch['species'], $catch['weight1'], $catch['weight2'], $catch['height1'], $catch['height2'], $catch['released'], $catch['image'], $item['date']
+					$dataStore->insertGPS(
+						$uid, $tripdId, $item['accuracy'], $item['altitude'], $item['altitudeAccuracy'], $item['heading'], $item['latitude'], $item['longitude'], $item['speed'], $key
 					);
 				}
 			}
