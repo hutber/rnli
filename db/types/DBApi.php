@@ -6,21 +6,21 @@ class DBApi extends Data {
 
     function removeSites(){
         //Truncate the DB first
-        $this->db->query('TRUNCATE TABLE `sites`;');
+        $this->db->query('TRUNCATE TABLE 'sites';');
     }
 
     function insertSites($id, $elevation, $latitude, $longitude, $name, $region, $unitaryAuthArea)
     {
         //Now add data
         $sql = sprintf(
-            "INSERT INTO `rnli`.`sites` (
-                  `id`,
-                  `elevation`,
-                  `latitude`,
-                  `longitude`,
-                  `name`,
-                  `region`,
-                  `unitaryAuthArea`
+            "INSERT INTO 'rnli'.'sites' (
+                  'id',
+                  'elevation',
+                  'latitude',
+                  'longitude',
+                  'name',
+                  'region',
+                  'unitaryAuthArea'
               ) VALUES (
                   %d,
                   %d,
@@ -59,23 +59,23 @@ class DBApi extends Data {
     {
         //Now add data
         $sql = sprintf(
-            "INSERT INTO  `rnli`.`gps` (
-                    `accuracy` ,
-                    `altitude` ,
-                    `altitudeAccuracy` ,
-                    `heading` ,
-                    `latitude` ,
-                    `longitude` ,
-                    `speed`
+            "INSERT INTO  'rnli'.'gps' (
+                    'accuracy' ,
+                    'altitude' ,
+                    'altitudeAccuracy' ,
+                    'heading' ,
+                    'latitude' ,
+                    'longitude' ,
+                    'speed'
                 )
                 VALUES (
-                    `%s` ,
-                    `%s` ,
-                    `%s` ,
-                    `%s` ,
-                    `%s` ,
-                    `%s` ,
-                    `%s`
+                    '%s' ,
+                    '%s' ,
+                    '%s' ,
+                    '%s' ,
+                    '%s' ,
+                    '%s' ,
+                    '%s'
                 );",
             $accuracy, $altitude, $altitudeAccuracy, $heading, $latitude, $longitude, $speed
         );
