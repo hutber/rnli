@@ -88,6 +88,33 @@ Table of Contents
         return $this->db->get($sql);
     }
 
+//* #GPS   -------------------------------------------------- */
+    function insertGPS($accuracy, $altitude, $altitudeAccuracy, $heading, $latitude, $longitude, $speed)
+    {
+        //Now add data
+        $sql = sprintf(
+            "INSERT INTO  `rnli`.`gps` (
+                    `accuracy` ,
+                    `altitude` ,
+                    `altitudeAccuracy` ,
+                    `heading` ,
+                    `latitude` ,
+                    `longitude` ,
+                    `speed`
+                )
+                VALUES (
+                    '%s' ,
+                    '%s' ,
+                    '%s' ,
+                    '%s' ,
+                    '%s' ,
+                    '%s' ,
+                    '%s'
+                );",
+            $accuracy, $altitude, $altitudeAccuracy, $heading, $latitude, $longitude, $speed
+        );
+        $this->db->query($sql);
+    }
 //* #Trips   -------------------------------------------------- */
     function insertTrip(
                 $uid,

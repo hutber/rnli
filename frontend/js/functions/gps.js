@@ -26,10 +26,6 @@ module.exports = function () {
 			previousStorage[new Date()] = data;
 			localStorage.setItem('gps', JSON.stringify(previousStorage));
 		},
-		finaliseTrip: function (data) {
-			var items = JSON.parse(localStorage.gps);
-			localStorage.setItem('gpsFinal', JSON.stringify(items));
-		},
 		send: function(){
 			$.ajax({
 				url: 'http://rnli.hutber.com/api/location/takeGPS',

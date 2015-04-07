@@ -84,8 +84,12 @@ module.exports = function(){
 			rdata.notes = RN.currentTrip.attributes.notes;
 			rdata.catch = RN.currentTrip.attributes.catch;
 
-			rdata.gps = JSON.parse(localStorage.gps);
-			//localStorage.removeItem('gps');
+			if(typeof localStorage.gps === typeof undefined){
+				rdata.gps = {};
+			}else {
+				rdata.gps = JSON.parse(localStorage.gps);
+				//localStorage.removeItem('gps');
+			}
 
 			return rdata;
 
