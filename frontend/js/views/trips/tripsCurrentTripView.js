@@ -19,24 +19,26 @@ module.exports = RN.glb.gvCreator.extend({
 		var ev = $(ev.currentTarget);
 		ev.hide();
 		$('.endtrip').show();
-		$('#start')[0].value = moment().format();
 
-		//start gps
-		RN.gps.onResume();
+		if($('input[name=gpstracking]:checked')[0].id==="gpstrackingyes") {
+			//start gps
+			RN.gps.onResume();
+		}
 	},
 	end : function(ev){
 		var ev = $(ev.currentTarget);
 		ev.hide();
 		$('.endtrip').hide();
 		$('.savetrip').show();
-		$('#end')[0].value = moment().format();
 
-		//start gps
-		RN.gps.onPause();
+
+		if($('input[name=gpstracking]:checked')[0].id==="gpstrackingyes") {
+			//start gps
+			RN.gps.onPause();
+		}
 	},
 	savetrip : function(){
 		var finalData = RN.currentTrip.prePareDataForDB();
-		c(finalData);
 		RN.currentTrip.finaliseTrip(finalData, function(){
 			RN.router.navigate('tripclosed', true);
 		});
@@ -171,9 +173,13 @@ module.exports = RN.glb.gvCreator.extend({
 			}
 		}
 
-		if(RN.glb.url.envioment==="liveApp") {
-			//Now lets start up GPS tracking
-			RN.gps = require('../../functions/gps')();
+		if(typeof localStorage.gps !== typeof undefined) {
+
+			//check GPS
+			RN.fnc.events.checkGPS();
+
+			$('.starttrip').hide();
+			$('.endtrip').show();
 		}
 	}
 });

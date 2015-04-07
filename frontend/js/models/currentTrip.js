@@ -88,7 +88,7 @@ module.exports = function(){
 				rdata.gps = {};
 			}else {
 				rdata.gps = JSON.parse(localStorage.gps);
-				//localStorage.removeItem('gps');
+				localStorage.removeItem('gps');
 			}
 
 			return rdata;

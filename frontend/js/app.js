@@ -10,7 +10,7 @@ RN.glb = require('./globals');
 RN.fnc = require('./functions');
 require('./functions/viewSetup');
 
-$(document).ready(function() {
+var init = function(){
 	//On page load run onHashChange to update styles/class etc
 	RN.fnc.events.onHashChange();
 
@@ -22,4 +22,15 @@ $(document).ready(function() {
 
 	//start backbone app
 	Backbone.history.start();
-});
+
+	//check GPS
+	RN.fnc.events.checkGPS();
+};
+
+if(RN.glb.url.envioment === "liveApp"){
+	document.addEventListener('deviceready', init, false);
+}else{
+	$(document).ready(function() {
+		init();
+	});
+}

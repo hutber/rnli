@@ -20,6 +20,12 @@ module.exports = {
 		//Resize the $('page') element
 		RN.fnc.heights.changeHeightofContent();
 	},
+	checkGPS : function(){
+		if(RN.glb.url.envioment==="liveApp" && !RN.gps) {
+			//Now lets start up GPS tracking
+			RN.gps = require('./gps')();
+		}
+	},
 	ajaxSetup: function(){
 		//create defaults for all ajax calls within sp
 		var timerAjax;
