@@ -22,7 +22,7 @@ module.exports = RN.glb.gvCreator.extend({
 		$('#start')[0].value = moment().format();
 
 		//start gps
-		RN.gps.start();
+		RN.gps.onPause();
 	},
 	end : function(ev){
 		var ev = $(ev.currentTarget);
@@ -32,7 +32,7 @@ module.exports = RN.glb.gvCreator.extend({
 		$('#end')[0].value = moment().format();
 
 		//start gps
-		RN.gps.stop();
+		RN.gps.onResume();
 	},
 	savetrip : function(){
 		var finalData = RN.currentTrip.prePareDataForDB();

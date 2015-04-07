@@ -84,6 +84,9 @@ module.exports = function(){
 			rdata.notes = RN.currentTrip.attributes.notes;
 			rdata.catch = RN.currentTrip.attributes.catch;
 
+			rdata.gps = JSON.parse(localStorage.gps);
+			//localStorage.removeItem('gps');
+
 			return rdata;
 
 		},
@@ -98,6 +101,7 @@ module.exports = function(){
 					trip: data.trip,
 					location: data.location,
 					notes: data.notes,
+					gps: data.gps,
 					catch: data.catch,
 					uid: RN.user.get('uid')
 				},

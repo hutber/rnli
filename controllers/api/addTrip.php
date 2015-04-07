@@ -17,7 +17,9 @@ class addTrip extends Controller {
 			$catch = $_POST['catch'];
 			$location = $_POST['location'];
 			$notes = $_POST['notes'];
-
+			$gps = $_POST['gps'];
+			c($gps);
+			exit;
 			$dataStore->insertTrip(
 				$uid,
 				$trip['name'],
@@ -48,6 +50,15 @@ class addTrip extends Controller {
 				foreach ($catch as $key => $item) {
 					$catch = $item['data'];
 					$dataStore->insertCatch($uid, $tripdId, $catch['species'], $catch['weight1'], $catch['weight2'], $catch['height1'], $catch['height2'], $catch['released'], $catch['image'], $item['date']);
+				}
+			}
+
+			if(is_array($gps)) {
+				foreach ($gps as $key => $item) {
+					$gpsItem = $item['data'];
+					$dataStore->insertCatch(
+						$uid, $tripdId, $catch['species'], $catch['weight1'], $catch['weight2'], $catch['height1'], $catch['height2'], $catch['released'], $catch['image'], $item['date']
+					);
 				}
 			}
 

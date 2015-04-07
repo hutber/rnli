@@ -1,7 +1,9 @@
 module.exports = function () {
 	'use strict';
 
-	var gps = {};
+	var gps = {
+		bgGeo: null
+	};
 
 	gps = {
 		/**
@@ -17,10 +19,16 @@ module.exports = function () {
 		 */
 		addToLocalStorage: function (data) {
 			var item = {},
+				previousStorage = {};
+			if(typeof localStorage.gps !== typeof undefined) {
 				previousStorage = JSON.parse(localStorage.gps);
+			}
 			previousStorage[new Date()] = data;
 			localStorage.setItem('gps', JSON.stringify(previousStorage));
-			c(JSON.parse(localStorage.gps));
+		},
+		finaliseTrip: function (data) {
+			var items = JSON.parse(localStorage.gps);
+			localStorage.setItem('gpsFinal', JSON.stringify(items));
 		},
 		send: function(){
 			$.ajax({
@@ -41,56 +49,44 @@ module.exports = function () {
 			var fgGeo = window.navigator.geolocation;
 				gps.bgGeo = window.plugins.backgroundGeoLocation;
 
-			/**
-			 * This would be your own callback for Ajax-requests after POSTing background geolocation to your server.
-			 */
 			var yourAjaxCallback = function(response) {
 				console.info(response);
-				c('something');
+				c('ajax');
 				gps.bgGeo.finish();
 			};
 
-			/**
-			 * This callback will be executed every time a geolocation is recorded in the background.
-			 */
 			var callbackFn = function(location) {
 				console.log('[js] BackgroundGeoLocation callback:  ' + location.latitude + ',' + location.longitude);
 				// Update our current-position marker.
 				gps.setCurrentLocation(location);
-				c('something');
+				c('callbackFn');
 
-				// After you Ajax callback is complete, you MUST signal to the native code, which is running a background-thread, that you're done and it can gracefully kill that thread.
 				yourAjaxCallback.call(this);
 			};
 
 			var failureFn = function(error) {
 				console.log('BackgroundGeoLocation error');
-				c('something');
 			};
 
-			// Only ios emits this stationary event
 			gps.bgGeo.onStationary(function(location) {
-				c('You have stopped moving');
+				gps.addToLocalStorage(location);
+				console.log('- Device is stopped: ', location.latitude, location.longitude);
 			});
 
 			// BackgroundGeoLocation is highly configurable.
 			gps.bgGeo.configure(callbackFn, failureFn, {
-				url: 'http://rnli.hutber.com/api/location/takeGPS', // <-- Android ONLY:  your server url to send locations to
-				params: {
-					auth_token: 'hutber'
-				},
-				desiredAccuracy: 0,
-				stationaryRadius: 50,
-				distanceFilter: 50,
-				notificationTitle: 'RNLI', // <-- android only, customize the title of the notification
-				notificationText: 'GPS tracking enabled', // <-- android only, customize the text of the notification
-				activityType: 'AutomotiveNavigation',
-				debug: false, // <-- enable this hear sounds for background-geolocation life-cycle.
-				stopOnTerminate: false // <-- enable this to clear background location settings when the gps terminates
+				desiredAccuracy: 0,// <-- 0:  highest power, highest accuracy; 1000:  lowest power, lowest accuracy.
+				stationaryRadius: 0,notificationTitle: 'RNLI', // <-- android only, customize the title of the notification
+				notificationText: 'GPS Tracking On', // <-- android only, customize the text of the notification
+				distanceFilter: 0,// <-- minimum distance between location events
+				activityType: 'AutomotiveNavigation',// <-- [ios]
+				locationUpdateInterval: 0,// <-- [android] minimum time between location updates, used in conjunction with #distanceFilter
+				activityRecognitionInterval: 1000,// <-- [android] sampling-rate activity-recognition system for movement/stationary detection
+				debug: true,// <-- enable this hear sounds, see notifications during life-cycle events.
+				stopOnTerminate: false // <-- enable this to clear background location settings when the app terminates
 			});
 		},
 		watchPosition: function() {
-			c('something');
 			var fgGeo = window.navigator.geolocation;
 			if (gps.watchId) {
 				gps.stopPositionWatch();
@@ -112,22 +108,18 @@ module.exports = function () {
 				gps.watchId = undefined;
 			}
 		},
-		/**
-		 * Cordova foreground geolocation watch has no stop/start detection or scaled distance-filtering to conserve HTTP requests based upon speed.
-		 * You can't leave Cordova's GeoLocation running in background or it'll kill your battery.  This is the purpose of BackgroundGeoLocation:  to intelligently
-		 * determine start/stop of device.
-		 */
 		onPause: function() {
-			console.log('- onPause');
+			console.log('- Stop');
 			//gps.stopPositionWatch();
 			gps.bgGeo.stop();
 		},
-		/**
-		 * Once in foreground, re-engage foreground geolocation watch with standard Cordova GeoLocation api
-		 */
 		onResume: function() {
-			console.log('- onResume');
-			gps.bgGeo.start();
+			console.log('- Start');
+			gps.bgGeo.start(function(){
+				c('starting');
+			}, function () {
+				c('failed');
+			});
 			//gps.watchPosition();
 		},
 		// Update DOM on a Received Event
@@ -144,6 +136,7 @@ module.exports = function () {
 	};
 	if(RN.glb.url.envioment==="liveApp") {
 		gps.configureBackgroundGeoLocation();
+		gps.bgGeo.changePace(true)
 	};
 	return gps;
 };

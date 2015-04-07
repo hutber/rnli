@@ -15,24 +15,7 @@ module.exports = RN.glb.gvCreator.extend({
 		'click .createnewtrip .no': 'locationOff',
 		'click .createnewtrip .postboxbox': 'lookUpPostCode',
 		'keyup .createnewtrip .postcodeform': 'postcode',
-		'click .startGPS': 'startgps',
-		'click .stopGPS': 'stopgps',
 		'keyup #createname, #createdate, #createlocation': 'readyToSave'
-	},
-
-	stopgps : function(ev){
-		var ev = $(ev.currentTarget);
-
-		//start gps
-		RN.gps.onPause();
-
-	},
-
-	startgps : function(ev){
-		var ev = $(ev.currentTarget);
-
-		//start gps
-		RN.gps.onResume();
 	},
 
 	locationOn: function(ev){
@@ -166,33 +149,5 @@ module.exports = RN.glb.gvCreator.extend({
 		document.getElementById('createdate').value = picker.getMoment().format();
 		document.getElementById('dateselector').value = picker.getMoment().format('MMMM Do YYYY');
 
-
-		//if(RN.glb.url.envioment==="liveApp") {
-			//Now lets start up GPS tracking
-			RN.gps = require('../../functions/gps')();
-		//}
-
-		//RN.gps = {};
-		//RN.gps.bgGeo = window.plugins.backgroundGeoLocation;
-		//
-		//var callbackFn = function(location){
-		//	c(location);
-		//};
-		//
-		//var failureFn = function(error){
-		//	alert('Geolocation Error');
-		//};
-		//
-		//RN.gps.bgGeo.configure(callbackFn, failureFn, {
-		//	url: 'http://rnli.hutber.com/api/location/takeGPS',
-		//	desiredAccuracy: 10,
-		//	stationaryRadius: 10,
-		//	distanceFilter: 30,
-		//	debug: true
-		//});
-		//var onBackgroundSuccess = function(location) {
-		//		c(location);
-		//}
-		//RN.gps.bgGeo.start();
 	}
 });
