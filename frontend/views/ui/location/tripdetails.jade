@@ -1,6 +1,8 @@
 mixin tripdetails(data)
     - var newLat = data.latitude.substr(0, 5), newLong = data.longitude.substr(0, 5);
     .underHeader
+        if(!RN.currentTrip.isToday())
+            +input({place:'Name this trip', type: 'text', value:localStorage.ctripname, name:'tripname'})
         if(typeof data.id !== typeof undefined)
             .tripbox.tripid
                 i(class='icon-location')

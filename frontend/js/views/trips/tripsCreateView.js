@@ -137,7 +137,7 @@ module.exports = RN.glb.gvCreator.extend({
 
 
 		var defaultDate = moment().toDate();
-		if(RN.currentTrip.get('date')[1]){
+		if(RN.currentTrip.get('date') && RN.currentTrip.get('date')[1]){
 			//set todays date
 			defaultDate = RN.currentTrip.get('date')[1];
 		}
@@ -161,6 +161,15 @@ module.exports = RN.glb.gvCreator.extend({
 			//set todays date
 			document.getElementById('createdate').value = picker.getMoment().format();
 			document.getElementById('dateselector').value = picker.getMoment().format('MMMM Do YYYY');
+		}
+
+		//check to see if we already have our Current Location on LocalDev
+		if(typeof RN.currentTrip.get('details') !== "undefined" && RN.glb.url.envioment === 'localApp') {
+			//Set the hidden input to something
+			document.getElementById('createlocation').value = 'something';
+
+			//Check if we can now save
+			self.readyToSave();
 		}
 
 	}

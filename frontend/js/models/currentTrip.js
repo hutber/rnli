@@ -22,8 +22,17 @@ module.exports = function(){
 				postcode:localStorage.ctrippostcode,
 				notes:localStorage.ctripnotes,
 				tmpcatch:localStorage.ctriptmpcatch,
-				catch:localStorage.ctripcatch
+				catch:localStorage.ctripcatch,
+				when:localStorage.ctripwhen
 			})
+		},
+
+		isToday: function(){
+			if(localStorage.ctripwhen === "present"){
+				return true;
+			}else{
+				return false;
+			}
 		},
 
 		saveLocal: function(type, data){

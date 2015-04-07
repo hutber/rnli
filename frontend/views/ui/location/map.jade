@@ -2,12 +2,13 @@ mixin map(data, plain)
     .map
         if(!plain)
             .info
-                .wind
-                    i(class='icon-right-circled')
-                    | #{data.winddirection} #{data.windgust}mph
-                .current
-                    i(class='icon-right-circled')
-                    | No Data
+                if(RN.currentTrip.isToday())
+                    .wind
+                        i(class='icon-right-circled')
+                        | #{data.winddirection} #{data.windgust}mph
+                    .current
+                        i(class='icon-right-circled')
+                        | No Data
                 .enlargetrip
                     i(class='icon-zoom-in-outline')
                     | ENLARGE

@@ -2151,6 +2151,8 @@ Table of Contents
   background: #DD6D00;
   overflow: hidden;
   color: #FFF; }
+  .underHeader .control-group {
+    display: none; }
 
 /*===============  Components ===============
 ///* #Wind Direction Arrows ----------------------------------------------------------- */
@@ -2421,6 +2423,9 @@ Table of Contents
       .previouscatch .catchsortby .sortoptions div.selected {
         background: #28243b;
         color: #FFF; }
+
+.createtrip .underHeader .control-group, .currenttrip .underHeader .control-group {
+  display: block; }
 
 .currenttrip .footer, .addhazard .footer, .notes .footer, .addnotes .footer, .catch .footer, .addcatch .footer, .confirmcatch .footer, .tripcatch .footer {
   display: block;

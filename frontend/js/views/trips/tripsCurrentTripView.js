@@ -54,12 +54,12 @@ module.exports = RN.glb.gvCreator.extend({
 			difference = now.diff(RN.currentTrip.get('date')[1], 'days');
 
 		if(moment(RN.currentTrip.get('date')[1]).isSame(moment(), 'day')) {
-			self.when = "present";
+			localStorage.ctripwhen = "present";
 		}
 		else if(difference < 0) {
-			self.when = "future";
+			localStorage.ctripwhen = "future";
 		}else if (difference > 0) {
-			self.when = "past";
+			localStorage.ctripwhen = "past";
 		}
 	},
 
@@ -84,10 +84,10 @@ module.exports = RN.glb.gvCreator.extend({
 
 			//Check when were are
 			this.whenTrip();
-			c(this.when);
-			if(this.when === "past"){
+
+			if(localStorage.ctripwhen === "past"){
 				$('.middle h1').text('PAST TRIP')
-			}else if (this.when === "future"){
+			}else if (localStorage.ctripwhen === "future"){
 				$('.middle h1').text('FUTURE TRIP')
 			}
 
@@ -200,6 +200,13 @@ module.exports = RN.glb.gvCreator.extend({
 					map: map
 				});
 			}
+		}
+
+		//check to see which day we are in
+		if(!RN.currentTrip.isToday()){
+			$('.starttrip').hide();
+			$('.endtrip').hide();
+			$('.savetrip').show();
 		}
 
 		if(typeof localStorage.gps !== typeof undefined) {

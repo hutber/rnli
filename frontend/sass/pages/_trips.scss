@@ -54,6 +54,9 @@ Table of Contents
 		background: $tripsDarker;
 		@include clear;
 		color: #FFF;
+		.control-group {
+			display: none;
+		}
 	}
 
 /*===============  Components ===============
@@ -432,6 +435,16 @@ Table of Contents
 		}
 	}
 }
+
+///* #Speical rules for hiding elements for Past Future Present------------------------------ */
+.createtrip, .currenttrip {
+	.underHeader {
+		.control-group {
+			display: block;
+		}
+	}
+}
+
 
 ///* #Footer Settings ------------------------------------------------------------------------ */
 .currenttrip, .addhazard, .notes, .addnotes, .catch, .addcatch, .confirmcatch, .tripcatch {

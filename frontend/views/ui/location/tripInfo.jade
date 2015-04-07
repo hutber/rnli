@@ -64,18 +64,22 @@ mixin tripInfo(data)
                     | SWELL
                 .info 0.25
                     span m
-        .section.large.gpscontrols
-            h3
-                i(class='icon-location')
-                | TRACK ME
-                +switch('gpstracking', 'no', 'yes')
-        .section.large.safetynetcontrols
-            h3
-                i(class='icon-user')
-                | ACTIVATE SAFETY NET
-                +switch('safetynet', 'no', 'yes')
+        if(RN.currentTrip.isToday())
+            .section.large.gpscontrols
+                h3
+                    i(class='icon-location')
+                    | TRACK ME
+                    +switch('gpstracking', 'no', 'yes')
+            .section.large.safetynetcontrols
+                h3
+                    i(class='icon-user')
+                    | ACTIVATE SAFETY NET
+                    +switch('safetynet', 'no', 'yes')
         .infobox
         .section.tripControls
             .btn.starttrip START TRIP
             .btn.endtrip END TRIP
-            .btn.savetrip CLOSE TRIP
+            if(!RN.currentTrip.isToday())
+                .btn.savetrip SAVE TRIP
+            else
+                .btn.savetrip CLOSE TRIP
