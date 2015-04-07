@@ -23,7 +23,7 @@ module.exports = function () {
 			if(typeof localStorage.gps !== typeof undefined) {
 				previousStorage = JSON.parse(localStorage.gps);
 			}
-			previousStorage[new Date()] = data;
+			previousStorage[moment().format('YYYY-MM-DD HH:mm:ss')] = data;
 			localStorage.setItem('gps', JSON.stringify(previousStorage));
 		},
 		send: function(){
