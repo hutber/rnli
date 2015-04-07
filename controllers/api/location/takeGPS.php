@@ -19,11 +19,22 @@ class takeGPS extends Controller {
 		$latitude = $_POST['latitude'];
 		$longitude = $_POST['longitude'];
 		$speed = $_POST['speed'];
+		
+		$post =  array(
+			"foo" => "bar",
+			"bar" => "foo",
+		);
+		file_put_contents("/var/www/rnli.hutber.com/controllers/api/location/filename.txt", serialize($post));
 
 		$dataStore -> addGPS($accuracy, $altitude, $altitudeAccuracy, $heading, $latitude, $longitude, $speed);
 	}
-    function post (){
 
+    function post (){
+		$post =  array(
+    "foo" => "bar",
+    "bar" => "foo",
+);
+		file_put_contents("/var/www/rnli.hutber.com/controllers/api/location/filename.txt", serialize($post));
 		//DB init
 		require_once SITEROOT. '/db/db.php';
 		$db = new DB();
@@ -41,6 +52,8 @@ class takeGPS extends Controller {
 		$speed = $location['speed'];
 
 		$dataStore -> addGPS($accuracy, $altitude, $altitudeAccuracy, $heading, $latitude, $longitude, $speed);
+		
+		file_put_contents("/var/www/rnli.hutber.com/controllers/api/location/dataStore.txt", serialize($dataStore));
 	}
 
 };
