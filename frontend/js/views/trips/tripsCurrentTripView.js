@@ -210,7 +210,6 @@ module.exports = RN.glb.gvCreator.extend({
 		}
 
 		if(typeof localStorage.gps !== typeof undefined) {
-
 			//check GPS
 			RN.fnc.events.checkGPS();
 

@@ -13,30 +13,37 @@ module.exports = RN.glb.gvCreator.extend({
 		'click .weathercentre .no': 'locationOff',
 		'click .weathercentre .postboxbox': 'setPostCode',
 		'click .getforcast': 'getForcast',
-		'keyup .weathercentre .postcodeform': 'postcode'
+		'keyup .weathercentre .postcodeform': 'postcode',
+		'change #weatherdate': 'showOptions',
+	},
+
+	showOptions: function () {
+		$('.slideAreaAeather').slideDown();
 	},
 
 	getForcast : function(ev){
 		var ev = $(ev.currentTarget),
 			self = this;
 
-		RN.weather.getThreeHour(RN.weather.get('location').latitude, RN.weather.get('location').longitude, function(data){
-			var currentValue = $('select').val(),
-				todaysWeather;
-
-			$.each(data.weather, function(val, item){
-				if(item.value===currentValue){
-					todaysWeather = item;
-				};
-			});
-			$('.weatherinfo').html(self.templates.weatherinfo({
-					currentWeather: todaysWeather.Rep[0],
-					weatherKey: data.key
-				})
-			);
-			RN.fnc.popups.spinner.hide();
-			$('.slideAreaAeather').slideUp();
+		//Now we have users location look up via ajax the area ID from met office DataPoint
+		RN.fnc.location.getClosestLocation(RN.weather.get('location').latitude, RN.weather.get('location').longitude, function(data){
+			self.loadFromData(data);
 		});
+	},
+
+	loadFromData : function(data){
+		var currentValue = $('select').val(),
+			todaysWeather;
+
+		//backup weather to local storage
+		RN.weather.setWeather(data);
+
+		$('.weatherinfo').html(this.templates.weatherinfo({
+				currentWeather: data
+			})
+		);
+		RN.fnc.popups.spinner.hide();
+		$('.slideAreaAeather').slideUp();
 	},
 
 	locationOn: function(ev){
@@ -113,10 +120,39 @@ module.exports = RN.glb.gvCreator.extend({
 		});
 	},
 	render: function () {
-		//load data in ejs
-		this.$el.html(this.templates.home());
+		var self = this;
 
-		$('select').css('padding-left',$('body').outerWidth()/3);
-		this.postcode();
+		RN.weather.checkAval('daily', function(){
+			var dates = function () {
+				var returnData = {}, i = 1;
+				RN.weather.get('aval').forEach(function (val) {
+					var selected = false;
+
+					if( moment(val).format("DD MMMM YYYY") ===  moment(new Date()).format("DD MMMM YYYY")){
+						selected = true;
+					}
+
+					returnData[i] = {
+						value: moment(val).format("YYYY-MM-DD") + 'Z',
+						text: moment(val).format("DD MMMM YYYY"),
+						selected: selected
+					};
+					i++;
+				});
+				return returnData;
+			}();
+
+			//load data in ejs
+			self.$el.html(self.templates.home({
+				date: dates
+			}));
+
+			$('select').css('padding-left',$('body').outerWidth()/3.6);
+
+			//for local dev
+			if(typeof RN.weather.get('weatherDetails') !== "undefined" && RN.glb.url.envioment === 'localApp') {
+				self.loadFromData(RN.weather.get('weatherDetails'));
+			}
+		});
 	}
 });

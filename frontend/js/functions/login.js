@@ -58,6 +58,7 @@ module.exports = {
 		localStorage.contacts = JSON.stringify(data.contacts);
 		localStorage.catch = JSON.stringify(data.catch);
 		localStorage.trips = JSON.stringify(data.trips);
+		localStorage.weatherDetails = JSON.stringify(data.weatherDetails);
 	},
 	restoreUserFromLocalStorage : function(data){
 		var userDataToLoad = {},
@@ -75,7 +76,8 @@ module.exports = {
 				version: localStorage.version,
 				contacts: localStorage.contacts,
 				catch: localStorage.catch,
-				trips: localStorage.trips
+				trips: localStorage.trips,
+				weatherDetails: localStorage.weatherDetails
 			});
             checker = true;
         //do this on login
@@ -89,27 +91,29 @@ module.exports = {
 				version: data.version,
 				contacts: data.contacts,
 		        catch: data.catch,
-		        trips: data.trips
+		        trips: data.trips,
+		        weatherDetails: data.weatherDetails
 			};
             checker = true;
 		}
 
         if(checker) {
-            //Start trip model
+            //Start model's before deleting
 	        RN.trips = new RN.mdl.trips(userDataToLoad.trips);
+	        RN.weather = new RN.mdl.weather(userDataToLoad.weatherDetails);
 
             //backup again to local storage
             RN.fnc.login.saveLoginDataToLocalStorage(userDataToLoad);
 
 	        //delete trips so it doesn't end up in the user model
 	        delete userDataToLoad.trips;
+	        delete userDataToLoad.weatherDetails;
 
 	        //Add data to user and a trip
 	        RN.user = new RN.mdl.user(userDataToLoad);
 
 	        //Start other models
 	        RN.currentTrip = new RN.mdl.currentTrip();
-	        RN.weather = new RN.mdl.weather();
         }
 
 	},

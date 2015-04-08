@@ -1,19 +1,10 @@
 include ../mixins
-- var dates = function(){
--  var returnData = {};
--  for(var i = 0; i < 5; i++) {
--     returnData[i] = {
--         value: moment(moment().add(i, 'days')).format("YYYY-MM-DD")+'Z',
--         text: moment(moment().add(i, 'days')).format("DD MMMM YYYY")
--     };
--  }
--  return returnData;
-- }()
 +select({
    attr: {
-      name: 'date'
+      name: 'date',
+      id: 'weatherdate'
    },
-   options: dates,
+   options: date,
    class: ['dateselector']
 })
 .slideAreaAeather

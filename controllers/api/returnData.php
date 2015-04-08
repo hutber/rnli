@@ -4,6 +4,11 @@ class returnData extends Controller {
     function get()
     {
 
+        function get_http_response_code($url) {
+            $headers = get_headers($url);
+            return substr($headers[0], 9, 3);
+        }
+
         header('Content-type: application/javascript');
 
         require_once SITEROOT.'/db/db.php';
@@ -42,10 +47,18 @@ class returnData extends Controller {
 			$query = curl_exec($curl_handle);
 			curl_close($curl_handle);
 
-            function get_http_response_code($url) {
-                $headers = get_headers($url);
-                return substr($headers[0], 9, 3);
-            }
+            //get data from feed
+            $url = 'http://datapoint.metoffice.gov.uk/public/data/val/wxmarineobs/all/json/' . $siteID . '?res=hourly&key=' . $key;
+
+			$curl_handle=curl_init();
+			curl_setopt($curl_handle, CURLOPT_URL,$url);
+			curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 2);
+			curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt($curl_handle, CURLOPT_USERAGENT, 'RNLI Safety App');
+			$hourly = curl_exec($curl_handle);
+			curl_close($curl_handle);
+
+
 
             if($query == "200"){
 				$dataToReturn = $error;

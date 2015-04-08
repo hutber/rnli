@@ -27,11 +27,19 @@ module.exports = function(){
 			})
 		},
 
-		isToday: function(){
-			if(localStorage.ctripwhen === "present"){
-				return true;
+		isToday: function(pageCheck){
+			if(typeof pageCheck !== typeof undefined) {
+				if (localStorage.ctripwhen === "present" && (RN.glb.hash === "currenttrip" || RN.glb.hash === "currenttrip")) {
+					return true;
+				} else {
+					return false;
+				}
 			}else{
-				return false;
+				if (localStorage.ctripwhen === "present") {
+					return true;
+				} else {
+					return false;
+				}
 			}
 		},
 

@@ -9,6 +9,7 @@ module.exports =  function() {
 	globals.version = '1.0.0';
 	globals.device = 'android';
 	globals.gkey = 'AIzaSyB8ZaW3zP8WtWCMcBar4qbD9N4xNM2jNNA';
+	globals.DPKey = '9ef3f3a2-f189-4cb4-a0c4-31b52691f81f';
 
 	//Url Config
 	globals.url = {};
