@@ -27,6 +27,7 @@ class returnData extends Controller {
         }else{
             $type = 'wxfcs';
         };
+
         $error = array(
             'status'=>'fail',
             'message'=>'Couldn\'t find location, please try again'
@@ -38,64 +39,73 @@ class returnData extends Controller {
             $siteID = $siteInfo[0]['id'];
 
             //get data from feed
-            $url = 'http://datapoint.metoffice.gov.uk/public/data/val/' . $type . '/all/json/' . $siteID . '?res=3hourly&key=' . $key;
-			$curl_handle=curl_init();
-			curl_setopt($curl_handle, CURLOPT_URL,$url);
-			curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 2);
-			curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
-			curl_setopt($curl_handle, CURLOPT_USERAGENT, 'RNLI Safety App');
-			$query = curl_exec($curl_handle);
-			curl_close($curl_handle);
+            $hourly = 'http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/json/' . $siteID . '?res=hourly&key='.$key;
+            $threehour = 'http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/' . $siteID . '?res=3hourly&key='.$key;
+            $daily = 'http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/' . $siteID . '?res=daily&key='.$key;
+            $sea = 'http://datapoint.metoffice.gov.uk/public/data/val/wxmarineobs/all/json/' . $siteID . '?res=hourly&key='.$key;
+            $weatherReports = array();
 
-            //get data from feed
-            $url = 'http://datapoint.metoffice.gov.uk/public/data/val/wxmarineobs/all/json/' . $siteID . '?res=hourly&key=' . $key;
+            $nodes = array($hourly, $threehour, $daily, $sea);
+            $node_count = count($nodes);
 
-			$curl_handle=curl_init();
-			curl_setopt($curl_handle, CURLOPT_URL,$url);
-			curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 2);
-			curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
-			curl_setopt($curl_handle, CURLOPT_USERAGENT, 'RNLI Safety App');
-			$hourly = curl_exec($curl_handle);
-			curl_close($curl_handle);
+            $curl_arr = array();
+            $master = curl_multi_init();
 
-
-
-            if($query == "200"){
-				$dataToReturn = $error;
-            }else{
-                $dataFeed = json_decode($query);
-                $weather = $dataFeed->SiteRep->DV->Location->Period[0]->Rep;
-
-				//turn data into something we can use
-				$dataToReturn = array (
-                    'area' => $dataFeed->SiteRep->DV->Location->name,
-					'country' => $dataFeed->SiteRep->DV->Location->country,
-					'continent' => $dataFeed->SiteRep->DV->Location->continent,
-                    'readingtime'=> $weather[0]->{'$'},
-                    'latitude' => $latitude,
-                    'longitude' => $longitude,
-                    'winddirection'=> $weather[0]->D,
-                    'dewpoint'=> $weather[0]->Dp,
-                    'feelsliketemperature'=> $weather[0]->F,
-                    'windgust'=> $weather[0]->G,
-                    'humidity'=> $weather[0]->H,
-                    'pressure'=> $weather[0]->P,
-                    'precipitationprobability'=> $weather[0]->Pp,
-                    'pressuretendency'=> $weather[0]->Pt,
-                    'windspeed'=> $weather[0]->S,
-                    'seatemperature'=> $weather[0]->St,
-                    'temperature'=> $weather[0]->T,
-                    'maxUVindex'=> $weather[0]->U,
-                    'visibility'=> $weather[0]->V,
-                    'weathertype'=> $weather[0]->W,
-                    'waveheight'=> $weather[0]->Wh,
-                    'waveperiod'=> $weather[0]->Wp,
-                    'swell'=> null,
-					'key' => $dataFeed->SiteRep->Wx->Param
-                );
+            for($i = 0; $i < $node_count; $i++)
+            {
+                $url =$nodes[$i];
+                $curl_arr[$i] = curl_init($url);
+                curl_setopt($curl_arr[$i], CURLOPT_RETURNTRANSFER, true);
+                curl_multi_add_handle($master, $curl_arr[$i]);
             }
 
-            print json_encode($dataToReturn);
+            do {
+                curl_multi_exec($master,$running);
+                //$query = curl_exec($curl_handle);
+            } while($running > 0);
+
+            for($i = 0; $i < $node_count; $i++)
+            {
+                $weatherReports[$i] = curl_multi_getcontent  ( $curl_arr[$i]  );
+            }
+
+
+            if(count($weatherReports) == 0){
+				$dataToReturn = $error;
+            }else{
+//                $dataFeed = json_decode($query);
+//                $weather = $dataFeed->SiteRep->DV->Location->Period[0]->Rep;
+//
+//				//turn data into something we can use
+//				$dataToReturn = array (
+//                    'area' => $dataFeed->SiteRep->DV->Location->name,
+//					'country' => $dataFeed->SiteRep->DV->Location->country,
+//					'continent' => $dataFeed->SiteRep->DV->Location->continent,
+//                    'readingtime'=> $weather[0]->{'$'},
+//                    'latitude' => $latitude,
+//                    'longitude' => $longitude,
+//                    'winddirection'=> $weather[0]->D,
+//                    'dewpoint'=> $weather[0]->Dp,
+//                    'feelsliketemperature'=> $weather[0]->F,
+//                    'windgust'=> $weather[0]->G,
+//                    'humidity'=> $weather[0]->H,
+//                    'pressure'=> $weather[0]->P,
+//                    'precipitationprobability'=> $weather[0]->Pp,
+//                    'pressuretendency'=> $weather[0]->Pt,
+//                    'windspeed'=> $weather[0]->S,
+//                    'seatemperature'=> $weather[0]->St,
+//                    'temperature'=> $weather[0]->T,
+//                    'maxUVindex'=> $weather[0]->U,
+//                    'visibility'=> $weather[0]->V,
+//                    'weathertype'=> $weather[0]->W,
+//                    'waveheight'=> $weather[0]->Wh,
+//                    'waveperiod'=> $weather[0]->Wp,
+//                    'swell'=> null,
+//					'key' => $dataFeed->SiteRep->Wx->Param
+//                );
+            }
+
+            print json_encode($weatherReports);
         }else{
             print $error;
         }

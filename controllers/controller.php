@@ -67,6 +67,8 @@ class Controller
 			throw new Exception('View "views/'.$viewname.'" not found');
 		}
 	}
+
+
 }
 
 //Global Settings

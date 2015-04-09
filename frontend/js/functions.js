@@ -16,5 +16,6 @@ module.exports = {
 	},
 	popups: require('./functions/popups')(),
 	catch: require('./functions/catch')(),
-	notes: require('./functions/notes')()
+	notes: require('./functions/notes')(),
+	suncal: require('./functions/suncal')()
 }

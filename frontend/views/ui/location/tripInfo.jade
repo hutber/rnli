@@ -1,4 +1,5 @@
 mixin tripInfo(data)
+    - c(data);
     .tripData
         .section.airsea
             .air
@@ -13,7 +14,7 @@ mixin tripInfo(data)
                     i(class='icon-temperatire')
                     span SEA
                 .info
-                    if data.seatemperature === ""
+                    if data.seatemperature === null
                         | No Data
                     else
                         | #{data.seatemperature}
@@ -22,7 +23,7 @@ mixin tripInfo(data)
                     | DANGER
                     i(class='icon-attention')
         .section.tide
-            if typeof data.waveheight === typeof undefined
+            if data.waveheight === null
                 .title.notide No Tide Info
             else
                 .title
@@ -75,6 +76,26 @@ mixin tripInfo(data)
                     i(class='icon-user')
                     | ACTIVATE SAFETY NET
                     +switch('safetynet', 'no', 'yes')
+        .section.airsea
+            .air
+                .icon
+                    i(class='icon-sun')
+                    span SUNRISE
+                .info
+                    - var sunTimes = RN.fnc.suncal.getTimes(new Date(), data.latitude, data.longitude)
+                    | #{moment(sunTimes.sunrise).format('HH:MM')}
+            .sea(class= notsafe)
+                .icon
+                    i(class='icon-moon')
+                    span SUNSET
+                .info
+                    if sunTimes.sunset === null
+                        | No Data
+                    else
+                        | #{moment(sunTimes.sunset).format('HH:MM')}
+                .dangertext
+                    | DANGER
+                    i(class='icon-attention')
         .infobox
         .section.tripControls
             .btn.starttrip START TRIP
