@@ -9,8 +9,6 @@ class returnData extends Controller {
             return substr($headers[0], 9, 3);
         }
 
-        header('Content-type: application/javascript');
-
         require_once SITEROOT.'/db/db.php';
         $db = new DB();
 
@@ -19,6 +17,7 @@ class returnData extends Controller {
 
         //Variables
         $key = '9ef3f3a2-f189-4cb4-a0c4-31b52691f81f';
+        $time = $_GET['time'];
         $latitude = $_GET['latitude'];
         $longitude = $_GET['longitude'];
         $dataToReturn = array();
@@ -37,26 +36,31 @@ class returnData extends Controller {
             //Get nearest Location Site
             $siteInfo = $dataStore->getArea($latitude, $longitude);
             $siteID = $siteInfo[0]['id'];
+            $desiredTime = '';
+
+            if(isset($time)) {
+                //checktimes before we do anything else
+                $times = json_decode(file('http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/capabilities?res=3hourly&key=' . $key)[0]);
+                $desiredTime = '&time='.$times->Resource->dataDate;
+            }
 
             //get data from feed
-            $hourly = 'http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/json/' . $siteID . '?res=hourly&key='.$key;
+            $hourly = 'http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/json/' . $siteID . '?res=hourly&key='.$key.$desiredTime;
             $threehour = 'http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/' . $siteID . '?res=3hourly&key='.$key;
             $daily = 'http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/' . $siteID . '?res=daily&key='.$key;
             $sea = 'http://datapoint.metoffice.gov.uk/public/data/val/wxmarineobs/all/json/' . $siteID . '?res=hourly&key='.$key;
             $weatherReports = array();
 
-            $nodes = array($hourly, $threehour, $daily, $sea);
-            $node_count = count($nodes);
+            $nodes = array('hourly'=>$hourly,'threehour'=>$threehour,'daily'=>$daily,'sea'=>$sea);
 
             $curl_arr = array();
             $master = curl_multi_init();
 
-            for($i = 0; $i < $node_count; $i++)
-            {
-                $url =$nodes[$i];
-                $curl_arr[$i] = curl_init($url);
-                curl_setopt($curl_arr[$i], CURLOPT_RETURNTRANSFER, true);
-                curl_multi_add_handle($master, $curl_arr[$i]);
+            foreach($nodes as $key => $item){
+                $url =$nodes[$key];
+                $curl_arr[$key] = curl_init($url);
+                curl_setopt($curl_arr[$key], CURLOPT_RETURNTRANSFER, true);
+                curl_multi_add_handle($master, $curl_arr[$key]);
             }
 
             do {
@@ -64,48 +68,73 @@ class returnData extends Controller {
                 //$query = curl_exec($curl_handle);
             } while($running > 0);
 
-            for($i = 0; $i < $node_count; $i++)
-            {
-                $weatherReports[$i] = curl_multi_getcontent  ( $curl_arr[$i]  );
+            foreach($nodes as $key => $item){
+                $weatherReports[$key] = curl_multi_getcontent  ( $curl_arr[$key]  );
             }
 
 
             if(count($weatherReports) == 0){
 				$dataToReturn = $error;
             }else{
-//                $dataFeed = json_decode($query);
-//                $weather = $dataFeed->SiteRep->DV->Location->Period[0]->Rep;
-//
-//				//turn data into something we can use
-//				$dataToReturn = array (
-//                    'area' => $dataFeed->SiteRep->DV->Location->name,
-//					'country' => $dataFeed->SiteRep->DV->Location->country,
-//					'continent' => $dataFeed->SiteRep->DV->Location->continent,
-//                    'readingtime'=> $weather[0]->{'$'},
-//                    'latitude' => $latitude,
-//                    'longitude' => $longitude,
-//                    'winddirection'=> $weather[0]->D,
-//                    'dewpoint'=> $weather[0]->Dp,
-//                    'feelsliketemperature'=> $weather[0]->F,
-//                    'windgust'=> $weather[0]->G,
-//                    'humidity'=> $weather[0]->H,
-//                    'pressure'=> $weather[0]->P,
-//                    'precipitationprobability'=> $weather[0]->Pp,
-//                    'pressuretendency'=> $weather[0]->Pt,
-//                    'windspeed'=> $weather[0]->S,
-//                    'seatemperature'=> $weather[0]->St,
-//                    'temperature'=> $weather[0]->T,
-//                    'maxUVindex'=> $weather[0]->U,
-//                    'visibility'=> $weather[0]->V,
-//                    'weathertype'=> $weather[0]->W,
-//                    'waveheight'=> $weather[0]->Wh,
-//                    'waveperiod'=> $weather[0]->Wp,
-//                    'swell'=> null,
-//					'key' => $dataFeed->SiteRep->Wx->Param
-//                );
+
+                //Raw Data
+                $dataFeed = $weatherReports;
+//                c($weatherReports);
+                $threeHourData = json_decode($weatherReports['threehour']);
+
+                //Compiled Data
+                $threeHourWeather = json_decode($dataFeed['threehour'])->SiteRep->DV->Location->Period[0]->Rep;
+                $threeHourTime = json_decode($dataFeed['threehour'])->SiteRep->DV->Location->Period[0]->value;
+
+                //Build new compiled data from time
+                if(isset($time)) {
+//                    c($threeHourData->SiteRep->DV->Location->Period);
+                    foreach($threeHourData->SiteRep->DV->Location->Period as $key => $item){
+                        if($time == $item->value){
+                            $threeHourWeather = $item->Rep;
+                            $threeHourTime = $item->value;
+                            $timeTrue = true;
+                        }
+                    }
+                }
+
+//                c( $dataFeed['threehour']);
+				//turn data into something we can use
+				$dataToReturn = array (
+                    'time' => $threeHourTime,
+                    'timefail' => $timeTrue,
+                    'area' => $dataFeed['threehour']->SiteRep->DV->Location->name,
+					'country' => $dataFeed['threehour']->SiteRep->DV->Location->country,
+					'continent' => $dataFeed['threehour']->SiteRep->DV->Location->continent,
+                    'readingtime'=> $threeHourWeather[0]->{'$'},
+                    'latitude' => $latitude,
+                    'longitude' => $longitude,
+                    'winddirection'=> $threeHourWeather[0]->D,
+                    'dewpoint'=> $threeHourWeather[0]->Dp,
+                    'feelsliketemperature'=> $threeHourWeather[0]->F,
+                    'windgust'=> $threeHourWeather[0]->G,
+                    'humidity'=> $threeHourWeather[0]->H,
+                    'pressure'=> $threeHourWeather[0]->P,
+                    'precipitationprobability'=> $threeHourWeather[0]->Pp,
+                    'pressuretendency'=> $threeHourWeather[0]->Pt,
+                    'windspeed'=> $threeHourWeather[0]->S,
+                    'seatemperature'=> $threeHourWeather[0]->St,
+                    'temperature'=> $threeHourWeather[0]->T,
+                    'maxUVindex'=> $threeHourWeather[0]->U,
+                    'visibility'=> $threeHourWeather[0]->V,
+                    'weathertype'=> $threeHourWeather[0]->W,
+                    'waveheight'=> $threeHourWeather[0]->Wh,
+                    'waveperiod'=> $threeHourWeather[0]->Wp,
+                    'swell'=> null,
+					'key' => $dataFeed['threehour']->SiteRep->Wx->Param
+                );
             }
 
-            print json_encode($weatherReports);
+//            header('Content-type: application/javascript');
+
+            print json_encode($dataToReturn);
+//            echo '________________________________________________<br>';
+//            c($dataFeed);
         }else{
             print $error;
         }

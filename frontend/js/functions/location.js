@@ -20,14 +20,16 @@ module.exports = function(){
 		});
 	};
 
-	location.getClosestLocation = function(lat, long, callBack){
+	location.getClosestLocation = function(lat, long, time, callBack){
+		time = time || null;
 		$.ajax({
 			url: RN.glb.url.api + 'returnData',
 			//type: 'POST',
 			dataType: 'json',
 			data: {
 				latitude: lat,
-				longitude: long
+				longitude: long,
+				time: time
 			},
 			success: function (data) {
 				callBack(data);
@@ -35,13 +37,13 @@ module.exports = function(){
 		});
 	};
 
-	location.getLocation = function(callback, cancelBack){
+	location.getLocation = function(callback, cancelBack, time){
 		var self = this;
 		//Get users Location first
 		this.lookUp(
 			function(data){
 			//Now we have users location look up via ajax the area ID from met office DataPoint
-				self.getClosestLocation(data.coords.latitude, data.coords.longitude, function(data){
+				self.getClosestLocation(data.coords.latitude, data.coords.longitude, time, function(data){
 					callback(data);
 					RN.fnc.popups.spinner.hide();
 				});

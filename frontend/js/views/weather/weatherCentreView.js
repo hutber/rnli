@@ -26,7 +26,7 @@ module.exports = RN.glb.gvCreator.extend({
 			self = this;
 
 		//Now we have users location look up via ajax the area ID from met office DataPoint
-		RN.fnc.location.getClosestLocation(RN.weather.get('location').latitude, RN.weather.get('location').longitude, function(data){
+		RN.fnc.location.getClosestLocation(RN.weather.get('location').latitude, RN.weather.get('location').longitude, $('#weatherdate')[0].value, function(data){
 			self.loadFromData(data);
 		});
 	},

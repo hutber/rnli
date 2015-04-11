@@ -43,7 +43,8 @@ module.exports = RN.glb.gvCreator.extend({
 					$('.selected').removeClass('selected');
 					$('.locationSelector .no').addClass('selected');
 					RN.fnc.popups.spinner.hide();
-				}
+				},
+			moment(document.getElementById('createdate').value).format("YYYY-MM-DD") + 'Z'
 		);
 	},
 	locationOff: function(ev){
@@ -93,7 +94,7 @@ module.exports = RN.glb.gvCreator.extend({
 	},
 	getPostCodeLocation : function(data, callBack){
 		var self = this;
-		RN.fnc.location.getClosestLocation(data.latitude, data.longitude, function(data){
+		RN.fnc.location.getClosestLocation(data.latitude, data.longitude, moment(document.getElementById('createdate').value).format("YYYY-MM-DD") + 'Z', function(data){
 			RN.currentTrip.saveLocal('details', data);
 			document.getElementById('createlocation').value = 'something';
 			self.readyToSave();
