@@ -42,7 +42,7 @@ class returnData extends Controller {
                 //checktimes before we do anything else
                 $times = file('http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/capabilities?res=3hourly&key=' . $key);
                 $times = json_decode($times[0]);
-                
+
                 $desiredTime = '&time='.$times->Resource->dataDate;
             }
 
@@ -98,8 +98,8 @@ class returnData extends Controller {
                         if($jsonItem->SiteRep->DV->Location) {
                             foreach ($jsonItem->SiteRep->DV->Location->Period as $key2 => $item2) {
                                 if ($time == $item2->value) {
-                                    $threehourWeather = $item2->Rep;
-                                    $threehourTime = $item2->value;
+                                    ${$key.'Weather'} = $item2->Rep;
+                                    ${$key.'Time'} = $item2->value;
                                     $timeTrue = true;
                                 }
                             }
