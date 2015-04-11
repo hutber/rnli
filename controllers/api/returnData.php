@@ -40,8 +40,8 @@ class returnData extends Controller {
 
             if(isset($time)) {
                 //checktimes before we do anything else
-                $times = json_decode(file('http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/capabilities?res=3hourly&key=' . $key)[0]);
-                $desiredTime = '&time='.$times->Resource->dataDate;
+                $times = json_decode(file('http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/capabilities?res=3hourly&key=' . $key));
+                $desiredTime = '&time='.$times[0]->Resource->dataDate;
             }
 
             //get data from feed
