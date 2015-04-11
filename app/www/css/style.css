@@ -1825,6 +1825,8 @@ body {
     text-decoration: none; }
   .footer .tripfooter {
     display: none; }
+    .footer .tripfooter .disabled {
+      color: #D7D5CF; }
 
 .index .header, .home .header {
   display: none; }

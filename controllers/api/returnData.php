@@ -79,21 +79,28 @@ class returnData extends Controller {
 
                 //Raw Data
                 $dataFeed = $weatherReports;
-//                c($weatherReports);
-                $threeHourData = json_decode($weatherReports['threehour']);
+//$threehourData = json_decode($weatherReports['threehour']);
+//$threehourWeather = json_decode($dataFeed['threehour'])->SiteRep->DV->Location->Period[0]->Rep;
+//$threehourTime = json_decode($dataFeed['threehour'])->SiteRep->DV->Location->Period[0]->value;
 
-                //Compiled Data
-                $threeHourWeather = json_decode($dataFeed['threehour'])->SiteRep->DV->Location->Period[0]->Rep;
-                $threeHourTime = json_decode($dataFeed['threehour'])->SiteRep->DV->Location->Period[0]->value;
 
                 //Build new compiled data from time
                 if(isset($time)) {
-//                    c($threeHourData->SiteRep->DV->Location->Period);
-                    foreach($threeHourData->SiteRep->DV->Location->Period as $key => $item){
-                        if($time == $item->value){
-                            $threeHourWeather = $item->Rep;
-                            $threeHourTime = $item->value;
-                            $timeTrue = true;
+                    foreach( $weatherReports as $key => $item) {
+                        ${$key.'Data'} = $item;
+                        //Compiled Data
+                        ${$key.'Weather'} = $item;
+                        ${$key.'Time'} = $item;
+
+                        $jsonItem = json_decode($item);
+                        if($jsonItem->SiteRep->DV->Location) {
+                            foreach ($jsonItem->SiteRep->DV->Location->Period as $key2 => $item2) {
+                                if ($time == $item2->value) {
+                                    $threehourWeather = $item2->Rep;
+                                    $threehourTime = $item2->value;
+                                    $timeTrue = true;
+                                }
+                            }
                         }
                     }
                 }
@@ -101,32 +108,42 @@ class returnData extends Controller {
 //                c( $dataFeed['threehour']);
 				//turn data into something we can use
 				$dataToReturn = array (
-                    'time' => $threeHourTime,
+
+                    //Trip Details ------------------------------------------/
+                    'time' => $threehourTime,
                     'timefail' => $timeTrue,
-                    'area' => $threeHourData->SiteRep->DV->Location->name,
-					'country' => $threeHourData->SiteRep->DV->Location->country,
-					'continent' => $threeHourData->SiteRep->DV->Location->continent,
-                    'readingtime'=> $threeHourWeather[0]->{'$'},
+                    'area' => $threehourData->SiteRep->DV->Location->name,
+					'country' => $threehourData->SiteRep->DV->Location->country,
+					'continent' => $threehourData->SiteRep->DV->Location->continent,
                     'latitude' => $latitude,
                     'longitude' => $longitude,
-                    'winddirection'=> $threeHourWeather[0]->D,
-                    'dewpoint'=> $threeHourWeather[0]->Dp,
-                    'feelsliketemperature'=> $threeHourWeather[0]->F,
-                    'windgust'=> $threeHourWeather[0]->G,
-                    'humidity'=> $threeHourWeather[0]->H,
-                    'pressure'=> $threeHourWeather[0]->P,
-                    'precipitationprobability'=> $threeHourWeather[0]->Pp,
-                    'pressuretendency'=> $threeHourWeather[0]->Pt,
-                    'windspeed'=> $threeHourWeather[0]->S,
-                    'seatemperature'=> $threeHourWeather[0]->St,
-                    'temperature'=> $threeHourWeather[0]->T,
-                    'maxUVindex'=> $threeHourWeather[0]->U,
-                    'visibility'=> $threeHourWeather[0]->V,
-                    'weathertype'=> $threeHourWeather[0]->W,
-                    'waveheight'=> $threeHourWeather[0]->Wh,
-                    'waveperiod'=> $threeHourWeather[0]->Wp,
+
+                    //Sea Details-----------------------------------------/
+                    'seatemperature'=> $seaWeather[0]->St,
+
+                    //Weather Details-----------------------------------------/
+                    'readingtime'=> $threehourWeather[0]->{'$'},
+                    'winddirection'=> $threehourWeather[0]->D,
+                    'dewpoint'=> $threehourWeather[0]->Dp,
+                    'feelsliketemperature'=> $threehourWeather[0]->F,
+                    'windgust'=> $threehourWeather[0]->G,
+                    'humidity'=> $threehourWeather[0]->H,
+                    'pressure'=> $threehourWeather[0]->P,
+                    'precipitationprobability'=> $threehourWeather[0]->Pp,
+                    'pressuretendency'=> $threehourWeather[0]->Pt,
+                    'windspeed'=> $threehourWeather[0]->S,
+                    'seatemperature'=> $threehourWeather[0]->St,
+                    'temperature'=> $threehourWeather[0]->T,
+                    'maxUVindex'=> $threehourWeather[0]->U,
+                    'visibility'=> $threehourWeather[0]->V,
+                    'weathertype'=> $threehourWeather[0]->W,
+                    'waveheight'=> $threehourWeather[0]->Wh,
+                    'waveperiod'=> $threehourWeather[0]->Wp,
+
+
+                    //Information ------------------------------------------/
                     'swell'=> null,
-					'key' => $threeHourData->SiteRep->Wx->Param
+					'key' => $threehourData->SiteRep->Wx->Param
                 );
             }
 

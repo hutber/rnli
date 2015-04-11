@@ -64,6 +64,23 @@ mixin tripInfo(data)
                     | SWELL
                 .info 0.25
                     span m
+        .section.airsea
+            .air
+                .icon
+                    i(class='icon-sun')
+                    span SUNRISE
+                .info
+                    - var sunTimes = RN.fnc.suncal.getTimes(new Date(), data.latitude, data.longitude)
+                    | #{moment(sunTimes.sunrise).format('HH:MM')}
+            .sea
+                .icon
+                    i(class='icon-moon')
+                    span SUNSET
+                .info
+                    if sunTimes.sunset === null
+                        | No Data
+                    else
+                        | #{moment(sunTimes.sunset).format('HH:MM')}
         if(RN.currentTrip.isToday(true))
             .section.large.gpscontrols
                 h3
@@ -75,26 +92,6 @@ mixin tripInfo(data)
                     i(class='icon-user')
                     | ACTIVATE SAFETY NET
                     +switch('safetynet', 'no', 'yes')
-        .section.airsea
-            .air
-                .icon
-                    i(class='icon-sun')
-                    span SUNRISE
-                .info
-                    - var sunTimes = RN.fnc.suncal.getTimes(new Date(), data.latitude, data.longitude)
-                    | #{moment(sunTimes.sunrise).format('HH:MM')}
-            .sea(class= notsafe)
-                .icon
-                    i(class='icon-moon')
-                    span SUNSET
-                .info
-                    if sunTimes.sunset === null
-                        | No Data
-                    else
-                        | #{moment(sunTimes.sunset).format('HH:MM')}
-                .dangertext
-                    | DANGER
-                    i(class='icon-attention')
         .infobox
         .section.tripControls
             .btn.starttrip START TRIP

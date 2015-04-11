@@ -16,11 +16,22 @@ module.exports =  function() {
 		events: {
 			'click .savenote': 'saveNote',
 			'click .nextcatch': 'nextCatch',
-			'click .savecatch': 'saveCatch'
+			'click .savecatch': 'saveCatch',
+			'click .header .left': 'workOutBack'
 		},
 		$header: null,
 		templates: {
 			login: require('../views/shell.jade')
+		},
+		workOutBack : function(ev){
+			var ev = $(ev.currentTarget);
+
+			if(window.history.length===0){
+				RN.router.navigate('home', true);
+			}else{
+				window.history.back()
+			}
+
 		},
 		navigate: function(ev){
 			var target = ev.target.hash.substring(1);

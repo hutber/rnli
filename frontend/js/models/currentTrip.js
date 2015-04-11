@@ -29,13 +29,45 @@ module.exports = function(){
 
 		isToday: function(pageCheck){
 			if(typeof pageCheck !== typeof undefined) {
-				if (localStorage.ctripwhen === "present" && (RN.glb.hash === "currenttrip" || RN.glb.hash === "currenttrip")) {
+				if (localStorage.ctripwhen === "present" && (window.location.hash === "#currenttrip" || window.location.hash === "#currenttrip")) {
 					return true;
 				} else {
 					return false;
 				}
 			}else{
 				if (localStorage.ctripwhen === "present") {
+					return true;
+				} else {
+					return false;
+				}
+			}
+		},
+
+		isFuture: function(pageCheck){
+			if(typeof pageCheck !== typeof undefined) {
+				if (localStorage.ctripwhen === "future" && (window.location.hash === "#currenttrip" || window.location.hash === "#currenttrip")) {
+					return true;
+				} else {
+					return false;
+				}
+			}else{
+				if (localStorage.ctripwhen === "future") {
+					return true;
+				} else {
+					return false;
+				}
+			}
+		},
+
+		isNotFuture: function(pageCheck){
+			if(typeof pageCheck !== typeof undefined) {
+				if (localStorage.ctripwhen !== "future" && (window.location.hash === "#currenttrip" || window.location.hash === "#currenttrip")) {
+					return true;
+				} else {
+					return false;
+				}
+			}else{
+				if (localStorage.ctripwhen !== "future") {
 					return true;
 				} else {
 					return false;

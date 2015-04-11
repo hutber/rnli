@@ -102,7 +102,14 @@ module.exports = RN.glb.gvCreator.extend({
 				}
 				//load in view with data
 				self.$el.html(self.templates.home({data: currentLocationData}));
-				c()
+
+				//Rerender navigation if we need to
+				if(RN.currentTrip.isFuture()){
+					//$('.tripfooter a').addClass('disabled').removeAttr('href');
+					$('.tripfooter a').addClass('disabled').removeAttr('href');
+				}
+
+				//Set up google maps
 				var styles = [
 						{
 							"featureType": "administrative",
