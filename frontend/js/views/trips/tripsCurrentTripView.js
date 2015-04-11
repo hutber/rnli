@@ -77,7 +77,7 @@ module.exports = RN.glb.gvCreator.extend({
 
 			//for local dev
 			if(typeof currentLocationData === "undefined" && RN.glb.url.envioment === 'localApp') {
-				RN.fnc.location.getClosestLocation(cords.latitude, cords.long,  function (data) {
+				RN.fnc.location.getClosestLocation(cords.latitude, cords.long, RN.currentTrip.get('details').time, function (data) {
 					currentLocationData = data;
 				});
 			}
@@ -102,7 +102,7 @@ module.exports = RN.glb.gvCreator.extend({
 				}
 				//load in view with data
 				self.$el.html(self.templates.home({data: currentLocationData}));
-
+				c()
 				var styles = [
 						{
 							"featureType": "administrative",

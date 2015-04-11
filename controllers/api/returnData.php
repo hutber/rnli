@@ -103,9 +103,9 @@ class returnData extends Controller {
 				$dataToReturn = array (
                     'time' => $threeHourTime,
                     'timefail' => $timeTrue,
-                    'area' => $dataFeed['threehour']->SiteRep->DV->Location->name,
-					'country' => $dataFeed['threehour']->SiteRep->DV->Location->country,
-					'continent' => $dataFeed['threehour']->SiteRep->DV->Location->continent,
+                    'area' => $threeHourData->SiteRep->DV->Location->name,
+					'country' => $threeHourData->SiteRep->DV->Location->country,
+					'continent' => $threeHourData->SiteRep->DV->Location->continent,
                     'readingtime'=> $threeHourWeather[0]->{'$'},
                     'latitude' => $latitude,
                     'longitude' => $longitude,
@@ -126,7 +126,7 @@ class returnData extends Controller {
                     'waveheight'=> $threeHourWeather[0]->Wh,
                     'waveperiod'=> $threeHourWeather[0]->Wp,
                     'swell'=> null,
-					'key' => $dataFeed['threehour']->SiteRep->Wx->Param
+					'key' => $threeHourData->SiteRep->Wx->Param
                 );
             }
 
