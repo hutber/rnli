@@ -1,0 +1,23 @@
+mixin tempBox(data)
+   - data.date = moment(data.date).format('DD');
+   - var currentCatchItem = function(){
+   -     var i = 0;
+   -     while (i < RN.user.get('catch').length) {
+   -        if (i == 3) {
+   -           break;
+   -        }
+   -        i += 1;
+   -     }
+   - };
+   .box.tripHomeBox
+         .image
+            if(typeof data.image !=="undefined")
+               img(src='img/uploads/'+data.image)
+            else
+               img(src='img/placeholder.gif')
+         .text
+            h3 #{data.name}
+            .item #{data.date}
+            +rating(data.rating, 'disabled')
+         .icon
+            i(class='icon-right-open')

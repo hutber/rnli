@@ -2062,6 +2062,11 @@ body {
 .weather .getforcast {
   display: none; }
 
+.tempchart .icon {
+  margin: 10px 0; }
+.tempchart i {
+  display: inline-block; }
+
 .locationSelector {
   width: 80%;
   margin: 0 auto;
