@@ -61,6 +61,8 @@ module.exports =  function() {
 		type: null,
 		page: null
 	};
+	globals.backButton = false;
+	globals.backButtonLocation = 'home';
 
 	//UI's
 	globals.pageHeight = 0;

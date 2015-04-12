@@ -2,10 +2,12 @@ include ../mixins
 .catchsortby
     span SORT BY
     .sortoptions
-        div.selected DATE
-        div WEIGHT
-        div LENGTH
-        div A-Z
-if RN.user.get('catch') !== null
-    each val, index in RN.user.get('catch')
-        +catchFish(val)
+        div(data-type="date") DATE
+        div(data-type="lbs") WEIGHT
+        div(data-type="ft") LENGTH
+        div(data-type="species") A-Z
+if catches.length > 0 && catches !== null
+    each val, index in catches
+        +catchFishInfo(val)
+else
+    h2  NO CATCHES YET

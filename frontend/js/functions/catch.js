@@ -13,7 +13,7 @@ module.exports = function () {
 	catchVar.saveCatchToObject = function(data){
 		var singleCatch = {},
 			note = {},
-			localCatch = JSON.parse(localStorage.ctripcatch);
+			localCatch = (typeof localStorage.ctripcatch !== typeof undefined ? JSON.parse(localStorage.ctripcatch) : {});
 
 		if(localCatch !== null){
 			singleCatch =  localCatch;

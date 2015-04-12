@@ -147,12 +147,20 @@ module.exports = RN.glb.gvCreator.extend({
 				date: dates
 			}));
 
+			//Central Align select text
 			$('select').css('padding-left',$('body').outerWidth()/3.6);
 
 			//for local dev
 			if(typeof RN.weather.get('weatherDetails') !== "undefined" && RN.glb.url.envioment === 'localApp') {
 				self.loadFromData(RN.weather.get('weatherDetails'));
 			}
+
+			//Work out width for tempature
+			var width = 0;
+			$('.tempbox').each(function() {
+				width += $(this).outerWidth( true );
+			});
+			$('.temps').css('width', width);
 		});
 	}
 });

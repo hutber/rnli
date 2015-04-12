@@ -1,0 +1,19 @@
+mixin catchFishInfo(data)
+   - var attr = data.attr || {}
+   .box.catchfishbox&attributes(attr)
+      .image
+         img(src='img/placeholder.gif')
+      .text
+         h3 #{data.species}
+         .item W
+            span #{data.lbs}lb #{data.oz}oz
+         .item L
+            span #{data.ft}ft #{data.ins}in
+         .item
+            Rating
+      //.icon
+         i(class='icon-minus')
+         i(class='icon-plus')
+      .fishdetails
+         .location
+         .conditions

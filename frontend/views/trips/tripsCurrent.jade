@@ -1,11 +1,11 @@
 include ../mixins
-if data.area
-    - data.date = RN.currentTrip.get('date')[0];
-    .tripMap
-        +tripdetails(data)
-        +map(data)
-        +tripInfo(data)
-else
-    .nodata
-        | No Data, try again
-    a(href='#currenttrip', class="btn retry") Retry
+//if data.area
+- data.date = RN.currentTrip.get('date')[0];
+.tripMap
+    +tripdetails(data)
+    +map(data)
+    +tripInfo(data)
+//else
+//    .nodata
+//        | No Data, try again
+//    a(href='#currenttrip', class="btn retry") Retry

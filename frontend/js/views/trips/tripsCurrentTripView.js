@@ -65,7 +65,7 @@ module.exports = RN.glb.gvCreator.extend({
 
 	render: function () {
 		if(RN.currentTrip.get('details')===null){
-			RN.fnc.popups.message.show('Error', 'bad', 2);
+			RN.fnc.popups.message.show('No Trip Details Were Found', 'bad');
 			RN.router.navigate('createtrip', true);
 		}else{
 			var self = this,

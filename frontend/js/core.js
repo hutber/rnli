@@ -49,6 +49,40 @@ if (typeof console === "object" && typeof console.error === "function" && !RN.is
 }
 
 /*==================================================
+ Order Array Objects
+ ================================================== */
+var _toString = Object.prototype.toString,
+//the default parser function
+	_parser = function (x) { return x; },
+//gets the item to be sorted
+	_getItem = function (x) {
+		return this.parser((_toString.call(x) == "[object Object]" && x[this.prop]) || x);
+	};
+
+// Creates a sort method in the Array prototype
+Object.defineProperty(Array.prototype, "sortBy", {
+	configurable: false,
+	enumerable: false,
+	// @o.prop: property name (if it is an Array of objects)
+	// @o.desc: determines whether the sort is descending
+	// @o.parser: function to parse the items to expected type
+	value: function (o) {
+		if (_toString.call(o) != "[object Object]")
+			o = {};
+		if (_toString.call(o.parser) != "[object Function]")
+			o.parser = _parser;
+		//if @o.desc is false: set 1, else -1
+		o.desc = [1, -1][+!!o.desc];
+		return this.sort(function (a, b) {
+			a = _getItem.call(o, a);
+			b = _getItem.call(o, b);
+			return ((a > b) - (b > a)) * o.desc;
+			//return o.desc * (a < b ? -1 : +(a > b));
+		});
+	}
+});
+
+/*==================================================
  Error handling on mobile
  ================================================== */
 //#alert errors ----------------------------------------------------

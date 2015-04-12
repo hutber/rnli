@@ -1845,7 +1845,8 @@ body {
 
 .content {
   overflow-y: scroll;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  padding-bottom: 25px; }
 
 .footer {
   display: block;

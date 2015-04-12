@@ -28,7 +28,11 @@ module.exports =  function() {
 
 			if(window.history.length===0){
 				RN.router.navigate('home', true);
-			}else{
+			}else if (RN.glb.backButton === true){
+				RN.glb.backButton = false;
+				RN.router.navigate(RN.glb.backButtonLocation, true);
+			}
+			else{
 				window.history.back()
 			}
 
