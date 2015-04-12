@@ -2098,19 +2098,20 @@ body {
   .safety .safetytips h3, .safetybrowse .safetytips h3 {
     text-align: center; }
 
-.weather select {
+.weather select, .trips select {
   font-family: din, "Lucida Grande", sans-serif;
   color: #002664;
   font-size: 1.4rem;
   text-align: center; }
-  .weather select option {
+  .weather select option, .trips select option {
     text-align: center; }
-.weather .getforcast {
+.weather .getforcast, .trips .getforcast {
   display: none; }
-.weather .tripMap .airsea {
+.weather .tripMap .airsea, .trips .tripMap .airsea {
   border-top: none; }
 
 .tempchart .icon {
+  text-align: center;
   margin: 10px 0; }
 .tempchart i {
   display: inline-block; }

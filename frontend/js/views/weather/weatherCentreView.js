@@ -160,7 +160,7 @@ module.exports = RN.glb.gvCreator.extend({
 			$('.tempbox').each(function() {
 				width += $(this).outerWidth( true );
 			});
-			$('.temps').css('width', width);
+			//$('.temps').css('width', width);
 		});
 	}
 });

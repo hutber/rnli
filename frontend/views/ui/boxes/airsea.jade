@@ -1,0 +1,22 @@
+mixin airsea(data)
+   .section.airsea
+       .air
+           .icon
+               i(class='icon-air')
+               span AIR
+           .info
+               | #{data.temperature}
+               span.degrees &#8451
+       .sea(class= notsafe)
+           .icon
+               i(class='icon-temperatire')
+               span SEA
+           .info
+               if data.seatemperature === null
+                   | No Data
+               else
+                   | #{data.seatemperature}
+                   span.degrees &#8451
+           .dangertext
+               | DANGER
+               i(class='icon-attention')

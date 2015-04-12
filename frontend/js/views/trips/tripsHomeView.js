@@ -13,7 +13,21 @@ module.exports = RN.glb.gvCreator.extend({
 		var ev = $(ev.currentTarget);
 	},
 	render: function () {
+
+		var currentWeather = null;
+
+		if(typeof RN.weather.get('3hourWeather') !== typeof undefined){
+			currentWeather = RN.weather.get('3hourWeather'),
+			airsea = {
+				temperature: RN.weather.get('temperature'),
+				seatemperature: RN.weather.get('seatemperature')
+			}
+		}
+
 		//load data in ejs
-		this.$el.html(this.templates.home());
+		this.$el.html(this.templates.home({
+			currentWeather: currentWeather,
+			airsea: airsea
+		}));
 	}
 });

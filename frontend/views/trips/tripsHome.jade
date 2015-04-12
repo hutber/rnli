@@ -1,4 +1,10 @@
 include ../mixins
 if RN.trips.get('trips') !== null
+    if (currentWeather === null)
+        +box({class:'plain getforcast', text:'GET WEATHER'})
+    else
+        +tempChart(currentWeather)
+        .tripMap
+            +airsea(airsea)
     each val, index in RN.trips.get('trips')
         +tripBox(val)
