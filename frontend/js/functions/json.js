@@ -22,11 +22,11 @@ module.exports = {
 		var listOfItems = {},
 			self = this;
 		Object.keys(item).forEach(function(key, val, stuff){
-			//if(item[key] === null) {
-			//	listOfItems[key] = null;
-			//}else{
+			if(item[key] === null) {
+				listOfItems[key] = null;
+			}else{
 				listOfItems[key] = self.checkParseOrObject(item[key]);
-			//}
+			}
 		});
 
 		return listOfItems;

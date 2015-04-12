@@ -15,6 +15,7 @@ $darkWhite:										#F4F5F5;
 $brdLight:										#F6F6F6;
 $darkerWhite:									#EDEEEE;
 $mainBlue:                                      #002664;
+$tempature:                                       #A8BCC2;
 
 //  #Greys --------------------------------------------
 $softGrey:										#424447;
@@ -56,5 +57,58 @@ $weather:                                       #D13924;
 $safety:                                        #9C1B31;
 $catch:                                         #28243b;
 
+
 //  #Users -------------------------------------
 $userHeaderBG:                                 $mainBlue;
+
+//  #Weather Types -------------------------------------
+$coldweather:                                   #E0CF54;
+$hotweather:                                    #ff0600;
+$weathertype7:                                  mix($coldweather, $hotweather, 100);
+$weathertype8:                                  mix($coldweather, $hotweather, 98);
+$weathertype9:                                  mix($coldweather, $hotweather, 95);
+$weathertype10:                                 mix($coldweather, $hotweather, 92);
+$weathertype11:                                 mix($coldweather, $hotweather, 88);
+$weathertype12:                                 mix($coldweather, $hotweather, 85);
+$weathertype13:                                 mix($coldweather, $hotweather, 81);
+$weathertype14:                                 mix($coldweather, $hotweather, 78);
+$weathertype15:                                 mix($coldweather, $hotweather, 75);
+$weathertype16:                                 mix($coldweather, $hotweather, 71);
+$weathertype17:                                 mix($coldweather, $hotweather, 67);
+$weathertype18:                                 mix($coldweather, $hotweather, 63);
+$weathertype19:                                 mix($coldweather, $hotweather, 59);
+$weathertype20:                                 mix($coldweather, $hotweather, 55);
+$weathertype21:                                 mix($coldweather, $hotweather, 51);
+$weathertype22:                                 mix($coldweather, $hotweather, 49);
+$weathertype23:                                 mix($coldweather, $hotweather, 45);
+$weathertype24:                                 mix($coldweather, $hotweather, 41);
+$weathertype25:                                 mix($coldweather, $hotweather, 39);
+$weathertype26:                                 mix($coldweather, $hotweather, 38);
+$weathertype27:                                 mix($coldweather, $hotweather, 39);
+$weathertype28:                                 mix($coldweather, $hotweather, 38);
+$weathertype29:                                 mix($coldweather, $hotweather, 37);
+$weathertype30:                                 mix($coldweather, $hotweather, 35);
+$weathertype31:                                 mix($coldweather, $hotweather, 34);
+$weathertype32:                                 mix($coldweather, $hotweather, 33);
+$weathertype33:                                 mix($coldweather, $hotweather, 31);
+$weathertype34:                                 mix($coldweather, $hotweather, 28);
+$weathertype35:                                 mix($coldweather, $hotweather, 27);
+$weathertype36:                                 mix($coldweather, $hotweather, 26);
+$weathertype37:                                 mix($coldweather, $hotweather, 25);
+$weathertype38:                                 mix($coldweather, $hotweather, 24);
+$weathertype39:                                 mix($coldweather, $hotweather, 23);
+$weathertype40:                                 mix($coldweather, $hotweather, 22);
+$weathertype41:                                 mix($coldweather, $hotweather, 21);
+$weathertype42:                                 mix($coldweather, $hotweather, 20);
+$weathertype43:                                 mix($coldweather, $hotweather, 19);
+$weathertype44:                                 mix($coldweather, $hotweather, 18);
+$weathertype45:                                 mix($coldweather, $hotweather, 17);
+$weathertype46:                                 mix($coldweather, $hotweather, 16);
+$weathertype47:                                 mix($coldweather, $hotweather, 15);
+$weathertype48:                                 mix($coldweather, $hotweather, 14);
+$weathertype49:                                 mix($coldweather, $hotweather, 13);
+$weathertype50:                                 mix($coldweather, $hotweather, 12);
+$weathertype51:                                 mix($coldweather, $hotweather, 11);
+$weathertype52:                                 mix($coldweather, $hotweather, 10);
+$weathertype53:                                 mix($coldweather, $hotweather, 9);
+$weathertype54:                                 mix($coldweather, $hotweather, 4);

@@ -4,4 +4,5 @@ mixin tempChart(data)
             i(class='icon-temperatire')
             hw TEMPERATURE
         .temps
-            +tempBox(data)
+            each val, index in RN.weather.get('weatherDetails')['3hourWeather']
+                +tempBox(val, index)

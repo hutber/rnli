@@ -220,7 +220,7 @@ class returnData extends Controller {
                     'longitude' => $longitude,
                     'dailyWeather' => $dailyWeather,
                     '3hourWeather' => $threehourWeather,
-                    'hourlyWeather' => json_decode($hourlyWeather),
+                    'hourlyWeather' => json_decode($hourlyWeather->SiteRep->Wx->Param),
 
                     //Sea Details-----------------------------------------/
                     'seatemperature'=> $seaWeather[0]->St,

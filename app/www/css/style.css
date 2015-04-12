@@ -1514,6 +1514,51 @@ input[type=checkbox] {
       float: right;
       margin-right: 0; }
 
+.tempchart {
+  height: 130px;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  border-bottom: 3px solid #D7D5CF; }
+  .tempchart .temps {
+    text-align: center; }
+    .tempchart .temps .tempbox {
+      display: inline-block;
+      width: 60px;
+      border-right: 2px solid #D7D5CF;
+      padding-bottom: 10px; }
+      .tempchart .temps .tempbox:last-child {
+        border: none; }
+      .tempchart .temps .tempbox .time {
+        font-size: .8rem;
+        color: #002664;
+        font-family: din, "Lucida Grande", sans-serif; }
+      .tempchart .temps .tempbox .icon {
+        font-size: 1.7rem;
+        line-height: 1.8rem;
+        color: #A8BCC2; }
+      .tempchart .temps .tempbox span {
+        color: #A8BCC2;
+        font-family: din, "Lucida Grande", sans-serif; }
+      .tempchart .temps .tempbox.weatherType7 i, .tempchart .temps .tempbox.weatherType7 span {
+        color: #e0cf54; }
+      .tempchart .temps .tempbox.weatherType8 i, .tempchart .temps .tempbox.weatherType8 span {
+        color: #e0ca52; }
+      .tempchart .temps .tempbox.weatherType9 i, .tempchart .temps .tempbox.weatherType9 span {
+        color: #e1c44f; }
+      .tempchart .temps .tempbox.weatherType10 i, .tempchart .temps .tempbox.weatherType10 span {
+        color: #e2be4d; }
+      .tempchart .temps .tempbox.weatherType11 i, .tempchart .temps .tempbox.weatherType11 span {
+        color: #e3b649; }
+      .tempchart .temps .tempbox.weatherType12 i, .tempchart .temps .tempbox.weatherType12 span {
+        color: #e4b047; }
+      .tempchart .temps .tempbox.weatherType13 i, .tempchart .temps .tempbox.weatherType13 span {
+        color: #e5a844; }
+      .tempchart .temps .tempbox.weatherType14 i, .tempchart .temps .tempbox.weatherType14 span {
+        color: #e6a241; }
+      .tempchart .temps .tempbox.weatherType15 i, .tempchart .temps .tempbox.weatherType15 span {
+        color: #e79c3f; }
+
 /* v1.0.5 */
 /* Core RS CSS file. 95% of time you shouldn't change anything here. */
 .royalSlider {
@@ -2061,6 +2106,8 @@ body {
     text-align: center; }
 .weather .getforcast {
   display: none; }
+.weather .tripMap .airsea {
+  border-top: none; }
 
 .tempchart .icon {
   margin: 10px 0; }

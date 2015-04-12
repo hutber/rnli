@@ -256,3 +256,84 @@
 		}
 	}
 }
+///* #Tempature Box ------------------------------------------------------------------------ */
+.tempchart {
+	height: 130px;
+	overflow: hidden;
+	display: block;
+	position: relative;
+	border-bottom: 3px solid $border;
+	.temps {
+		text-align: center;
+		.tempbox {
+			display: inline-block;
+			width: 60px;
+			border-right: 2px solid $border;
+			padding-bottom: 10px;
+			&:last-child {
+				border: none;
+			}
+			.time {
+				font-size: .8rem;
+				color: $mainBlue;
+				font-family: $headerFont;
+			}
+			.icon {
+				font-size: 1.7rem;
+				line-height: 1.8rem;
+				color: $tempature;
+			}
+			span {
+				color: $tempature;
+				font-family: $headerFont;
+			}
+
+			///* Tempature Colour Changes
+			&.weatherType7 {
+				i, span {
+					color: $weathertype7;
+				}
+			}
+			&.weatherType8 {
+				i, span {
+					color: $weathertype8;
+				}
+			}
+			&.weatherType9 {
+				i, span {
+					color: $weathertype9;
+				}
+			}
+			&.weatherType10 {
+				i, span {
+					color: $weathertype10;
+				}
+			}
+			&.weatherType11 {
+				i, span {
+					color: $weathertype11;
+				}
+			}
+			&.weatherType12 {
+				i, span {
+					color: $weathertype12;
+				}
+			}
+			&.weatherType13 {
+				i, span {
+					color: $weathertype13;
+				}
+			}
+			&.weatherType14 {
+				i, span {
+					color: $weathertype14;
+				}
+			}
+			&.weatherType15 {
+				i, span {
+					color: $weathertype15;
+				}
+			}
+		}
+	}
+}
