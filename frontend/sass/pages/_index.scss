@@ -23,7 +23,7 @@
 	.safety &, .safetybrowse & {
 		background: $safety;
 	}
-	.previouscatch & {
+	.previouscatch &, .individualcatch & {
 		background: $catch;
 	}
 	.profile & {

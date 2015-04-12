@@ -76,6 +76,7 @@ module.exports = {
 				version: localStorage.version,
 				contacts: localStorage.contacts,
 				catch: localStorage.catch,
+				currentCatch: localStorage.currentCatch,
 				trips: localStorage.trips,
 				weatherDetails: localStorage.weatherDetails
 			});
@@ -91,6 +92,7 @@ module.exports = {
 				version: data.version,
 				contacts: data.contacts,
 		        catch: data.catch,
+		        currentCatch: data.currentCatch,
 		        trips: data.trips,
 		        weatherDetails: data.weatherDetails
 			};

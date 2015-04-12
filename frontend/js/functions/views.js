@@ -128,6 +128,12 @@ module.exports = function (){
 			title: 'TOTAL CATCH LOG'
 		}
 		,{
+			name: 'individualCatchView',
+			path: require('../views/catch/individualCatchView'),
+			url: 'individualcatch',
+			title: 'A CATCH'
+		}
+		,{
 			name: 'catchView',
 			path: require('../views/trips/catch/catchView'),
 			url: 'tripcatch',

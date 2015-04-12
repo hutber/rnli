@@ -8,8 +8,25 @@ module.exports = RN.glb.gvCreator.extend({
 	},
 	events: {
 		'click .sortoptions div': 'changeCatchOrder',
+		'click .catchfishbox': 'catchfishbox',
 	},
 	selected: 0,
+
+	catchfishbox : function(ev){
+		var ev = $(ev.currentTarget);
+
+		localStorage.currentCatch = function () {
+			var desired;
+			 Object.keys(RN.user.get('catch')).forEach(function (val) {
+				if(parseInt(RN.user.get('catch')[val].id) === ev.data('id')){
+					desired = RN.user.get('catch')[val];
+				}
+			});
+			return JSON.stringify(desired);
+		}();
+		RN.router.navigate('individualcatch', true);
+	},
+
 	changeCatchOrder : function(ev){
 		var ev = $(ev.currentTarget);
 
@@ -28,7 +45,6 @@ module.exports = RN.glb.gvCreator.extend({
 	},
 
 	render: function () {
-		c(this.selected);
 		//load data in ejs
 		this.$el.html(this.templates.home({
 			catches: RN.user.get('catch')

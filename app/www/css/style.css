@@ -2563,7 +2563,7 @@ Table of Contents
     background: #D13924; }
   .safety .header, .safetybrowse .header {
     background: #9C1B31; }
-  .previouscatch .header {
+  .previouscatch .header, .individualcatch .header {
     background: #28243b; }
   .profile .header {
     background: #002664;

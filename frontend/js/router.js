@@ -38,6 +38,7 @@ var Router = Backbone.Router.extend({
 
 		// #Catch ---------------------------------------------------- /
 		'catch': 'catch',
+		'individualcatch': 'individualcatch',
 
 		// #About ---------------------------------------------------- /
 		'abouthome': 'abouthome',

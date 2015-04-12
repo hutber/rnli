@@ -35,12 +35,16 @@ function debug (msg) {
 window.c = false;
 if (typeof console === "object" && typeof console.error === "function" && !RN.isMobile) {
 	c = function (msg) {
-		var callerName;
-		try { throw new Error(); }
-		catch (e) { callerName = e.stack.split('\n')[2].split(/\s+/)[2]; }
+
+		//Details
+		//var callerName;
+		//try { throw new Error(); }
+		//catch (e) { callerName = e.stack.split('\n')[2].split(/\s+/)[2]; }
+		//console.info(msg);
+		//console.info('^-------'+callerName+'-------^');
+
+		//Simple
 		console.info(msg);
-		console.info('^-------'+callerName+'-------^');
-		//console.info(arguments.callee.caller.toString());
 	};
 } else {
 	c = function (msg) {
