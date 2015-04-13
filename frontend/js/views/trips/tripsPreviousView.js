@@ -19,8 +19,9 @@ module.exports = RN.glb.gvCreator.extend({
 
 
 		//Rerender navigation if we need to
-		$('.tripfooter').hide();
-		$('.tripfooter.disabled').show();
+		//$('.tripfooter:first-child').addClass('disabled');
+		//$('.tripfooter').hide();
+		//$('.tripfooter.disabled').show();
 
 		$('.middle h1').text(data.area +', '+data.continent);
 

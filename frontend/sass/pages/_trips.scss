@@ -526,6 +526,14 @@ Table of Contents
 		height: 80%;
 	}
 }
+.tripsprevious, .inTheFuture {
+	.tripfooter {
+		display: none !important;
+	}
+	.tripfooter.disabled {
+		display: block !important;
+	}
+}
 
 .gps {
 

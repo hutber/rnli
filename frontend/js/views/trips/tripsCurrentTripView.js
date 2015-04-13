@@ -106,11 +106,7 @@ module.exports = RN.glb.gvCreator.extend({
 				//Rerender navigation if we need to
 				if(RN.currentTrip.isFuture()){
 					//$('.tripfooter a').addClass('disabled').removeAttr('href');
-					$('.tripfooter').hide();
-					$('.tripfooter.disabled').show();
-				}else{
-					$('.tripfooter').show();
-					$('.tripfooter.disabled').hide();
+					$('.tripMap').addClass('inTheFuture');
 				}
 
 				//Set up google maps
