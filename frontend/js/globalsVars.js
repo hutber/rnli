@@ -24,7 +24,7 @@ module.exports =  function() {
 				globals.url.envioment = 'localApp',
 					globals.url.cdn = 'rnli.local/'
 				break;
-			case "rnli.hutber.com" :
+			case "apprnli.hutber.com" :
 				globals.url.website = 'website';
 				break;
 			case "192.168.0.25":
