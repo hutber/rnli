@@ -21,14 +21,15 @@ module.exports =  function() {
 	globals.url.checkEnvio = function () {
 		switch (window.location.hostname) {
 			case "localhost" :
-				globals.url.envioment = 'localApp',
-					globals.url.cdn = 'rnli.local/'
+					globals.url.envioment = 'localApp',
+					globals.url.cdn = 'rnli.local/';
 				break;
 			case "apprnli.hutber.com" :
-				globals.url.website = 'website';
+					globals.url.envioment = 'testSite',
+					globals.url.website = 'website';
 				break;
 			case "192.168.0.25":
-				globals.url.envioment = 'mobilePhone'
+					globals.url.envioment = 'mobilePhone';
 				break;
 		}
 		globals.url.http = globals.url.protocol+'://'+globals.url.cdn;
