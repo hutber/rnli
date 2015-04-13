@@ -27,6 +27,7 @@ $footerHeight: 12%;
 //Any class in here will hide the header
 $headerHide: ".index, .home";
 $footerHide: ".index, .signup, .profile, .forgotten";
+$showTripFooter: ".currenttrip, .addhazard, .notes, .addnotes, .catch, .addcatch, .confirmcatch, .tripcatch, .tripsprevious";
 
 //Complex Page Classes
 $about: ".about, .abouthome, .privacy, .legal";
@@ -155,8 +156,8 @@ $headerHeight: 75px;
 	}
 	.tripfooter {
 		display: none;
-		.disabled {
-			color: $border;
+		&.disabled {
+			a {color: $border;}
 		}
 	}
 }

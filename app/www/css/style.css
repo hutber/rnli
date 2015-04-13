@@ -1871,7 +1871,7 @@ body {
     text-decoration: none; }
   .footer .tripfooter {
     display: none; }
-    .footer .tripfooter .disabled {
+    .footer .tripfooter.disabled a {
       color: #D7D5CF; }
 
 .index .header, .home .header {
@@ -2179,7 +2179,14 @@ Table of Contents
 
 #Pages
 	#Create Trip
+	#Current Trip
+	#Trip Closed
+	#Previous Trip
 	#Catch
+
+#Hiding Settings
+	#Speical rules for hiding elements for Previous Trips
+	#Speical rules for hiding elements for Past Future Present
 
 #Footer Settings
 
@@ -2449,9 +2456,36 @@ Table of Contents
 .tripclosed .section {
   border-bottom: none; }
 
+.tripsprevious .rating {
+  background: #EF8201;
+  text-align: center;
+  height: 53px; }
+  .tripsprevious .rating .stars {
+    width: 230px; }
+  .tripsprevious .rating label.star {
+    color: #FFF;
+    font-size: 1.6rem; }
+.tripsprevious #map-canvas {
+  border: 7px solid #FFF; }
+.tripsprevious .map .info {
+  display: none; }
+.tripsprevious .tripNotes {
+  margin: 10px 0 0;
+  padding-bottom: 20px; }
+  .tripsprevious .tripNotes .noteheader {
+    margin: 10px 0;
+    font-family: din, "Lucida Grande", sans-serif; }
+  .tripsprevious .tripNotes .notetext {
+    margin: 5px 0;
+    padding: 10px 0;
+    font-size: 1.2rem;
+    line-height: 1.4rem; }
+  .tripsprevious .tripNotes .catchfishbox {
+    background: #FFF; }
+
 .previouscatch .catchsortby {
   text-align: center;
-  background: #28243b;
+  background: #293238;
   overflow: hidden; }
   .previouscatch .catchsortby span {
     line-height: 1.5rem;
@@ -2477,26 +2511,31 @@ Table of Contents
         float: right;
         margin-right: 0; }
       .previouscatch .catchsortby .sortoptions div.selected {
-        background: #28243b;
+        background: #293238;
         color: #FFF; }
+
+/*===============  Components ===============
+	///* #Speical rules for hiding elements for Previous Trips------------------------------ */
+.tripsprevious .tripid {
+  display: none; }
 
 .createtrip .underHeader .control-group, .currenttrip .underHeader .control-group {
   display: block; }
 
-.currenttrip .footer, .addhazard .footer, .notes .footer, .addnotes .footer, .catch .footer, .addcatch .footer, .confirmcatch .footer, .tripcatch .footer {
+.currenttrip .footer, .addhazard .footer, .notes .footer, .addnotes .footer, .catch .footer, .addcatch .footer, .confirmcatch .footer, .tripcatch .footer, .tripsprevious .footer {
   display: block;
   height: 65px; }
-  .currenttrip .footer .tripfooter, .addhazard .footer .tripfooter, .notes .footer .tripfooter, .addnotes .footer .tripfooter, .catch .footer .tripfooter, .addcatch .footer .tripfooter, .confirmcatch .footer .tripfooter, .tripcatch .footer .tripfooter {
+  .currenttrip .footer .tripfooter, .addhazard .footer .tripfooter, .notes .footer .tripfooter, .addnotes .footer .tripfooter, .catch .footer .tripfooter, .addcatch .footer .tripfooter, .confirmcatch .footer .tripfooter, .tripcatch .footer .tripfooter, .tripsprevious .footer .tripfooter {
     display: block; }
-    .currenttrip .footer .tripfooter a, .addhazard .footer .tripfooter a, .notes .footer .tripfooter a, .addnotes .footer .tripfooter a, .catch .footer .tripfooter a, .addcatch .footer .tripfooter a, .confirmcatch .footer .tripfooter a, .tripcatch .footer .tripfooter a {
+    .currenttrip .footer .tripfooter a, .addhazard .footer .tripfooter a, .notes .footer .tripfooter a, .addnotes .footer .tripfooter a, .catch .footer .tripfooter a, .addcatch .footer .tripfooter a, .confirmcatch .footer .tripfooter a, .tripcatch .footer .tripfooter a, .tripsprevious .footer .tripfooter a {
       display: inline-block; }
-    .currenttrip .footer .tripfooter i, .addhazard .footer .tripfooter i, .notes .footer .tripfooter i, .addnotes .footer .tripfooter i, .catch .footer .tripfooter i, .addcatch .footer .tripfooter i, .confirmcatch .footer .tripfooter i, .tripcatch .footer .tripfooter i {
+    .currenttrip .footer .tripfooter i, .addhazard .footer .tripfooter i, .notes .footer .tripfooter i, .addnotes .footer .tripfooter i, .catch .footer .tripfooter i, .addcatch .footer .tripfooter i, .confirmcatch .footer .tripfooter i, .tripcatch .footer .tripfooter i, .tripsprevious .footer .tripfooter i {
       display: block;
       font-size: 1.5rem;
       line-height: 2.1rem; }
-  .currenttrip .footer .normalfooter, .addhazard .footer .normalfooter, .notes .footer .normalfooter, .addnotes .footer .normalfooter, .catch .footer .normalfooter, .addcatch .footer .normalfooter, .confirmcatch .footer .normalfooter, .tripcatch .footer .normalfooter {
+  .currenttrip .footer .normalfooter, .addhazard .footer .normalfooter, .notes .footer .normalfooter, .addnotes .footer .normalfooter, .catch .footer .normalfooter, .addcatch .footer .normalfooter, .confirmcatch .footer .normalfooter, .tripcatch .footer .normalfooter, .tripsprevious .footer .normalfooter {
     display: none; }
-.currenttrip textarea, .addhazard textarea, .notes textarea, .addnotes textarea, .catch textarea, .addcatch textarea, .confirmcatch textarea, .tripcatch textarea {
+.currenttrip textarea, .addhazard textarea, .notes textarea, .addnotes textarea, .catch textarea, .addcatch textarea, .confirmcatch textarea, .tripcatch textarea, .tripsprevious textarea {
   height: 80%; }
 
 .landingpage {
@@ -2544,7 +2583,7 @@ Table of Contents
   .landingpage .safety {
     background: #9C1B31; }
   .landingpage .catch {
-    background: #28243b; }
+    background: #293238; }
 
 .home .footer {
   position: fixed;
@@ -2565,7 +2604,7 @@ Table of Contents
   .safety .header, .safetybrowse .header {
     background: #9C1B31; }
   .previouscatch .header, .individualcatch .header {
-    background: #28243b; }
+    background: #293238; }
   .profile .header {
     background: #002664;
     color: #FFF; }

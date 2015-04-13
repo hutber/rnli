@@ -4,6 +4,8 @@ class returnData extends Controller {
     function get()
     {
 
+        header('Content-type: application/javascript');
+
         function get_http_response_code($url) {
             $headers = get_headers($url);
             return substr($headers[0], 9, 3);
@@ -189,7 +191,6 @@ class returnData extends Controller {
                 //Build new compiled data from time
                 if(isset($time)) {
                     foreach( $weatherReports as $key => $item) {
-                        ${$key.'Data'} = $item;
                         //Compiled Data
                         ${$key.'Weather'} = $item;
                         ${$key.'Time'} = $item;
@@ -204,6 +205,7 @@ class returnData extends Controller {
                                 }
                             }
                         }
+                        ${$key.'Data'} = json_decode($item);
                     }
                 }
 
@@ -252,7 +254,6 @@ class returnData extends Controller {
                 );
             }
 
-            header('Content-type: application/javascript');
 
             print json_encode($dataToReturn);
 //            echo '________________________________________________<br>';

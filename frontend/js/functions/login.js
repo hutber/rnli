@@ -57,6 +57,7 @@ module.exports = {
 		localStorage.version = data.version;
 		localStorage.contacts = JSON.stringify(data.contacts);
 		localStorage.catch = JSON.stringify(data.catch);
+		localStorage.notes = JSON.stringify(data.notes);
 		localStorage.trips = JSON.stringify(data.trips);
 		localStorage.weatherDetails = JSON.stringify(data.weatherDetails);
 	},
@@ -78,7 +79,8 @@ module.exports = {
 				catch: localStorage.catch,
 				currentCatch: localStorage.currentCatch,
 				trips: localStorage.trips,
-				weatherDetails: localStorage.weatherDetails
+				weatherDetails: localStorage.weatherDetails,
+				notes: localStorage.notes
 			});
             checker = true;
         //do this on login
@@ -94,7 +96,8 @@ module.exports = {
 		        catch: data.catch,
 		        currentCatch: data.currentCatch,
 		        trips: data.trips,
-		        weatherDetails: data.weatherDetails
+		        weatherDetails: data.weatherDetails,
+		        notes: data.notes
 			};
             checker = true;
 		}

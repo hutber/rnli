@@ -10,7 +10,7 @@ module.exports = function () {
 	notes.saveNoteToObject = function(data){
 		var singleNote = {},
 			note = {},
-			localNotes = JSON.parse(localStorage.ctripnotes);
+			localNotes = (typeof localStorage.ctripnotes !== typeof undefined ? JSON.parse(localStorage.ctripnotes) : {});
 
 		if(localNotes !== null){
 			singleNote = localNotes

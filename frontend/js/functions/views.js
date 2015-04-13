@@ -74,6 +74,12 @@ module.exports = function (){
 			title: 'My Trips'
 		}
 		,{
+			name: 'tripsPrevious',
+			path: require('../views/trips/tripsPreviousView'),
+			url: 'tripsprevious',
+			title: 'A PREVIOUS TRIP'
+		}
+		,{
 			name: 'tripsCreateView',
 			path: require('../views/trips/tripsCreateView'),
 			url: 'createtrip',

@@ -35,13 +35,13 @@
 		
 	}
 	.weather {
-		background: #D13924;
+		background: $weather;
 	}
 	.safety {
-		background: #9C1B31;
+		background: $safety;
 	}
 	.catch {
-		background: #28243b;
+		background: $catch;
 	}
 }
 .home .footer {

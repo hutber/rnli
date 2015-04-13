@@ -1,0 +1,41 @@
+include ../mixins
+//if data.area
+//- data.date = {0: data.date, 1:moment(data.date)};
+.tripMap
+    +tripdetails(data)
+    +airsea(data)
+    +map(data)
+    if(typeof data.notes[0] !== typeof undefined)
+        .section.tripNotes
+            .noteheader
+                .icon
+                    i(class='icon-pencil') NOTES
+            each val, index in data.notes
+                .notetext
+                    | #{val.note}
+
+    if(typeof data.catches[0] !== typeof undefined)
+        .section.tripNotes
+            .noteheader
+                .icon
+                    i(class='icon-table') CATCH LOG
+            each val, index in data.catches
+                +catchFish({data: {
+                    height1: val.ft,
+                    height2: val.ins,
+                    released: function () {
+                        if (val.released) {
+                            return 'yes';
+                        } else {
+                            return 'no';
+                        }
+                    }(),
+                    species: val.species,
+                    weight1: val.lbs,
+                    weight2: val.oz
+                }})
+    //+tripInfo(data)
+//else
+//    .nodata
+//        | No Data, try again
+//    a(href='#currenttrip', class="btn retry") Retry

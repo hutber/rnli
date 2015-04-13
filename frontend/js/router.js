@@ -22,6 +22,7 @@ var Router = Backbone.Router.extend({
 
 		// #Home ---------------------------------------------------- /
 		'trips': 'trips',
+		'tripsprevious': 'tripsprevious',
 		'createtrip': 'createtrip',
 		'currenttrip': 'currenttrip',
 		'previouscatch': 'previouscatch',

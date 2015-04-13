@@ -11,6 +11,39 @@ module.exports = RN.glb.gvCreator.extend({
 	},
 	moveToTrip : function(ev){
 		var ev = $(ev.currentTarget);
+
+		localStorage.currentTripView = function () {
+			var desired,
+				notes = {},
+				catches = {};
+
+			//get trips
+			Object.keys(RN.trips.get('trips')).forEach(function (val) {
+				if(parseInt(RN.trips.get('trips')[val].id) === ev.data('id')){
+					desired = RN.trips.get('trips')[val];
+				}
+			});
+
+			//get Notes
+			Object.keys(RN.user.get('notes')).forEach(function (val, item) {
+				if(parseInt(RN.user.get('notes')[val].tid) === ev.data('id')){
+					notes[val] = RN.user.get('notes')[val];
+				}
+			});
+
+			//get Catches
+			Object.keys(RN.user.get('catch')).forEach(function (val, item) {
+				if(parseInt(RN.user.get('catch')[val].tid) === ev.data('id')){
+					catches[val] = RN.user.get('catch')[val];
+				}
+			});
+			desired.notes = notes;
+			desired.catches = catches;
+
+			return JSON.stringify(desired);
+		}();
+
+		RN.router.navigate('tripsprevious', true);
 	},
 	render: function () {
 

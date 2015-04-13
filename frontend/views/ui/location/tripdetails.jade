@@ -23,3 +23,6 @@ mixin tripdetails(data)
                 span #{newLat}
                 | Long
                 span #{newLong}
+        if(data.previoustrip)
+            .tripbox.stars
+                +rating(data.rating, 'disabled')

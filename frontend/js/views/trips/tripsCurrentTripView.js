@@ -106,91 +106,15 @@ module.exports = RN.glb.gvCreator.extend({
 				//Rerender navigation if we need to
 				if(RN.currentTrip.isFuture()){
 					//$('.tripfooter a').addClass('disabled').removeAttr('href');
-					$('.tripfooter a').addClass('disabled').removeAttr('href');
+					$('.tripfooter').hide();
+					$('.tripfooter.disabled').show();
+				}else{
+					$('.tripfooter').show();
+					$('.tripfooter.disabled').hide();
 				}
 
 				//Set up google maps
-				var styles = [
-						{
-							"featureType": "administrative",
-							"elementType": "labels.text.fill",
-							"stylers": [
-								{
-									"color": "#444444"
-								}
-							]
-						},
-						{
-							"featureType": "landscape",
-							"elementType": "all",
-							"stylers": [
-								{
-									"color": "#f2f2f2"
-								}
-							]
-						},
-						{
-							"featureType": "poi",
-							"elementType": "all",
-							"stylers": [
-								{
-									"visibility": "off"
-								}
-							]
-						},
-						{
-							"featureType": "road",
-							"elementType": "all",
-							"stylers": [
-								{
-									"saturation": -100
-								},
-								{
-									"lightness": 45
-								}
-							]
-						},
-						{
-							"featureType": "road.highway",
-							"elementType": "all",
-							"stylers": [
-								{
-									"visibility": "simplified"
-								}
-							]
-						},
-						{
-							"featureType": "road.arterial",
-							"elementType": "labels.icon",
-							"stylers": [
-								{
-									"visibility": "off"
-								}
-							]
-						},
-						{
-							"featureType": "transit",
-							"elementType": "all",
-							"stylers": [
-								{
-									"visibility": "off"
-								}
-							]
-						},
-						{
-							"featureType": "water",
-							"elementType": "all",
-							"stylers": [
-								{
-									"color": "#a5ddf0"
-								},
-								{
-									"visibility": "on"
-								}
-							]
-						}
-					],
-					styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"}),
+				var styledMap = new google.maps.StyledMapType(RN.glb.gmapStyles, {name: "Styled Map"}),
 					myLatlng = new google.maps.LatLng(cords.latitude, cords.longitude),
 					mapOptions = {
 						zoom: 9,

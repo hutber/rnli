@@ -1,5 +1,4 @@
 mixin tripBox(data)
-   - data.date = moment(data.date).format('MMMM Do YYYY');
    - var currentCatchItem = function(){
    -     var i = 0;
    -     while (i < RN.user.get('catch').length) {
@@ -9,7 +8,7 @@ mixin tripBox(data)
    -        i += 1;
    -     }
    - };
-   .box.tripHomeBox
+   .box.tripHomeBox(data-id= data.id)
          .image
             if(typeof data.image !=="undefined")
                img(src='img/uploads/'+data.image)

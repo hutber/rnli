@@ -27,7 +27,7 @@ class reg extends controller
 			$terms = $_POST['acc_tc'];
 			$token = $_POST['token'];
 
-			if ($pword == "") {
+			if ($pword == "" && !isset($uid)) {
 				$data['error'] = 'Please set a Password';
 				$error = true;
 			}

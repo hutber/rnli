@@ -44,7 +44,10 @@ module.exports = RN.glb.gvCreator.extend({
 			values = me.serializeObject(),
 			noerror = true,
 			myself = this;
-			values['uid'] = localStorage.uid
+			values['uid'] = localStorage.uid;
+
+		delete values['pw'];
+		delete values['cpw'];
 
 		//check for all errors
 		me.find('.error').removeClass('error');

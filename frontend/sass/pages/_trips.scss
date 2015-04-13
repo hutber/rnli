@@ -11,7 +11,14 @@ Table of Contents
 
 #Pages
 	#Create Trip
+	#Current Trip
+	#Trip Closed
+	#Previous Trip
 	#Catch
+
+#Hiding Settings
+	#Speical rules for hiding elements for Previous Trips
+	#Speical rules for hiding elements for Past Future Present
 
 #Footer Settings
 
@@ -400,6 +407,48 @@ Table of Contents
 	}
 }
 
+///* #Prveious Trip  ---------------------------------------------------------------- */
+.tripsprevious {
+	.rating {
+		background: $trips;
+		text-align: center;
+		height: 53px;
+		.stars {
+			width: 230px;
+		}
+		label.star {
+			color: #FFF;
+			font-size: 1.6rem;
+		}
+	}
+	//Maps
+	#map-canvas {
+		border: 7px solid #FFF;
+	}
+	.map {
+		.info {
+			display: none;
+		}
+	}
+	.tripNotes {
+		margin: 10px 0 0;
+		padding-bottom: 20px;
+		.noteheader {
+			margin: 10px 0;
+			font-family: $headerFont;
+		}
+		.notetext {
+			margin: 5px 0;
+			padding: 10px 0;
+			font-size: 1.2rem;
+			line-height: 1.4rem;
+		}
+		.catchfishbox {
+			background: #FFF;
+		}
+	}
+}
+
 ///* #Catch  ------------------------------------------------------------------------ */
 .previouscatch {
 	.catchsortby {
@@ -436,18 +485,25 @@ Table of Contents
 	}
 }
 
-///* #Speical rules for hiding elements for Past Future Present------------------------------ */
-.createtrip, .currenttrip {
-	.underHeader {
-		.control-group {
-			display: block;
+/*===============  Components ===============
+	///* #Speical rules for hiding elements for Previous Trips------------------------------ */
+	.tripsprevious {
+		.tripid {
+			display: none;
 		}
 	}
-}
 
+	///* #Speical rules for hiding elements for Past Future Present------------------------------ */
+	.createtrip, .currenttrip {
+		.underHeader {
+			.control-group {
+				display: block;
+			}
+		}
+	}
 
 ///* #Footer Settings ------------------------------------------------------------------------ */
-.currenttrip, .addhazard, .notes, .addnotes, .catch, .addcatch, .confirmcatch, .tripcatch {
+#{$showTripFooter} {
 	.footer {
 		display: block;
 		height: 65px;

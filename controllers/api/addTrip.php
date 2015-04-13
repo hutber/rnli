@@ -41,7 +41,7 @@ class addTrip extends Controller {
 			$tripdId = $db->getLastID();
 			if(is_array($notes)) {
 				foreach ($notes as $key => $item) {
-					// $dataStore->insertNote($uid, $tripdId, $item['text'], $item['date']);
+					 $dataStore->insertNote($uid, $tripdId, $item['text'], $item['date']);
 				}
 			}
 
