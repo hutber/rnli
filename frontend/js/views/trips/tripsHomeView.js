@@ -14,7 +14,8 @@ module.exports = RN.glb.gvCreator.extend({
 	},
 	render: function () {
 
-		var currentWeather = null;
+		var currentWeather = null,
+			airsea = null;
 
 		if(typeof RN.weather.get('3hourWeather') !== typeof undefined){
 			currentWeather = RN.weather.get('3hourWeather'),

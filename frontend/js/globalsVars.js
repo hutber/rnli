@@ -15,7 +15,7 @@ module.exports =  function() {
 	globals.url = {};
 	globals.url.protocol = 'http';
 	globals.url.envioment = 'liveApp';
-	globals.url.cdn = 'rnli.hutber.com/';
+	globals.url.cdn = 'apprnli.hutber.com/';
 
 	//check type of envoiment we are in
 	globals.url.checkEnvio = function () {
