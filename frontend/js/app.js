@@ -27,9 +27,9 @@ var init = function(){
 	RN.fnc.events.checkGPS();
 };
 
-if(RN.glb.url.envioment === "liveApp"){
+if(RN.glb.url.envioment === "liveApp" && RN.isMobile){
 	document.addEventListener('deviceready', init, false);
-}else{
+}else {
 	$(document).ready(function() {
 		init();
 	});
