@@ -865,11 +865,7 @@ textarea, input, select {
   display: block;
   width: 100%;
   -webkit-user-select: auto !important;
-  box-shadow: none;
-  -moz-transition: 0.25s;
-  -o-transition: 0.25s;
-  -webkit-transition: 0.25s;
-  transition: 0.25s; }
+  box-shadow: none; }
   textarea:-moz-placeholder, input:-moz-placeholder, select:-moz-placeholder {
     color: #60646a; }
   textarea::-webkit-input-placeholder, input::-webkit-input-placeholder, select::-webkit-input-placeholder {

@@ -151,7 +151,7 @@ module.exports = RN.glb.gvCreator.extend({
 			$('select').css('padding-left',$('body').outerWidth()/3.6);
 
 			//for local dev
-			if(typeof RN.weather.get('weatherDetails') !== "undefined" && RN.glb.url.envioment === 'localApp') {
+			if(typeof RN.weather.get('weatherDetails')['3hourWeather'] !== "undefined" && RN.glb.url.envioment === 'localApp') {
 				self.loadFromData(RN.weather.get('weatherDetails'));
 			}
 

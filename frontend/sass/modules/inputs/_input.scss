@@ -18,7 +18,7 @@ select {
 	-webkit-user-select: auto !important;
 	@include box-shadow(none);
 	@include placeholder-color(darken($grey, 20%));
-	@include transition(0.25s);
+//	@include transition(0.25s);
 
 	// Alternate state
 	// --------------------------------------------------
