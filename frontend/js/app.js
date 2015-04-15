@@ -11,7 +11,6 @@ RN.fnc = require('./functions');
 require('./functions/viewSetup');
 
 var init = function(){
-	c('running');
 	//On page load run onHashChange to update styles/class etc
 	RN.fnc.events.onHashChange();
 
