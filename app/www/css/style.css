@@ -2534,9 +2534,14 @@ Table of Contents
 .currenttrip textarea, .addhazard textarea, .notes textarea, .addnotes textarea, .catch textarea, .addcatch textarea, .confirmcatch textarea, .tripcatch textarea, .tripsprevious textarea {
   height: 80%; }
 
-.tripsprevious .tripfooter, .inTheFuture .tripfooter {
+.inTheFuture .tripfooter {
   display: none !important; }
-.tripsprevious .tripfooter.disabled, .inTheFuture .tripfooter.disabled {
+.inTheFuture .tripfooter.disabled {
+  display: block !important; }
+
+.tripsprevious .tripfooter {
+  display: none !important; }
+.tripsprevious .tripfooter.previoustripmenu {
   display: block !important; }
 
 .landingpage {

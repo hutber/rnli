@@ -17,8 +17,18 @@ module.exports = RN.glb.gvCreator.extend({
 	},
 
 	render: function () {
-		var self = this;
+		var self = this,
+			notes;
+
+		if(RN.glb.previoushash === "tripsprevious"){
+			notes = JSON.parse(localStorage.currentTripView).notes;
+		}else{
+			notes = RN.currentTrip.get('notes');
+		}
+
 		//load data in ejs
-		this.$el.html(this.templates.home());
+		this.$el.html(this.templates.home({
+			notes: notes
+		}));
 	}
 });

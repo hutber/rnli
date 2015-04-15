@@ -526,11 +526,19 @@ Table of Contents
 		height: 80%;
 	}
 }
-.tripsprevious, .inTheFuture {
+.inTheFuture {
 	.tripfooter {
 		display: none !important;
 	}
 	.tripfooter.disabled {
+		display: block !important;
+	}
+}
+.tripsprevious {
+	.tripfooter {
+		display: none !important;
+	}
+	.tripfooter.previoustripmenu {
 		display: block !important;
 	}
 }
