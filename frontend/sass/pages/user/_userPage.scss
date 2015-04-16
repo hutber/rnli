@@ -22,13 +22,17 @@
     }
 }
 
+.loginForm {
+    display: block;
+}
+
 .index {
     background: url(../img/bg.jpg);
     background-repeat:no-repeat;
     background-size:cover;
     .logo {
         width: 200px;
-        margin: 40px auto;
+        margin: 20px auto 40px;
         display: block;
     }
     .content {
@@ -67,9 +71,10 @@
     }
     .imagesBottom {
         margin-top: 15px;
+        text-align: center;
         div {
             height: 110px;
-            @include span (6 of 12);
+//            @include span (6 of 12);
             background-size: contain;
             background-image: url(../img/lifeboats.png);
             background-repeat: no-repeat;
@@ -79,7 +84,7 @@
             }
         }
         div:last-child {
-            @include span (6 of 12 last);
+//            @include span (6 of 12 last);
         }
     }
 }

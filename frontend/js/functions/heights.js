@@ -14,7 +14,7 @@ module.exports = {
 		}else if(!$('.footer').is(':visible') && $('.header').is(':visible')){ //only header showing
 			RN.glb.pageHeight = height - headerHeight;
 		}else if(!$('.footer').is(':visible') && !$('.header').is(':visible')){ //no footer no header
-			RN.glb.pageHeight = height - 25;
+			RN.glb.pageHeight = height;
 		}else {
 			RN.glb.pageHeight = height - (headerHeight + footerHeight);
 		}
