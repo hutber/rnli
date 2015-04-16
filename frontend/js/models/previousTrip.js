@@ -93,6 +93,26 @@ module.exports = function(){
 			this.render();
 		},
 
+		saveCatchToObject: function(type, data){
+			var singleCatch = {},
+				note = data,
+				localCatch = RN.previousTrip.get('catches');
+
+			if(localCatch !== null){
+				singleCatch =  localCatch;
+			}
+
+			if(Object.keys(singleCatch).length !== 0) {
+				note.id = Object.keys(singleCatch).length+1;
+			}else{
+				note.id = 0;
+			}
+
+			note.date = moment().format('HH:mm');
+			singleCatch[note.id] = note;
+			this.saveLocal(type, singleCatch);
+		},
+
 		saveNoteToObject: function(type, data){
 			var singleNote = {},
 				note = {},

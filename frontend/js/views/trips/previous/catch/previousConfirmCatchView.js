@@ -18,7 +18,6 @@ module.exports = RN.glb.gvCreator.extend({
 	},
 
 	saveCatch : function(){
-		RN.previousTrip.saveLocal(localStorage.ctriptmpcatch);
 		RN.glb.backButton = true;
 		RN.glb.backButtonLocation = 'tripcatch';
 		RN.router.navigate('trippreviouscatchoverview', true);
@@ -27,7 +26,8 @@ module.exports = RN.glb.gvCreator.extend({
 	render: function () {
 		var self = this;
 		//load data in ejs
-		var viewsData = RN.currentTrip.get('tmpcatch');
-		this.$el.html(this.templates.home(viewsData));
+		this.$el.html(this.templates.home(
+			RN.previousTrip.get('catches')[Object.keys(RN.previousTrip.get('catches')).length])
+		);
 	}
 });
