@@ -24,6 +24,7 @@ module.exports = RN.glb.gvCreator.extend({
 		$('.selected').removeClass('selected');
 		ev.addClass('selected')
 		var tripData = RN.fnc.location.getLocation(
+			//Sucess Function
 				function(returnData){
 					//Save ajax details to localStorage
 					RN.currentTrip.saveLocal('details', returnData);
@@ -38,7 +39,9 @@ module.exports = RN.glb.gvCreator.extend({
 					$('.postcodearea').empty();
 					document.getElementById('postcode').value = '';
 					$('#postcode').removeClass('success');
-				}, function(){
+				},
+			//Unsucessful Function
+				function(){
 					//If the users GPS is turned off put the button back to NO on the "current Loction"
 					$('.selected').removeClass('selected');
 					$('.locationSelector .no').addClass('selected');

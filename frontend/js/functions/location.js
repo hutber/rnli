@@ -82,6 +82,7 @@ module.exports = function(){
 						errorMsg = "An unknown error occurred."
 						break;
 				}
+				c(errorMsg);
 				RN.fnc.popups.Dialog(errorTitle, errorMsg, ['Ok', 'Retry'], function(){
 					self.lookUp(callBack, cancelBack);
 				}, 'confirm', cancelBack);

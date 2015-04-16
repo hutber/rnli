@@ -4,21 +4,22 @@
 module.exports = {
 	changeHeightofContent: function(){
 		var body = document.body,
-			html = document.documentElement;
-
-		var height = $('body').outerHeight();
+			html = document.documentElement,
+			footerHeight = $('.footer').outerHeight(),
+			headerHeight = $('.header').outerHeight(),
+			height = $('body').outerHeight();
 
 		if($('.footer').is(':visible') && !$('.header').is(':visible')){ //only footer showing
-			RN.glb.pageHeight = height - $('.footer').outerHeight();
+			RN.glb.pageHeight = height - footerHeight;
 		}else if(!$('.footer').is(':visible') && $('.header').is(':visible')){ //only header showing
-			RN.glb.pageHeight = height - $('.header').outerHeight();
+			RN.glb.pageHeight = height - headerHeight;
 		}else if(!$('.footer').is(':visible') && !$('.header').is(':visible')){ //no footer no header
 			RN.glb.pageHeight = height - 25;
 		}else {
-			RN.glb.pageHeight = height - ($('.header').outerHeight());
+			RN.glb.pageHeight = height - (headerHeight + footerHeight);
 		}
 
-		if(RN.glb.pageHeight > height) {
+		if(RN.glb.pageHeight < height) {
 			$('.content, .shell').css({height: RN.glb.pageHeight});
 		}
 	}

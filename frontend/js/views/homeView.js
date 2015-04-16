@@ -4,7 +4,7 @@
 module.exports = RN.glb.gvCreator.extend({
 	el: '.content',
 	events: {
-		'click .landingpage > a': 'goTo',
+		'touchstart .landingpage > a': 'goTo',
 	},
 	templates: {
 		home: require('../../views/home.jade')
