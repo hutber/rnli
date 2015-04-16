@@ -20,9 +20,8 @@ var Router = Backbone.Router.extend({
 		'safety':'safety',
 		'safetybrowse':'safetybrowse',
 
-		// #Home ---------------------------------------------------- /
+		// #Trips ---------------------------------------------------- /
 		'trips': 'trips',
-		'tripsprevious': 'tripsprevious',
 		'createtrip': 'createtrip',
 		'currenttrip': 'currenttrip',
 		'previouscatch': 'previouscatch',
@@ -33,6 +32,16 @@ var Router = Backbone.Router.extend({
 		'addhazard': 'addhazard',
 		'notes': 'notes',
 		'addnotes': 'addnotes',
+
+		// #Previous Trips ---------------------------------------------------- /
+		'tripsprevious': 'tripsprevious',
+		'tripsprevioushazard':'tripsprevioushazard',
+		'tripspreviousnote':'tripspreviousnote',
+		'trippreviousaddnotes':'trippreviousaddnotes',
+		'trippreviouscatchoverview':'trippreviouscatchoverview',
+		'trippreviouscatch':'trippreviouscatch',
+		'trippreviousaddcatch':'trippreviousaddcatch',
+		'trippreviousconfirmcatch':'trippreviousconfirmcatch',
 
 		// #Weather Centre ---------------------------------------------------- /
 		'weather': 'weather',

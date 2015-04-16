@@ -56,6 +56,26 @@ Table of Contents
 			display: block;
 		}
 	}
+	.trippreviousaddnotes {
+		a.headerbutton.savepreviousnote {
+			display: block;
+		}
+	}
+	.trippreviouscatchoverview {
+		a.headerbutton.trippreviouscatchoverview {
+			display: block;
+		}
+	}
+	.trippreviousaddcatch {
+		a.headerbutton.trippreviousaddcatch {
+			display: block;
+		}
+	}
+	.trippreviousconfirmcatch {
+		a.headerbutton.trippreviousconfirmcatch {
+			display: block;
+		}
+	}
 
 	.underHeader {
 		background: $tripsDarker;
@@ -450,7 +470,7 @@ Table of Contents
 }
 
 ///* #Catch  ------------------------------------------------------------------------ */
-.previouscatch {
+.previouscatch, .trippreviouscatchoverview {
 	.catchsortby {
 		text-align: center;
 		background: $catch;
@@ -534,12 +554,17 @@ Table of Contents
 		display: block !important;
 	}
 }
-.tripsprevious {
+
+//Previous Trip
+.tripsprevious, .tripsprevioushazard, .tripspreviousnote, .trippreviousaddnotes, .trippreviouscatch, .trippreviouscatchoverview, .trippreviousaddnotes, .trippreviousaddcatch, .trippreviousconfirmcatch {
 	.tripfooter {
 		display: none !important;
 	}
 	.tripfooter.previoustripmenu {
 		display: block !important;
+	}
+	.catchsortby, .catchsortby .sortoptions div.selected {
+		background: $trips;
 	}
 }
 

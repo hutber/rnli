@@ -119,6 +119,9 @@ module.exports = {
 
 	        //Start other models
 	        RN.currentTrip = new RN.mdl.currentTrip();
+
+	        //Start other models
+	        RN.previousTrip = new RN.mdl.previousTrip();
         }
 
 	},

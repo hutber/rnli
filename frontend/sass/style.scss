@@ -27,7 +27,7 @@ $footerHeight: 12%;
 //Any class in here will hide the header
 $headerHide: ".index, .home";
 $footerHide: ".index, .signup, .profile, .forgotten";
-$showTripFooter: ".currenttrip, .addhazard, .notes, .addnotes, .catch, .addcatch, .confirmcatch, .tripcatch, .tripsprevious";
+$showTripFooter: ".currenttrip, .addhazard, .notes, .addnotes, .catch, .addcatch, .confirmcatch, .tripcatch, .tripsprevious, .tripsprevioushazard, .tripspreviousnote, .trippreviousaddnotes, .trippreviouscatch, .trippreviouscatchoverview, .trippreviousaddnotes, .trippreviousaddcatch, .trippreviousconfirmcatch";
 
 //Complex Page Classes
 $about: ".about, .abouthome, .privacy, .legal, .terms";
@@ -159,6 +159,9 @@ $headerHeight: 75px;
 		&.disabled {
 			a {color: $border;}
 		}
+	}
+	.selected i, a.selected {
+		color: $trips;
 	}
 }
 

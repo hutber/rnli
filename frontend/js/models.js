@@ -7,4 +7,5 @@ module.exports = {
 	currentTrip: require('./models/currentTrip')(),
 	trips: require('./models/trips')(),
 	weather: require('./models/weather')(),
+	previousTrip: require('./models/previousTrip')(),
 }

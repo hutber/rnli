@@ -20,20 +20,25 @@ include ../mixins
                 .icon
                     i(class='icon-table') CATCH LOG
             each val, index in data.catches
-                +catchFish({data: {
-                    height1: val.ft,
-                    height2: val.ins,
-                    released: function () {
-                        if (val.released) {
-                            return 'yes';
-                        } else {
-                            return 'no';
-                        }
-                    }(),
-                    species: val.species,
-                    weight1: val.lbs,
-                    weight2: val.oz
-                }})
+                +catchFish({
+                    attr: {class: ['previouscatchclick'], 'data-id': val.id},
+                    data: {
+                        height1: val.ft,
+                        height2: val.ins,
+                        released: function () {
+                            if (val.released) {
+                                return 'yes';
+                            } else {
+                                return 'no';
+                            }
+                        }(),
+                        species: val.species,
+                        weight1: val.lbs,
+                        weight2: val.oz
+                    }
+                })
+    .section.tripControls
+        .btn.updatetrip UPDATE TRIP
     //+tripInfo(data)
 //else
 //    .nodata

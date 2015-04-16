@@ -23,7 +23,7 @@ module.exports = function () {
 		}
 
 		note.date = moment().format('HH:mm');
-		note.text = data;
+		note.note = data;
 		singleNote[note.id] = note;
 		notes.saveLocal(singleNote)
 	};

@@ -1,0 +1,8 @@
+include ../../mixins
+.trippreviousCatch
+    if catches !== null
+        each val, index in catches
+            - val['attr'] = {class: ['previouscatchclick']},
+            +catchFishInfo(val)
+    else
+        h2  NO CATCHES YET

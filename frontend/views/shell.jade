@@ -7,9 +7,13 @@ include ./mixins
     .right
         a.headerbutton.addtrip(href='#createtrip') Add Trip
         a.headerbutton.savenote Save
+        a.headerbutton.savepreviousnote Save
         a.headerbutton.addcatch(href='#addcatch') Add
         a.headerbutton.nextcatch Next
         a.headerbutton.savecatch Save
+        a.headerbutton.trippreviouscatchoverview(href='#trippreviousaddcatch') Add
+        a.headerbutton.trippreviousaddcatch Next
+        a.headerbutton.trippreviousconfirmcatch Save
 .content
     | Default State
 .footer
@@ -36,13 +40,13 @@ include ./mixins
         a(href='#tripsprevious') 
             i(class='icon-home-outline')
             | Home
-        a(href='#addhazard')
+        a(href='#tripsprevioushazard')
             i(class='icon-attention')
             | Add hazard
-        a(href='#notes')
+        a(href='#tripspreviousnote')
             i(class='icon-pencil')
             | Add notes
-        a(href='#tripcatch')
+        a(href='#trippreviouscatchoverview')
             i(class='icon-fish')
             | Catch log
     .tripfooter.disabled

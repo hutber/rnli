@@ -5,19 +5,20 @@ module.exports = RN.glb.gvCreator.extend({
 	el: '.content',
 
 	templates: {
-		home: require('../../../../views/trips/note/notes.jade'),
+		home: require('../../../../views/trips/previous/previousnotes.jade'),
 	},
 
 	events: {
-		'click .addNote': 'moveToNote',
+		'click .addPreviousNote': 'moveToNote',
 	},
 
 	moveToNote : function(ev){
-		RN.router.navigate('addnotes', true);
+		RN.router.navigate('trippreviousaddnotes', true);
 	},
 
 	render: function () {
-		var self = this;
+		var self = this,
+			notes;
 
 		//load data in ejs
 		this.$el.html(this.templates.home());

@@ -36,7 +36,7 @@ window.c = false;
 if (typeof console === "object" && typeof console.error === "function" && !RN.isMobile) {
 	c = function (msg) {
 
-		//Details
+		////Details
 		//var callerName;
 		//try { throw new Error(); }
 		//catch (e) { callerName = e.stack.split('\n')[2].split(/\s+/)[2]; }

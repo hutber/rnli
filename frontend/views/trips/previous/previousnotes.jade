@@ -1,0 +1,5 @@
+include ../../mixins
++plusbox({text:'Add new note', class: ['large','white', 'addPreviousNote']})
+if RN.previousTrip.get('notes') !== null
+    each val, index in RN.previousTrip.get('notes')
+        +notebox(val)

@@ -1869,6 +1869,8 @@ body {
     display: none; }
     .footer .tripfooter.disabled a {
       color: #D7D5CF; }
+  .footer .selected i, .footer a.selected {
+    color: #EF8201; }
 
 .index .header, .home .header {
   display: none; }
@@ -2206,6 +2208,18 @@ Table of Contents
 .confirmcatch a.headerbutton.savecatch {
   display: block; }
 
+.trippreviousaddnotes a.headerbutton.savepreviousnote {
+  display: block; }
+
+.trippreviouscatchoverview a.headerbutton.trippreviouscatchoverview {
+  display: block; }
+
+.trippreviousaddcatch a.headerbutton.trippreviousaddcatch {
+  display: block; }
+
+.trippreviousconfirmcatch a.headerbutton.trippreviousconfirmcatch {
+  display: block; }
+
 .underHeader {
   background: #DD6D00;
   overflow: hidden;
@@ -2479,15 +2493,15 @@ Table of Contents
   .tripsprevious .tripNotes .catchfishbox {
     background: #FFF; }
 
-.previouscatch .catchsortby {
+.previouscatch .catchsortby, .trippreviouscatchoverview .catchsortby {
   text-align: center;
   background: #293238;
   overflow: hidden; }
-  .previouscatch .catchsortby span {
+  .previouscatch .catchsortby span, .trippreviouscatchoverview .catchsortby span {
     line-height: 1.5rem;
     color: #FFF;
     font-family: din, "Lucida Grande", sans-serif; }
-  .previouscatch .catchsortby .sortoptions {
+  .previouscatch .catchsortby .sortoptions, .trippreviouscatchoverview .catchsortby .sortoptions {
     border-radius: 4px;
     background: #FFF;
     width: 80%;
@@ -2496,17 +2510,17 @@ Table of Contents
     margin-bottom: 10px;
     font-family: din, "Lucida Grande", sans-serif;
     overflow: hidden; }
-    .previouscatch .catchsortby .sortoptions div {
+    .previouscatch .catchsortby .sortoptions div, .trippreviouscatchoverview .catchsortby .sortoptions div {
       line-height: 2.5rem;
       border-radius: 4px;
       width: 23.72881%;
       float: left;
       margin-right: 1.69492%; }
-      .previouscatch .catchsortby .sortoptions div:last-child {
+      .previouscatch .catchsortby .sortoptions div:last-child, .trippreviouscatchoverview .catchsortby .sortoptions div:last-child {
         width: 23.72881%;
         float: right;
         margin-right: 0; }
-      .previouscatch .catchsortby .sortoptions div.selected {
+      .previouscatch .catchsortby .sortoptions div.selected, .trippreviouscatchoverview .catchsortby .sortoptions div.selected {
         background: #293238;
         color: #FFF; }
 
@@ -2518,20 +2532,20 @@ Table of Contents
 .createtrip .underHeader .control-group, .currenttrip .underHeader .control-group {
   display: block; }
 
-.currenttrip .footer, .addhazard .footer, .notes .footer, .addnotes .footer, .catch .footer, .addcatch .footer, .confirmcatch .footer, .tripcatch .footer, .tripsprevious .footer {
+.currenttrip .footer, .addhazard .footer, .notes .footer, .addnotes .footer, .catch .footer, .addcatch .footer, .confirmcatch .footer, .tripcatch .footer, .tripsprevious .footer, .tripsprevioushazard .footer, .tripspreviousnote .footer, .trippreviousaddnotes .footer, .trippreviouscatch .footer, .trippreviouscatchoverview .footer, .trippreviousaddnotes .footer, .trippreviousaddcatch .footer, .trippreviousconfirmcatch .footer {
   display: block;
   height: 65px; }
-  .currenttrip .footer .tripfooter, .addhazard .footer .tripfooter, .notes .footer .tripfooter, .addnotes .footer .tripfooter, .catch .footer .tripfooter, .addcatch .footer .tripfooter, .confirmcatch .footer .tripfooter, .tripcatch .footer .tripfooter, .tripsprevious .footer .tripfooter {
+  .currenttrip .footer .tripfooter, .addhazard .footer .tripfooter, .notes .footer .tripfooter, .addnotes .footer .tripfooter, .catch .footer .tripfooter, .addcatch .footer .tripfooter, .confirmcatch .footer .tripfooter, .tripcatch .footer .tripfooter, .tripsprevious .footer .tripfooter, .tripsprevioushazard .footer .tripfooter, .tripspreviousnote .footer .tripfooter, .trippreviousaddnotes .footer .tripfooter, .trippreviouscatch .footer .tripfooter, .trippreviouscatchoverview .footer .tripfooter, .trippreviousaddnotes .footer .tripfooter, .trippreviousaddcatch .footer .tripfooter, .trippreviousconfirmcatch .footer .tripfooter {
     display: block; }
-    .currenttrip .footer .tripfooter a, .addhazard .footer .tripfooter a, .notes .footer .tripfooter a, .addnotes .footer .tripfooter a, .catch .footer .tripfooter a, .addcatch .footer .tripfooter a, .confirmcatch .footer .tripfooter a, .tripcatch .footer .tripfooter a, .tripsprevious .footer .tripfooter a {
+    .currenttrip .footer .tripfooter a, .addhazard .footer .tripfooter a, .notes .footer .tripfooter a, .addnotes .footer .tripfooter a, .catch .footer .tripfooter a, .addcatch .footer .tripfooter a, .confirmcatch .footer .tripfooter a, .tripcatch .footer .tripfooter a, .tripsprevious .footer .tripfooter a, .tripsprevioushazard .footer .tripfooter a, .tripspreviousnote .footer .tripfooter a, .trippreviousaddnotes .footer .tripfooter a, .trippreviouscatch .footer .tripfooter a, .trippreviouscatchoverview .footer .tripfooter a, .trippreviousaddnotes .footer .tripfooter a, .trippreviousaddcatch .footer .tripfooter a, .trippreviousconfirmcatch .footer .tripfooter a {
       display: inline-block; }
-    .currenttrip .footer .tripfooter i, .addhazard .footer .tripfooter i, .notes .footer .tripfooter i, .addnotes .footer .tripfooter i, .catch .footer .tripfooter i, .addcatch .footer .tripfooter i, .confirmcatch .footer .tripfooter i, .tripcatch .footer .tripfooter i, .tripsprevious .footer .tripfooter i {
+    .currenttrip .footer .tripfooter i, .addhazard .footer .tripfooter i, .notes .footer .tripfooter i, .addnotes .footer .tripfooter i, .catch .footer .tripfooter i, .addcatch .footer .tripfooter i, .confirmcatch .footer .tripfooter i, .tripcatch .footer .tripfooter i, .tripsprevious .footer .tripfooter i, .tripsprevioushazard .footer .tripfooter i, .tripspreviousnote .footer .tripfooter i, .trippreviousaddnotes .footer .tripfooter i, .trippreviouscatch .footer .tripfooter i, .trippreviouscatchoverview .footer .tripfooter i, .trippreviousaddnotes .footer .tripfooter i, .trippreviousaddcatch .footer .tripfooter i, .trippreviousconfirmcatch .footer .tripfooter i {
       display: block;
       font-size: 1.5rem;
       line-height: 2.1rem; }
-  .currenttrip .footer .normalfooter, .addhazard .footer .normalfooter, .notes .footer .normalfooter, .addnotes .footer .normalfooter, .catch .footer .normalfooter, .addcatch .footer .normalfooter, .confirmcatch .footer .normalfooter, .tripcatch .footer .normalfooter, .tripsprevious .footer .normalfooter {
+  .currenttrip .footer .normalfooter, .addhazard .footer .normalfooter, .notes .footer .normalfooter, .addnotes .footer .normalfooter, .catch .footer .normalfooter, .addcatch .footer .normalfooter, .confirmcatch .footer .normalfooter, .tripcatch .footer .normalfooter, .tripsprevious .footer .normalfooter, .tripsprevioushazard .footer .normalfooter, .tripspreviousnote .footer .normalfooter, .trippreviousaddnotes .footer .normalfooter, .trippreviouscatch .footer .normalfooter, .trippreviouscatchoverview .footer .normalfooter, .trippreviousaddnotes .footer .normalfooter, .trippreviousaddcatch .footer .normalfooter, .trippreviousconfirmcatch .footer .normalfooter {
     display: none; }
-.currenttrip textarea, .addhazard textarea, .notes textarea, .addnotes textarea, .catch textarea, .addcatch textarea, .confirmcatch textarea, .tripcatch textarea, .tripsprevious textarea {
+.currenttrip textarea, .addhazard textarea, .notes textarea, .addnotes textarea, .catch textarea, .addcatch textarea, .confirmcatch textarea, .tripcatch textarea, .tripsprevious textarea, .tripsprevioushazard textarea, .tripspreviousnote textarea, .trippreviousaddnotes textarea, .trippreviouscatch textarea, .trippreviouscatchoverview textarea, .trippreviousaddnotes textarea, .trippreviousaddcatch textarea, .trippreviousconfirmcatch textarea {
   height: 80%; }
 
 .inTheFuture .tripfooter {
@@ -2539,10 +2553,12 @@ Table of Contents
 .inTheFuture .tripfooter.disabled {
   display: block !important; }
 
-.tripsprevious .tripfooter {
+.tripsprevious .tripfooter, .tripsprevioushazard .tripfooter, .tripspreviousnote .tripfooter, .trippreviousaddnotes .tripfooter, .trippreviouscatch .tripfooter, .trippreviouscatchoverview .tripfooter, .trippreviousaddnotes .tripfooter, .trippreviousaddcatch .tripfooter, .trippreviousconfirmcatch .tripfooter {
   display: none !important; }
-.tripsprevious .tripfooter.previoustripmenu {
+.tripsprevious .tripfooter.previoustripmenu, .tripsprevioushazard .tripfooter.previoustripmenu, .tripspreviousnote .tripfooter.previoustripmenu, .trippreviousaddnotes .tripfooter.previoustripmenu, .trippreviouscatch .tripfooter.previoustripmenu, .trippreviouscatchoverview .tripfooter.previoustripmenu, .trippreviousaddnotes .tripfooter.previoustripmenu, .trippreviousaddcatch .tripfooter.previoustripmenu, .trippreviousconfirmcatch .tripfooter.previoustripmenu {
   display: block !important; }
+.tripsprevious .catchsortby, .tripsprevious .catchsortby .sortoptions div.selected, .tripsprevioushazard .catchsortby, .tripsprevioushazard .catchsortby .sortoptions div.selected, .tripspreviousnote .catchsortby, .tripspreviousnote .catchsortby .sortoptions div.selected, .trippreviousaddnotes .catchsortby, .trippreviousaddnotes .catchsortby .sortoptions div.selected, .trippreviouscatch .catchsortby, .trippreviouscatch .catchsortby .sortoptions div.selected, .trippreviouscatchoverview .catchsortby, .trippreviouscatchoverview .catchsortby .sortoptions div.selected, .trippreviousaddnotes .catchsortby, .trippreviousaddnotes .catchsortby .sortoptions div.selected, .trippreviousaddcatch .catchsortby, .trippreviousaddcatch .catchsortby .sortoptions div.selected, .trippreviousconfirmcatch .catchsortby, .trippreviousconfirmcatch .catchsortby .sortoptions div.selected {
+  background: #EF8201; }
 
 .landingpage {
   position: fixed;

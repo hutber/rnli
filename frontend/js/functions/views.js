@@ -74,12 +74,6 @@ module.exports = function (){
 			title: 'My Trips'
 		}
 		,{
-			name: 'tripsPrevious',
-			path: require('../views/trips/tripsPreviousView'),
-			url: 'tripsprevious',
-			title: 'A PREVIOUS TRIP'
-		}
-		,{
 			name: 'tripsCreateView',
 			path: require('../views/trips/tripsCreateView'),
 			url: 'createtrip',
@@ -114,6 +108,57 @@ module.exports = function (){
 			path: require('../views/trips/notes/addNotesView'),
 			url: 'addnotes',
 			title: 'ADD NOTE'
+		}
+		/*==================================================
+		 Previous Trips
+		 ================================================== */
+		,{
+			name: 'tripsPrevious',
+			path: require('../views/trips/previous/tripsPreviousView'),
+			url: 'tripsprevious',
+			title: 'A PREVIOUS TRIP'
+		}
+		,{
+			name: 'tripsPreviousHazard',
+			path: require('../views/trips/previous/tripsPreviousHazardView'),
+			url: 'tripsprevioushazard',
+			title: 'PREVIOUS HAZARD'
+		}
+		,{
+			name: 'tripsPreviousNote',
+			path: require('../views/trips/previous/tripsPreviousNoteView'),
+			url: 'tripspreviousnote',
+			title: 'PREVIOUS NOTES'
+		}
+		,{
+			name: 'tripsPreviousAddNote',
+			path: require('../views/trips/previous/tripsPreviousAddNoteView'),
+			url: 'trippreviousaddnotes',
+			title: 'PREVIOUS ADD NOTES'
+		}
+		,{
+			name: 'tripsPreviousCatch',
+			path: require('../views/trips/previous/catch/tripsPreviousCatchView'),
+			url: 'trippreviouscatch',
+			title: 'PREVIOUS CATCH VIEW'
+		}
+		,{
+			name: 'tripsPreviousCatchOverview',
+			path: require('../views/trips/previous/catch/tripsPreviousCatchOverviewView'),
+			url: 'trippreviouscatchoverview',
+			title: 'PREVIOUS CATCH OVERVIEW'
+		}
+		,{
+			name: 'trippreviousaddCatchView',
+			path: require('../views/trips/previous/catch/previousAddCatchView'),
+			url: 'trippreviousaddcatch',
+			title: 'ADD NEW PREVIOUS CATCH'
+		}
+		,{
+			name: 'trippreviousconfirmCatchView',
+			path: require('../views/trips/previous/catch/previousConfirmCatchView'),
+			url: 'trippreviousconfirmcatch',
+			title: 'CONFIRM PREVIOUS CATCH'
 		}
 		/*==================================================
 		 Weather Center

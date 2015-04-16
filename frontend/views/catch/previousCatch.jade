@@ -7,7 +7,8 @@ include ../mixins
         div(data-type="ft") LENGTH
         div(data-type="species") A-Z
 if catches.length > 0 && catches !== null
-    each val, index in catches
-        +catchFishInfo(val)
+    .catchlogoverview
+        each val, index in catches
+            +catchFishInfo(val)
 else
     h2  NO CATCHES YET

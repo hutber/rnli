@@ -5,20 +5,19 @@ module.exports = RN.glb.gvCreator.extend({
 	el: '.content',
 
 	templates: {
-		home: require('../../../../views/trips/note/notes.jade'),
+		home: require('../../../../views/trips/previous/addprevioushazard.jade'),
 	},
 
 	events: {
-		'click .addNote': 'moveToNote',
+		'keyup #hazardtextprevious': 'updateHazard',
 	},
 
-	moveToNote : function(ev){
-		RN.router.navigate('addnotes', true);
+	updateHazard : function(){
+		RN.previousTrip.saveLocal('hazard', document.getElementById('hazardtextprevious').value);
 	},
 
 	render: function () {
 		var self = this;
-
 		//load data in ejs
 		this.$el.html(this.templates.home());
 	}

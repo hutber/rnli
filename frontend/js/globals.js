@@ -15,13 +15,23 @@ module.exports =  function() {
 		el: '.shell',
 		events: {
 			'click .savenote': 'saveNote',
+			'click .savepreviousnote': 'savePreviousNote',
 			'click .nextcatch': 'nextCatch',
 			'click .savecatch': 'saveCatch',
+			'click .trippreviousaddcatch': 'nextPreviousCatch',
+			'click .trippreviousconfirmcatch': 'savePreviousCatch',
+			'click .tripfooter a': 'updateSelected',
 			'click .header .left': 'workOutBack'
 		},
 		$header: null,
 		templates: {
 			login: require('../views/shell.jade')
+		},
+		updateSelected : function(ev){
+			var ev = $(ev.currentTarget);
+			$('.tripfooter .selected').removeClass('selected');
+			ev.addClass('selected');
+
 		},
 		workOutBack : function(ev){
 			var ev = $(ev.currentTarget);
@@ -53,11 +63,20 @@ module.exports =  function() {
 		saveNote : function(){
 			RN.glb.views.addNotesView.saveNote();
 		},
+		savePreviousNote : function(){
+			RN.glb.views.tripsPreviousAddNote.saveNote();
+		},
 		nextCatch : function(){
 			RN.glb.views.addCatchView.saveFirstPageOfCatch();
 		},
 		saveCatch : function(){
 			RN.glb.views.confirmCatchView.saveCatch();
+		},
+		nextPreviousCatch : function(){
+			RN.glb.views.trippreviousaddCatchView.saveFirstPageOfCatch();
+		},
+		savePreviousCatch : function(){
+			RN.glb.views.trippreviousconfirmCatchView.saveCatch();
 		},
 	});
 

@@ -8,7 +8,7 @@ module.exports = RN.glb.gvCreator.extend({
 	},
 	events: {
 		'click .sortoptions div': 'changeCatchOrder',
-		'click .catchfishbox': 'catchfishbox',
+		'click .catchlogoverview .catchfishbox': 'catchfishbox',
 	},
 	selected: 0,
 
