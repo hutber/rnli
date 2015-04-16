@@ -172,10 +172,10 @@ module.exports = function(){
 						RN.trips.saveLocal('trips',data.trips);
 
 						//save the returned data into our models
-						RN.trips.saveLocal('notes',data.notes);
+						RN.user.setNotes(data.notes);
 
 						//user data to reload
-						RN.user.setCatches('catch',data.catch);
+						RN.user.setCatches(data.catch);
 
 						//Run callback
 						callBack();

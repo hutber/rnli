@@ -17,7 +17,7 @@ module.exports = function(){
 			modelObject[type] = data;
 			//set models value
 			this.set({
-				trips:modelObject[type]
+				trips:data
 			});
 			//set local storage for later
 			localStorage[type] = RN.fnc.json.convertToString(data);

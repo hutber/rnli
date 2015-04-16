@@ -21,6 +21,11 @@ module.exports = function(){
 			this.set({
 				catch: data
 			})
+		},
+		setNotes: function(data){
+			this.set({
+				notes: data
+			})
 		}
 	});
 };

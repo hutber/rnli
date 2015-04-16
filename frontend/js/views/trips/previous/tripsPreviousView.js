@@ -12,9 +12,9 @@ module.exports = RN.glb.gvCreator.extend({
 	},
 
 	updatetrip : function(){
-		var finalData = RN.currentTrip.prePareDataForDB();
-		RN.currentTrip.finaliseTrip(finalData, function(){
-			RN.router.navigate('tripclosed', true);
+		var finalData = RN.previousTrip.prePareDataForDB();
+		RN.previousTrip.finaliseTrip(finalData, function(){
+			RN.router.navigate('trips', true);
 		});
 	},
 	catchfishbox : function(ev){

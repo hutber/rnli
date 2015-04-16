@@ -137,47 +137,12 @@ module.exports = function(){
 		prePareDataForDB : function(){
 
 			var data = RN.previousTrip.attributes,
-				details = RN.previousTrip.attributes.details,
 				rdata = {};
 
-			rdata.trip = {
-				name: data.name,
-				date: data.date[1],
-				rating: data.rating || null,
-				hazard: data.hazard || null,
-				temperature: details.temperature || null,
-				visibility: details.visibility || null,
-				winddirection: details.winddirection || null,
-				weathertype: details.weathertype || null,
-				pressure: details.pressure || null,
-				pressuretendency: details.pressuretendency || null,
-				dewpoint: details.dewpoint || null,
-				humidity: details.humidity || null,
-				seatemperature: details.seatemperature || null,
-				swell: details.swell || null,
-				windspeed: details.windspeed || null,
-				waveheight: details.waveheight || null,
-				waveperiod: details.waveperiod || null
-			};
-
-			rdata.location = {
-				latitude: details.latitude,
-				longitude: details.longitude,
-				area: details.area || null,
-				continent: details.continent || null,
-				country: details.country || null,
-				pcode: details.pcode || null
-			};
-
 			rdata.notes = RN.previousTrip.attributes.notes;
-			rdata.catch = RN.previousTrip.attributes.catch;
-
-			if(typeof localStorage.gps === typeof undefined){
-				rdata.gps = {};
-			}else {
-				rdata.gps = JSON.parse(localStorage.gps);
-				localStorage.removeItem('gps');
-			}
+			rdata.catch = RN.previousTrip.attributes.catches;
+			rdata.hazard = RN.previousTrip.attributes.hazard;
+			rdata.id = RN.previousTrip.attributes.id;
 
 			return rdata;
 
@@ -186,15 +151,14 @@ module.exports = function(){
 		finaliseTrip: function(data, callBack){
 			var self = this;
 			$.ajax({
-				url: RN.glb.url.api + 'addTrip',
+				url: RN.glb.url.api + 'editTrip',
 				type: 'POST',
 				dataType: 'json',
 				data: {
-					trip: data.trip,
-					location: data.location,
 					notes: data.notes,
-					gps: data.gps,
 					catch: data.catch,
+					hazard: data.hazard,
+					id: data.id,
 					uid: RN.user.get('uid')
 				},
 				error: function (data) {
@@ -204,17 +168,14 @@ module.exports = function(){
 					if (data.error) {
 						RN.fnc.popups.message.show(data.error, 'bad');
 					} else {
-						//remove previous trips data
-						self.resetData();
-
 						//save the returned data into our models
 						RN.trips.saveLocal('trips',data.trips);
 
 						//save the returned data into our models
-						RN.trips.saveLocal('notes',data.notes);
+						RN.user.setNotes(data.notes);
 
 						//user data to reload
-						RN.user.setCatches('catch',data.catch);
+						RN.user.setCatches(data.catch);
 
 						//Run callback
 						callBack();

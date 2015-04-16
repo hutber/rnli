@@ -188,4 +188,10 @@ Table of Contents
         $sql = sprintf("SELECT * FROM trip t, location l WHERE t.uid = %d and t.id = l.tid ORDER BY t.date DESC;", $uid);
         return $this->db->get($sql);
     }
+
+    function updateHazard ($hazard, $id)
+    {
+        $sql = sprintf("UPDATE  `rnli`.`trip` SET  `hazard` =  '%s' WHERE  `trip`.`id` =%d;", $hazard, $id);
+        return $this->db->get($sql);
+    }
 }
