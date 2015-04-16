@@ -108,6 +108,7 @@ module.exports = function(){
 				note.id = 0;
 			}
 
+			note.new = true;
 			note.date = moment().format('HH:mm');
 			singleCatch[note.id] = note;
 			this.saveLocal(type, singleCatch);
@@ -128,6 +129,7 @@ module.exports = function(){
 				note.id = 0;
 			}
 
+			note.new = true;
 			note.date = moment().format('HH:mm');
 			note.note = data;
 			singleNote[note.id] = note;

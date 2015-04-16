@@ -52,10 +52,23 @@ Table of Contents
         );
         $this->db->query($sql);
     }
+    function editNote($id,$note)
+    {
+        $sql = sprintf("UPDATE  `rnli`.`notes` SET  `note` =  '%s' WHERE  `notes`.`id` =%d;",
+			$id,$this->db->escape($note)
+        );
+        $this->db->query($sql);
+    }
 
     function getNotes ($uid)
     {
         $sql = sprintf("SELECT * FROM notes WHERE uid = %d;", $uid);
+        return $this->db->get($sql);
+    }
+
+    function delNote ($id)
+    {
+        $sql = sprintf("DELETE FROM `rnli`.`notes` WHERE `notes`.`id` = %d;", $id);
         return $this->db->get($sql);
     }
 

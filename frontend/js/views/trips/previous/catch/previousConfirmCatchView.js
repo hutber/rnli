@@ -24,10 +24,15 @@ module.exports = RN.glb.gvCreator.extend({
 	},
 
 	render: function () {
-		var self = this;
-		//load data in ejs
-		this.$el.html(this.templates.home(
-			RN.previousTrip.get('catches')[Object.keys(RN.previousTrip.get('catches')).length])
-		);
+		var catchesReturn = {},
+			lengthOfCatches = Object.keys(RN.previousTrip.get('catches')).length;
+
+		if(lengthOfCatches===1){
+			catchesReturn = RN.previousTrip.get('catches')[0];
+		}else{
+			catchesReturn = RN.previousTrip.get('catches')[Object.keys(RN.previousTrip.get('catches')).length];
+		}
+
+		this.$el.html(this.templates.home(catchesReturn));
 	}
 });

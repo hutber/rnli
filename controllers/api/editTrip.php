@@ -20,18 +20,25 @@ class editTrip extends Controller {
 
 			$dataStore->updateHazard($hazard, $id);
 
-//			if(is_array($notes)) {
-//				foreach ($notes as $key => $item) {
-//					 $dataStore->insertNote($uid, $id, $item['text'], $item['date']);
-//				}
-//			}
-//
-//			if(is_array($catch)) {
-//				foreach ($catch as $key => $item) {
-//					$catch = $item['data'];
-//					$dataStore->insertCatch($uid, $id, $catch['species'], $catch['weight1'], $catch['weight2'], $catch['height1'], $catch['height2'], $catch['released'], $catch['image'], $item['date']);
-//				}
-//			}
+			if(is_array($notes)) {
+				foreach ($notes as $key => $item) {
+					if($item['new']){
+						$dataStore->insertNote($uid, $id, $item['note'], $item['date']);
+					}else {
+						$dataStore->editNote($id, $item['note']);
+					}
+				}
+			}
+
+			if(is_array($catch)) {
+				foreach ($catch as $key => $item) {
+					if($item['new']=="true"){
+						$dataStore->insertCatch($uid, $id, $item['species'], $item['weight1'], $item['weight2'], $item['height1'], $item['height2'], $item['released'], $item['image'], $item['date']);
+					}else {
+						$dataStore->editNote($id, $item['note']);
+					}
+				}
+			}
 
 			$data['catch'] = $dataStore->getCatches($uid);
 			$data['trips'] = $dataStore->getTrips($uid);
