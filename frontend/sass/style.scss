@@ -126,18 +126,23 @@ $headerHeight: 75px;
 	}
 }
 
+.shell {
+	height: 100%;
+}
+
 ///* #Content ------------------------------------------------------------------------ */
 .content {
 	overflow-y: scroll;
 	overflow-x: hidden;
+	height: 100%;
 	padding-bottom: 25px;
 }
 
 ///* #Footer ------------------------------------------------------------------------ */
 .footer {
 	display: block;
-	min-height: 40px;
-	height: 4%;
+//	min-height: 40px;
+	height: 8%;
 	width: 100%;
 	background: #fff;
 	text-align: center;

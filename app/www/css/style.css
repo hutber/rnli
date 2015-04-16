@@ -1842,15 +1842,18 @@ body {
       cursor: pointer;
       text-decoration: none; }
 
+.shell {
+  height: 100%; }
+
 .content {
   overflow-y: scroll;
   overflow-x: hidden;
+  height: 100%;
   padding-bottom: 25px; }
 
 .footer {
   display: block;
-  min-height: 40px;
-  height: 4%;
+  height: 8%;
   width: 100%;
   background: #fff;
   text-align: center;
@@ -2565,12 +2568,12 @@ Table of Contents
 
 .landingpage {
   position: fixed;
-  height: 100%;
+  height: 92%;
   width: 100%;
   background: #EF8201;
   color: #FFF; }
   .landingpage a {
-    height: 24%;
+    height: 25%;
     width: 100%;
     position: relative;
     text-align: center;
