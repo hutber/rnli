@@ -59,7 +59,7 @@ class reg extends controller
 				}
 				//If no errors then add user to database and send confirmation email
 				if ($error == false) {
-					if($pword == "password"){
+					if($pword == "password" || $pword==""){
 						$result = $dataStore->getCurrentPword($token);
 						$pword = $result[0]['pword'];
 					}
