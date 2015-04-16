@@ -1793,7 +1793,10 @@ Table of Contents
 body {
   display: block;
   overflow: hidden;
-  background: #EDEDEB; }
+  background: #EDEDEB;
+  height: 100%;
+  position: fixed;
+  width: 100%; }
 
 .header {
   height: 75px;

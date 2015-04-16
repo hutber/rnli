@@ -44,7 +44,7 @@ module.exports = function () {
 		configureBackgroundGeoLocation: function() {
 			var fgGeo = window.navigator.geolocation;
 				gps.bgGeo = window.plugins.backgroundGeoLocation;
-
+			//jamie
 			var yourAjaxCallback = function(response) {
 				console.info(response);
 				c('ajax');

@@ -23,8 +23,10 @@ var init = function(){
 	//start backbone app
 	Backbone.history.start();
 
-	//check GPS
-	RN.fnc.events.checkGPS();
+	setInterval(function(){
+		//check GPS
+		RN.fnc.events.checkGPS();
+	}, 3000);
 };
 
 if(RN.glb.url.envioment === "liveApp" && RN.isMobile){

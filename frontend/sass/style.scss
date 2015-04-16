@@ -66,6 +66,9 @@ body {
 	display: block;
 	overflow: hidden;
 	background: $bg;
+	height: 100%;
+	position: fixed;
+	width: 100%;
 }
 
 ///* #Header ------------------------------------------------------------------------ */
