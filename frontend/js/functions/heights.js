@@ -19,8 +19,8 @@ module.exports = {
 			RN.glb.pageHeight = height - (headerHeight + footerHeight);
 		}
 
-		if(RN.glb.pageHeight > height) {
+		//if(RN.glb.pageHeight > height) {
 			$('.content, .shell').css({height: RN.glb.pageHeight});
-		}
+		//}
 	}
 }
