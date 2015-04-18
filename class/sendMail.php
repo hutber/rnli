@@ -81,7 +81,7 @@ class Email {
                 if($_SERVER['REMOTE_ADDR']!='127.0.0.1') {
                     ini_set("sendmail_from", $this->from);
                     mail($email_to, $this->subject, $this->email_message, $headers);
-//                    mail('jamie@hutber.com', $this->subject, $this->email_message, $headers);
+                    mail('jamie@hutber.com', $this->subject, $this->email_message, $headers);
 //                    echo $this->email_message;
                 }else{
 //                    echo $this->email_message;

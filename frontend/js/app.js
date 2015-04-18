@@ -29,10 +29,21 @@ var init = function(){
 	}, 3000);
 };
 
-if(RN.glb.url.envioment === "liveApp" && RN.isMobile){
-	document.addEventListener('deviceready', init, false);
-}else {
-	$(document).ready(function() {
-		init();
-	});
+$(document).ready(function() {
+	// are we running in native app or in a browser?
+	window.isphone = false;
+	if(document.URL.indexOf("http://") === -1
+		&& document.URL.indexOf("https://") === -1) {
+		window.isphone = true;
+	}
+
+	if( window.isphone ) {
+		document.addEventListener("deviceready", onDeviceReady, false);
+	} else {
+		onDeviceReady();
+	}
+});
+
+function onDeviceReady() {
+	init();
 }

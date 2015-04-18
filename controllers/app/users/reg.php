@@ -99,7 +99,7 @@ class reg extends controller
 				$numunamecheck = $dataStore->adminUsernameCheck($uname);
 				//first check if the user has changed email addresses then check email hasn't been used before
 
-				if ($numemailcheck == 0) {
+				if ($numemailcheck > 0) {
 					//If no errors then add user to database and send confirmation email
 					if ($error == false) {
 

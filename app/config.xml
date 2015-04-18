@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.rnli.hutber.com" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.safetyapp.rnli" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>RNLI</name>
     <description>
         Hello World sample application that responds to the deviceready event.
@@ -69,7 +69,7 @@
     <gap:plugin name="com.phonegap.plugin.statusbar" version="1.1.0" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
-    <gap:plugin name="com.transistorsoft.cordova.background-geolocation" version="0.3.61" />
+    <gap:plugin name="com.transistorsoft.cordova.background-geolocation" />
     <gap:plugin name="org.apache.cordova.inappbrowser" />
 
     <icon src="icon.png" />
