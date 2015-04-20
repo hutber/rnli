@@ -21,7 +21,6 @@ module.exports = RN.glb.gvCreator.extend({
 		var ev = $(ev.currentTarget);
 
 		RN.fnc.camera.shoot(function(){
-			c(arguments);
 			RN.user.saveLocal('profileimage', 1);
 		})
 

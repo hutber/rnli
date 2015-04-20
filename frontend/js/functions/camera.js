@@ -16,8 +16,6 @@ module.exports = function () {
 	}
 
 	camera.onSuccess = function (imageURI, successFun) {
-		c(arguments);
-		c('onSucess ^^^');
 		var url = RN.glb.url.ajax + 'users/uploadProfileImage';
 		var params = {
 			image: imageURI,
