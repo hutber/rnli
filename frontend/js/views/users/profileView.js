@@ -16,7 +16,8 @@ module.exports = RN.glb.gvCreator.extend({
 
 	addprofilephoto : function(ev){
 		var ev = $(ev.currentTarget);
-		RN.fnc.popups.Dialog('In Dev', 'Photo Upload')
+		navigator.camera.getPicture(onPhotoUriSuccess, onFailCamera, { quality: 50,
+			destinationType: pictDestinationType.FILE_URI });
 	},
 
 	addEcontact : function(ev){

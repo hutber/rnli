@@ -6,7 +6,7 @@ include ../mixins
 - }
 form.loginForm
    img(src='img/logo.png').logo
-   +input({place:'USERNAME', type: 'text', value:uname, name:'email'})
+   +input({place:'USERNAME', type: 'email', value:uname, name:'email'})
    +input({place:'PASSWORD', type: 'password', value:pword, name:'pword'})
    a(href='#forgotten').forgotten Forgot password?
    +button({value:'SIGN IN', class:['signin']})
