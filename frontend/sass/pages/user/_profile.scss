@@ -26,6 +26,13 @@ $photoboxWidth: $photoboxHeight;
     }
 }
 
+.photoitemContainer {
+    width: 100%;
+    img {
+        width: 100%;
+    }
+}
+
 .contact {
     height: 94px;
     display: block;

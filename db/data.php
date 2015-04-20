@@ -47,7 +47,7 @@ class Data
 	function checkUser($email, $pword)
 	{ //Check username via username
 		$sql = sprintf(
-			"SELECT uid,fname,sname,email,version,confirmed,regdate
+			"SELECT uid,fname,sname,email,version,confirmed,regdate, profileimage
 			FROM users
 			WHERE email='%s' AND pword = '%s'
 			GROUP BY uid;", $this->db->escape($email), $this->db->escape($pword));
@@ -109,6 +109,12 @@ class Data
 	function updateSessionCookie($email, $sessionCheck)
 	{ //Update the session for the newly logged in users
 		$sql = sprintf("UPDATE users SET sessionCheck = '%s' WHERE users.email ='%s';", $sessionCheck, $email);
+		$this->db->query($sql);
+	}
+
+	function updatePhotoProfile($uid)
+	{ //Update the session for the newly logged in users
+		$sql = sprintf("UPDATE users SET profileimage = 1 WHERE users.uid = %d;", $uid);
 		$this->db->query($sql);
 	}
 

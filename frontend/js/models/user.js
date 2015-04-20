@@ -17,6 +17,15 @@ module.exports = function(){
 				contacts: data
 			})
 		},
+		saveLocal: function(type, data){
+			//create object to play with
+			var modelObject = {};
+			modelObject[type] = data;
+			//set models value
+			this.set(modelObject);
+			//set local storage for later
+			localStorage[type] = RN.fnc.json.convertToString(data);
+		},
 		setCatches: function(data){
 			this.set({
 				catch: data

@@ -1984,6 +1984,11 @@ body {
     display: block;
     margin: 5px 0; }
 
+.photoitemContainer {
+  width: 100%; }
+  .photoitemContainer img {
+    width: 100%; }
+
 .contact {
   height: 94px;
   display: block;

@@ -18,6 +18,8 @@ class uploadProfileImage extends Controller {
             $fp = fopen($file, 'w');
             fwrite($fp, $imgData);
             fclose($fp);
+
+			$this->login->check_user_details($detailsSent);
 		}
     }
 }

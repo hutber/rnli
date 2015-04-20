@@ -22,7 +22,11 @@ class siteLogin
 	public function check_user_details($post)
 	{
 		return $this->dataStore->checkUser($post['email'],$post['pword']);;
+	}
 
+	public function updatePhotoProfile($uid)
+	{
+		return $this->dataStore->updatePhotoProfile($uid);;
 	}
 	public function check_user_details_username($post)
 	{

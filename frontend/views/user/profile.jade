@@ -1,9 +1,13 @@
 include ../mixins
 form(action="#{RN.glb.url.ajax}users/reg", class="editForm ajax")
-    .addprofilephoto
-        .photoitems
-            i(class='icon-plus-circled')
-            | ADD PHOTO
+    if(RN.user.get('profileimage') == 0)
+        .addprofilephoto
+            .photoitems
+                i(class='icon-plus-circled')
+                | ADD PHOTO
+    else
+        .photoitemContainer
+            img(src='http://'+RN.glb.url.cdn+'/uploads/profile/'+RN.user.get('uid')+'.jpg')
     h3  Peronsal Details
     +input({place:'First name', type: 'text', name:"fname", value:RN.user.get('fname')})
     +input({place:'Surname', type: 'text', name: "sname", value:RN.user.get('sname')})

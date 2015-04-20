@@ -21,8 +21,15 @@ module.exports = function () {
 		};
 
 		// send the data
-		$.post(url, params, function(data) {
-			c(data);
+		$.ajax({
+			url: url,
+			type: 'POST',
+			data: params,
+			error: function (data) {
+			},
+			success: function(){
+				RN.user.saveLocal('profileimage', 1);
+			}
 		});
 	};
 
