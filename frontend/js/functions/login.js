@@ -59,7 +59,7 @@ module.exports = {
 		localStorage.catch = JSON.stringify(data.catch);
 		localStorage.notes = JSON.stringify(data.notes);
 		localStorage.trips = JSON.stringify(data.trips);
-		localStorage.weatherDetails = JSON.stringify(data.weatherDetails);
+		localStorage.weatherDetails = data.weatherDetails;
 	},
 	restoreUserFromLocalStorage : function(data){
 		var userDataToLoad = {},
