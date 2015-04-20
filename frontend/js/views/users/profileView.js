@@ -2,6 +2,9 @@
 
 //extend the view with the default home view
 module.exports = RN.glb.gvCreator.extend({
+	initialize: function(){
+		this.listenTo(RN.user, 'change:profileimage', this.render);
+	},
 	el: '.content',
 	templates: {
 		home: require('../../../views/user/profile.jade'),
@@ -16,8 +19,12 @@ module.exports = RN.glb.gvCreator.extend({
 
 	addprofilephoto : function(ev){
 		var ev = $(ev.currentTarget);
-		navigator.camera.getPicture(onPhotoUriSuccess, onFailCamera, { quality: 50,
-			destinationType: pictDestinationType.FILE_URI });
+
+		RN.fnc.camera.shoot(function(){
+			c(arguments);
+			RN.user.saveLocal('profileimage', 1);
+		})
+
 	},
 
 	addEcontact : function(ev){
@@ -114,6 +121,7 @@ module.exports = RN.glb.gvCreator.extend({
 	},
 	render: function () {
 		//load data in ejs
+		c('re');
 		this.$el.html(this.templates.home());
 	}
 });

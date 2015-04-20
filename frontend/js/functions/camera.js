@@ -5,15 +5,19 @@ module.exports = function () {
 
 	};
 
-	camera.shoot = function () {
-		navigator.camera.getPicture(camera.onSuccess, camera.onFail, {
+	camera.shoot = function (callBack) {
+		navigator.camera.getPicture(function(data){
+			camera.onSuccess(data, callBack);
+		}, camera.onFail, {
 			quality: 50,
 			destinationType : Camera.DestinationType.DATA_URL,
 			sourceType : Camera.PictureSourceType.CAMERA
 		});
 	}
 
-	camera.onSuccess = function (imageURI) {
+	camera.onSuccess = function (imageURI, successFun) {
+		c(arguments);
+		c('onSucess ^^^');
 		var url = RN.glb.url.ajax + 'users/uploadProfileImage';
 		var params = {
 			image: imageURI,
@@ -27,8 +31,8 @@ module.exports = function () {
 			data: params,
 			error: function (data) {
 			},
-			success: function(){
-				RN.user.saveLocal('profileimage', 1);
+			success: function(data){
+				successFun(data);
 			}
 		});
 	};
