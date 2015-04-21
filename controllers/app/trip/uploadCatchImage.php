@@ -1,6 +1,6 @@
  <?php
 
-class uploadProfileImage extends Controller {
+class uploadCatchImage extends Controller {
     function post()
     {
 		if ($_REQUEST['image']) {
