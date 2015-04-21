@@ -3,8 +3,8 @@
 //extend the view with the default home view
 module.exports = RN.glb.gvCreator.extend({
 	initialize: function(){
-		c(RN.user);
-		this.listenTo(RN.user, 'change:profileimage', this.render);
+		if(typeof RN.user !== typeof undefined)
+			this.listenTo(RN.user, 'change:profileimage', this.render);
 	},
 	el: '.content',
 	templates: {
