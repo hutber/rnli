@@ -5,7 +5,7 @@ module.exports = RN.glb.gvCreator.extend({
 	el: '.content',
 
 	initialize: function(){
-		this.listenTo(RN.currentTrip, 'change:tripimage', this.render);
+		//this.listenTo(RN.currentTrip, 'change:tripimage', this.render);
 	},
 
 	templates: {
