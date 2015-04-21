@@ -24,7 +24,7 @@ class uploadCatchImage extends Controller {
             fwrite($fp, $imgData);
             fclose($fp);
 
-			$this->login->updateTripImage($_POST['tid']);
+			$this->login->updateTripImage($_POST['tip']);
 		}
     }
 }

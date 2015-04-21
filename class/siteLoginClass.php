@@ -31,7 +31,7 @@ class siteLogin
 
 	public function updateTripImage($uid)
 	{
-		return $this->dataStore->updatePhotoProfile($uid);;
+		return $this->dataStore->updateTripImage($uid);;
 	}
 
 	public function check_user_details_username($post)
