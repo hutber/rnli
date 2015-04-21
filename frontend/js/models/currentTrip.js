@@ -15,7 +15,9 @@ module.exports = function(){
 
 		createDefaults: function(data){
 			return RN.fnc.json.rebuildObject({
+				tid:localStorage.ctriptid,
 				name:localStorage.ctripname,
+				tripimage:localStorage.ctriptripimage,
 				hazard:localStorage.ctriphazard,
 				date:localStorage.ctripdate,
 				details:localStorage.ctripdetails,
@@ -102,6 +104,7 @@ module.exports = function(){
 				rdata = {};
 
 			rdata.trip = {
+				tid: data.tid || null,
 				name: data.name,
 				date: data.date[1],
 				rating: data.rating || null,
@@ -142,6 +145,27 @@ module.exports = function(){
 
 			return rdata;
 
+		},
+
+		startTrip: function(data, callBack){
+			var self = this;
+			$.ajax({
+				url: RN.glb.url.api + 'addTrip',
+				type: 'POST',
+				dataType: 'json',
+				data: {
+					trip: data.trip,
+					location: data.location,
+					uid: RN.user.get('uid')
+				},
+				error: function (data) {
+					c('error currenttrip');
+				},
+				success: function (data) {
+					//Run callback
+					callBack(data);
+				}
+			});
 		},
 
 		finaliseTrip: function(data, callBack){

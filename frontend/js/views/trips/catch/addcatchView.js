@@ -10,12 +10,22 @@ module.exports = RN.glb.gvCreator.extend({
 
 	events: {
 		'click .addcatch': 'moveToCatch',
-		'keyup #species': 'addSpecies',
+		'click .addcatchphoto': 'addCatch',
 	},
 
-	addSpecies : function(ev){
+	addCatch : function(ev){
+		RN.fnc.camera.shoot(function () {
+				RN.currentTrip.saveLocal('tripimage', 1);
+			},
+			{
+				url: RN.glb.url.ajax + 'trip/uploadCatchImage',
+				params: {
+					uid: RN.user.get('uid'),
+					tip: RN.currentTrip.get('tid')
+				}
+			}
+		)
 	},
-
 	saveFirstPageOfCatch : function(){
 
 		var dataToSave = {

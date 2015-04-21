@@ -17,12 +17,19 @@ module.exports = RN.glb.gvCreator.extend({
 		'click .addprofilephoto': 'addprofilephoto',
 	},
 
-	addprofilephoto : function(ev){
+	addprofilephoto: function (ev) {
 		var ev = $(ev.currentTarget);
 
-		RN.fnc.camera.shoot(function(){
-			RN.user.saveLocal('profileimage', 1);
-		})
+		RN.fnc.camera.shoot(function () {
+				RN.user.saveLocal('profileimage', 1);
+			},
+			{
+				url: RN.glb.url.ajax + 'users/uploadProfileImage',
+				params: {
+					uid: RN.user.get('uid')
+				}
+			}
+		)
 
 	},
 

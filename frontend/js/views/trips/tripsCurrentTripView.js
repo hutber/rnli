@@ -21,10 +21,15 @@ module.exports = RN.glb.gvCreator.extend({
 		ev.hide();
 		$('.endtrip').show();
 
-		if($('input[name=gpstracking]:checked')[0].id==="gpstrackingyes") {
+		if($('input[name=gpstracking]:checked')[0].id==="gpstrackingyes" && RN.glb.url.envioment==="liveApp") {
 			//start gps
 			RN.gps.onResume();
 		}
+
+		var finalData = RN.currentTrip.prePareDataForDB();
+		RN.currentTrip.startTrip(finalData, function(data){
+			RN.currentTrip.saveLocal('tid', data.thistrip);
+		});
 	},
 	end : function(ev){
 		var ev = $(ev.currentTarget);
@@ -33,7 +38,7 @@ module.exports = RN.glb.gvCreator.extend({
 		$('.savetrip').show();
 
 
-		if($('input[name=gpstracking]:checked')[0].id==="gpstrackingyes") {
+		if($('input[name=gpstracking]:checked')[0].id==="gpstrackingyes" && RN.glb.url.envioment==="liveApp") {
 			//start gps
 			RN.gps.onPause();
 		}

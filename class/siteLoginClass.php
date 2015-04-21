@@ -28,6 +28,12 @@ class siteLogin
 	{
 		return $this->dataStore->updatePhotoProfile($uid);;
 	}
+
+	public function updateTripImage($uid)
+	{
+		return $this->dataStore->updatePhotoProfile($uid);;
+	}
+
 	public function check_user_details_username($post)
 	{
 		return $this->dataStore->checkUserName($post['email'],$post['pword']);;

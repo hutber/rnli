@@ -9,7 +9,7 @@ class uploadProfileImage extends Controller {
             $imgData = base64_decode($_REQUEST['image']);
 
             // set the image paths
-            $file = '/var/www/rnli.hutber.com/uploads/profile/'.$_POST['uid'].'.jpg';
+            $file = '/var/www/rnli.hutber.com/uploads/catch/'.$_POST['uid'].'/'.$_POST['tid'].'/catch.jpg';
 
             // delete the image if it already exists
             if (file_exists($file)) { unlink($file); }
@@ -19,7 +19,7 @@ class uploadProfileImage extends Controller {
             fwrite($fp, $imgData);
             fclose($fp);
 
-			$this->login->updatePhotoProfile($_POST['uid']);
+			$this->login->updateTripImage($_POST['tid']);
 		}
     }
 }

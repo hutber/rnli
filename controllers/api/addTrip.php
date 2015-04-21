@@ -10,35 +10,38 @@ class addTrip extends Controller {
 
 			require_once SITEROOT. '/db/types/DBtrip.php';
 			$dataStore = new DBtrip($db);
-
-
+//r($_POST);exit;
 			$uid = $_POST['uid'];
 			$trip = $_POST['trip'];
+			$tripdId = $trip['tid'];
 			$catch = $_POST['catch'];
 			$location = $_POST['location'];
 			$notes = $_POST['notes'];
 			$gps = $_POST['gps'];
 
-			$dataStore->insertTrip(
-				$uid,
-				$trip['name'],
-				$trip['date'],
-				$trip['rating'],
-				$trip['hazard'],
-				$trip['temperature'],
-				$trip['visibility'],
-				$trip['winddirection'],
-				$trip['weathertype'],
-				$trip['pressure'],
-				$trip['pressuretendency'],
-				$trip['dewpoint'],
-				$trip['humidity'],
-				$trip['seatemperature'],
-				$trip['windspeed'],
-				$trip['waveheight'],
-				$trip['waveperiod']
-			);
-			$tripdId = $db->getLastID();
+			if($tripdId == "") {
+				$dataStore->insertTrip(
+					$uid,
+					$trip['name'],
+					$trip['date'],
+					$trip['rating'],
+					$trip['hazard'],
+					$trip['temperature'],
+					$trip['visibility'],
+					$trip['winddirection'],
+					$trip['weathertype'],
+					$trip['pressure'],
+					$trip['pressuretendency'],
+					$trip['dewpoint'],
+					$trip['humidity'],
+					$trip['seatemperature'],
+					$trip['windspeed'],
+					$trip['waveheight'],
+					$trip['waveperiod']
+				);
+				$tripdId = $db->getLastID();
+			}
+
 			if(is_array($notes)) {
 				foreach ($notes as $key => $item) {
 					 $dataStore->insertNote($uid, $tripdId, $item['text'], $item['date']);

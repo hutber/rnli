@@ -118,6 +118,12 @@ class Data
 		$this->db->query($sql);
 	}
 
+	function updateTripImage($uid)
+	{ //Update the session for the newly logged in users
+		$sql = sprintf("UPDATE  `rnli`.`trip` SET  `image` =  '1' WHERE  `trip`.`id` = %d;", $uid);
+		$this->db->query($sql);
+	}
+
 	function updateUsersVersionNumber($sessionCheck, $version)
 	{ //Update the session for the newly logged in users
 		$sql = sprintf("UPDATE  users SET  `version` =  '%s' WHERE  `users`.`sessionCheck` = '%s';", $version, $sessionCheck);
