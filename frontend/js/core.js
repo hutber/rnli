@@ -3,6 +3,7 @@
  */
 //Core Librarys
 window.$ = require('jquery');
+window.jQuery = window.$;
 window.Backbone = require('backbone');
 Backbone.$ = $;
 //require('backbone-deep-model');
