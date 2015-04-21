@@ -4,6 +4,10 @@ var typeahead = require('typeahead.js/dist/typeahead.jquery');
 module.exports = RN.glb.gvCreator.extend({
 	el: '.content',
 
+	initialize: function(){
+		this.listenTo(RN.currentTrip, 'change:tripimage', this.render);
+	},
+
 	templates: {
 		home: require('../../../../views/trips/catch/addcatch.jade'),
 	},

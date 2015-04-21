@@ -112,6 +112,7 @@ module.exports = RN.glb.gvCreator.extend({
 			//Add trips details to local storage for later
 			RN.currentTrip.saveLocal('name', items.name);
 			RN.currentTrip.saveLocal('date', items.date);
+			RN.currentTrip.saveLocal('tripimage', 0);
 			//Push us onto the next page
 			RN.router.navigate('currenttrip',true);
 		}

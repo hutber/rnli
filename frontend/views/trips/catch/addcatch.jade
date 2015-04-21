@@ -50,6 +50,10 @@ include ../../mixins
                 }
             }
         })
-.box.large.white.addcatchphoto
-    i(class='icon-plus')
-    | Add Photo
+if(RN.currentTrip.get('tripimage') == 0)
+    .box.large.white.addcatchphoto
+        i(class='icon-plus')
+        | Add Photo
+else
+    .photoitemContainer
+        img(src='http://' + RN.glb.url.cdn + '/uploads/catch/' + RN.user.get('uid') +'/' + RN.currentTrip.get('tid') + '/'+'catch.jpg')
