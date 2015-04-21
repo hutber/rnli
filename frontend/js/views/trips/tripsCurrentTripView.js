@@ -101,6 +101,9 @@ module.exports = RN.glb.gvCreator.extend({
 				RN.router.navigate('createtrip ', true);
 			}else {
 
+				//remove old gmaps span
+				$('body > span').remove();
+
 				//Load the page
 				if (currentLocationData.waveheight > 3) {
 					currentLocationData['notsafe'] = 'danger';

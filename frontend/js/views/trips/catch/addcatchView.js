@@ -13,11 +13,10 @@ module.exports = RN.glb.gvCreator.extend({
 	},
 
 	events: {
-		'click .addcatch': 'moveToCatch',
-		'click .addcatchphoto': 'addCatch',
+		'click .addcatchphoto': 'addCatchPhoto',
 	},
 
-	addCatch : function(ev){
+	addCatchPhoto : function(ev){
 		RN.fnc.camera.shoot(function () {
 				RN.currentTrip.saveLocal('tripimage', 1);
 			},
@@ -44,10 +43,6 @@ module.exports = RN.glb.gvCreator.extend({
 
 		RN.fnc.catch.saveTempCatchToObject(dataToSave);
 		RN.router.navigate('confirmcatch', true);
-	},
-
-	moveToCatch : function(ev){
-		RN.router.navigate('addcatch', true);
 	},
 
 	substringMatcher : function(strs) {
