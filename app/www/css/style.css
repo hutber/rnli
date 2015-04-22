@@ -1436,7 +1436,7 @@ input[type=checkbox] {
     margin-right: 1.69492%;
     overflow: hidden; }
     .catchfishbox .image img, .tripHomeBox .image img {
-      height: 100%; }
+      width: 100%; }
   .catchfishbox .text, .tripHomeBox .text {
     padding: 10px;
     text-transform: uppercase;

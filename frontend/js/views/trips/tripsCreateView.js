@@ -108,6 +108,7 @@ module.exports = RN.glb.gvCreator.extend({
 	save : function(ev){
 		var ev = $(ev.currentTarget);
 		if(this.readyToSave()){
+			//start new trip
 			var items = this.$el.find('form').serializeObject();
 			//Add trips details to local storage for later
 			RN.currentTrip.saveLocal('name', items.name);
@@ -136,6 +137,13 @@ module.exports = RN.glb.gvCreator.extend({
 	},
 
 	render: function () {
+		//for local dev
+		if(RN.glb.url.envioment !== 'localApp') {
+
+			//reset old
+			RN.currentTrip.resetData();
+		}
+
 		var self = this;
 		//load data in ejs
 		this.$el.html(this.templates.home());

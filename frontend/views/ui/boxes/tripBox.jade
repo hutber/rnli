@@ -10,8 +10,8 @@ mixin tripBox(data)
    - };
    .box.tripHomeBox(data-id= data.id)
          .image
-            if(typeof data.image !=="undefined")
-               img(src='img/uploads/'+data.image)
+            if(typeof data.image === 1)
+               img(src='http://' + RN.glb.url.cdn + '/uploads/catch/' + RN.user.get('uid') + '/' +  data.id + '/' + 'catch.jpg')
             else
                img(src='img/placeholder.gif')
          .text

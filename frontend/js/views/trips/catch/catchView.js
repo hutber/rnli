@@ -9,11 +9,6 @@ module.exports = RN.glb.gvCreator.extend({
 	},
 
 	events: {
-		'click .addcatch': 'moveToCatch',
-	},
-
-	moveToCatch : function(ev){
-		RN.router.navigate('addcatch', true);
 	},
 
 	render: function () {

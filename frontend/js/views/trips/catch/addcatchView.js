@@ -5,14 +5,10 @@ module.exports = RN.glb.gvCreator.extend({
 	el: '.content',
 
 	initialize: function(){
-		var self = this;
-		var checkExist = setInterval(function() {
-			if (RN.currentTrip) {
-				self.listenTo(RN.currentTrip, 'change:tripimage', self.render);
-				clearInterval(checkExist);
-			}
-		}, 100);
+		this.listenTo(this, 'change:image', this.render);
 	},
+
+	image: null,
 
 	templates: {
 		home: require('../../../../views/trips/catch/addcatch.jade'),
@@ -23,14 +19,17 @@ module.exports = RN.glb.gvCreator.extend({
 	},
 
 	addCatchPhoto : function(ev){
+		var imageName = Date.now(),
+			self = this;
 		RN.fnc.camera.shoot(function () {
-				RN.currentTrip.saveLocal('tripimage', 1);
+				self.image = imageName;
 			},
 			{
 				url: RN.glb.url.ajax + 'trip/uploadCatchImage',
 				params: {
 					uid: RN.user.get('uid'),
-					tip: RN.currentTrip.get('tid')
+					tip: RN.currentTrip.get('tid'),
+					imagename: imageName,
 				}
 			}
 		)
@@ -45,6 +44,7 @@ module.exports = RN.glb.gvCreator.extend({
 			height1: $('select[name=ft]').val(),
 			height2: $('select[name=in]').val(),
 			released: $('select[name=released]').val(),
+			imagename: this.imageName,
 		};
 
 		RN.fnc.catch.saveTempCatchToObject(dataToSave);
@@ -79,7 +79,8 @@ module.exports = RN.glb.gvCreator.extend({
 		var self = this;
 		//load data in ejs
 		this.$el.html(this.templates.home({
-			ldsDefault: -1
+			ldsDefault: -1,
+			image: self.image
 		}));
 
 		var states = ['Angler fish','Bass','Bream Black','Bream Red','Bream Gilthead','Brill','Bull Huss','Catfish','Coalfish','Cod','Dab','Eel Conger','Flounder','Garfish','Gurnard Red','Gurnard Tub','Haddock','John Dory','LS Dogfish','Ling','Mackerel','Megrim','Monkfish','Mullet (Thick Lipped)','Mullet (Golden Grey)','Mullet (Think Lipped)','Mullet (Red)','Plaice','Pollack','Pouting','Ray (Blonde)','Ray (S E / Painted)','Ray (Spotted/Homelyn)','Ray (Sting)','Ray (Thornback)','Ray (Undulated)','Rockling','Scad','Shark (Blue)','Shark (Mako)','Shark (Porbeagle)','Shark (Thresher)','Silver Eel','Smoothhounds','Sole','Spur Dog','Tope','Trigger Fish','Turbot','Weever','Whiting','Wrasse (Ballan)','Wrasse (Corkwing)','Wrasse (Cuckoo)'
