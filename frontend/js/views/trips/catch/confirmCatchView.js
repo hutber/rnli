@@ -19,9 +19,16 @@ module.exports = RN.glb.gvCreator.extend({
 
 	saveCatch : function(){
 		RN.fnc.catch.saveCatchToObject(localStorage.ctriptmpcatch);
+
+		//reset datas from previous catch
 		localStorage.ctriptmpcatch = null;
+		RN.glb.views.addCatchView.image = null;
+
+		//Set up so we can't go backwards again
 		RN.glb.backButton = true;
 		RN.glb.backButtonLocation = 'tripcatch';
+
+		//move to trip catch home
 		RN.router.navigate('tripcatch', true);
 	},
 

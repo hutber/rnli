@@ -24,7 +24,24 @@ module.exports = RN.glb.gvCreator.extend({
 			self = this;
 		RN.fnc.camera.shoot(function () {
 				self.image = imageName;
+				var data = {
+					species: $('#species').val(),
+					weightType: $('input[name=weightsystem]:checked').val(),
+					weight1: $('select[name=lbs]').val(),
+					weight2: $('select[name=oz]').val(),
+					height1: $('select[name=ft]').val(),
+					height2: $('select[name=in]').val(),
+					released: $('select[name=released]').val(),
+				};
 				self.render();
+
+					$('#species').val(data.species)
+					$('input[name=weightsystem]:checked').val(data.weightType)
+					$('select[name=lbs]').val(data.weight1)
+					$('select[name=oz]').val(data.weight2)
+					$('select[name=ft]').val(data.height1)
+					$('select[name=in]').val(data.height2)
+					$('select[name=released]').val(data.released)
 			},
 			{
 				url: RN.glb.url.ajax + 'trip/uploadCatchImage',
@@ -37,7 +54,6 @@ module.exports = RN.glb.gvCreator.extend({
 		)
 	},
 	saveFirstPageOfCatch : function(){
-
 		var dataToSave = {
 			species: $('#species').val(),
 			weightType: $('input[name=weightsystem]:checked').val(),
@@ -46,9 +62,8 @@ module.exports = RN.glb.gvCreator.extend({
 			height1: $('select[name=ft]').val(),
 			height2: $('select[name=in]').val(),
 			released: $('select[name=released]').val(),
-			imagename: this.imageName,
+			imagename: RN.glb.views.addCatchView.image
 		};
-
 		RN.fnc.catch.saveTempCatchToObject(dataToSave);
 		RN.router.navigate('confirmcatch', true);
 	},

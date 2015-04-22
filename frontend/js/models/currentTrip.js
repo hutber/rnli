@@ -93,7 +93,6 @@ module.exports = function(){
 			Object.keys(data).forEach(function(item){
 				localStorage['ctrip'+item] = null;
 			});
-			RN.glb.views.addCatchView.image = null;
 			this.initialize();
 		},
 

@@ -187,12 +187,12 @@ module.exports = {
 			loggedInState = false;
 		}
 
-		if(typeof localStorage.gps !== typeof undefined && loggedInState){
-			RN.router.navigate('currenttrip', true);
-		} else if (loggedInState && logInOrOutChecker) {
+		if (loggedInState && logInOrOutChecker) {
 			RN.router.navigate('home', true);
+		} else if(typeof localStorage.gps !== typeof undefined && loggedInState){
+			//RN.router.navigate('currenttrip', true);
 		} else if (!loggedInState && !logInOrOutChecker) {
-			RN.router.navigate('', true);
+			//RN.router.navigate('', true);
 		}
 	},
 	doLogOut: function(){

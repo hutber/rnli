@@ -26,9 +26,9 @@ include ./mixins
         //a(href='#settings') SETTINGS
         a(href='#logou', onclick="RN.fnc.login.doLogOut();") LOGOUT
     .tripfooter
-        a(href='#home')
+        a(href='#currenttrip')
             i(class='icon-home-outline')
-            | Home
+            | Trip Home
         a(href='#addhazard')
             i(class='icon-attention')
             | Add hazard
@@ -39,9 +39,9 @@ include ./mixins
             i(class='icon-fish')
             | Catch log
     .tripfooter.previoustripmenu
-        a(href='#home')
+        a(href='#tripsprevious')
             i(class='icon-home-outline')
-            | Home
+            | Trip Home
         a(href='#tripsprevioushazard')
             i(class='icon-attention')
             | Add hazard
@@ -54,7 +54,7 @@ include ./mixins
     .tripfooter.disabled
         a
             i(class='icon-home-outline')
-            | Home
+            | Trip Home
         a
             i(class='icon-attention')
             | Add hazard
