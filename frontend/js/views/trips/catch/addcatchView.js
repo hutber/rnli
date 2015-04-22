@@ -24,6 +24,7 @@ module.exports = RN.glb.gvCreator.extend({
 
 	addCatchPhoto : function(ev){
 		RN.fnc.camera.shoot(function () {
+				c('saved');
 				RN.currentTrip.saveLocal('tripimage', 1);
 			},
 			{
@@ -76,6 +77,7 @@ module.exports = RN.glb.gvCreator.extend({
 	},
 
 	render: function () {
+		c('render');
 		var self = this;
 		//load data in ejs
 		this.$el.html(this.templates.home({
