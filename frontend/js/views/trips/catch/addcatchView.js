@@ -5,8 +5,13 @@ module.exports = RN.glb.gvCreator.extend({
 	el: '.content',
 
 	initialize: function(){
-		if(typeof RN.currentTrip !== typeof undefined)
-			this.listenTo(RN.currentTrip, 'change:tripimage', this.render);
+		var self = this;
+		var checkExist = setInterval(function() {
+			if (RN.currentTrip) {
+				self.listenTo(RN.currentTrip, 'change:tripimage', self.render);
+				clearInterval(checkExist);
+			}
+		}, 100);
 	},
 
 	templates: {

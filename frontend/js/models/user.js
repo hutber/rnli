@@ -10,9 +10,6 @@ module.exports = function(){
 
 		},
 		initialize: function(){
-			//alert("Welcome to this world");
-
-			//this.listenTo( "change", this.profileimage, this );
 		},
 		setContacts: function(data){
 			this.set({

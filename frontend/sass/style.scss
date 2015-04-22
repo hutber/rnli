@@ -136,6 +136,22 @@ $headerHeight: 75px;
 	overflow-x: hidden;
 	height: 100%;
 //	padding-bottom: 25px;
+	& .loadingArea{
+		position: relative;
+		font-family: $headerFont;
+		display: block;
+		font-size: 1.5rem;
+		line-height: 2.3rem;
+		padding: 5px 25px;
+		background: #FFF;
+		text-align: center;
+		border-radius: 5px;
+		@include vertical-middle();
+
+		& > span  {
+
+		}
+	}
 }
 
 ///* #Footer ------------------------------------------------------------------------ */
