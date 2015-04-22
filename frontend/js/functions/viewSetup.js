@@ -23,6 +23,8 @@ module.exports = function () {
 		RN.router.on('route:' + me.url, function (param) {
 			//Update Title
 			RN.fnc.titlebar.title(me.title);
+			//c('router Name: '+me.name);
+			//c('_____________________________________________');
 			//render page
 			RN.glb.views[me.name].render(param);
 		});

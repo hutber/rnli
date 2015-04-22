@@ -5,7 +5,8 @@ module.exports = RN.glb.gvCreator.extend({
 	el: '.content',
 
 	initialize: function(){
-		this.listenTo(this, 'change:image', this.render);
+		var self = this;
+		this.listenTo(self, 'change:image', this.render);
 	},
 
 	image: null,
@@ -23,6 +24,7 @@ module.exports = RN.glb.gvCreator.extend({
 			self = this;
 		RN.fnc.camera.shoot(function () {
 				self.image = imageName;
+				self.render();
 			},
 			{
 				url: RN.glb.url.ajax + 'trip/uploadCatchImage',
@@ -94,6 +96,8 @@ module.exports = RN.glb.gvCreator.extend({
 			{
 				name: 'states',
 				displayKey: 'value',
-				source: self.substringMatcher(states)});
+				source: self.substringMatcher(states)
+			}
+		);
 	}
 });

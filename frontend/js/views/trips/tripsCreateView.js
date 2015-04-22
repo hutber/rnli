@@ -139,7 +139,6 @@ module.exports = RN.glb.gvCreator.extend({
 	render: function () {
 		//for local dev
 		if(RN.glb.url.envioment !== 'localApp') {
-
 			//reset old
 			RN.currentTrip.resetData();
 		}

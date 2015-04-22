@@ -10,7 +10,7 @@ module.exports = RN.glb.gvCreator.extend({
 	},
 
 	events: {
-		'click .addcatch': 'moveToCatch',
+		//'click .addcatch': 'moveToCatch',
 	},
 
 	saveFirstPageOfCatch : function(){

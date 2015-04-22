@@ -10,6 +10,9 @@ module.exports = {
 		//Updated previous hash
 		RN.glb.previoushash = RN.glb.hash;
 
+		//c('currentHash: ' + RN.glb.hash);
+		//c('newHash: ' + window.location.hash);
+
 		//Update the new hash
 		RN.glb.hash = window.location.hash.substring(1);
 		if(RN.glb.hash.length === 0) RN.glb.hash = 'index';

@@ -98,6 +98,10 @@ if (RN.isMobile){
 	};
 }
 
+window.onerror = function (errorMsg, url, lineNumber) {
+	console.info('Error: ' + errorMsg + ' Script: ' + url + ' Line: ' + lineNumber);
+}
+
 //Add function to turn form elements into object
 $.fn.serializeObject = function () {
 	var o = {};
