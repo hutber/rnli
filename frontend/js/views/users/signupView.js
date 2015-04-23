@@ -29,7 +29,6 @@ module.exports = RN.glb.gvCreator.extend({
 			}
 		});
 
-
 		if(!$('.signupForm .checkbox input').is(':checked')) {
 			$('.signupForm .checkbox').addClass('error');
 			noerror = false;
@@ -38,6 +37,12 @@ module.exports = RN.glb.gvCreator.extend({
 		if(this.validateEmail(values.email)!==true && values.email.length>0){
 			RN.fnc.popups.Dialog('Email Address', 'Please enter a valid email address');
 			$('input[name=email]').parent().addClass('error');
+			noerror = false;
+		}
+
+		if(values.pw !== values.cpw){
+			RN.fnc.popups.message.show('Please make sure your passwords match', 'bad');
+			$('input[name=pw], input[name=cpw]').parent().addClass('error');
 			noerror = false;
 		}
 
@@ -56,9 +61,13 @@ module.exports = RN.glb.gvCreator.extend({
 					RN.fnc.popups.message.show('Opps, sorry! The registration failed. Please try again?!... - ' + data.bad, 'bad');
 				},
 				success: function (data) {
-					if (data.error) {
-						RN.fnc.popups.message.show(data.error, 'bad');
+					if (data.status !== "good") {
+						RN.fnc.popups.message.show(data.message, data.status);
 						$('.btn.signup').removeAttr('disabled');
+						RN.fnc.login.doLogin.doAjax({
+							'email': data.uname,
+							'pword': values.pw
+						});
 					} else {
 						window.location.href = '#'
 					}

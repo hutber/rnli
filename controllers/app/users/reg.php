@@ -100,7 +100,7 @@ class reg extends controller
 				$numunamecheck = $dataStore->adminUsernameCheck($uname);
 				//first check if the user has changed email addresses then check email hasn't been used before
 
-				if ($numemailcheck > 0) {
+				if ($numemailcheck == 0) {
 					//If no errors then add user to database and send confirmation email
 					if ($error == false) {
 
@@ -149,28 +149,26 @@ class reg extends controller
 							}
 
 //							if($confirmed==0) {
-							$errors['status'] = 'good';
-							$errors['message'] = 'Registration complete, please log in';
+							$data['status'] = 'good';
+							$data['message'] = 'Registration complete, you are being automatically logged in.';
 //							}else{
 //								$data['good'] = "Thank you, you have been auto logged in.";
 //							}
-							$data['uname'] = $uname;
-							$data['previous'] = $numunamecheck;
 						} else {
-							$errors['status'] = 'bad';
-							$errors['message'] = 'Sorry, but the registration failed on our end';
+							$data['status'] = 'bad';
+							$data['message'] = 'Sorry, but the registration failed on our end';
 						}
 
 					}
 				}else{
-					$errors['status'] = 'bad';
-					$errors['message'] = 'Sorry but this email Address is already taken';
+					$data['status'] = 'bad';
+					$data['message'] = 'Sorry but this email Address is already taken';
 					$error = true;
 				}
 			}
 		}else{
-			$errors['status'] = 'bad';
-			$errors['message'] = 'Nothing was posted :/';
+			$data['status'] = 'bad';
+			$data['message'] = 'Nothing was posted :/';
 		}
 		print json_encode($data);
 	}
