@@ -63,13 +63,12 @@ module.exports = RN.glb.gvCreator.extend({
 				success: function (data) {
 					if (data.status !== "good") {
 						RN.fnc.popups.message.show(data.message, data.status);
+					} else {
 						$('.btn.signup').removeAttr('disabled');
 						RN.fnc.login.doLogin.doAjax({
-							'email': data.uname,
+							'email': values.email,
 							'pword': values.pw
 						});
-					} else {
-						window.location.href = '#'
 					}
 				}
 			});
