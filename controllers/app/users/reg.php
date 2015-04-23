@@ -53,8 +53,8 @@ class reg extends controller
 //			}
 			if(isset($token)) {
 				//first check if the user has changed email addresses then check email hasn't been used before
-				$currentEmail = $dataStore->getCurrentEmailOfUser($uid)[0]['email'];
-				if ($currentEmail != $email && $dataStore->sessionCheckEmailCheck($email, $token) != 1 && $dataStore->adminEmailCheck($email)) {
+				$currentEmail = $dataStore->getCurrentEmailOfUser($uid);
+				if ($currentEmail[0]['email'] != $email && $dataStore->sessionCheckEmailCheck($email, $token) != 1 && $dataStore->adminEmailCheck($email)) {
 					$data['error'] = 'Sorry but this email Address is already taken';
 //					$error = true;
 
