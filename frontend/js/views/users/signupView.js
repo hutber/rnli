@@ -60,7 +60,7 @@ module.exports = RN.glb.gvCreator.extend({
 						RN.fnc.popups.message.show(data.error, 'bad');
 						$('.btn.signup').removeAttr('disabled');
 					} else {
-						window.location.href = '#index'
+						window.location.href = '#'
 					}
 				}
 			});
