@@ -8,7 +8,7 @@ form(action="#{RN.glb.url.ajax}users/reg", class="editForm ajax")
     else
         .photoitemContainer
             img(src='http://'+RN.glb.url.cdn+'/uploads/profile/'+RN.user.get('uid')+'.jpg')
-    h3  Peronsal Details
+    h3 Personal Details
     +input({place:'First name', type: 'text', name:"fname", value:RN.user.get('fname')})
     +input({place:'Surname', type: 'text', name: "sname", value:RN.user.get('sname')})
     +input({place:'Email address', type: 'text', name: "email", value:RN.user.get('email')})
