@@ -95,7 +95,8 @@ class reg extends controller
 				}
 				//check email hasn't been used before
 				$numemailcheck = $dataStore->adminEmailCheck($email);
-				$uname = strtolower($fname.$sname);
+//				$uname = strtolower($fname.$sname);
+				$uname = $email;
 				$numunamecheck = $dataStore->adminUsernameCheck($uname);
 				//first check if the user has changed email addresses then check email hasn't been used before
 
