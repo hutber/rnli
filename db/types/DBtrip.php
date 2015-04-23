@@ -198,7 +198,7 @@ Table of Contents
 
     function getTrips ($uid)
     {
-        $sql = sprintf("SELECT * FROM trip t, location l WHERE t.uid = %d and t.id = l.tid ORDER BY t.date DESC;", $uid);
+        $sql = sprintf("SELECT * FROM trip t, location l WHERE t.uid = %d and t.id = l.tid GROUP BY t.id ORDER BY t.date DESC;", $uid);
         return $this->db->get($sql);
     }
 
