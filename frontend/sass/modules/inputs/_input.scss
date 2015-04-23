@@ -295,7 +295,7 @@ input[type=checkbox] {
 		-webkit-transition: left 0.15s ease-out;
 		transition: left 0.15s ease-out;
 	}
-	.addcatch & {
+	.addcatch &, .trippreviousaddcatch & {
 		.switch-label {
 			left: -105px;
 			width: 145px;

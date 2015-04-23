@@ -1083,10 +1083,10 @@ input[type=checkbox] {
     background: #FFF;
     -webkit-transition: left 0.15s ease-out;
     transition: left 0.15s ease-out; }
-  .addcatch .switch .switch-label {
+  .addcatch .switch .switch-label, .trippreviousaddcatch .switch .switch-label {
     left: -105px;
     width: 145px; }
-  .addcatch .switch .switch-label-on {
+  .addcatch .switch .switch-label-on, .trippreviousaddcatch .switch .switch-label-on {
     left: 35px;
     width: 170px; }
 

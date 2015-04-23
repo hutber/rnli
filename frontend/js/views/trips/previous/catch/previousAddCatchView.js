@@ -9,10 +9,51 @@ module.exports = RN.glb.gvCreator.extend({
 		home: require('../../../../../views/trips/catch/addcatch.jade'),
 	},
 
-	events: {
-		//'click .addcatch': 'moveToCatch',
+	image: null,
+
+	initialize: function(){
+		var self = this;
+		this.listenTo(self, 'change:image', this.render);
 	},
 
+	events: {
+		'click .addcatchphoto': 'addCatchPhoto',
+	},
+
+	addCatchPhoto : function(ev){
+		var imageName = Date.now(),
+			self = this;
+		RN.fnc.camera.shoot(function () {
+				self.image = imageName;
+				var data = {
+					species: $('#species').val(),
+					weightType: $('input[name=weightsystem]:checked').val(),
+					weight1: $('select[name=lbs]').val(),
+					weight2: $('select[name=oz]').val(),
+					height1: $('select[name=ft]').val(),
+					height2: $('select[name=in]').val(),
+					released: $('select[name=released]').val(),
+				};
+				self.render();
+
+				$('#species').val(data.species)
+				$('input[name=weightsystem]:checked').val(data.weightType)
+				$('select[name=lbs]').val(data.weight1)
+				$('select[name=oz]').val(data.weight2)
+				$('select[name=ft]').val(data.height1)
+				$('select[name=in]').val(data.height2)
+				$('select[name=released]').val(data.released)
+			},
+			{
+				url: RN.glb.url.ajax + 'trip/uploadCatchImage',
+				params: {
+					uid: RN.user.get('uid'),
+					tip: RN.previousTrip.get('tid'),
+					imagename: imageName,
+				}
+			}
+		)
+	},
 	saveFirstPageOfCatch : function(){
 
 		var dataToSave = {
@@ -61,7 +102,8 @@ module.exports = RN.glb.gvCreator.extend({
 		var self = this;
 		//load data in ejs
 		this.$el.html(this.templates.home({
-			ldsDefault: -1
+			ldsDefault: -1,
+			image: self.image
 		}));
 
 		var states = ['Angler fish','Bass','Bream Black','Bream Red','Bream Gilthead','Brill','Bull Huss','Catfish','Coalfish','Cod','Dab','Eel Conger','Flounder','Garfish','Gurnard Red','Gurnard Tub','Haddock','John Dory','LS Dogfish','Ling','Mackerel','Megrim','Monkfish','Mullet (Thick Lipped)','Mullet (Golden Grey)','Mullet (Think Lipped)','Mullet (Red)','Plaice','Pollack','Pouting','Ray (Blonde)','Ray (S E / Painted)','Ray (Spotted/Homelyn)','Ray (Sting)','Ray (Thornback)','Ray (Undulated)','Rockling','Scad','Shark (Blue)','Shark (Mako)','Shark (Porbeagle)','Shark (Thresher)','Silver Eel','Smoothhounds','Sole','Spur Dog','Tope','Trigger Fish','Turbot','Weever','Whiting','Wrasse (Ballan)','Wrasse (Corkwing)','Wrasse (Cuckoo)'
@@ -75,6 +117,8 @@ module.exports = RN.glb.gvCreator.extend({
 			{
 				name: 'states',
 				displayKey: 'value',
-				source: self.substringMatcher(states)});
+				source: self.substringMatcher(states)
+			}
+		);
 	}
 });
