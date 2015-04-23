@@ -225,7 +225,7 @@ class returnData extends Controller {
                     'hourlyWeather' => json_decode($hourlyWeather->SiteRep->Wx->Param),
 
                     //Sea Details-----------------------------------------/
-                    'seatemperature'=> $seaWeather[0]->St,
+					'seatemperature'=> $threehourWeather[0]->St,
 
                     //Weather Details-----------------------------------------/
                     'readingtime'=> $threehourWeather[0]->{'$'},
@@ -238,7 +238,6 @@ class returnData extends Controller {
                     'precipitationprobability'=> $threehourWeather[0]->Pp,
                     'pressuretendency'=> $threehourWeather[0]->Pt,
                     'windspeed'=> $threehourWeather[0]->S,
-                    'seatemperature'=> $threehourWeather[0]->St,
                     'temperature'=> $threehourWeather[0]->T,
                     'maxUVindex'=> $threehourWeather[0]->U,
                     'visibility'=> $threehourWeather[0]->V,
