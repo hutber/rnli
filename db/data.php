@@ -47,7 +47,7 @@ class Data
 	function checkUser($email, $pword)
 	{ //Check username via username
 		$sql = sprintf(
-			"SELECT uid,fname,sname,email,version,confirmed,regdate, profileimage
+			"SELECT uid,fname,sname,email, pnumber, fishingtype,version,confirmed,regdate, profileimage
 			FROM users
 			WHERE email='%s' AND pword = '%s'
 			GROUP BY uid;", $this->db->escape($email), $this->db->escape($pword));
@@ -56,7 +56,7 @@ class Data
 	function checkUserName($email, $pword)
 	{ //Check username via username
 		$sql = sprintf(
-			"SELECT uid,fname,sname,email,version,confirmed,regdate
+			"SELECT uid,fname,sname,email,version,confirmed, pnumber, fishingtype, regdate
 			FROM users
 			WHERE username='%s' AND pword = '%s'
 			GROUP BY uid;", $this->db->escape($email), $this->db->escape($pword));

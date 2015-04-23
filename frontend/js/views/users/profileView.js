@@ -66,8 +66,10 @@ module.exports = RN.glb.gvCreator.extend({
 			myself = this;
 			values['uid'] = localStorage.uid;
 
-		delete values['pw'];
-		delete values['cpw'];
+		if(values['pw'].length === 0) {
+			delete values['pw'];
+			delete values['cpw'];
+		}
 
 		//check for all errors
 		me.find('.error').removeClass('error');
@@ -85,7 +87,7 @@ module.exports = RN.glb.gvCreator.extend({
 			noerror = false;
 		}
 
-		if(values.pw!==values.cpw){
+		if(values.pw!==values.cpw || values.cpw!==values.pw){
 			RN.fnc.popups.message.show('Please make sure your passwords match', 'notice');
 			$('input[name=pw]').parent().addClass('error');
 			noerror = false;

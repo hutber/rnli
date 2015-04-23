@@ -54,6 +54,8 @@ module.exports = {
 		localStorage.fname = data.fname;
 		localStorage.sname = data.sname;
 		localStorage.email = data.email;
+		localStorage.pnumber = data.pnumber,
+		localStorage.fishingtype = localStorage.fishingtype,
 		localStorage.profileimage = data.profileimage;
 		localStorage.version = data.version;
 		localStorage.contacts = JSON.stringify(data.contacts);
@@ -73,6 +75,8 @@ module.exports = {
 				fname: localStorage.fname,
 				sname: localStorage.sname,
 				email: localStorage.email,
+				pnumber: localStorage.pnumber,
+				fishingtype: localStorage.fishingtype,
 				token: localStorage.token,
 				uid: localStorage.uid,
 				version: localStorage.version,
@@ -91,6 +95,8 @@ module.exports = {
 				fname: data.fname,
 				sname: data.sname,
 				email: data.email,
+				pnumber: data.pnumber,
+		        fishingtype: data.fishingtype,
 				token: data.token,
 				uid: data.uid,
 				version: data.version,

@@ -14,6 +14,8 @@ form(action="#{RN.glb.url.ajax}users/reg", class="editForm ajax")
     +input({place:'Email address', type: 'text', name: "email", value:RN.user.get('email')})
     +input({place:'Create password', type: 'password', name: "pw"})
     +input({place:'Confirm password', type: 'password', name: "cpw"})
+    +input({place:'Phone Number', type: 'text', name: "pnumber", value:RN.user.get('pnumber')})
+    +input({place:'Preferred type of fishing', type: 'text', name: "fishingtype", id: 'fishingtype', value:RN.user.get('fishingtype')})
     +input({type: 'hidden', value:RN.glb.device, name:'device'})
     +input({type: 'hidden', value:RN.glb.version, name:'version'})
     h3.econtact SAFETY NET

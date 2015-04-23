@@ -72,13 +72,15 @@ class DBregistration extends Data {
         return $this->db->query($sql);
     }
 
-    function updateUsers($fname, $sname, $email, $pword, $device, $version, $pkey)
+    function updateUsers($fname, $sname, $email, $number, $fishingtype, $pword, $device, $version, $pkey)
     {
         $sql = sprintf(
             "UPDATE `users`
 			SET `fname` = '%s',
 				`sname` = '%s',
 				`email` = '%s',
+				`pnumber` = '%s',
+				`fishingtype` = '%s',
 				`pword` = '%s',
 				`device` = '%s',
 				`version` = '%s'
@@ -86,6 +88,8 @@ class DBregistration extends Data {
 			$fname,
 			$sname,
 			$this->db->escape($email),
+			$number,
+			$this->db->escape($fishingtype),
 			$pword,
 			$device,
 			$version,
@@ -157,6 +161,14 @@ class DBregistration extends Data {
             "SELECT email FROM users WHERE email='%s';",$this->db->escape($email)
         );
         return $this->db->countRows($this->db->query($sql));
+    }
+    //yet to work out what this is for
+    function getCurrentEmailOfUser($uid)
+    {
+        $sql = sprintf(
+            "SELECT email FROM users WHERE uid='%s';",$this->db->escape($uid)
+        );
+        return $this->db->get($sql);
     }
 
     //yet to work out what this is for

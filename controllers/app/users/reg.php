@@ -23,6 +23,8 @@ class reg extends controller
 			$device = $_POST['device'];
 			$version = $_POST['version'];
 			$email = $_POST['email'];
+			$number = $_POST['pnumber'];
+			$fishingtype = $_POST['fishingtype'];
 			$uid = $_POST['uid'];
 			$terms = $_POST['acc_tc'];
 			$token = $_POST['token'];
@@ -51,7 +53,8 @@ class reg extends controller
 //			}
 			if(isset($token)) {
 				//first check if the user has changed email addresses then check email hasn't been used before
-				if ($dataStore->sessionCheckEmailCheck($email, $token) != 1 && $dataStore->adminEmailCheck($email)) {
+				$currentEmail = $dataStore->getCurrentEmailOfUser($uid)[0]['email'];
+				if ($currentEmail != $email && $dataStore->sessionCheckEmailCheck($email, $token) != 1 && $dataStore->adminEmailCheck($email)) {
 					$data['error'] = 'Sorry but this email Address is already taken';
 //					$error = true;
 
@@ -84,7 +87,7 @@ class reg extends controller
 						$DBuser->insertContact($_POST['uid'], $item['name'], $item['number']);
 					}
 
-					$dataStore->updateUsers($fname, $sname, $email, $pword, $device, $version, $token);
+					$dataStore->updateUsers($fname, $sname, $email, $number, $fishingtype, $pword, $device, $version, $token);
 					$data['contacts'] = $DBuser->getContacts($uid);
 					$data['good'] = "Details have been saved";
 				}

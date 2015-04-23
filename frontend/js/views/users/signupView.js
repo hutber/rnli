@@ -40,8 +40,8 @@ module.exports = RN.glb.gvCreator.extend({
 			noerror = false;
 		}
 
-		if(values.pw !== values.cpw){
-			RN.fnc.popups.message.show('Please make sure your passwords match', 'bad');
+		if(values.pw!==values.cpw || values.cpw!==values.pw){
+			RN.fnc.popups.message.show('Please make sure your passwords match', 'notice');
 			$('input[name=pw], input[name=cpw]').parent().addClass('error');
 			noerror = false;
 		}
