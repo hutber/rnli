@@ -47,7 +47,7 @@ module.exports = function () {
 			//jamie
 			var yourAjaxCallback = function(response) {
 				gps.bgGeo.finish();
-				c('ajax');
+				c('ajax callback');
 			};
 
 			var callbackFn = function(location) {
@@ -68,14 +68,21 @@ module.exports = function () {
 
 			// BackgroundGeoLocation is highly configurable.
 			gps.bgGeo.configure(callbackFn, failureFn, {
-				desiredAccuracy: 500, // <-- 0: highest power, highest accuracy; 1000: lowest power, lowest accuracy.
-				stationaryRadius: 0,
-				distanceFilter: 0, // <-- minimum distance between location events
-				activityType: 'AutomotiveNavigation', // <-- [ios]
-				locationUpdateInterval: 300, // <-- [android] minimum time between location updates, used in conjunction with #distanceFilter
-				activityRecognitionInterval: 1, // <-- [android] sampling-rate activity-recognition system for movement/stationary detection
-				debug: true, // <-- enable this hear sounds, see notifications during life-cycle events.
-				stopOnTerminate: false // <-- enable this to clear background location settings when the app terminates
+				debug: true, // <-- enable this hear sounds for background-geolocation life-cycle.
+				desiredAccuracy: 0,
+				stationaryRadius: 50,
+				distanceFilter: 50,
+				locationUpdateInterval: 5000,
+				activityRecognitionInterval: 10000,
+				stopTimeout: 0,
+				forceReload: true,      // <-- [Android] If the user closes the app **while location-tracking is started** , reboot app (WARNING: possibly distruptive to user)
+				stopOnTerminate: false, // <-- [Android] Allow the background-service to run headless when user closes the app.
+				startOnBoot: true,      // <-- [Android] Auto start background-service in headless mode when device is powered-up.
+				activityType: 'AutomotiveNavigation',
+				url: 'http://posttestserver.com/post.php?dir=cordova-background-geolocation',
+				params: {
+					"tid": RN.currentTrip.get('tid')
+				}
 			});
 		},
 		watchPosition: function() {
@@ -88,9 +95,9 @@ module.exports = function () {
 				gps.setCurrentLocation(location.coords);
 			}, function() {}, {
 				enableHighAccuracy: true,
-				maximumAge: 500,
-				frequency: 100,
-				timeout: 100
+				maximumAge: 5000,
+				frequency: 30000,
+				timeout: 10000
 			});
 		},
 		stopPositionWatch: function() {
