@@ -44,6 +44,8 @@ class takeGPS extends controller {
 
 		$data = json_decode($_POST);
 		$location = json_decode(file_get_contents('php://input'))->location;
+		$uid = json_decode(file_get_contents('php://input'))->uid;
+		$tid = json_decode(file_get_contents('php://input'))->tid;
 
 		$accuracy = $location->accuracy;
 		$altitude = $location->altitude;
@@ -53,7 +55,7 @@ class takeGPS extends controller {
 		$longitude = $location->longitude;
 		$speed = $location->speed;
 
-		$dataStore -> addGPS($accuracy, $altitude, $altitudeAccuracy, $heading, $latitude, $longitude, $speed);
+		$dataStore -> addGPS($uid, $tid, $accuracy, $altitude, $altitudeAccuracy, $heading, $latitude, $longitude, $speed);
 
 	}
 

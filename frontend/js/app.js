@@ -23,10 +23,6 @@ var init = function(){
 	//start backbone app
 	Backbone.history.start();
 
-	setInterval(function(){
-		//check GPS
-		RN.fnc.events.checkGPS();
-	}, 3000);
 };
 
 $(document).ready(function() {

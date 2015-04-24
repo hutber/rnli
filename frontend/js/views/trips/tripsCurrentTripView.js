@@ -21,15 +21,21 @@ module.exports = RN.glb.gvCreator.extend({
 		ev.hide();
 		$('.endtrip').show();
 
-		if($('input[name=gpstracking]:checked')[0].id==="gpstrackingyes" && RN.glb.url.envioment==="liveApp") {
-			//start gps
-			RN.gps.onResume();
-		}
-
 		var finalData = RN.currentTrip.prePareDataForDB();
+		//write to DB to get trip ID
 		RN.currentTrip.startTrip(finalData, function(data){
+			//Once AJAX has finished
 			RN.currentTrip.saveLocal('tid', data.thistrip);
 			RN.currentTrip.saveLocal('started', true);
+
+			//init the gps tracking
+			RN.fnc.events.checkGPS();
+
+			//Start GPS Tracking
+			if($('input[name=gpstracking]:checked')[0].id==="gpstrackingyes" && RN.glb.url.envioment==="liveApp") {
+				//start gps
+				RN.gps.onResume();
+			}
 		});
 	},
 	end : function(ev){
@@ -146,8 +152,6 @@ module.exports = RN.glb.gvCreator.extend({
 		}
 
 		if(RN.currentTrip.get('started') !== null) {
-			//check GPS
-			RN.fnc.events.checkGPS();
 
 			$('.starttrip').hide();
 			$('.endtrip').show();

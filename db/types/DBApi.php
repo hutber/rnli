@@ -55,11 +55,13 @@ class DBApi extends Data {
         return $this->db->get($sql);
     }
 
-    function addGPS($accuracy, $altitude, $altitudeAccuracy, $heading, $latitude, $longitude, $speed)
+    function addGPS($uid, $tid, $accuracy, $altitude, $altitudeAccuracy, $heading, $latitude, $longitude, $speed)
     {
         //Now add data
         $sql = sprintf(
             "INSERT INTO  `rnli`.`gps` (
+                    `uid` ,
+                    `tid` ,
                     `accuracy` ,
                     `altitude` ,
                     `altitudeAccuracy` ,
@@ -75,9 +77,11 @@ class DBApi extends Data {
                     '%s' ,
                     '%s' ,
                     '%s' ,
+                    '%s' ,
+                    '%s' ,
                     '%s'
                 );",
-            $accuracy, $altitude, $altitudeAccuracy, $heading, $latitude, $longitude, $speed
+            $uid, $tid, $accuracy, $altitude, $altitudeAccuracy, $heading, $latitude, $longitude, $speed
         );
         $this->db->query($sql);
     }

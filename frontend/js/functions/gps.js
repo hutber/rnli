@@ -81,6 +81,7 @@ module.exports = function () {
 				activityType: 'AutomotiveNavigation',
 				url: 'http://posttestserver.com/post.php?dir=cordova-background-geolocation',
 				params: {
+					"uid": RN.user.get('uid'),
 					"tid": RN.currentTrip.get('tid')
 				}
 			});

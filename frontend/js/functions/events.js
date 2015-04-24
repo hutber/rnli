@@ -24,9 +24,10 @@ module.exports = {
 		RN.fnc.heights.changeHeightofContent();
 	},
 	checkGPS : function(){
-		if(RN.glb.url.envioment==="liveApp" && !RN.gps && typeof window.plugins.backgroundGeoLocation !== typeof undefined) {
+		if(RN.glb.url.envioment==="liveApp" && typeof window.plugins.backgroundGeoLocation !== typeof undefined) {
 			//Now lets start up GPS tracking
 			RN.gps = require('./gps')();
+			c('init', RN.currentTrip.get('tid'));
 		}
 	},
 	ajaxSetup: function(){
