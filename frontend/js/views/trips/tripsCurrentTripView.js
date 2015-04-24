@@ -29,6 +29,7 @@ module.exports = RN.glb.gvCreator.extend({
 		var finalData = RN.currentTrip.prePareDataForDB();
 		RN.currentTrip.startTrip(finalData, function(data){
 			RN.currentTrip.saveLocal('tid', data.thistrip);
+			RN.currentTrip.saveLocal('started', true);
 		});
 	},
 	end : function(ev){
@@ -144,7 +145,7 @@ module.exports = RN.glb.gvCreator.extend({
 			$('.savetrip').show();
 		}
 
-		if(RN.currentTrip.get('tid') !== null) {
+		if(RN.currentTrip.get('started') !== null) {
 			//check GPS
 			RN.fnc.events.checkGPS();
 

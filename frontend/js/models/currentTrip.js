@@ -20,6 +20,7 @@ module.exports = function(){
 				tripimage:localStorage.ctriptripimage,
 				hazard:localStorage.ctriphazard,
 				date:localStorage.ctripdate,
+				started:localStorage.ctripstarted,
 				details:localStorage.ctripdetails,
 				postcode:localStorage.ctrippostcode,
 				notes:localStorage.ctripnotes,
