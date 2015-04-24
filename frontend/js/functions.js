@@ -18,5 +18,6 @@ module.exports = {
 	catch: require('./functions/catch')(),
 	notes: require('./functions/notes')(),
 	suncal: require('./functions/suncal')(),
-	camera: require('./functions/camera')()
+	camera: require('./functions/camera')(),
+	notices: require('./functions/notices')()
 }

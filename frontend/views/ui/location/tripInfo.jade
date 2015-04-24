@@ -66,11 +66,13 @@ mixin tripInfo(data)
                 h3
                     i(class='icon-location')
                     | TRACK ME
+                    i(class='icon-info-circled-alt notice-box', data-id="track-me")
                     +switch('gpstracking', 'no', 'yes')
             .section.large.safetynetcontrols
                 h3
                     i(class='icon-user')
                     | ACTIVATE SAFETY NET
+                    i(class='icon-info-circled-alt notice-box', data-id="safety-net")
                     +switch('safetynet', 'no', 'yes')
         .infobox
         .section.tripControls

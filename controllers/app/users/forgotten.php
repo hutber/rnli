@@ -34,7 +34,7 @@ class forgotten extends controller {
 				$subject = 'RNLI Safety App Forgotten Details';
 
                 //Fixture Details Array
-                $email_vars = array('title' => 'RNLI Safety App Forgotten Details', 'code' => $confirmation_code, 'fname' => $fname);
+                $email_vars = array('title' => 'Password reset request', 'code' => $confirmation_code, 'fname' => $fname, 'email' => $email);
 
 				//Build Up email details
 				$registars_details = array();
@@ -43,17 +43,17 @@ class forgotten extends controller {
 				$registars_details[0]['type'] = $from_group;
 
                 //Do oop function
-                $myMail = new Email('[RNLI] Forgotten Details', $subject, $from_group, $from_address, $article_date, $email_vars, $registars_details);
+                $myMail = new Email('RNLI Track My Catch', $subject, $from_group, $from_address, $article_date, $email_vars, $registars_details);
                 //$subject, $title, $from_group, $from, $email_date, $email_vars,$email_notifications
                 //(Email Subject, Emails Title, email type aka which template to use, From Address, Email Date)
                 $myMail->createEmailVars();
                 $myMail->send();
 
 				$errors['status'] = 'good';
-				$errors['message'] = 'Mail has been sent, please make sure you check your Junk Mail';
+				$errors['message'] = 'We\'ve sent you an email. If you don\'t see it in your inbox, do check your junk folder.';
             }else{
                 $errors['status'] = 'bad';
-                $errors['message'] = 'Sorry, we could not find this username';
+                $errors['message'] = 'Sorry, we could not find this E-Mail Address';
 			}
         }
 		header('Content-Type: application/javascript');

@@ -7,7 +7,7 @@ if RN.trips.get('trips') !== null
         .tripMap
             +airsea(airsea)
     each val, index in RN.trips.get('trips')
-        - var newDate = function(data){ c(data);
+        - var newDate = function(data){
         -    return data;
         - }(val.date);
         +tripBox(val,moment(newDate).format('MMMM Do YYYY'))

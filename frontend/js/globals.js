@@ -21,11 +21,17 @@ module.exports =  function() {
 			'click .trippreviousaddcatch': 'nextPreviousCatch',
 			'click .trippreviousconfirmcatch': 'savePreviousCatch',
 			'click .tripfooter a': 'updateSelected',
+			'click .notice-box': 'openNotice',
 			'click .header .left': 'workOutBack'
 		},
 		$header: null,
 		templates: {
 			login: require('../views/shell.jade')
+		},
+		openNotice : function(ev){
+			var ev = $(ev.currentTarget),
+				type = ev.data('id');
+			RN.fnc.notices.open(type);
 		},
 		updateSelected : function(ev){
 			var ev = $(ev.currentTarget);
