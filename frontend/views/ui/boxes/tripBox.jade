@@ -1,4 +1,4 @@
-mixin tripBox(data)
+mixin tripBox(data, date)
    - var currentCatchItem = function(){
    -     var i = 0;
    -     while (i < RN.user.get('catch').length) {
@@ -16,7 +16,7 @@ mixin tripBox(data)
                img(src='img/placeholder.gif')
          .text
             h3 #{data.name}
-            .item #{data.date}
+            .item #{date}
             +rating(data.rating, 'disabled')
          .icon
             i(class='icon-right-open')
