@@ -102,7 +102,7 @@ Table of Contents
     }
 
 //* #GPS   -------------------------------------------------- */
-    function insertGPS($uid,$tid,$accuracy, $altitude, $altitudeAccuracy, $heading, $latitude, $longitude, $speed)
+    function insertGPS($uid,$tid,$accuracy, $altitude, $altitudeAccuracy, $heading, $latitude, $longitude, $speed, $time)
     {
         //Now add data
         $sql = sprintf(
@@ -115,7 +115,8 @@ Table of Contents
                     `heading` ,
                     `latitude` ,
                     `longitude` ,
-                    `speed`
+                    `speed`,
+                    `recordedtime`
                 )
                 VALUES (
                     '%s' ,
@@ -126,9 +127,10 @@ Table of Contents
                     '%s' ,
                     '%s' ,
                     '%s' ,
+                    '%s',
                     '%s'
                 );",
-            $uid,$tid,$accuracy, $altitude, $altitudeAccuracy, $heading, $latitude, $longitude, $speed
+            $uid,$tid,$accuracy, $altitude, $altitudeAccuracy, $heading, $latitude, $longitude, $speed, $time
         );
         $this->db->query($sql);
     }

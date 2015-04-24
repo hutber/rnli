@@ -46,17 +46,14 @@ module.exports = function () {
 				gps.bgGeo = window.plugins.backgroundGeoLocation;
 			//jamie
 			var yourAjaxCallback = function(response) {
-				console.info(response);
-				c('ajax');
 				gps.bgGeo.finish();
+				c('ajax');
 			};
 
 			var callbackFn = function(location) {
 				console.log('[js] BackgroundGeoLocation callback:  ' + location.latitude + ',' + location.longitude);
 				// Update our current-position marker.
 				gps.setCurrentLocation(location);
-				c('callbackFn');
-
 				yourAjaxCallback.call(this);
 			};
 
@@ -71,14 +68,13 @@ module.exports = function () {
 
 			// BackgroundGeoLocation is highly configurable.
 			gps.bgGeo.configure(callbackFn, failureFn, {
-				desiredAccuracy: 0,// <-- 0:  highest power, highest accuracy; 1000:  lowest power, lowest accuracy.
-				stationaryRadius: 0,notificationTitle: 'RNLI', // <-- android only, customize the title of the notification
-				notificationText: 'GPS Tracking On', // <-- android only, customize the text of the notification
-				distanceFilter: 0,// <-- minimum distance between location events
-				activityType: 'AutomotiveNavigation',// <-- [ios]
-				locationUpdateInterval: 0,// <-- [android] minimum time between location updates, used in conjunction with #distanceFilter
-				activityRecognitionInterval: 1000,// <-- [android] sampling-rate activity-recognition system for movement/stationary detection
-				debug: true,// <-- enable this hear sounds, see notifications during life-cycle events.
+				desiredAccuracy: 500, // <-- 0: highest power, highest accuracy; 1000: lowest power, lowest accuracy.
+				stationaryRadius: 0,
+				distanceFilter: 0, // <-- minimum distance between location events
+				activityType: 'AutomotiveNavigation', // <-- [ios]
+				locationUpdateInterval: 300, // <-- [android] minimum time between location updates, used in conjunction with #distanceFilter
+				activityRecognitionInterval: 1, // <-- [android] sampling-rate activity-recognition system for movement/stationary detection
+				debug: true, // <-- enable this hear sounds, see notifications during life-cycle events.
 				stopOnTerminate: false // <-- enable this to clear background location settings when the app terminates
 			});
 		},
@@ -92,9 +88,9 @@ module.exports = function () {
 				gps.setCurrentLocation(location.coords);
 			}, function() {}, {
 				enableHighAccuracy: true,
-				maximumAge: 5000,
-				frequency: 10000,
-				timeout: 10000
+				maximumAge: 500,
+				frequency: 100,
+				timeout: 100
 			});
 		},
 		stopPositionWatch: function() {
@@ -106,17 +102,17 @@ module.exports = function () {
 		},
 		onPause: function() {
 			console.log('- Stop');
-			//gps.stopPositionWatch();
+			gps.stopPositionWatch();
 			gps.bgGeo.stop();
 		},
 		onResume: function() {
 			console.log('- Start');
 			gps.bgGeo.start(function(){
-				c('starting');
+
 			}, function () {
 				c('failed');
 			});
-			//gps.watchPosition();
+			gps.watchPosition();
 		},
 		// Update DOM on a Received Event
 		setCurrentLocation: function(location) {
@@ -132,7 +128,6 @@ module.exports = function () {
 	};
 	if(RN.glb.url.envioment==="liveApp") {
 		gps.configureBackgroundGeoLocation();
-		gps.bgGeo.changePace(true)
 	};
 	return gps;
 };

@@ -3,7 +3,6 @@ mixin  rating(data, options)
         .stars
             form(action='')
                 - var i = 5;
-                - c(typeof i);
                 while i > 0
                     - checked = false;
                     - if(i===parseInt(data)) var checked = true;
