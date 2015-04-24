@@ -95,7 +95,7 @@ module.exports = RN.glb.gvCreator.extend({
 			}else if (localStorage.ctripwhen === "future"){
 				$('.middle h1').text('FUTURE TRIP')
 			}
-
+			
 			if(currentLocationData === 'null'){
 				//for the user home
 				RN.router.navigate('createtrip ', true);
@@ -144,7 +144,7 @@ module.exports = RN.glb.gvCreator.extend({
 			$('.savetrip').show();
 		}
 
-		if(typeof localStorage.gps !== typeof undefined) {
+		if(RN.currentTrip.get('tid') !== null) {
 			//check GPS
 			RN.fnc.events.checkGPS();
 
