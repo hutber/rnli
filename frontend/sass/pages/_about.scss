@@ -35,8 +35,26 @@
 		padding: 10px 0;
 	}
 }
-.abouthome {
-	.content {
+.contacts {
+	h3 {
+		margin: 2px 0;
+		font-size: 1.1rem;
+	}
+
+	ul {
+		list-style: none;
 		margin: 0;
+	}
+	.aboutContent div {
+		@include clear;
+	}
+	.contactDeail {
+		margin: 5px 0;
+	}
+	.title {
+		@include span (5 of 12);
+	}
+	.details {
+		@include span (7 of 12 last);
 	}
 }
