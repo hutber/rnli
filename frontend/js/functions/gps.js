@@ -69,22 +69,30 @@ module.exports = function () {
 			// BackgroundGeoLocation is highly configurable.
 			gps.bgGeo.configure(callbackFn, failureFn, {
 				debug: true, // <-- enable this hear sounds for background-geolocation life-cycle.
-				desiredAccuracy: 0,
-				stationaryRadius: 50,
-				distanceFilter: 50,
-				locationUpdateInterval: 5000,
-				activityRecognitionInterval: 10000,
+				desiredAccuracy: 500,
+				stationaryRadius: 0,
+				distanceFilter: 0,
+				locationUpdateInterval: 10,
+				activityRecognitionInterval: 10,
 				stopTimeout: 0,
 				forceReload: true,      // <-- [Android] If the user closes the app **while location-tracking is started** , reboot app (WARNING: possibly distruptive to user)
 				stopOnTerminate: false, // <-- [Android] Allow the background-service to run headless when user closes the app.
 				startOnBoot: true,      // <-- [Android] Auto start background-service in headless mode when device is powered-up.
 				activityType: 'AutomotiveNavigation',
-				url: 'http://posttestserver.com/post.php?dir=cordova-background-geolocation',
+				url: 'http://rnli.hutber.com/api/location/takeGPS',
 				params: {
 					"uid": RN.user.get('uid'),
 					"tid": RN.currentTrip.get('tid')
 				}
 			});
+		},
+		timer: null,
+		startWatchPosition: function () {
+			gps.timer = setTimeout(gps.watchPosition, 30000);
+		},
+		stopWatchPosition: function () {
+			gps.stopPositionWatch();
+			clearTimeout(gps.timer);
 		},
 		watchPosition: function() {
 			var fgGeo = window.navigator.geolocation;
@@ -110,7 +118,7 @@ module.exports = function () {
 		},
 		onPause: function() {
 			console.log('- Stop');
-			gps.stopPositionWatch();
+			gps.stopWatchPosition();
 			gps.bgGeo.stop();
 		},
 		onResume: function() {
@@ -120,10 +128,11 @@ module.exports = function () {
 			}, function () {
 				c('failed');
 			});
-			gps.watchPosition();
+			gps.startWatchPosition();
 		},
 		// Update DOM on a Received Event
 		setCurrentLocation: function(location) {
+			c('Running Watch');
 			gps.addToLocalStorage(location);
 
 			if (gps.previousLocation) {

@@ -221,7 +221,7 @@ module.exports = function (){
 			name: 'legalView',
 			path: require('../views/about/legalView'),
 			url: 'legal',
-			title: 'Lega Disclaimer'
+			title: 'LEGAL DISCLAIMER'
 		}
 		,{
 			name: 'rateView',
