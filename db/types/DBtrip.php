@@ -209,4 +209,10 @@ Table of Contents
         $sql = sprintf("UPDATE  `rnli`.`trip` SET  `hazard` =  '%s' WHERE  `trip`.`id` =%d;", $hazard, $id);
         return $this->db->get($sql);
     }
+    function updateRating ($rating, $id)
+    {
+        $sql = sprintf("UPDATE  `rnli`.`trip` SET  `rating` =%d WHERE  `trip`.`id` =%d;
+", $rating, $id);
+        return $this->db->get($sql);
+    }
 }

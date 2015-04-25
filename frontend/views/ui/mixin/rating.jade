@@ -1,5 +1,5 @@
-mixin  rating(data, options)
-    .rating
+mixin  rating(data, options, classes)
+    .rating(class=classes)
         .stars
             form(action='')
                 - var i = 5;

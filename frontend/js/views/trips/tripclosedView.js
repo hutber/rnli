@@ -8,11 +8,52 @@ module.exports = RN.glb.gvCreator.extend({
 	},
 	events: {
 		'click .retry': 'render',
+		'click .closedTrip input': 'addStarRating',
+		'click .saverating': 'saveRating',
 	},
+
+	rating: null,
+
+	addStarRating : function(ev){
+		var ev = $(ev.currentTarget);
+
+		this.rating = ev.index() / 2;
+c(this.rating);
+		$('.saverating').removeClass('none');
+	},
+
+	saveRating : function(ev){
+		var ev = $(ev.currentTarget),
+			self = this;
+
+		$.ajax({
+			url: RN.glb.url.api + 'updateRating',
+			type: 'POST',
+			dataType: 'json',
+			data: {
+				id: RN.trips.get('trips')[0].id,
+				rating: self.rating
+			},
+			error: function (data) {
+				c('error');
+			},
+			success: function (data) {
+				if (data.error) {
+					RN.fnc.popups.message.show(data.error, 'bad');
+				} else {
+					RN.trips.get('trips')[0].rating = ""+data;
+					$('.saverating').addClass('none');
+				}
+			}
+		});
+	},
+
 	render: function () {
 
+		//get last trip
 		var currentTrip = RN.trips.get('trips')[0];
 
+		//output last trip
 		this.$el.html(this.templates.home({
 			data : currentTrip
 		}));

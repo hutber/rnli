@@ -6,4 +6,5 @@ include ../mixins
     +map(data,'plain')
     .section.large.gpscontrols
         h3  RATE YOUR TRIP
-        +rating()
+        +rating([], false, ['closedTrip'])
+        button(class="saverating none") Save Rating
