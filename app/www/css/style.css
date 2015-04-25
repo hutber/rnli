@@ -2162,24 +2162,24 @@ body {
       background: #002664;
       color: #FFF; }
 
-.about .header, .abouthome .header, .privacy .header, .legal .header, .terms .header {
+.about .header, .abouthome .header, .donate .header, .contacts .header, .legal .header, .rate .header, .share .header, .terms .header, .privacy .header {
   background: #002664; }
-  .about .header .middle h1, .abouthome .header .middle h1, .privacy .header .middle h1, .legal .header .middle h1, .terms .header .middle h1 {
+  .about .header .middle h1, .abouthome .header .middle h1, .donate .header .middle h1, .contacts .header .middle h1, .legal .header .middle h1, .rate .header .middle h1, .share .header .middle h1, .terms .header .middle h1, .privacy .header .middle h1 {
     color: #ffffff; }
-.about .content, .abouthome .content, .privacy .content, .legal .content, .terms .content {
+.about .aboutContent, .abouthome .aboutContent, .donate .aboutContent, .contacts .aboutContent, .legal .aboutContent, .rate .aboutContent, .share .aboutContent, .terms .aboutContent, .privacy .aboutContent {
   padding: 10px 7.14286%; }
-.about h3, .abouthome h3, .privacy h3, .legal h3, .terms h3 {
+.about h3, .abouthome h3, .donate h3, .contacts h3, .legal h3, .rate h3, .share h3, .terms h3, .privacy h3 {
   text-align: left;
   font-size: 1.4rem;
   line-height: 1.9rem; }
-.about p, .abouthome p, .privacy p, .legal p, .terms p {
+.about p, .abouthome p, .donate p, .contacts p, .legal p, .rate p, .share p, .terms p, .privacy p {
   margin: 10px 0;
   color: #002664;
   font-size: 1.3rem;
   line-height: 1.6rem; }
-.about .urls, .abouthome .urls, .privacy .urls, .legal .urls, .terms .urls {
+.about .urls, .abouthome .urls, .donate .urls, .contacts .urls, .legal .urls, .rate .urls, .share .urls, .terms .urls, .privacy .urls {
   margin: 10px 0 0 10px; }
-  .about .urls a, .abouthome .urls a, .privacy .urls a, .legal .urls a, .terms .urls a {
+  .about .urls a, .abouthome .urls a, .donate .urls a, .contacts .urls a, .legal .urls a, .rate .urls a, .share .urls a, .terms .urls a, .privacy .urls a {
     float: left;
     width: 100%;
     display: block;
@@ -2187,7 +2187,7 @@ body {
     margin: 5px 0 5px 5px;
     border-bottom: 1px solid #DDD;
     text-decoration: none; }
-.about li, .abouthome li, .privacy li, .legal li, .terms li {
+.about li, .abouthome li, .donate li, .contacts li, .legal li, .rate li, .share li, .terms li, .privacy li {
   padding: 10px 0; }
 
 .abouthome .content {

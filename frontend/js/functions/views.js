@@ -224,6 +224,18 @@ module.exports = function (){
 			title: 'LEGAL DISCLAIMER'
 		}
 		,{
+			name: 'donateView',
+			path: require('../views/about/donateView'),
+			url: 'donate',
+			title: 'Donate'
+		}
+		,{
+			name: 'contactView',
+			path: require('../views/about/contactView'),
+			url: 'contacts',
+			title: 'Contact RNLI'
+		}
+		,{
 			name: 'rateView',
 			path: require('../views/about/rateView'),
 			url: 'rate',

@@ -58,6 +58,8 @@ var Router = Backbone.Router.extend({
 		'share': 'share',
 		'terms': 'terms',
 		'privacy': 'privacy',
+		'donate': 'donate',
+		'contacts': 'contacts',
 	}
 });
 //Set up Routes for backbone.

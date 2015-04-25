@@ -18,7 +18,7 @@ module.exports = RN.glb.gvCreator.extend({
 		var ev = $(ev.currentTarget);
 
 		this.rating = ev.index() / 2;
-c(this.rating);
+
 		$('.saverating').removeClass('none');
 	},
 
