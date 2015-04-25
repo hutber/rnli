@@ -19,6 +19,10 @@ module.exports = RN.glb.gvCreator.extend({
 			values = me.serializeObject(),
 			noerror = true,
 			myself = this;
+
+		delete values['contacted'];
+		delete values['receiveemails'];
+
 		//check for all errors
 		me.find('.error').removeClass('error');
 		Object.keys(values).forEach(function(item){
@@ -29,10 +33,10 @@ module.exports = RN.glb.gvCreator.extend({
 			}
 		});
 
-		if(!$('.signupForm .checkbox input').is(':checked')) {
-			$('.signupForm .checkbox').addClass('error');
-			noerror = false;
-		}
+		//if(!$('.signupForm .checkbox input').is(':checked')) {
+		//	$('.signupForm .checkbox').addClass('error');
+		//	noerror = false;
+		//}
 
 		if(this.validateEmail(values.email)!==true && values.email.length>0){
 			RN.fnc.popups.Dialog('Email Address', 'Please enter a valid email address');

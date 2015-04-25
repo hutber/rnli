@@ -43,7 +43,7 @@ class DBregistration extends Data {
         return $this->db->get($sql);
     }
 
-    function insertUsers($fname, $sname, $uname, $email, $pword, $device, $version, $confirmed)
+    function insertUsers($fname, $sname, $uname, $email, $pword, $device, $version, $confirmed, $contacted, $receiveemails)
     {
         $user_ip = $_SERVER['REMOTE_ADDR'];
         $sql = sprintf(
@@ -56,9 +56,11 @@ class DBregistration extends Data {
             `device` ,
             `version` ,
             `ip`,
+            `contacted`,
+            `receiveemails`,
             `confirmed`
             )
-            VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s'
+            VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s'
             );",
 			$fname,
 			$sname,
@@ -68,6 +70,8 @@ class DBregistration extends Data {
             $device,
             $version,
             $user_ip,
+            $contacted,
+            $receiveemails,
 			$confirmed);
         return $this->db->query($sql);
     }

@@ -26,7 +26,9 @@ class reg extends controller
 			$number = $_POST['pnumber'];
 			$fishingtype = $_POST['fishingtype'];
 			$uid = $_POST['uid'];
-			$terms = $_POST['acc_tc'];
+//			$terms = $_POST['acc_tc'];
+			$contacted = $_POST['contacted'];
+			$receiveemails = $_POST['receiveemails'];
 			$token = $_POST['token'];
 
 			if ($pword == "" && !isset($uid)) {
@@ -92,10 +94,10 @@ class reg extends controller
 					$data['good'] = "Details have been saved";
 				}
 			}else{
-				if ($terms != 1) {
-					$data['error'] = 'Please Accept our Terms';
-					$error = true;
-				}
+//				if ($terms != 1) {
+//					$data['error'] = 'Please Accept our Terms';
+//					$error = true;
+//				}
 				//check email hasn't been used before
 				$numemailcheck = $dataStore->adminEmailCheck($email);
 //				$uname = strtolower($fname.$sname);
@@ -115,7 +117,7 @@ class reg extends controller
 //							$confirmed = 0;
 //						}
 
-						$reg = $dataStore->insertUsers($fname, $sname, $uname, $email, $pword, $device, $version, $confirmed);
+						$reg = $dataStore->insertUsers($fname, $sname, $uname, $email, $pword, $device, $version, $confirmed, $contacted, $receiveemails);
 
 						if ($reg) {
 							if($numunamecheck<1) {
