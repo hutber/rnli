@@ -87,7 +87,7 @@ module.exports = function (){
 		}
 		,{
 			name: 'tripclosedView',
-			path: require('../views/trips/tripclosedView'),
+			path: require('../views/trips/tripsClosedView'),
 			url: 'tripclosed',
 			title: 'TRIP CLOSED'
 		}
