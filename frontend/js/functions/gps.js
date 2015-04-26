@@ -122,9 +122,8 @@ module.exports = function () {
 			gps.bgGeo.stop();
 		},
 		onResume: function() {
-			console.log('- Start');
 			gps.bgGeo.start(function(){
-
+				console.log('- Start');
 			}, function () {
 				c('failed');
 			});
@@ -132,7 +131,6 @@ module.exports = function () {
 		},
 		// Update DOM on a Received Event
 		setCurrentLocation: function(location) {
-			c('Running Watch');
 			gps.addToLocalStorage(location);
 
 			if (gps.previousLocation) {
