@@ -12,16 +12,15 @@ module.exports = function(){
 		//	this.set(this.createDefaults(data))
 		//},
 		saveLocal: function(type, data){
-			c(data);
 			//create object to play with
 			var modelObject = {};
 			modelObject[type] = data;
 			//set models value
-			//this.set({
-			//	trips:data
-			//});
-			////set local storage for later
-			//localStorage[type] = RN.fnc.json.convertToString(data);
+			this.set({
+				trips:data
+			});
+			//set local storage for later
+			localStorage[type] = RN.fnc.json.convertToString(data);
 		},
 		createDefaults: function(data){
 			if(data){

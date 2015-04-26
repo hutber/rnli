@@ -1,6 +1,5 @@
 include ../mixins
 - var newLat = data.latitude.substr(0, 5), newLong = data.longitude.substr(0, 5);
-- data.date = moment(data.date).format('MMMM Do YYYY');
 .tripMap
     +tripdetails(data)
     +map(data,'plain')

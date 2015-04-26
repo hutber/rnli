@@ -11,8 +11,8 @@ mixin tripdetails(data)
                     | #{data.id}
         .tripbox
             i(class='icon-calendar')
-            .text #{data.currentDay}
-                span #{data.date}
+            .text #{moment(data.currentDay).format('dddd')}
+                span #{moment(data.currentDay).format('D MMMM YYYY')}
         .tripbox
             i(class='icon-globe')
             .text #{data.area},
