@@ -2,8 +2,8 @@ mixin tripInfo(data)
     .tripData
         +airsea(data)
         .section.tide
-            if data.tide === null
-                .title.notide No Tide Info
+            if data.tide.length === 0
+                .title.notide No Tide Information At This Time
             else
                 .title
                     i(class='icon-tide')
@@ -12,7 +12,7 @@ mixin tripInfo(data)
                     .tideoverflow
                         each val, index in data.tide
                             +tideBox(val)
-        .section.springtide Weather conditions not available at this time
+        //- .section.springtide Weather conditions not available at this time
             //span 23 JAN 2015
         .section.windcurrent
             .wind
