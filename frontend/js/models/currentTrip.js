@@ -190,11 +190,10 @@ module.exports = function(){
 						RN.fnc.popups.message.show(data.error, 'bad');
 					} else {
 						//remove previous trips data
-						//self.resetData();
-						//c(data.trips);
+						self.resetData();
+
 						//save the returned data into our models
-						RN.trips.saveLocal('trips',data.trips);
-						//RN.trips.initialize(data.trips);
+						//RN.trips.saveLocal('trips',data.trips);
 
 						//save the returned data into our models
 						RN.user.setNotes(data.notes);
