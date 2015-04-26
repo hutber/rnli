@@ -144,45 +144,43 @@ module.exports = RN.glb.gvCreator.extend({
 					map: self.mapInt
 				});
 
-				var wps = [],
-					gpsLocations = JSON.parse(localStorage.gps),
-					rendererOptions = { map: self.mapInt},
-					directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions),
-					firstItem = gpsLocations[Object.keys(gpsLocations)[0]],
-					lastItem = gpsLocations[Object.keys(gpsLocations)[Object.keys(gpsLocations).length-1]];
+				if(typeof localStorage.gps !== typeof undefined) {
+					var wps = [],
+						gpsLocations = JSON.parse(localStorage.gps),
+						rendererOptions = {map: self.mapInt},
+						directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions),
+						firstItem = gpsLocations[Object.keys(gpsLocations)[0]],
+						lastItem = gpsLocations[Object.keys(gpsLocations)[Object.keys(gpsLocations).length - 1]];
 
 
-				//build up wps
-				Object.keys(gpsLocations).forEach(function (key, item) {
-					var lat = gpsLocations[key].latitude,
-						long = gpsLocations[key].longitude;
-					wps.push({
-						location: new google.maps.LatLng(lat,long)
+					//build up wps
+					Object.keys(gpsLocations).forEach(function (key, item) {
+						var lat = gpsLocations[key].latitude,
+							long = gpsLocations[key].longitude;
+						wps.push({
+							location: new google.maps.LatLng(lat, long)
+						});
 					});
-				});
 
-				c(wps);
+					var org = new google.maps.LatLng(firstItem.latitude, firstItem.longitude);
+					var dest = new google.maps.LatLng(lastItem.latitude, lastItem.longitude);
 
-				var org = new google.maps.LatLng ( firstItem.latitude,firstItem.longitude );
-				var dest = new google.maps.LatLng ( lastItem.latitude,lastItem.longitude );
-c(firstItem);
-c(lastItem);
-				var request = {
-					origin: org,
-					destination: dest,
-					//waypoints: wps,
-					travelMode: google.maps.DirectionsTravelMode.DRIVING
-				};
+					var request = {
+						origin: org,
+						destination: dest,
+						//waypoints: wps,
+						travelMode: google.maps.DirectionsTravelMode.DRIVING
+					};
 
-				directionsService = new google.maps.DirectionsService();
-				directionsService.route(request, function(response, status) {
-					if (status == google.maps.DirectionsStatus.OK) {
-						directionsDisplay.setDirections(response);
-					}
-					else
-						RN.fnc.popups.message('We could not get your route. Please try again later','notice')
-				});
-
+					directionsService = new google.maps.DirectionsService();
+					directionsService.route(request, function (response, status) {
+						if (status == google.maps.DirectionsStatus.OK) {
+							directionsDisplay.setDirections(response);
+						}
+						else
+							RN.fnc.popups.message('We could not get your route. Please try again later', 'notice')
+					});
+				}
 
 			}
 		}
