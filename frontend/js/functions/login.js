@@ -113,7 +113,8 @@ module.exports = {
 
         if(checker) {
             //Start model's before deleting
-	        RN.trips = new RN.mdl.trips(userDataToLoad.trips);
+	        RN.trips = new RN.mdl.trips();
+	        RN.trips.saveLocal('trips',userDataToLoad.trips);
 	        RN.weather = new RN.mdl.weather(userDataToLoad.weatherDetails);
 
             //backup again to local storage
