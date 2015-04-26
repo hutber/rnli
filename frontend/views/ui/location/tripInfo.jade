@@ -2,7 +2,7 @@ mixin tripInfo(data)
     .tripData
         +airsea(data)
         .section.tide
-            if data.waveheight === null
+            if data.tide === null
                 .title.notide No Tide Info
             else
                 .title
@@ -10,7 +10,7 @@ mixin tripInfo(data)
                     | TIDE
                 .tideInfo(style ="width: " + data.length * 100 + "px")
                     .tideoverflow
-                        each val, index in data
+                        each val, index in data.tide
                             +tideBox(val)
         .section.springtide Weather conditions not available at this time
             //span 23 JAN 2015

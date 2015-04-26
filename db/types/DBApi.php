@@ -41,6 +41,50 @@ class DBApi extends Data {
         return $this->db->query($sql);
     }
 
+    function checkName($name)
+    {
+        //Now add data
+        $sql = sprintf(
+            "SELECT id
+			FROM  `sites`
+			WHERE name =  '%s'
+			LIMIT 0 , 30;",
+            $name
+        );
+        return $this->db->get($sql);
+    }
+    function addTideInfo($sid, $date, $time, $height, $type)
+    {
+        //Now add data
+        $sql = sprintf(
+            "INSERT INTO  `rnli`.`tides` (
+				`sid` ,
+				`tdate` ,
+				`ttime` ,
+				`height` ,
+				`ttype`
+			)
+			VALUES (
+				%d,  '%s',  '%s',  %d,  '%s'
+			);",
+            $sid, $date, $time, $height, $type
+        );
+        return $this->db->get($sql);
+    }
+    function getTideInfo($sid, $date)
+    {
+        //Now add data
+        $sql = sprintf(
+            "SELECT *
+			FROM  `tides`
+			WHERE sid = %d
+			AND tdate =  '%s'
+			LIMIT 0 , 30",
+            $sid, $date
+        );
+        return $this->db->get($sql);
+    }
+
     function getArea($lat, $long)
     {
         //Now add data

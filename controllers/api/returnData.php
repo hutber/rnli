@@ -209,12 +209,16 @@ class returnData extends Controller {
                     }
                 }
 
+				//Now build tide data
+				$tide = $dataStore->getTideInfo($siteID, $time );
+
 				//turn data into something we can use
 				$dataToReturn = array (
 
                     //Trip Details ------------------------------------------/
                     'time' => $threehourTime,
                     'timefail' => $timeTrue,
+                    'tide' => $tide,
                     'area' => $threehourData->SiteRep->DV->Location->name,
 					'country' => $threehourData->SiteRep->DV->Location->country,
 					'continent' => $threehourData->SiteRep->DV->Location->continent,

@@ -1363,7 +1363,7 @@ input[type=checkbox] {
 .tidebox {
   padding-bottom: 10px;
   margin-top: 10px;
-  width: 100px;
+  width: 25%;
   float: left;
   border-right: 2px solid #D7D5CF; }
   .tidebox:last-child {
@@ -2301,8 +2301,6 @@ Table of Contents
   text-align: center;
   border-bottom: 3px solid #D7D5CF;
   overflow: hidden; }
-.tripMap .tide, .tripMap .springtide {
-  display: none; }
 .tripMap .notide {
   background: #D7D5CF; }
 .tripMap .titeInfo.notide {
