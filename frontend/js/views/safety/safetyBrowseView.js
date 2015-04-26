@@ -50,6 +50,7 @@ module.exports = RN.glb.gvCreator.extend({
 
 			//Update view with our view
 			$('.safetyarea').html(safetyView());
+			$('.imageContainer').attr('src', 'img/'+$('.image').data('src'))
 		}
 	}
 });
