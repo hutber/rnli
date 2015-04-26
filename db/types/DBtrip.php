@@ -24,7 +24,7 @@ Table of Contents
             `pcode`
         )
         VALUES (
-            '%d','%d','%d','%s','%s','%s','%s','%s'
+            '%d','%d','%s','%s','%s','%s','%s','%s'
         );",
             $uid,$tid, $latitude, $long, $this->db->escape($area), $this->db->escape($continent), $this->db->escape($country), $this->db->escape($pcode)
         );

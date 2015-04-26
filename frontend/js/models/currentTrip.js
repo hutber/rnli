@@ -193,7 +193,7 @@ module.exports = function(){
 						self.resetData();
 
 						//save the returned data into our models
-						//RN.trips.saveLocal('trips',data.trips);
+						RN.trips.saveLocal('trips',data.trips);
 
 						//save the returned data into our models
 						RN.user.setNotes(data.notes);

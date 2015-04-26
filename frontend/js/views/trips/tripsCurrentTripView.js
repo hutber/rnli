@@ -53,6 +53,7 @@ module.exports = RN.glb.gvCreator.extend({
 	},
 	savetrip : function(){
 		var finalData = RN.currentTrip.prePareDataForDB();
+		c(finalData);
 		RN.currentTrip.finaliseTrip(finalData, function(){
 			RN.router.navigate('tripclosed', true);
 		});
