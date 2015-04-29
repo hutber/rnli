@@ -1,36 +1,71 @@
 include ../../mixins
 +input({place:'Species', type: 'text', value:'', name:'species', id: 'species', labelClass: "typeahead"})
 +switch('weightsystem', 'metric', 'imperial')
-.box.catchbox
-    .title Weight
-    .text
-        +selectInt({
-            attr: {
-                name: 'lbs'
-            },
-            limit: 50
-        })
-        +selectInt({
-            attr: {
-                name: 'oz'
-            },
-            limit: 50
-        })
-.box.catchbox
-    .title Length
-    .text
-        +selectInt({
-            attr: {
-                name: 'ft'
-            },
-            limit: 8
-        })
-        +selectInt({
-            attr: {
-                name: 'in'
-            },
-            limit: 11
-        })
+.metric.none
+    .box.catchbox
+        .title Weight
+        .text
+            select(name="metricweight")
+                - function formatWeight(weight) {
+                - if (!weight) {
+                -     return 0;
+                - }
+                - if (weight < 1000) {
+                -     return weight + ' g';
+                - }
+                - weight = weight / 1000;
+                -     return weight + ' kg';
+                - }
+                - var start = 0;
+                - var increment = 100;
+                - var end = 2000 / increment;
+                - for (var n = start; n < end; n += 1) {
+                -   if (n + 1 < end) { var val = formatWeight(n * increment) + '-' + formatWeight((n+1) * increment);
+                        option(value=val) #{val}
+                -   } else { var val = formatWeight((n+1) * increment);
+                        option(value=val) #{val}
+                -   }
+                - }
+    .box.catchbox
+        .title Length
+        .text
+            +selectInt({
+                attr: {
+                    name: 'cm'
+                },
+                limit: 150
+            })
+.imperial
+    .box.catchbox
+        .title Weight
+        .text
+            +selectInt({
+                attr: {
+                    name: 'lbs'
+                },
+                limit: 50
+            })
+            +selectInt({
+                attr: {
+                    name: 'oz'
+                },
+                limit: 50
+            })
+    .box.catchbox
+        .title Length
+        .text
+            +selectInt({
+                attr: {
+                    name: 'ft'
+                },
+                limit: 8
+            })
+            +selectInt({
+                attr: {
+                    name: 'in'
+                },
+                limit: 11
+            })
 
 .box.catchbox
     .title Released?
