@@ -2524,7 +2524,7 @@ Table of Contents
   display: none; }
 .tripsprevious .tripNotes {
   margin: 10px 0 0;
-  padding-bottom: 20px; }
+  padding: 0 7.14286% 20px; }
   .tripsprevious .tripNotes .noteheader {
     margin: 10px 0;
     font-family: din, "Lucida Grande", sans-serif; }
@@ -2532,7 +2532,8 @@ Table of Contents
     margin: 5px 0;
     padding: 10px 0;
     font-size: 1.2rem;
-    line-height: 1.4rem; }
+    line-height: 1.4rem;
+    border-bottom: 1px solid #DDD; }
   .tripsprevious .tripNotes .catchfishbox {
     background: #FFF; }
 

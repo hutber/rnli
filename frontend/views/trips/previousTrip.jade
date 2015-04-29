@@ -5,7 +5,7 @@ include ../mixins
     +tripdetails(data)
     +airsea(data)
     +map(data)
-    if(typeof data.notes[0] !== typeof undefined)
+    if(Object.keys(data.notes).length)
         .section.tripNotes
             .noteheader
                 .icon

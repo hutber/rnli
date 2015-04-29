@@ -452,7 +452,7 @@ Table of Contents
 	}
 	.tripNotes {
 		margin: 10px 0 0;
-		padding-bottom: 20px;
+		padding: 0 gutter(3) 20px;
 		.noteheader {
 			margin: 10px 0;
 			font-family: $headerFont;
@@ -462,6 +462,7 @@ Table of Contents
 			padding: 10px 0;
 			font-size: 1.2rem;
 			line-height: 1.4rem;
+			border-bottom: 1px solid #DDD;
 		}
 		.catchfishbox {
 			background: #FFF;
