@@ -10,7 +10,7 @@ class addTrip extends Controller {
 
 			require_once SITEROOT. '/db/types/DBtrip.php';
 			$dataStore = new DBtrip($db);
-//r($_POST);exit;
+
 			$uid = $_POST['uid'];
 			$trip = $_POST['trip'];
 			$tripdId = $trip['tid'];
@@ -40,6 +40,17 @@ class addTrip extends Controller {
 					$trip['waveperiod']
 				);
 				$tripdId = $db->getLastID();
+
+				$dataStore->insertLocation($uid,$tripdId, $location['latitude'], $location['longitude'], $location['area'], $location['continent'], $location['country'], $location['pcode']);
+				$data['message'] = "Trip Started";
+				$data['status'] = "notice";
+			}else{
+				$data['message'] = "Successfully Closed Trip";
+				$data['status'] = "good";
+			}
+
+			if($trip['hazard'] != ""){
+				$dataStore->updateHazard($trip['hazard'], $tripdId);
 			}
 
 			if(is_array($notes)) {
@@ -62,8 +73,6 @@ class addTrip extends Controller {
 					);
 				}
 			}
-
-			$dataStore->insertLocation($uid,$tripdId, $location['latitude'], $location['longitude'], $location['area'], $location['continent'], $location['country'], $location['pcode']);
 
 			$data['catch'] = $dataStore->getCatches($uid);
 			$data['trips'] = $dataStore->getTrips($uid);

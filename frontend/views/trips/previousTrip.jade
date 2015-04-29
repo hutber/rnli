@@ -14,8 +14,15 @@ include ../mixins
                 .notetext
                     | #{val.note}
 
-    if(typeof data.catches[0] !== typeof undefined)
+    if(data.hazard)
         .section.tripNotes
+            .noteheader
+                .icon
+                    i(class='icon-attention') HAZARD
+                .notetext
+                    | #{data.hazard}
+    if(Object.keys(data.catches).length)
+        .section.tripCatches
             .noteheader
                 .icon
                     i(class='icon-table') CATCH LOG

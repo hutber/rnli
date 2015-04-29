@@ -2518,24 +2518,28 @@ Table of Contents
   .tripsprevious .rating label.star {
     color: #FFF;
     font-size: 1.6rem; }
+  .tripsprevious .rating input.star:checked ~ label.star:before {
+    color: #FFF; }
 .tripsprevious #map-canvas {
   border: 7px solid #FFF; }
 .tripsprevious .map .info {
   display: none; }
-.tripsprevious .tripNotes {
+.tripsprevious .tripNotes, .tripsprevious .tripCatches {
   margin: 10px 0 0;
   padding: 0 7.14286% 20px; }
-  .tripsprevious .tripNotes .noteheader {
+  .tripsprevious .tripNotes .noteheader, .tripsprevious .tripCatches .noteheader {
     margin: 10px 0;
     font-family: din, "Lucida Grande", sans-serif; }
-  .tripsprevious .tripNotes .notetext {
+  .tripsprevious .tripNotes .notetext, .tripsprevious .tripCatches .notetext {
     margin: 5px 0;
     padding: 10px 0;
     font-size: 1.2rem;
     line-height: 1.4rem;
     border-bottom: 1px solid #DDD; }
-  .tripsprevious .tripNotes .catchfishbox {
+  .tripsprevious .tripNotes .catchfishbox, .tripsprevious .tripCatches .catchfishbox {
     background: #FFF; }
+.tripsprevious .tripCatches {
+  padding: 0; }
 
 .previouscatch .catchsortby, .trippreviouscatchoverview .catchsortby {
   text-align: center;

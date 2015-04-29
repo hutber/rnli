@@ -14,7 +14,7 @@ module.exports = function(){
 		setContacts: function(data){
 			this.set({
 				contacts: data
-			})
+			});
 		},
 		saveLocal: function(type, data){
 			//create object to play with
@@ -29,11 +29,13 @@ module.exports = function(){
 			this.set({
 				catch: data
 			})
+			localStorage['catch'] = RN.fnc.json.convertToString(data);
 		},
 		setNotes: function(data){
 			this.set({
 				notes: data
 			})
+			localStorage['notes'] = RN.fnc.json.convertToString(data);
 		}
 	});
 };

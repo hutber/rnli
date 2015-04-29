@@ -19,5 +19,6 @@ module.exports = {
 	notes: require('./functions/notes')(),
 	suncal: require('./functions/suncal')(),
 	camera: require('./functions/camera')(),
+	stars: require('./functions/stars')(),
 	notices: require('./functions/notices')()
 }

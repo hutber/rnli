@@ -440,6 +440,9 @@ Table of Contents
 			color: #FFF;
 			font-size: 1.6rem;
 		}
+		input.star:checked ~ label.star:before {
+			 color: #FFF;
+		 }
 	}
 	//Maps
 	#map-canvas {
@@ -450,7 +453,7 @@ Table of Contents
 			display: none;
 		}
 	}
-	.tripNotes {
+	.tripNotes, .tripCatches {
 		margin: 10px 0 0;
 		padding: 0 gutter(3) 20px;
 		.noteheader {
@@ -467,6 +470,9 @@ Table of Contents
 		.catchfishbox {
 			background: #FFF;
 		}
+	}
+	.tripCatches {
+		padding: 0;
 	}
 }
 

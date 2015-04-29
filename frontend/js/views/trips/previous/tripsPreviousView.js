@@ -9,6 +9,13 @@ module.exports = RN.glb.gvCreator.extend({
 	events: {
 		'click .updatetrip': 'updatetrip',
 		'click .previouscatchclick': 'catchfishbox',
+		'click .previousstaredit input': 'previousstaredit',
+	},
+
+	previousstaredit : function(ev){
+		var ev = $(ev.currentTarget);
+
+		RN.previousTrip.attributes.rating = RN.fnc.stars.cal(ev);
 	},
 
 	updatetrip : function(){

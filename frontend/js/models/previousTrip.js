@@ -141,10 +141,11 @@ module.exports = function(){
 			var data = RN.previousTrip.attributes,
 				rdata = {};
 
+			rdata.rating = RN.previousTrip.attributes.rating;
 			rdata.notes = RN.previousTrip.attributes.notes;
 			rdata.catch = RN.previousTrip.attributes.catches;
 			rdata.hazard = RN.previousTrip.attributes.hazard;
-			rdata.id = RN.previousTrip.attributes.id;
+			rdata.id = RN.previousTrip.attributes.tid;
 
 			return rdata;
 
@@ -157,6 +158,7 @@ module.exports = function(){
 				type: 'POST',
 				dataType: 'json',
 				data: {
+					rating: data.rating,
 					notes: data.notes,
 					catch: data.catch,
 					hazard: data.hazard,

@@ -17,7 +17,7 @@ module.exports = RN.glb.gvCreator.extend({
 
 		//get trips
 		Object.keys(RN.trips.get('trips')).forEach(function (val) {
-			if(parseInt(RN.trips.get('trips')[val].id) === ev.data('id')){
+			if(parseInt(RN.trips.get('trips')[val].tid) === ev.data('id')){
 				desired = RN.trips.get('trips')[val];
 			}
 		});

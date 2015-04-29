@@ -17,7 +17,7 @@ module.exports = RN.glb.gvCreator.extend({
 	addStarRating : function(ev){
 		var ev = $(ev.currentTarget);
 
-		this.rating = ev.index() / 2;
+		this.rating = RN.fnc.stars.cal(ev);
 
 		$('.saverating').removeClass('none');
 	},
@@ -26,25 +26,13 @@ module.exports = RN.glb.gvCreator.extend({
 		var ev = $(ev.currentTarget),
 			self = this;
 
-		$.ajax({
-			url: RN.glb.url.api + 'updateRating',
-			type: 'POST',
-			dataType: 'json',
-			data: {
+		RN.fnc.stars.saveRating({
 				id: RN.trips.get('trips')[0].id,
 				rating: self.rating
 			},
-			error: function (data) {
-				c('error');
-			},
-			success: function (data) {
-				if (data.error) {
-					RN.fnc.popups.message.show(data.error, 'bad');
-				} else {
-					RN.trips.get('trips')[0].rating = ""+data;
-					$('.saverating').addClass('none');
-				}
-			}
+		function () {
+			RN.trips.get('trips')[0].rating = ""+data;
+			$('.saverating').addClass('none');
 		});
 	},
 

@@ -17,7 +17,9 @@ class editTrip extends Controller {
 			$catch = $_POST['catch'];
 			$notes = $_POST['notes'];
 			$hazard = $_POST['hazard'];
+			$rating = $_POST['rating'];
 
+			$dataStore->updateRating($rating, $id);
 			$dataStore->updateHazard($hazard, $id);
 
 			if(is_array($notes)) {
@@ -44,6 +46,8 @@ class editTrip extends Controller {
 			$data['trips'] = $dataStore->getTrips($uid);
 			$data['notes'] = $dataStore->getNotes($uid);
 			$data['locations'] = $dataStore->getLocation($uid);
+			$data['message'] = "Successfully Edited";
+			$data['status'] = "good";
 			$data['thistrip'] = $id;
 
 			header('Content-Type: application/javascript');

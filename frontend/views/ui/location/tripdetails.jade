@@ -24,5 +24,5 @@ mixin tripdetails(data)
                 | Long
                 span #{newLong}
         if(data.previoustrip)
-            .tripbox.stars
-                +rating(data.rating, 'disabled')
+            .tripbox.stars.previousstaredit
+                +rating(data.rating)

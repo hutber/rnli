@@ -207,7 +207,7 @@ Table of Contents
     function updateHazard ($hazard, $id)
     {
         $sql = sprintf("UPDATE  `rnli`.`trip` SET  `hazard` =  '%s' WHERE  `trip`.`id` =%d;", $hazard, $id);
-        return $this->db->get($sql);
+		$this->db->query($sql);
     }
     function updateRating ($rating, $id)
     {
