@@ -44,7 +44,7 @@ class addTrip extends Controller {
 
 			if(is_array($notes)) {
 				foreach ($notes as $key => $item) {
-					 $dataStore->insertNote($uid, $tripdId, $item['text'], $item['date']);
+					 $dataStore->insertNote($uid, $tripdId, $item['note'], $item['date']);
 				}
 			}
 

@@ -144,15 +144,16 @@ module.exports = RN.glb.gvCreator.extend({
 					map: self.mapInt
 				});
 
-				if(typeof localStorage.gps !== typeof undefined) {
+				var addRedLInes = typeof localStorage.gps !== typeof undefined;
+
+				if(addRedLInes) {
 					var wps = [],
 						gpsLocations = JSON.parse(localStorage.gps),
 						rendererOptions = {map: self.mapInt},
 						directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions),
 						firstItem = gpsLocations[Object.keys(gpsLocations)[0]],
 						lastItem = gpsLocations[Object.keys(gpsLocations)[Object.keys(gpsLocations).length - 1]];
-
-
+					
 					//build up wps
 					Object.keys(gpsLocations).forEach(function (key, item) {
 						var lat = gpsLocations[key].latitude,

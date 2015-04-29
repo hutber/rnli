@@ -17,6 +17,40 @@ module.exports = RN.glb.gvCreator.extend({
 
 	events: {
 		'click .addcatchphoto': 'addCatchPhoto',
+		'click .switch input': 'changeWeights',
+	},
+
+	changeWeights : function(ev){
+		var ev = $(ev.currentTarget),
+			type = ev.val();
+
+		$('.metric, .imperial').toggleClass('none')
+	},
+
+	getValues : function(ev){
+		var ev = $(ev.currentTarget);
+
+		if($('.metric').is('visible')){
+			return {
+				species: $('#species').val(),
+				weightType: $('input[name=weightsystem]:checked').val(),
+				weight1: $('.metric select[name=lbs]').val(),
+				weight2: $('.metric select[name=oz]').val(),
+				height1: $('.metric select[name=ft]').val(),
+				height2: $('.metric select[name=in]').val(),
+				released: $('.metric select[name=released]').val(),
+			}
+		}else if($('.imperial').is('visible')){
+			return {
+				species: $('#species').val(),
+				weightType: $('input[name=weightsystem]:checked').val(),
+				weight1: $('.imperial select[name=lbs]').val(),
+				weight2: $('.imperial select[name=oz]').val(),
+				height1: $('.imperial select[name=ft]').val(),
+				height2: $('.imperial select[name=in]').val(),
+				released: $('.imperial select[name=released]').val(),
+			}
+		}
 	},
 
 	addCatchPhoto : function(ev){
@@ -29,19 +63,19 @@ module.exports = RN.glb.gvCreator.extend({
 					weightType: $('input[name=weightsystem]:checked').val(),
 					weight1: $('select[name=lbs]').val(),
 					weight2: $('select[name=oz]').val(),
-					height1: $('select[name=ft]').val(),
-					height2: $('select[name=in]').val(),
+					height1: $('.imperial select[name=ft]').val(),
+					height2: $('.imperial select[name=in]').val(),
 					released: $('select[name=released]').val(),
 				};
 				self.render();
 
-					$('#species').val(data.species)
-					$('input[name=weightsystem]:checked').val(data.weightType)
-					$('select[name=lbs]').val(data.weight1)
-					$('select[name=oz]').val(data.weight2)
-					$('select[name=ft]').val(data.height1)
-					$('select[name=in]').val(data.height2)
-					$('select[name=released]').val(data.released)
+				$('#species').val(data.species)
+				$('input[name=weightsystem]:checked').val(data.weightType)
+				$('select[name=lbs]').val(data.weight1)
+				$('select[name=oz]').val(data.weight2)
+				$('select[name=ft]').val(data.height1)
+				$('select[name=in]').val(data.height2)
+				$('select[name=released]').val(data.released)
 			},
 			{
 				url: RN.glb.url.ajax + 'trip/uploadCatchImage',

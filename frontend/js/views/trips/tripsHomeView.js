@@ -37,7 +37,7 @@ module.exports = RN.glb.gvCreator.extend({
 		});
 		desired.notes = notes;
 		desired.catches = catches;
-
+		c(desired);
 		RN.previousTrip.initialize(desired);
 
 		RN.router.navigate('tripsprevious', true);
