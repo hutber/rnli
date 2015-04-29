@@ -32,6 +32,7 @@ module.exports = {
 					if(data.confirmed==0) {
 						RN.fnc.popups.message.show('Your account is currently pending approval. Please be patient', 'notice');
 					}else {
+						RN.fnc.popups.message.hide();
 						RN.fnc.login.doLogin.success(data);
 					}
 				}
