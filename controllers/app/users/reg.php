@@ -91,7 +91,8 @@ class reg extends controller
 
 					$dataStore->updateUsers($fname, $sname, $email, $number, $fishingtype, $pword, $device, $version, $token);
 					$data['contacts'] = $DBuser->getContacts($uid);
-					$data['good'] = "Details have been saved";
+					$data['status'] = 'good';
+					$data['message'] = 'Details have been saved';
 				}
 			}else{
 //				if ($terms != 1) {

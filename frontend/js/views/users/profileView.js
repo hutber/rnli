@@ -63,7 +63,7 @@ module.exports = RN.glb.gvCreator.extend({
 		var me = $(el.currentTarget),
 			values = me.serializeObject(),
 			noerror = true,
-			myself = this;
+			self = this;
 			values['uid'] = localStorage.uid;
 
 		if(values['pw'].length === 0) {
@@ -126,7 +126,7 @@ module.exports = RN.glb.gvCreator.extend({
 						//$('.btn.signup').removeAttr('disabled');
 					} else {
 						RN.fnc.user.contacts.saveContact(data.contacts)
-						$('.btn.signup').text('Saved').addClass('success');
+						self.render();
 					}
 				}
 			});
