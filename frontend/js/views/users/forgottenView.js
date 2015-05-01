@@ -24,16 +24,11 @@ module.exports = RN.glb.gvCreator.extend({
 						'email': values.email,
 					},
 					error: function(data){
-						RN.fnc.popups.message.show('Please make sure your GPS is turned on and try again', 'bad')
-						RN.fnc.popups.spinner.hide();
 					},
 					success: function(data){
-						RN.fnc.popups.spinner.hide();
-						//if(data.good){
-						//	RN.fnc.popups.message.show(data.good);
-						//}else{
-						//	RN.fnc.popups.message.show(data.bad, 'bad');
-						//}
+						if(data.status === "good"){
+							RN.router.navigate('', true)
+						}
 					}
 				});
 			}
