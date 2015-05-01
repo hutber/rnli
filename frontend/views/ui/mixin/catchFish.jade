@@ -3,14 +3,18 @@ mixin catchFish(data)
    - data = data.data;
    .box.catchfishbox&attributes(attr)
       .image
-          if(data.image == 0)
+          if(typeof data.image === typeof undefined || data.image == 0)
               img(src='img/placeholder.gif')
           else
             img(src='http://' + RN.glb.url.cdn + '/uploads/catch/' + RN.user.get('uid') + '/' + RN.currentTrip.get('tid') + '/' + data.imagename +'.jpg')
       .text
          h3 #{data.species}
          .item W
-            span #{data.weight1}lb #{data.weight2}oz
+             if(data.weightType === "metric")
+                //- span #{RN.fnc.heightweight.weight.getFirstWeight(data.weight1+data.weight2, 'metric')}kg #{data.weight2}g
+                span #{data.weight1}lb #{data.weight2}oz
+             else
+                span #{data.weight1}lb #{data.weight2}oz
          .item L
             span #{data.height1}ft #{data.height2}in
          .item

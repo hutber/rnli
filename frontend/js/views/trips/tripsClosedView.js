@@ -30,7 +30,7 @@ module.exports = RN.glb.gvCreator.extend({
 				id: RN.trips.get('trips')[0].id,
 				rating: self.rating
 			},
-		function () {
+		function (data) {
 			RN.trips.get('trips')[0].rating = ""+data;
 			$('.saverating').addClass('none');
 		});

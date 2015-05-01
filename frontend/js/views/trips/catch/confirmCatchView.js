@@ -1,5 +1,4 @@
 'user strict';
-
 //extend the view with the default home view
 module.exports = RN.glb.gvCreator.extend({
 	el: '.content',
@@ -18,6 +17,16 @@ module.exports = RN.glb.gvCreator.extend({
 	},
 
 	saveCatch : function(){
+		var viewsData = JSON.parse(localStorage.ctriptmpcatch);
+		if(viewsData.weightType === "metric"){
+			//RN.fnc.heightweight.convertMetric()
+			var smallValue = RN.fnc.heightweight.weight.convertToSmallest(viewsData, 'metric');
+			var converted = RN.fnc.heightweight.weight.convertToOz(smallValue, 'metric');
+			viewsData.weight1 = converted.weight1;
+			viewsData.weight2 = converted.weight2;
+		}
+
+		localStorage.ctriptmpcatch = JSON.stringify(viewsData);
 		RN.fnc.catch.saveCatchToObject(localStorage.ctriptmpcatch);
 
 		//reset datas from previous catch
@@ -34,7 +43,6 @@ module.exports = RN.glb.gvCreator.extend({
 
 	render: function () {
 		var self = this;
-		//load data in ejs
 		var viewsData = RN.currentTrip.get('tmpcatch');
 		this.$el.html(this.templates.home(viewsData));
 	}

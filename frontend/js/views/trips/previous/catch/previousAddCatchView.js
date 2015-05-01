@@ -6,7 +6,7 @@ module.exports = RN.glb.gvCreator.extend({
 	el: '.content',
 
 	templates: {
-		home: require('../../../../../views/trips/catch/addcatch.jade'),
+		home: require('../../../../../views/trips/previous/previousaddcatch.jade'),
 	},
 
 	image: null,
@@ -17,7 +17,7 @@ module.exports = RN.glb.gvCreator.extend({
 	},
 
 	events: {
-		'click .addcatchphoto': 'addCatchPhoto',
+		'click .previousaddcatch': 'addCatchPhoto',
 	},
 
 	addCatchPhoto : function(ev){

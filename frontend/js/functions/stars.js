@@ -70,7 +70,7 @@ module.exports = function () {
 				if (data.error) {
 					RN.fnc.popups.message.show(data.error, 'bad');
 				} else {
-					callBack();
+					callBack(data);
 				}
 			}
 		});

@@ -1,9 +1,15 @@
 include ../../mixins
 h1 #{species}
-+catchBox({
-    title: 'Weight',
-    info: weight1+'lbs '+weight2+'oz.'
-})
+if(weightType === "metric")
+    +catchBox({
+        title: 'Weight',
+        info: weight1+'kg '+weight2+'g.'
+    })
+else
+    +catchBox({
+        title: 'Weight',
+        info: weight1 + 'lbs ' + weight2 + 'oz.'
+    })
 +catchBox({
     title: 'Length',
     info: height1+'ft. '+height2+'ins.'

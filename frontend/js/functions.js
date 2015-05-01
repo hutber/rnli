@@ -20,5 +20,6 @@ module.exports = {
 	suncal: require('./functions/suncal')(),
 	camera: require('./functions/camera')(),
 	stars: require('./functions/stars')(),
+	heightweight: require('./functions/heightweight')(),
 	notices: require('./functions/notices')()
 }

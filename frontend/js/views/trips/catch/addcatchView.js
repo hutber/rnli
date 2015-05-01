@@ -18,39 +18,49 @@ module.exports = RN.glb.gvCreator.extend({
 	events: {
 		'click .addcatchphoto': 'addCatchPhoto',
 		'click .switch input': 'changeWeights',
+		'keyup #species': 'checkReady',
 	},
 
 	changeWeights : function(ev){
 		var ev = $(ev.currentTarget),
 			type = ev.val();
 
-		$('.metric, .imperial').toggleClass('none')
+		$('.metric, .imperial').toggleClass('none');
 	},
 
-	getValues : function(ev){
-		var ev = $(ev.currentTarget);
-
-		if($('.metric').is('visible')){
-			return {
-				species: $('#species').val(),
-				weightType: $('input[name=weightsystem]:checked').val(),
-				weight1: $('.metric select[name=lbs]').val(),
-				weight2: $('.metric select[name=oz]').val(),
-				height1: $('.metric select[name=ft]').val(),
-				height2: $('.metric select[name=in]').val(),
-				released: $('.metric select[name=released]').val(),
+	getValues : function(){
+		var values = {};
+		if(!$('.metric').hasClass('none')){
+			values = {
+				weight1: $('.metric select[name=kg]').val(),
+				weight2: $('.metric select[name=grams]').val(),
+				height1: $('.metric select[name=m]').val(),
+				height2: $('.metric select[name=cm]').val()
 			}
-		}else if($('.imperial').is('visible')){
-			return {
-				species: $('#species').val(),
-				weightType: $('input[name=weightsystem]:checked').val(),
+		}else if(!$('.imperial').hasClass('none')){
+			values = {
 				weight1: $('.imperial select[name=lbs]').val(),
 				weight2: $('.imperial select[name=oz]').val(),
 				height1: $('.imperial select[name=ft]').val(),
-				height2: $('.imperial select[name=in]').val(),
-				released: $('.imperial select[name=released]').val(),
+				height2: $('.imperial select[name=in]').val()
 			}
 		}
+		values.species = $('#species').val();
+		values.released = $('.metric select[name=released]').val();
+		values.weightType = $('input[name=weightsystem]:checked').val();
+		values.imagename = RN.glb.views.addCatchView.image;
+
+		return values;
+	},
+
+	convertValues : function(data){
+		var convertedValue;
+		if(data.weightType === "metric"){
+			convertedValue = (parseInt(data.weight1 * 1000)) + parseInt(data.weight2);
+		}else {
+			convertedValue = (parseInt(data.weight1 * 16)) + parseInt(data.weight2);
+		}
+		return convertedValue;
 	},
 
 	addCatchPhoto : function(ev){
@@ -58,15 +68,9 @@ module.exports = RN.glb.gvCreator.extend({
 			self = this;
 		RN.fnc.camera.shoot(function () {
 				self.image = imageName;
-				var data = {
-					species: $('#species').val(),
-					weightType: $('input[name=weightsystem]:checked').val(),
-					weight1: $('select[name=lbs]').val(),
-					weight2: $('select[name=oz]').val(),
-					height1: $('.imperial select[name=ft]').val(),
-					height2: $('.imperial select[name=in]').val(),
-					released: $('select[name=released]').val(),
-				};
+
+				var data = self.getValues();
+
 				self.render();
 
 				$('#species').val(data.species)
@@ -88,16 +92,8 @@ module.exports = RN.glb.gvCreator.extend({
 		)
 	},
 	saveFirstPageOfCatch : function(){
-		var dataToSave = {
-			species: $('#species').val(),
-			weightType: $('input[name=weightsystem]:checked').val(),
-			weight1: $('select[name=lbs]').val(),
-			weight2: $('select[name=oz]').val(),
-			height1: $('select[name=ft]').val(),
-			height2: $('select[name=in]').val(),
-			released: $('select[name=released]').val(),
-			imagename: RN.glb.views.addCatchView.image
-		};
+		var dataToSave = this.getValues();
+		dataToSave.weight = this.convertValues(dataToSave);
 		RN.fnc.catch.saveTempCatchToObject(dataToSave);
 		RN.router.navigate('confirmcatch', true);
 	},
@@ -126,6 +122,21 @@ module.exports = RN.glb.gvCreator.extend({
 		};
 	},
 
+	checkReady : function(ev){
+		var ev = $(ev.currentTarget),
+			ready = false;
+
+		if($('#species').val().length > 0){
+			ready = true;
+		}
+
+		if(ready){
+			$('.nextcatch').show();
+		}else{
+			$('.nextcatch').hide();
+		}
+	},
+
 	render: function () {
 		var self = this;
 		//load data in ejs
@@ -136,6 +147,10 @@ module.exports = RN.glb.gvCreator.extend({
 
 		var states = ['Angler fish','Bass','Bream Black','Bream Red','Bream Gilthead','Brill','Bull Huss','Catfish','Coalfish','Cod','Dab','Eel Conger','Flounder','Garfish','Gurnard Red','Gurnard Tub','Haddock','John Dory','LS Dogfish','Ling','Mackerel','Megrim','Monkfish','Mullet (Thick Lipped)','Mullet (Golden Grey)','Mullet (Think Lipped)','Mullet (Red)','Plaice','Pollack','Pouting','Ray (Blonde)','Ray (S E / Painted)','Ray (Spotted/Homelyn)','Ray (Sting)','Ray (Thornback)','Ray (Undulated)','Rockling','Scad','Shark (Blue)','Shark (Mako)','Shark (Porbeagle)','Shark (Thresher)','Silver Eel','Smoothhounds','Sole','Spur Dog','Tope','Trigger Fish','Turbot','Weever','Whiting','Wrasse (Ballan)','Wrasse (Corkwing)','Wrasse (Cuckoo)'
 		];
+
+		if(RN.glb.url.envioment === "liveApp") {
+			$('.nextcatch').hide();
+		}
 
 		$('#species').typeahead({
 				hint: false,

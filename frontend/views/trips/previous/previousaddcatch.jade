@@ -15,7 +15,7 @@ include ../../mixins
                 attr: {
                     name: 'grams'
                 },
-                limit: 1000
+                limit: 999
             })
     .box.catchbox
         .title Length
@@ -30,7 +30,7 @@ include ../../mixins
                 attr: {
                     name: 'cm'
                 },
-                limit: 100
+                limit: 99
             })
 .imperial
     .box.catchbox
@@ -46,7 +46,7 @@ include ../../mixins
                 attr: {
                     name: 'oz'
                 },
-                limit: 16
+                limit: 50
             })
     .box.catchbox
         .title Length
@@ -83,7 +83,7 @@ include ../../mixins
             }
         })
 if(image === null)
-    .box.large.white.addcatchphoto
+    .box.large.white.previousaddcatch
         i(class='icon-plus')
         | Add Photo
 else
