@@ -43,7 +43,7 @@ class forgotten extends controller {
 				$registars_details[0]['type'] = $from_group;
 
                 //Do oop function
-                $myMail = new Email('RNLI Track My Catch', $subject, $from_group, $from_address, $article_date, $email_vars, $registars_details);
+                $myMail = new Email('RNLI Password reset request', $subject, $from_group, $from_address, $article_date, $email_vars, $registars_details);
                 //$subject, $title, $from_group, $from, $email_date, $email_vars,$email_notifications
                 //(Email Subject, Emails Title, email type aka which template to use, From Address, Email Date)
                 $myMail->createEmailVars();
