@@ -84,7 +84,7 @@ class Email {
                     mail('jamie@hutber.com', $this->subject, $this->email_message, $headers);
 //                    echo $this->email_message;
                 }else{
-//                    echo $this->email_message;
+                    echo $this->email_message;
                 }
             }
     }

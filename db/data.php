@@ -152,6 +152,12 @@ class Data
 		return $this->db->get($sql);
 	}
 
+	function insertResetCode($uid, $code)
+	{ //if the users has asked for a new code then we must insert this code
+		$sql = sprintf("INSERT INTO reset ( uid , code , date ) VALUES ( '%s', '%s', NOW() );", $uid, $code);
+		$this->db->query($sql);
+	}
+
 	// #Account Settings -------------------------------------------------------------------
 
 	function updatePassword($pw, $uid) //update the users password

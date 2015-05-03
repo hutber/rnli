@@ -21,7 +21,7 @@ class forgotten extends controller {
                 $confirmation_code = md5(microtime());
 
                 //add code to database
-//                $dataStore->insertResetCode($getUserDetails['uid'],$confirmation_code);
+                $dataStore->insertResetCode($getUserDetails['uid'],$confirmation_code);
 
                 require(SITEROOT.'/class/sendMail.php');
 

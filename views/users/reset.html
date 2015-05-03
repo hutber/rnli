@@ -1,0 +1,21 @@
+<?php
+if($data['errors']){
+    foreach($data['errors'] as $value){
+        echo '<h2>'.$value.'</h2>';
+    }
+}
+if($data['complete']){
+    ?>
+
+<?php }{ ?>
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>?c=<?php echo $_GET['c']; ?>" method="POST" class="required">
+    <ul><li>
+            <input type="password" placeholder="Password" name="pw" class="required" data-to="16" data-from="8"/>
+        </li>
+        <li>
+            <input type="password" placeholder="Confirm Password" name="cpw" class="required" data-to="16" data-from="8"/>
+        </li>
+    </ul>
+    <button>Submit</button>
+</form>
+<?php } ?>

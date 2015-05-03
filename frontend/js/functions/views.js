@@ -27,12 +27,6 @@ module.exports = function (){
 			url: 'home',
 			title: 'Landing Page'
 		}
-		,{
-			name: 'settingsView',
-			path: require('../views/settings/settingsView'),
-			url: 'settings',
-			title: 'SETTINGS'
-		}
 
 		/*==================================================
 		 Users
