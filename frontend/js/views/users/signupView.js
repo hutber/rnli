@@ -7,9 +7,29 @@ module.exports = RN.glb.gvCreator.extend({
 		home: require('../../../views/login/signup.jade'),
 		checkmail: require('../../../views/email/checkmail.jade'),
 	},
+	details: {
+		contacted: 'checked'
+	},
 	events: {
 		'submit .signupForm': 'signupForm',
+		'change .signupForm input': 'saveDetails',
 	},
+
+	saveDetails : function(ev){
+		var ev = $(ev.currentTarget),
+			name = ev.prop('name');
+
+		if(name === "receiveemails" || name === "contacted"){
+			if(ev.is(':checked')) {
+				this.details[name] = 'checked';
+			}else{
+				this.details[name] = null;
+			}
+		}else {
+			this.details[name] = ev.val();
+		}
+	},
+
 	validateEmail: function (email) {
 		var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		return re.test(email);
@@ -18,7 +38,7 @@ module.exports = RN.glb.gvCreator.extend({
 		var me = $(el.currentTarget),
 			values = me.serializeObject(),
 			noerror = true,
-			myself = this;
+			self = this;
 
 		delete values['contacted'];
 		delete values['receiveemails'];
@@ -73,6 +93,7 @@ module.exports = RN.glb.gvCreator.extend({
 							'email': values.email,
 							'pword': values.pw
 						});
+						self.details = {};
 					}
 				}
 			});
@@ -81,6 +102,7 @@ module.exports = RN.glb.gvCreator.extend({
 	},
 	render: function () {
 		//load data in ejs
-		this.$el.html(this.templates.home());
+		c(this.details);
+		this.$el.html(this.templates.home(this.details));
 	}
 });

@@ -1,13 +1,13 @@
 include ../mixins
 form(action="#{RN.glb.url.ajax}users/reg", class="signupForm ajax")
     h3  Personal Details
-    +input({place:'First name', type: 'text', name:"fname"})
-    +input({place:'Surname', type: 'text', name: "sname"})
-    +input({place:'Email address', type: 'text', name: "email"})
-    +input({place:'Create password', type: 'password', name: "pw"})
-    +input({place:'Confirm password', type: 'password', name: "cpw"})
-    +input({ type: 'checkbox',value: 1, name: "contacted", id :"contacted", labelClass: 'checkbox', text: 'If you are not happy to be contacted by email about the app untick this box', checked: "checked"})
-    +input({ type: 'checkbox',value: 1, name: "receiveemails", id :"receiveemails", labelClass: 'checkbox', text: 'If you are happy to receive emails from the RNLI, please tick this box'})
+    +input({place:'First name', type: 'text', name:"fname", value: fname})
+    +input({place:'Surname', type: 'text', name: "sname", value: sname})
+    +input({place:'Email address', type: 'text', name: "email", value: email})
+    +input({place:'Create password', type: 'password', name: "pw", value: pw})
+    +input({place:'Confirm password', type: 'password', name: "cpw", value: cpw})
+    +input({ type: 'checkbox',value: 1, name: "contacted", id :"contacted", labelClass: 'checkbox', text: 'If you are not happy to be contacted by email about the app untick this box', checked: contacted})
+    +input({ type: 'checkbox',value: 1, name: "receiveemails", id :"receiveemails", labelClass: 'checkbox', text: 'If you are happy to receive emails from the RNLI, please tick this box', checked: receiveemails})
     +button({value:'Save', class:['signup', 'btn']})
     .termsbox
         a(href='#terms') Terms of service
