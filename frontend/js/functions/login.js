@@ -186,7 +186,7 @@ module.exports = {
 		}
 	},
 	checkLoginState: function () { //We use this state to enable us to use the function on every page load to check if the user is logged in
-c('running');
+
 		var hash = window.location.hash.substring(1),
             logInOrOutChecker = (hash === "" || hash === "signup" || hash === "forgotten" || hash === "login");
 
