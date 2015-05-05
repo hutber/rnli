@@ -201,6 +201,9 @@ module.exports = {
 			RN.router.navigate('currenttrip', true);
 		} else if (!loggedInState && !logInOrOutChecker) {
 			//RN.router.navigate('', true);
+			$('.footer').hide();
+		}else{
+			$('.footer').show();
 		}
 	},
 	doLogOut: function(){
