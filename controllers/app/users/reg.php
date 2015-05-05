@@ -70,6 +70,7 @@ class reg extends controller
 					}
 					//work out new people with old people
 					$newContacts = array();
+					$oldContacts = array();
 					forEach ($_POST as $key => $item) {
 						if (stripos($key, 'new')  !== false) {
 							$itemName = 'person_'.substr($key, -1);
@@ -82,8 +83,25 @@ class reg extends controller
 							}else {
 								$newContacts[$itemName][$currentItem] = $_POST[$key];
 							}
+						}elseif (substr($key, 0, 4)  === "name" || substr($key, 0, 4)  === "numb" || substr($key, 0, 2)  === "id") {
+							if(substr($key, 0, 4)  === "name"){
+								$id = substr($key, 5, 1);
+								$oldContacts[$id] = array();
+								$oldContacts[$id]['name'] = $item;
+							} elseif(substr($key, 0, 4)  === "numb"){
+								$id = substr($key, 7, 1);
+								$oldContacts[$id]['number'] = $item;
+							}elseif(substr($key, 0, 2)  === "id"){
+								$id = substr($key, 3, 1);
+								$oldContacts[$id]['id'] = $item;
+							}
 						}
 					};
+
+					foreach($oldContacts as $key => $item){
+						$DBuser->editContacts($item['name'], $item['number'], $key);
+					}
+
 					$values['newContacts'] = $newContacts;
 					foreach($values['newContacts'] as $key => $item){
 						$DBuser->insertContact($_POST['uid'], $item['name'], $item['number']);

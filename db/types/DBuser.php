@@ -26,6 +26,13 @@ class DBuser extends Data{
         return $this->db->get($sql);
     }
 
+
+    function editContacts ($name, $number, $id)
+    {
+        $sql = sprintf("UPDATE  `rnli`.`contacts` SET  `name` =  '%s', `number` =  '%s' WHERE  `contacts`.`id` = %d;", $name, $number, $id);
+        return $this->db->get($sql);
+    }
+
 	function deleteContact($uid, $id)
 	{ //Add users latest logim
 		$sql = sprintf("DELETE FROM contacts WHERE id = '%s' and uid='%s';", $id, $uid);
