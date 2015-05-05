@@ -1899,7 +1899,7 @@ body {
   .footer .selected i, .footer a.selected {
     color: #EF8201; }
 
-.index .header, .home .header {
+.index .header, .home .header, .login .header {
   display: none; }
 
 .index .footer, .signup .footer, .forgotten .footer {

@@ -186,7 +186,7 @@ module.exports = {
 		}
 	},
 	checkLoginState: function () { //We use this state to enable us to use the function on every page load to check if the user is logged in
-
+c('running');
 		var hash = window.location.hash.substring(1),
             logInOrOutChecker = (hash === "" || hash === "signup" || hash === "forgotten" || hash === "login");
 
@@ -197,13 +197,12 @@ module.exports = {
 
 		if (loggedInState && logInOrOutChecker) {
 			RN.router.navigate('home', true);
+			$('.footer').show();
 		} else if(typeof localStorage.gps !== typeof undefined && loggedInState){
 			RN.router.navigate('currenttrip', true);
 		} else if (!loggedInState && !logInOrOutChecker) {
 			//RN.router.navigate('', true);
 			$('.footer').hide();
-		}else{
-			$('.footer').show();
 		}
 	},
 	doLogOut: function(){
