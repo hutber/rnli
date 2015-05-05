@@ -200,7 +200,7 @@ module.exports = {
 		} else if(typeof localStorage.gps !== typeof undefined && loggedInState){
 			RN.router.navigate('currenttrip', true);
 		} else if (!loggedInState && !logInOrOutChecker) {
-			RN.router.navigate('', true);
+			//RN.router.navigate('', true);
 		}
 	},
 	doLogOut: function(){

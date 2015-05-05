@@ -18,49 +18,50 @@ include ./mixins
     .loadingArea
         span Loading...
         i(class="icon-spin3 animate-spin")
-.footer
-    .normalfooter
-        a(href='#home') HOME
-        a(href='#profile') MY PROFILE
-        a(href='#abouthome') ABOUT
-        //a(href='#settings') SETTINGS
-        a(onclick="RN.fnc.login.doLogOut();") LOGOUT
-    .tripfooter
-        a(href='#currenttrip')
-            i(class='icon-home-outline')
-            | Trip Home
-        a(href='#addhazard')
-            i(class='icon-attention')
-            | Add hazard
-        a(href='#notes')
-            i(class='icon-pencil')
-            | Add notes
-        a(href='#tripcatch')
-            i(class='icon-fish')
-            | Catch log
-    .tripfooter.previoustripmenu
-        a(href='#tripsprevious')
-            i(class='icon-home-outline')
-            | Trip Home
-        a(href='#tripsprevioushazard')
-            i(class='icon-attention')
-            | Add hazard
-        a(href='#tripspreviousnote')
-            i(class='icon-pencil')
-            | Add notes
-        a(href='#trippreviouscatchoverview')
-            i(class='icon-fish')
-            | Catch log
-    .tripfooter.disabled
-        a
-            i(class='icon-home-outline')
-            | Trip Home
-        a
-            i(class='icon-attention')
-            | Add hazard
-        a
-            i(class='icon-pencil')
-            | Add notes
-        a
-            i(class='icon-fish')
-            | Catch log
+if (localStorage.getItem('uid') !== null)
+    .footer
+        .normalfooter
+            a(href='#home') HOME
+            a(href='#profile') MY PROFILE
+            a(href='#abouthome') ABOUT
+            //a(href='#settings') SETTINGS
+            a(onclick="RN.fnc.login.doLogOut();") LOGOUT
+        .tripfooter
+            a(href='#currenttrip')
+                i(class='icon-home-outline')
+                | Trip Home
+            a(href='#addhazard')
+                i(class='icon-attention')
+                | Add hazard
+            a(href='#notes')
+                i(class='icon-pencil')
+                | Add notes
+            a(href='#tripcatch')
+                i(class='icon-fish')
+                | Catch log
+        .tripfooter.previoustripmenu
+            a(href='#tripsprevious')
+                i(class='icon-home-outline')
+                | Trip Home
+            a(href='#tripsprevioushazard')
+                i(class='icon-attention')
+                | Add hazard
+            a(href='#tripspreviousnote')
+                i(class='icon-pencil')
+                | Add notes
+            a(href='#trippreviouscatchoverview')
+                i(class='icon-fish')
+                | Catch log
+        .tripfooter.disabled
+            a
+                i(class='icon-home-outline')
+                | Trip Home
+            a
+                i(class='icon-attention')
+                | Add hazard
+            a
+                i(class='icon-pencil')
+                | Add notes
+            a
+                i(class='icon-fish')
+                | Catch log
