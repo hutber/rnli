@@ -1902,7 +1902,7 @@ body {
 .index .header, .home .header {
   display: none; }
 
-.index .footer, .signup .footer, .profile .footer, .forgotten .footer {
+.index .footer, .signup .footer, .forgotten .footer {
   display: none; }
 
 #__bs_notify__ {
