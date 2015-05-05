@@ -2196,6 +2196,9 @@ body {
 .contacts ul {
   list-style: none;
   margin: 0; }
+.contacts li a {
+  font-size: inherit;
+  text-decoration: none; }
 .contacts .aboutContent div {
   overflow: hidden; }
 .contacts .contactDeail {

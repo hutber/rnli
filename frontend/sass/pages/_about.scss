@@ -45,6 +45,10 @@
 		list-style: none;
 		margin: 0;
 	}
+	li a {
+		font-size: inherit;
+		text-decoration: none;
+	}
 	.aboutContent div {
 		@include clear;
 	}

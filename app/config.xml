@@ -26,7 +26,7 @@
     <preference name="DisallowOverscroll"               value="true" />
     <preference name="detect-data-types"                value="true" />
     <preference name="exit-on-suspend"                  value="true" />
-    <preference name="permissions"                      value="none" />
+    <preference name="sssions"                      value="none" />
     <preference name="prerendered-icon"                 value="true" />
     <preference name="exit-on-suspend"                  value="false" />
     <preference name="disable-cursor"                   value="false" />
@@ -93,5 +93,8 @@
 
 
     <access origin="*" />
+    <access origin="tel:*" launch-external="yes" />
+    <access origin="mailto:*" launch-external="yes" />
+    <uses-permission android:autoLink="phone" />
     <content src="index.html" />
 </widget>
