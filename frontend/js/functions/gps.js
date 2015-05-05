@@ -75,9 +75,9 @@ module.exports = function () {
 				locationUpdateInterval: 10,
 				activityRecognitionInterval: 10,
 				stopTimeout: 0,
-				forceReload: true,      // <-- [Android] If the user closes the app **while location-tracking is started** , reboot app (WARNING: possibly distruptive to user)
+				forceReload: false,      // <-- [Android] If the user closes the app **while location-tracking is started** , reboot app (WARNING: possibly distruptive to user)
 				stopOnTerminate: false, // <-- [Android] Allow the background-service to run headless when user closes the app.
-				startOnBoot: true,      // <-- [Android] Auto start background-service in headless mode when device is powered-up.
+				startOnBoot: false,      // <-- [Android] Auto start background-service in headless mode when device is powered-up.
 				activityType: 'AutomotiveNavigation',
 				url: 'http://rnli.hutber.com/api/location/takeGPS',
 				params: {

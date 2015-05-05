@@ -60,6 +60,7 @@ module.exports = {
 		localStorage.profileimage = data.profileimage;
 		localStorage.version = data.version;
 		localStorage.contacts = JSON.stringify(data.contacts);
+		localStorage.locations = JSON.stringify(data.locations);
 		localStorage.catch = JSON.stringify(data.catch);
 		localStorage.notes = JSON.stringify(data.notes);
 		localStorage.trips = JSON.stringify(data.trips);
@@ -82,6 +83,7 @@ module.exports = {
 				uid: localStorage.uid,
 				version: localStorage.version,
 				contacts: localStorage.contacts,
+				locations: localStorage.locations,
 				profileimage: localStorage.profileimage,
 				catch: localStorage.catch,
 				currentCatch: localStorage.currentCatch,
@@ -102,6 +104,7 @@ module.exports = {
 				uid: data.uid,
 				version: data.version,
 				contacts: data.contacts,
+		        locations: data.locations,
 		        catch: data.catch,
 		        profileimage: data.profileimage,
 		        currentCatch: data.currentCatch,

@@ -6,5 +6,7 @@ mixin locationFinders(data)
          .no.selected NO
       br
       .postcodeform
+         +input({id: 'favourite', place: 'Choose save location', type: 'text', name: 'favlocations', autocomplete: 'off'})
+         h3 OR
          +input({id: 'postcode', place: 'Post Code', type: 'text', name: 'postcode', icon: 'search', autocomplete: 'off'})
       .postcodearea
