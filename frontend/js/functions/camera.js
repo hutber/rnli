@@ -11,7 +11,7 @@ module.exports = function () {
 		}, camera.onFail, {
 			quality: 50,
 			destinationType : Camera.DestinationType.DATA_URL,
-			sourceType : Camera.PictureSourceType.CAMERA
+			sourceType : Camera.PictureSourceType[options.type]
 		});
 	}
 
@@ -50,7 +50,7 @@ module.exports = function () {
 
 //Callback function when the picture has not been successfully taken
 	camera.onFail = function (message) {
-		alert('Failed to load picture because: ' + message);
+		c('Failed to load picture because: ' + message);
 	};
 
 	camera.movePic = function (file){

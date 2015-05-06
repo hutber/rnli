@@ -66,30 +66,60 @@ module.exports = RN.glb.gvCreator.extend({
 	addCatchPhoto : function(ev){
 		var imageName = Date.now(),
 			self = this;
-		RN.fnc.camera.shoot(function () {
-				self.image = imageName;
 
-				var data = self.getValues();
+		RN.fnc.popups.Dialog('Capture Type', 'Would you like to use your camera?', null, function(){
+			RN.fnc.camera.shoot(function () {
+					self.image = imageName;
 
-				self.render();
+					var data = self.getValues();
 
-				$('#species').val(data.species)
-				$('input[name=weightsystem]:checked').val(data.weightType)
-				$('select[name=lbs]').val(data.weight1)
-				$('select[name=oz]').val(data.weight2)
-				$('select[name=ft]').val(data.height1)
-				$('select[name=in]').val(data.height2)
-				$('select[name=released]').val(data.released)
-			},
-			{
-				url: RN.glb.url.ajax + 'trip/uploadCatchImage',
-				params: {
-					uid: RN.user.get('uid'),
-					tip: RN.currentTrip.get('tid'),
-					imagename: imageName,
+					self.render();
+
+					$('#species').val(data.species)
+					$('input[name=weightsystem]:checked').val(data.weightType)
+					$('select[name=lbs]').val(data.weight1)
+					$('select[name=oz]').val(data.weight2)
+					$('select[name=ft]').val(data.height1)
+					$('select[name=in]').val(data.height2)
+					$('select[name=released]').val(data.released)
+				},
+				{
+					url: RN.glb.url.ajax + 'trip/uploadCatchImage',
+					params: {
+						uid: RN.user.get('uid'),
+						tip: RN.currentTrip.get('tid'),
+						imagename: imageName
+					},
+					type: 'CAMERA'
 				}
-			}
-		)
+			)
+		}, 'confirm', function(){
+			RN.fnc.camera.shoot(function () {
+					self.image = imageName;
+
+					var data = self.getValues();
+
+					self.render();
+
+					$('#species').val(data.species)
+					$('input[name=weightsystem]:checked').val(data.weightType)
+					$('select[name=lbs]').val(data.weight1)
+					$('select[name=oz]').val(data.weight2)
+					$('select[name=ft]').val(data.height1)
+					$('select[name=in]').val(data.height2)
+					$('select[name=released]').val(data.released)
+				},
+				{
+					url: RN.glb.url.ajax + 'trip/uploadCatchImage',
+					params: {
+						uid: RN.user.get('uid'),
+						tip: RN.currentTrip.get('tid'),
+						imagename: imageName
+					},
+					type: 'MEDIA'
+				}
+			)
+		});
 	},
 	saveFirstPageOfCatch : function(){
 		var dataToSave = this.getValues();
