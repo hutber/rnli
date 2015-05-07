@@ -28,7 +28,7 @@ module.exports = function () {
 		},
 		send: function(){
 			$.ajax({
-				url: 'http://rnli.hutber.com/api/location/takeGPS',
+				url: 'http://trackmycatch.rnli.org/api/location/takeGPS',
 				type: 'POST',
 				dataType: "json",
 				data: {
@@ -79,7 +79,7 @@ module.exports = function () {
 				stopOnTerminate: false, // <-- [Android] Allow the background-service to run headless when user closes the app.
 				startOnBoot: false,      // <-- [Android] Auto start background-service in headless mode when device is powered-up.
 				activityType: 'AutomotiveNavigation',
-				url: 'http://rnli.hutber.com/api/location/takeGPS',
+				url: 'http://trackmycatch.rnli.org/api/location/takeGPS',
 				params: {
 					"uid": RN.user.get('uid'),
 					"tid": RN.currentTrip.get('tid')

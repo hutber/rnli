@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://root@88.208.249.95/var/www/rnli.hutber.com_hub.git"
+    "url": "ssh://root@88.208.249.95/var/www/trackmycatch.rnli.org_hub.git"
   },
   "keywords": [
     "RNLI",

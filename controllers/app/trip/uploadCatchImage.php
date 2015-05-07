@@ -9,7 +9,7 @@ class uploadCatchImage extends Controller {
             $imgData = base64_decode($_REQUEST['image']);
 
             // set the image paths
-            $path = '/var/www/rnli.hutber.com/uploads/catch/'.$_POST['uid'].'/'.$_POST['tip'];
+            $path = '/var/www/trackmycatch.rnli.org/uploads/catch/'.$_POST['uid'].'/'.$_POST['tip'];
             $file = $path.'/'.$_POST['imagename'].'.jpg';
 
             if (!file_exists($path)) {

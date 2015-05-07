@@ -29,7 +29,7 @@ class takeGPS extends controller {
 
 		//$dataStore -> addGPS($accuracy, $altitude, $altitudeAccuracy, $heading, $latitude, $longitude, $speed);
 		// $arr1 = array ('a'=>1,'b'=>2,'c'=>3,'d'=>4,'e'=>5);
-		// file_put_contents("/var/www/rnli.hutber.com/controllers/api/location/array.json",json_encode($post));
+		// file_put_contents("/var/www/trackmycatch.rnli.org/controllers/api/location/array.json",json_encode($post));
 	}
 
     function post ($type){

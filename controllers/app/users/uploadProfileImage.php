@@ -9,7 +9,7 @@ class uploadProfileImage extends Controller {
             $imgData = base64_decode($_REQUEST['image']);
 
             // set the image paths
-            $file = '/var/www/rnli.hutber.com/uploads/profile/'.$_POST['uid'].'.jpg';
+            $file = '/var/www/trackmycatch.rnli.org/uploads/profile/'.$_POST['uid'].'.jpg';
 
             // delete the image if it already exists
             if (file_exists($file)) { unlink($file); }
