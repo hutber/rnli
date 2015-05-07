@@ -2,8 +2,8 @@ mixin notebox(data, options)
     .notebox
         .noteheader
             .notetime #{data.date}
-            //.editnote(data.id= data.id)
-            //    i(class='icon-pencil')
-            //.deletenote(data.id= data.id)
-            //    i(class='icon-trash')
+            .editnote(data.id= data.id)
+                i(class='icon-pencil')
+            .deletenote(data.id= data.id)
+                i(class='icon-trash')
         .notetext #{data.note}

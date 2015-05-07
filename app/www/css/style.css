@@ -1409,9 +1409,11 @@ input[type=checkbox] {
   .notebox .deletenote, .notebox .editnote {
     position: absolute;
     right: 0;
-    top: 5px; }
+    top: 5px;
+    line-height: 3rem;
+    font-size: 1.5rem; }
   .notebox .editnote {
-    right: 25px; }
+    right: 35px; }
   .notebox .notetext {
     font-size: 1.3rem;
     padding: 0 0 5px; }

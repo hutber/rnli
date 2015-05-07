@@ -5,11 +5,20 @@ module.exports = RN.glb.gvCreator.extend({
 	el: '.content',
 
 	templates: {
-		home: require('../../../../views/trips/note/notes.jade'),
+		home: require('../../../../views/trips/note/notes.jade')
 	},
 
 	events: {
 		'click .addNote': 'moveToNote',
+		'click .currentNotes .icon-pencil': 'editNote',
+		'click .currentNotes .icon-trash': 'deleteNote',
+	},
+
+	editNote : function(ev){
+		var ev = $(ev.currentTarget),
+			notes = RN.currentTrip.get('notes');
+
+
 	},
 
 	moveToNote : function(ev){
